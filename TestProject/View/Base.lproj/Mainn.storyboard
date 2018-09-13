@@ -48,10 +48,10 @@
             </objects>
             <point key="canvasLocation" x="-1058" y="132"/>
         </scene>
-        <!--View Controller-->
+        <!--Third View Controller-->
         <scene sceneID="9Ix-hj-fBE">
             <objects>
-                <viewController id="rY7-mY-bjz" sceneMemberID="viewController">
+                <viewController id="rY7-mY-bjz" customClass="ThirdViewController" customModule="TestProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ktG-Na-7Ln">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -80,10 +80,10 @@
             </objects>
             <point key="canvasLocation" x="-36" y="132"/>
         </scene>
-        <!--View Controller-->
+        <!--New View Controller-->
         <scene sceneID="tGr-V5-Dnb">
             <objects>
-                <viewController id="RS6-vo-UbO" sceneMemberID="viewController">
+                <viewController id="RS6-vo-UbO" customClass="NewViewController" customModule="TestProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="m95-As-gn6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -125,10 +125,10 @@
             </objects>
             <point key="canvasLocation" x="-1058" y="889"/>
         </scene>
-        <!--View Controller-->
+        <!--Fourth View Controller-->
         <scene sceneID="ocI-qP-uiL">
             <objects>
-                <viewController id="aL5-K3-bej" sceneMemberID="viewController">
+                <viewController id="aL5-K3-bej" customClass="FourthViewController" customModule="TestProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EYQ-v4-nVO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -174,10 +174,10 @@
             </objects>
             <point key="canvasLocation" x="-1058" y="-670"/>
         </scene>
-        <!--View Controller-->
+        <!--Second View Controller-->
         <scene sceneID="MFT-pv-uhu">
             <objects>
-                <viewController id="ZPl-CB-4Ti" sceneMemberID="viewController">
+                <viewController id="ZPl-CB-4Ti" customClass="SecondViewController" customModule="TestProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Udi-Ka-Hoz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -223,10 +223,10 @@
             </objects>
             <point key="canvasLocation" x="-1057" y="-1437"/>
         </scene>
-        <!--View Controller-->
+        <!--First View Controller-->
         <scene sceneID="Eum-MB-Std">
             <objects>
-                <viewController id="cV5-jo-LaF" sceneMemberID="viewController">
+                <viewController id="cV5-jo-LaF" customClass="FirstViewController" customModule="TestProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="F0f-bb-R9y">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
