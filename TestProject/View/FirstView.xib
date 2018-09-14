@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FirstViewController" customModule="TestProject" customModuleProvider="target">
             <connections>
+                <outlet property="bottomConstraint" destination="fLY-qG-Cu6" id="EhO-Fo-JvV"/>
                 <outlet property="scrollView" destination="gap-6V-7A8" id="iDW-hA-KmE"/>
                 <outlet property="view" destination="3Cy-uC-J1T" id="GyN-R9-rYI"/>
             </connections>

@@ -10,22 +10,40 @@ import UIKit
 
 class FirstViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.delegate = self
         self.title = "FirstViewController"
         createElements()
-        addGesture()
+        addGestureAndNotification()
     }
     
-    func addGesture() {
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            print(bottomConstraint.constant)
+            bottomConstraint.constant = keyboardSize.height
+            print(bottomConstraint.constant)
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        bottomConstraint.constant = 0
+        self.view.layoutIfNeeded()
+    }
+    
+    func addGestureAndNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: .UIKeyboardWillHide, object: nil)
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapToView(_ :)))
         self.view.addGestureRecognizer(tap)
     }
     
     @objc func tapToView(_ gesture: UITapGestureRecognizer) {
         self.view.endEditing(true)
+        scrollViewSizeSet()
     }
     
     @IBAction func openNewViewController(_ sender: Any) {
@@ -40,46 +58,73 @@ class FirstViewController: UIViewController {
 
 extension FirstViewController {
     func createElements() {
-        var y = 5
-        for i in 1...15 {
+        var createView: UIView = scrollView
+        for i in 1...20 {
             let randomWidth = Int(arc4random_uniform(UInt32(view.frame.width-80))+80)
-            let randomHeight = Int(arc4random_uniform(250)+50)
             switch Int(arc4random_uniform(3)) {
             case 0:
-                createLabel(frame: CGRect(x: 10, y: y, width: randomWidth, height: 60), item: i)
-                y += 70
+                createView = createLabel(widthSize: CGFloat(randomWidth), toItem: createView, item: i)
             case 1:
-                createTextField(frame: CGRect(x: 10, y: y, width: randomWidth, height: 60), item: i)
-                y += 70
+                createView = createTextField(widthSize: CGFloat(randomWidth), toItem: createView, item: i)
             case 2:
-                createTextView(frame: CGRect(x: 10, y: y, width: randomWidth, height: randomHeight), item: i)
-                y += randomHeight + 10
+                createView = createTextView(widthSize: CGFloat(randomWidth), toItem: createView, item: i)
             default:
                 break
             }
         }
-        scrollView.contentSize.height = CGFloat(y)
+        scrollViewSizeSet()
     }
     
-    func createLabel(frame: CGRect, item: Int){
-        let label = UILabel(frame: frame)
-        label.text = "Label number " + String(item)
-        label.textColor = UIColor.randomColor()
+    func scrollViewSizeSet(){
+        var contentRect = CGRect.zero
+        for view in scrollView.subviews {
+            contentRect = contentRect.union(view.frame)
+        }
+        scrollView.contentSize = contentRect.size
+    }
+    
+    func createLabel(widthSize: CGFloat, toItem: UIView, item: Int) -> UILabel {
+        let label = UILabel()
+        let str = "Label number " + String(item)
+        let attributedString = NSMutableAttributedString(string: str)
+        attributedString.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.randomColor(), range: NSMakeRange(4, 8))
+        attributedString.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.randomColor(), range: NSMakeRange(0, 5))
+        label.attributedText = attributedString
+        label.translatesAutoresizingMaskIntoConstraints = false
         scrollView.addSubview(label)
+        let left = NSLayoutConstraint(item: label, attribute: NSLayoutAttribute.left, relatedBy: NSLayoutRelation.equal, toItem: scrollView, attribute: NSLayoutAttribute.left, multiplier: 1, constant: 10)
+        let top = NSLayoutConstraint(item: label, attribute: NSLayoutAttribute.top, relatedBy: NSLayoutRelation.equal, toItem: toItem, attribute: NSLayoutAttribute.bottom, multiplier: 1, constant: 10)
+        let width = NSLayoutConstraint(item: label, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: widthSize)
+        scrollView.addConstraints([left, top, width])
+        return label
     }
     
-    func createTextField(frame: CGRect, item: Int) {
-        let textField = UITextField(frame: frame)
+    func createTextField(widthSize: CGFloat, toItem: UIView, item: Int) -> UITextField {
+        let textField = UITextField()
         textField.text = "TextField number " + String(item)
         textField.backgroundColor = UIColor.randomColor()
+        textField.delegate = self
+        textField.translatesAutoresizingMaskIntoConstraints = false
         scrollView.addSubview(textField)
+        let left = NSLayoutConstraint(item: textField, attribute: NSLayoutAttribute.left, relatedBy: NSLayoutRelation.equal, toItem: scrollView, attribute: NSLayoutAttribute.left, multiplier: 1, constant: 10)
+        let top = NSLayoutConstraint(item: textField, attribute: NSLayoutAttribute.top, relatedBy: NSLayoutRelation.equal, toItem: toItem, attribute: NSLayoutAttribute.bottom, multiplier: 1, constant: 10)
+        let width = NSLayoutConstraint(item: textField, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: widthSize)
+        scrollView.addConstraints([left, top, width])
+        return textField
     }
     
-    func createTextView(frame: CGRect, item: Int) {
-        let textView = UITextView(frame: frame)
+    func createTextView(widthSize: CGFloat, toItem: UIView, item: Int) -> UITextView {
+        let textView = UITextView()
         textView.text = "TextView number " + String(item)
         textView.textColor = UIColor.randomColor()
+        textView.isScrollEnabled = false
+        textView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.addSubview(textView)
+        let left = NSLayoutConstraint(item: textView, attribute: NSLayoutAttribute.left, relatedBy: NSLayoutRelation.equal, toItem: scrollView, attribute: NSLayoutAttribute.left, multiplier: 1, constant: 10)
+        let top = NSLayoutConstraint(item: textView, attribute: NSLayoutAttribute.top, relatedBy: NSLayoutRelation.equal, toItem: toItem, attribute: NSLayoutAttribute.bottom, multiplier: 1, constant: 10)
+        let width = NSLayoutConstraint(item: textView, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: widthSize)
+        scrollView.addConstraints([left, top, width])
+        return textView
     }
 }
 
@@ -91,6 +136,13 @@ extension FirstViewController: UINavigationControllerDelegate {
         default:
             return nil
         }
+    }
+}
+
+extension FirstViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
     }
 }
 
