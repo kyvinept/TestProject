@@ -14,6 +14,7 @@ class SecondViewController: UIViewController {
         super.viewDidLoad()
         self.navigationController?.delegate = self
         self.title = "SecondViewController"
+        
     }
     
     @IBAction func openNewViewController(_ sender: Any) {
