@@ -13,8 +13,13 @@ class FourthViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.delegate = self
+        self.title = "FourthViewController"
     }
     
+    @IBAction func openNewViewController(_ sender: Any) {
+        let newVC = NewViewController(nibName: "NewView", bundle: nil)
+        self.navigationController?.pushViewController(newVC, animated: true)
+    }
 }
 
 extension FourthViewController: UINavigationControllerDelegate {

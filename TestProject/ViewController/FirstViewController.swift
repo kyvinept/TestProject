@@ -13,10 +13,16 @@ class FirstViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.delegate = self
+        self.title = "FirstViewController"
     }
     
-    override func loadView() {
-      
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
+    @IBAction func openNewViewController(_ sender: Any) {
+        let newVC = NewViewController(nibName: "NewView", bundle: nil)
+        self.navigationController?.pushViewController(newVC, animated: true)
     }
 }
 

@@ -13,8 +13,13 @@ class ThirdViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.delegate = self
+        self.title = "ThirdViewController"
     }
     
+    @IBAction func openNewViewController(_ sender: Any) {
+        let newVC = NewViewController(nibName: "NewView", bundle: nil)
+        self.navigationController?.pushViewController(newVC, animated: true)
+    }
 }
 
 extension ThirdViewController: UINavigationControllerDelegate {
