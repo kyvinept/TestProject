@@ -9,12 +9,12 @@
 import UIKit
 
 class CustomAnimator: NSObject, UIViewControllerAnimatedTransitioning {
-    var duration: TimeInterval = 1.0
-    var direction: Direction = .Bottom
+    private var duration: TimeInterval = 1.0
+    private var direction: Direction
     
     init(direction: Direction) {
-        super.init()
         self.direction = direction
+        super.init()
     }
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
@@ -28,14 +28,14 @@ class CustomAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         containerView.addSubview(toView)
         toView.alpha = 0.2
         switch direction {
-        case .Left:
+        case .left:
             toView.frame = CGRect(x: -containerView.bounds.width, y: 0, width: containerView.bounds.width, height: containerView.bounds.height)
-        case .Right:
+        case .right:
             toView.frame = CGRect(x: containerView.bounds.width, y: 0, width: containerView.bounds.width, height: containerView.bounds.height)
-        case .Center:
+        case .center:
             toView.transform = CGAffineTransform(scaleX: 0.7, y: 0.05)
             //toView.frame = CGRect(x: 0, y: -containerView.bounds.height, width: containerView.bounds.width, height: containerView.bounds.height)
-        case .Bottom:
+        case .bottom:
             toView.frame = CGRect(x: 0, y: containerView.bounds.height, width: containerView.bounds.width, height: containerView.bounds.height)
         default:
             break
@@ -45,14 +45,14 @@ class CustomAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             toView.alpha = 1
         }, completion: { _ in
             transitionContext.completeTransition(true)
-        } )
+        })
     }
     
     enum Direction {
-        case Left
-        case Right
-        case Top
-        case Bottom
-        case Center
+        case left
+        case right
+        case top
+        case bottom
+        case center
     }
 }

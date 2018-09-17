@@ -26,7 +26,7 @@ extension SecondViewController: UINavigationControllerDelegate {
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         switch operation {
         case .push:
-            return CustomAnimator(direction: .Center)
+            return CustomAnimator(direction: .center)
         default:
             return nil
         }
