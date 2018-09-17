@@ -16,29 +16,36 @@ class FirstViewController: UIViewController {
         super.viewDidLoad()
         self.navigationController?.delegate = self
         self.title = "FirstViewController"
-        createElements()
         addGestureAndNotification()
+        addNotification()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        createElements()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        scrollViewSizeSet()
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            print(bottomConstraint.constant)
             bottomConstraint.constant = keyboardSize.height
-            print(bottomConstraint.constant)
-            self.view.layoutIfNeeded()
         }
     }
     
     @objc func keyboardWillHide(notification: NSNotification) {
         bottomConstraint.constant = 0
-        self.view.layoutIfNeeded()
     }
     
     func addGestureAndNotification() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: .UIKeyboardWillHide, object: nil)
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapToView(_ :)))
         self.view.addGestureRecognizer(tap)
+    }
+    
+    func addNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: .UIKeyboardWillHide, object: nil)
     }
     
     @objc func tapToView(_ gesture: UITapGestureRecognizer) {
@@ -60,7 +67,7 @@ extension FirstViewController {
     func createElements() {
         var createView: UIView = scrollView
         for i in 1...20 {
-            let randomWidth = Int(arc4random_uniform(UInt32(view.frame.width-80))+80)
+            let randomWidth = Int(arc4random_uniform(UInt32(self.view.frame.width-100))+80)
             switch Int(arc4random_uniform(3)) {
             case 0:
                 createView = createLabel(widthSize: CGFloat(randomWidth), toItem: createView, item: i)
@@ -72,7 +79,6 @@ extension FirstViewController {
                 break
             }
         }
-        scrollViewSizeSet()
     }
     
     func scrollViewSizeSet(){
@@ -105,6 +111,7 @@ extension FirstViewController {
         textField.backgroundColor = UIColor.randomColor()
         textField.delegate = self
         textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.returnKeyType = .google
         scrollView.addSubview(textField)
         let left = NSLayoutConstraint(item: textField, attribute: NSLayoutAttribute.left, relatedBy: NSLayoutRelation.equal, toItem: scrollView, attribute: NSLayoutAttribute.left, multiplier: 1, constant: 10)
         let top = NSLayoutConstraint(item: textField, attribute: NSLayoutAttribute.top, relatedBy: NSLayoutRelation.equal, toItem: toItem, attribute: NSLayoutAttribute.bottom, multiplier: 1, constant: 10)
@@ -118,6 +125,7 @@ extension FirstViewController {
         textView.text = "TextView number " + String(item)
         textView.textColor = UIColor.randomColor()
         textView.isScrollEnabled = false
+        textView.keyboardType = .alphabet
         textView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.addSubview(textView)
         let left = NSLayoutConstraint(item: textView, attribute: NSLayoutAttribute.left, relatedBy: NSLayoutRelation.equal, toItem: scrollView, attribute: NSLayoutAttribute.left, multiplier: 1, constant: 10)
@@ -141,6 +149,12 @@ extension FirstViewController: UINavigationControllerDelegate {
 
 extension FirstViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if (textField.returnKeyType == .go)
+        {
+            print("Tapped Go")
+        } else {
+            print("Tapped Search")
+        }
         self.view.endEditing(true)
         return true
     }
