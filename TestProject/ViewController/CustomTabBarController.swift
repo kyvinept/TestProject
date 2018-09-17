@@ -14,11 +14,6 @@ class CustomTabBarController: UITabBarController {
         super.viewDidLoad()
         createNavigationControllers()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     func createNavigationControllers() {
         let first = createNewController(viewController: FirstViewController(nibName: "FirstView", bundle: nil), title: "FirstViewController", image: #imageLiteral(resourceName: "star"), selectedImage: nil)

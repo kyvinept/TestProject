@@ -14,7 +14,6 @@ class SecondViewController: UIViewController {
         super.viewDidLoad()
         self.navigationController?.delegate = self
         self.title = "SecondViewController"
-        
     }
     
     @IBAction func openNewViewController(_ sender: Any) {
@@ -27,7 +26,7 @@ extension SecondViewController: UINavigationControllerDelegate {
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         switch operation {
         case .push:
-            return CustomAnimator(direction: .Top)
+            return CustomAnimator(direction: .Center)
         default:
             return nil
         }

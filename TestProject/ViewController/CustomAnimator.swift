@@ -26,18 +26,23 @@ class CustomAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         let toView = transitionContext.view(forKey: .to)!
         
         containerView.addSubview(toView)
+        toView.alpha = 0.2
         switch direction {
         case .Left:
             toView.frame = CGRect(x: -containerView.bounds.width, y: 0, width: containerView.bounds.width, height: containerView.bounds.height)
         case .Right:
             toView.frame = CGRect(x: containerView.bounds.width, y: 0, width: containerView.bounds.width, height: containerView.bounds.height)
-        case .Top:
-            toView.frame = CGRect(x: 0, y: -containerView.bounds.height, width: containerView.bounds.width, height: containerView.bounds.height)
+        case .Center:
+            toView.transform = CGAffineTransform(scaleX: 0.7, y: 0.05)
+            //toView.frame = CGRect(x: 0, y: -containerView.bounds.height, width: containerView.bounds.width, height: containerView.bounds.height)
         case .Bottom:
             toView.frame = CGRect(x: 0, y: containerView.bounds.height, width: containerView.bounds.width, height: containerView.bounds.height)
+        default:
+            break
         }
         UIView.animate(withDuration: duration, animations: {
-            toView.frame = containerView.frame
+            toView.transform = CGAffineTransform.identity
+            toView.alpha = 1
         }, completion: { _ in
             transitionContext.completeTransition(true)
         } )
@@ -48,5 +53,6 @@ class CustomAnimator: NSObject, UIViewControllerAnimatedTransitioning {
         case Right
         case Top
         case Bottom
+        case Center
     }
 }

@@ -12,19 +12,26 @@ class FirstViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     
+    let leftConstraintConstant: CGFloat = 10
+    let rightConstraintConstant: CGFloat = 10
+    let topConstraintConstant: CGFloat = 10
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.delegate = self
         self.title = "FirstViewController"
-        addGestureAndNotification()
+        addGesture()
         addNotification()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
         createElements()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        scrollViewSizeSet()
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         scrollViewSizeSet()
     }
     
@@ -38,7 +45,7 @@ class FirstViewController: UIViewController {
         bottomConstraint.constant = 0
     }
     
-    func addGestureAndNotification() {
+    func addGesture() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapToView(_ :)))
         self.view.addGestureRecognizer(tap)
     }
@@ -50,12 +57,6 @@ class FirstViewController: UIViewController {
     
     @objc func tapToView(_ gesture: UITapGestureRecognizer) {
         self.view.endEditing(true)
-        scrollViewSizeSet()
-    }
-    
-    @IBAction func openNewViewController(_ sender: Any) {
-        let newVC = NewViewController(nibName: "NewView", bundle: nil)
-        self.navigationController?.pushViewController(newVC, animated: true)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -66,8 +67,8 @@ class FirstViewController: UIViewController {
 extension FirstViewController {
     func createElements() {
         var createView: UIView = scrollView
-        for i in 1...20 {
-            let randomWidth = Int(arc4random_uniform(UInt32(self.view.frame.width-100))+80)
+        for i in 1...40 {
+            let randomWidth = Int(arc4random_uniform(UInt32(UIScreen.main.bounds.width - 80 - leftConstraintConstant - rightConstraintConstant)) + 80)
             switch Int(arc4random_uniform(3)) {
             case 0:
                 createView = createLabel(widthSize: CGFloat(randomWidth), toItem: createView, item: i)
@@ -98,8 +99,8 @@ extension FirstViewController {
         label.attributedText = attributedString
         label.translatesAutoresizingMaskIntoConstraints = false
         scrollView.addSubview(label)
-        let left = NSLayoutConstraint(item: label, attribute: NSLayoutAttribute.left, relatedBy: NSLayoutRelation.equal, toItem: scrollView, attribute: NSLayoutAttribute.left, multiplier: 1, constant: 10)
-        let top = NSLayoutConstraint(item: label, attribute: NSLayoutAttribute.top, relatedBy: NSLayoutRelation.equal, toItem: toItem, attribute: NSLayoutAttribute.bottom, multiplier: 1, constant: 10)
+        let left = NSLayoutConstraint(item: label, attribute: NSLayoutAttribute.left, relatedBy: NSLayoutRelation.equal, toItem: scrollView, attribute: NSLayoutAttribute.left, multiplier: 1, constant: leftConstraintConstant)
+        let top = NSLayoutConstraint(item: label, attribute: NSLayoutAttribute.top, relatedBy: NSLayoutRelation.equal, toItem: toItem, attribute: NSLayoutAttribute.bottom, multiplier: 1, constant: topConstraintConstant)
         let width = NSLayoutConstraint(item: label, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: widthSize)
         scrollView.addConstraints([left, top, width])
         return label
@@ -113,8 +114,8 @@ extension FirstViewController {
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.returnKeyType = .google
         scrollView.addSubview(textField)
-        let left = NSLayoutConstraint(item: textField, attribute: NSLayoutAttribute.left, relatedBy: NSLayoutRelation.equal, toItem: scrollView, attribute: NSLayoutAttribute.left, multiplier: 1, constant: 10)
-        let top = NSLayoutConstraint(item: textField, attribute: NSLayoutAttribute.top, relatedBy: NSLayoutRelation.equal, toItem: toItem, attribute: NSLayoutAttribute.bottom, multiplier: 1, constant: 10)
+        let left = NSLayoutConstraint(item: textField, attribute: NSLayoutAttribute.left, relatedBy: NSLayoutRelation.equal, toItem: scrollView, attribute: NSLayoutAttribute.left, multiplier: 1, constant: leftConstraintConstant)
+        let top = NSLayoutConstraint(item: textField, attribute: NSLayoutAttribute.top, relatedBy: NSLayoutRelation.equal, toItem: toItem, attribute: NSLayoutAttribute.bottom, multiplier: 1, constant: topConstraintConstant)
         let width = NSLayoutConstraint(item: textField, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: widthSize)
         scrollView.addConstraints([left, top, width])
         return textField
@@ -128,8 +129,8 @@ extension FirstViewController {
         textView.keyboardType = .alphabet
         textView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.addSubview(textView)
-        let left = NSLayoutConstraint(item: textView, attribute: NSLayoutAttribute.left, relatedBy: NSLayoutRelation.equal, toItem: scrollView, attribute: NSLayoutAttribute.left, multiplier: 1, constant: 10)
-        let top = NSLayoutConstraint(item: textView, attribute: NSLayoutAttribute.top, relatedBy: NSLayoutRelation.equal, toItem: toItem, attribute: NSLayoutAttribute.bottom, multiplier: 1, constant: 10)
+        let left = NSLayoutConstraint(item: textView, attribute: NSLayoutAttribute.left, relatedBy: NSLayoutRelation.equal, toItem: scrollView, attribute: NSLayoutAttribute.left, multiplier: 1, constant: leftConstraintConstant)
+        let top = NSLayoutConstraint(item: textView, attribute: NSLayoutAttribute.top, relatedBy: NSLayoutRelation.equal, toItem: toItem, attribute: NSLayoutAttribute.bottom, multiplier: 1, constant: topConstraintConstant)
         let width = NSLayoutConstraint(item: textView, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1, constant: widthSize)
         scrollView.addConstraints([left, top, width])
         return textView
@@ -149,12 +150,6 @@ extension FirstViewController: UINavigationControllerDelegate {
 
 extension FirstViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if (textField.returnKeyType == .go)
-        {
-            print("Tapped Go")
-        } else {
-            print("Tapped Search")
-        }
         self.view.endEditing(true)
         return true
     }
