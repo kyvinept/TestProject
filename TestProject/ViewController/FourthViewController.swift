@@ -12,21 +12,26 @@ class FourthViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.delegate = self
         self.title = "FourthViewController"
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.delegate = self
+    }
+    
     @IBAction func openNewViewController(_ sender: Any) {
-        let newVC = NewViewController(nibName: "NewView", bundle: nil)
+        let newVC = UIStoryboard(name: "NewViewController", bundle: nil).instantiateViewController(withIdentifier: "NewViewController")
         self.navigationController?.pushViewController(newVC, animated: true)
     }
 }
 
 extension FourthViewController: UINavigationControllerDelegate {
+    
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         switch operation {
         case .push:
-            return CustomAnimator(direction: .right)
+            return CustomPushAnimator()
         default:
             return nil
         }

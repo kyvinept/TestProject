@@ -13,7 +13,7 @@
         <!--Third View Controller-->
         <scene sceneID="kb8-Nl-1Kl">
             <objects>
-                <viewController id="tze-l6-IGh" customClass="ThirdViewController" customModule="TestProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ThirdViewController" id="tze-l6-IGh" customClass="ThirdViewController" customModule="TestProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TMp-h4-92S">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

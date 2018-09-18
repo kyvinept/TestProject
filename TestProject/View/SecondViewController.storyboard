@@ -13,7 +13,7 @@
         <!--Second View Controller-->
         <scene sceneID="K3p-Jg-k1D">
             <objects>
-                <viewController id="uiZ-z9-KDh" customClass="SecondViewController" customModule="TestProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SecondViewController" id="uiZ-z9-KDh" customClass="SecondViewController" customModule="TestProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qty-PN-fTT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

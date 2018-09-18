@@ -7,11 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5B2E12AE214BA6A200599F24 /* SecondView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B2E12AD214BA6A200599F24 /* SecondView.xib */; };
-		5B2E12B0214BA82700599F24 /* ThirdView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B2E12AF214BA82700599F24 /* ThirdView.xib */; };
-		5B2E12B2214BA83100599F24 /* FourthView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B2E12B1214BA83100599F24 /* FourthView.xib */; };
-		5B2E12B4214BA8B600599F24 /* NewView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B2E12B3214BA8B600599F24 /* NewView.xib */; };
-		5B30F4A9214A961E0078D070 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B30F4A8214A961E0078D070 /* FirstViewController.swift */; };
+		5B27DA272150E5A2009E8B48 /* CustomPopAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27DA262150E5A2009E8B48 /* CustomPopAnimation.swift */; };
+		5B30F4A9214A961E0078D070 /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B30F4A8214A961E0078D070 /* TextViewController.swift */; };
 		5B30F4AC214A961E0078D070 /* Mainn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B30F4AA214A961E0078D070 /* Mainn.storyboard */; };
 		5B30F4AE214A96200078D070 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B30F4AD214A96200078D070 /* Assets.xcassets */; };
 		5B30F4B1214A96200078D070 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B30F4AF214A96200078D070 /* LaunchScreen.storyboard */; };
@@ -19,24 +16,21 @@
 		5B30F4BD214A98B40078D070 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B30F4BC214A98B40078D070 /* ThirdViewController.swift */; };
 		5B30F4BF214A98D70078D070 /* FourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B30F4BE214A98D70078D070 /* FourthViewController.swift */; };
 		5B30F4C1214A98DE0078D070 /* NewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B30F4C0214A98DE0078D070 /* NewViewController.swift */; };
-		5B30F4C3214A9C8D0078D070 /* CustomAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B30F4C2214A9C8D0078D070 /* CustomAnimator.swift */; };
-		5B5CF36E214FB87F00515EEE /* FirstViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B5CF36D214FB87F00515EEE /* FirstViewController.storyboard */; };
+		5B30F4C3214A9C8D0078D070 /* CustomPushAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B30F4C2214A9C8D0078D070 /* CustomPushAnimator.swift */; };
 		5B5CF371214FB94900515EEE /* SecondViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B5CF370214FB94900515EEE /* SecondViewController.storyboard */; };
 		5B5CF373214FB95400515EEE /* ThirdViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B5CF372214FB95400515EEE /* ThirdViewController.storyboard */; };
 		5B5CF375214FB96300515EEE /* FourthViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B5CF374214FB96300515EEE /* FourthViewController.storyboard */; };
 		5B5CF377214FB96B00515EEE /* NewViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B5CF376214FB96B00515EEE /* NewViewController.storyboard */; };
 		5B5CF379214FBEFF00515EEE /* CustomAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5CF378214FBEFF00515EEE /* CustomAppDelegate.swift */; };
+		5B5CF37F214FFF0900515EEE /* FirstTap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B5CF37E214FFF0900515EEE /* FirstTap.storyboard */; };
+		5B5CF38321500BBB00515EEE /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5CF38221500BBB00515EEE /* FirstViewController.swift */; };
 		5BD31E36214AA4B10097927B /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD31E35214AA4B10097927B /* CustomTabBarController.swift */; };
-		5BD31E42214AB4DC0097927B /* FirstView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5BD31E41214AB4DC0097927B /* FirstView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5B2E12AD214BA6A200599F24 /* SecondView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SecondView.xib; sourceTree = "<group>"; };
-		5B2E12AF214BA82700599F24 /* ThirdView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThirdView.xib; sourceTree = "<group>"; };
-		5B2E12B1214BA83100599F24 /* FourthView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FourthView.xib; sourceTree = "<group>"; };
-		5B2E12B3214BA8B600599F24 /* NewView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewView.xib; sourceTree = "<group>"; };
+		5B27DA262150E5A2009E8B48 /* CustomPopAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopAnimation.swift; sourceTree = "<group>"; };
 		5B30F4A3214A961E0078D070 /* TestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		5B30F4A8214A961E0078D070 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		5B30F4A8214A961E0078D070 /* TextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
 		5B30F4AB214A961E0078D070 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Mainn.storyboard; sourceTree = "<group>"; };
 		5B30F4AD214A96200078D070 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5B30F4B0214A96200078D070 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -45,15 +39,15 @@
 		5B30F4BC214A98B40078D070 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		5B30F4BE214A98D70078D070 /* FourthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthViewController.swift; sourceTree = "<group>"; };
 		5B30F4C0214A98DE0078D070 /* NewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewViewController.swift; sourceTree = "<group>"; };
-		5B30F4C2214A9C8D0078D070 /* CustomAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnimator.swift; sourceTree = "<group>"; };
-		5B5CF36D214FB87F00515EEE /* FirstViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FirstViewController.storyboard; sourceTree = "<group>"; };
+		5B30F4C2214A9C8D0078D070 /* CustomPushAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPushAnimator.swift; sourceTree = "<group>"; };
 		5B5CF370214FB94900515EEE /* SecondViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SecondViewController.storyboard; sourceTree = "<group>"; };
 		5B5CF372214FB95400515EEE /* ThirdViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ThirdViewController.storyboard; sourceTree = "<group>"; };
 		5B5CF374214FB96300515EEE /* FourthViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FourthViewController.storyboard; sourceTree = "<group>"; };
 		5B5CF376214FB96B00515EEE /* NewViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewViewController.storyboard; sourceTree = "<group>"; };
 		5B5CF378214FBEFF00515EEE /* CustomAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAppDelegate.swift; sourceTree = "<group>"; };
+		5B5CF37E214FFF0900515EEE /* FirstTap.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FirstTap.storyboard; sourceTree = "<group>"; };
+		5B5CF38221500BBB00515EEE /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		5BD31E35214AA4B10097927B /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
-		5BD31E41214AB4DC0097927B /* FirstView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FirstView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,8 +94,7 @@
 			children = (
 				5B30F4AA214A961E0078D070 /* Mainn.storyboard */,
 				5B30F4AF214A96200078D070 /* LaunchScreen.storyboard */,
-				5B5CF36F214FB8FC00515EEE /* FirstVersion */,
-				5B5CF36D214FB87F00515EEE /* FirstViewController.storyboard */,
+				5B5CF37E214FFF0900515EEE /* FirstTap.storyboard */,
 				5B5CF370214FB94900515EEE /* SecondViewController.storyboard */,
 				5B5CF372214FB95400515EEE /* ThirdViewController.storyboard */,
 				5B5CF374214FB96300515EEE /* FourthViewController.storyboard */,
@@ -113,27 +106,17 @@
 		5B30F4B9214A98940078D070 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				5B30F4A8214A961E0078D070 /* FirstViewController.swift */,
+				5B5CF38221500BBB00515EEE /* FirstViewController.swift */,
 				5B30F4BA214A98AC0078D070 /* SecondViewController.swift */,
 				5B30F4BC214A98B40078D070 /* ThirdViewController.swift */,
 				5B30F4BE214A98D70078D070 /* FourthViewController.swift */,
 				5B30F4C0214A98DE0078D070 /* NewViewController.swift */,
-				5B30F4C2214A9C8D0078D070 /* CustomAnimator.swift */,
+				5B30F4A8214A961E0078D070 /* TextViewController.swift */,
 				5BD31E35214AA4B10097927B /* CustomTabBarController.swift */,
+				5B30F4C2214A9C8D0078D070 /* CustomPushAnimator.swift */,
+				5B27DA262150E5A2009E8B48 /* CustomPopAnimation.swift */,
 			);
 			path = ViewController;
-			sourceTree = "<group>";
-		};
-		5B5CF36F214FB8FC00515EEE /* FirstVersion */ = {
-			isa = PBXGroup;
-			children = (
-				5BD31E41214AB4DC0097927B /* FirstView.xib */,
-				5B2E12AD214BA6A200599F24 /* SecondView.xib */,
-				5B2E12AF214BA82700599F24 /* ThirdView.xib */,
-				5B2E12B1214BA83100599F24 /* FourthView.xib */,
-				5B2E12B3214BA8B600599F24 /* NewView.xib */,
-			);
-			path = FirstVersion;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,19 +177,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B5CF36E214FB87F00515EEE /* FirstViewController.storyboard in Resources */,
+				5B5CF37F214FFF0900515EEE /* FirstTap.storyboard in Resources */,
 				5B5CF375214FB96300515EEE /* FourthViewController.storyboard in Resources */,
-				5B2E12B2214BA83100599F24 /* FourthView.xib in Resources */,
 				5B5CF377214FB96B00515EEE /* NewViewController.storyboard in Resources */,
-				5B2E12B4214BA8B600599F24 /* NewView.xib in Resources */,
-				5B2E12B0214BA82700599F24 /* ThirdView.xib in Resources */,
 				5B30F4B1214A96200078D070 /* LaunchScreen.storyboard in Resources */,
 				5B5CF373214FB95400515EEE /* ThirdViewController.storyboard in Resources */,
-				5B2E12AE214BA6A200599F24 /* SecondView.xib in Resources */,
 				5B30F4AE214A96200078D070 /* Assets.xcassets in Resources */,
 				5B5CF371214FB94900515EEE /* SecondViewController.storyboard in Resources */,
 				5B30F4AC214A961E0078D070 /* Mainn.storyboard in Resources */,
-				5BD31E42214AB4DC0097927B /* FirstView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,14 +195,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B5CF38321500BBB00515EEE /* FirstViewController.swift in Sources */,
 				5BD31E36214AA4B10097927B /* CustomTabBarController.swift in Sources */,
 				5B30F4BB214A98AC0078D070 /* SecondViewController.swift in Sources */,
-				5B30F4A9214A961E0078D070 /* FirstViewController.swift in Sources */,
-				5B30F4C3214A9C8D0078D070 /* CustomAnimator.swift in Sources */,
+				5B30F4A9214A961E0078D070 /* TextViewController.swift in Sources */,
+				5B30F4C3214A9C8D0078D070 /* CustomPushAnimator.swift in Sources */,
 				5B30F4BD214A98B40078D070 /* ThirdViewController.swift in Sources */,
 				5B30F4C1214A98DE0078D070 /* NewViewController.swift in Sources */,
 				5B5CF379214FBEFF00515EEE /* CustomAppDelegate.swift in Sources */,
 				5B30F4BF214A98D70078D070 /* FourthViewController.swift in Sources */,
+				5B27DA272150E5A2009E8B48 /* CustomPopAnimation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
