@@ -10,7 +10,7 @@ import UIKit
 
 class CustomPushAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
-    private var duration: TimeInterval = 1
+    private var duration: TimeInterval = 0.6
     
     override init() {
         super.init()

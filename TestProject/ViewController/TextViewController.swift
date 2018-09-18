@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol TextViewControllerDelegate {
+    func backButtonTapped()
+}
+
 class TextViewController: UIViewController {
     
     @IBOutlet private weak var scrollView: UIScrollView!
@@ -15,14 +19,26 @@ class TextViewController: UIViewController {
     private let leftConstraintConstant: CGFloat = 10
     private let rightConstraintConstant: CGFloat = 10
     private let topConstraintConstant: CGFloat = 10
+    var delegate: TextViewControllerDelegate?
+    @IBOutlet weak var navigationBar: UINavigationBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.delegate = self
-        self.title = "TextViewController"
         addGesture()
         addNotification()
         createElements()
+        createStatusBar()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     override func viewDidLayoutSubviews() {
@@ -67,6 +83,11 @@ class TextViewController: UIViewController {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+    }
+    
+    @IBAction func backButtonTapped(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+        delegate?.backButtonTapped()
     }
 }
 

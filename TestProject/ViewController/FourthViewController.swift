@@ -13,16 +13,15 @@ class FourthViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "FourthViewController"
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         self.navigationController?.delegate = self
     }
     
     @IBAction func openNewViewController(_ sender: Any) {
-        let newVC = UIStoryboard(name: "NewViewController", bundle: nil).instantiateViewController(withIdentifier: "NewViewController")
-        self.navigationController?.pushViewController(newVC, animated: true)
+        let newVC = UIStoryboard(name: "NewViewController", bundle: nil).instantiateViewController(withIdentifier: "NewViewController") as? NewViewController
+        if let newVC = newVC {
+            newVC.delegate = self
+            self.navigationController?.pushViewController(newVC, animated: true)
+        }
     }
 }
 
@@ -37,3 +36,11 @@ extension FourthViewController: UINavigationControllerDelegate {
         }
     }
 }
+
+extension FourthViewController: NewViewControllerDelegate {
+    
+    func backButtonTapped() {
+        self.navigationController?.delegate = self
+    }
+}
+

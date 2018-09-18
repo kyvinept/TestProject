@@ -12,19 +12,24 @@ class FirstViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.delegate = self
         self.title = "FirstViewController"
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.delegate = self
-    }
-    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 0 {
-            let textVC = UIStoryboard(name: "FirstTap", bundle: nil).instantiateViewController(withIdentifier: "TextViewController")
-            self.navigationController?.pushViewController(textVC, animated: true)
-            tableView.cellForRow(at: indexPath)?.selectionStyle = .none
+        let identifier = tableView.cellForRow(at: indexPath)?.reuseIdentifier
+        if identifier == "TextCell" {
+            let textVC = self.storyboard?.instantiateViewController(withIdentifier: "TextViewController") as? TextViewController
+            if let textVC = textVC {
+                textVC.delegate = self
+                self.navigationController?.pushViewController(textVC, animated: true)
+            }
+        } else if identifier == "ButtonCell" {
+            let textVC = self.storyboard?.instantiateViewController(withIdentifier: "ButtonViewController") as? ButtonViewController
+            if let textVC = textVC {
+                textVC.delegate = self
+                self.navigationController?.pushViewController(textVC, animated: true)
+            }
         }
     }
 }
@@ -38,5 +43,12 @@ extension FirstViewController: UINavigationControllerDelegate {
         default:
             return nil
         }
+    }
+}
+
+extension FirstViewController: TextViewControllerDelegate, ButtonViewControllerDelegate {
+    
+    func backButtonTapped() {
+        self.navigationController?.delegate = self
     }
 }

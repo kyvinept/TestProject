@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5B27DA272150E5A2009E8B48 /* CustomPopAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27DA262150E5A2009E8B48 /* CustomPopAnimation.swift */; };
+		5B27DA272150E5A2009E8B48 /* CustomPopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27DA262150E5A2009E8B48 /* CustomPopAnimator.swift */; };
+		5B27DA2A21511B1A009E8B48 /* ButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27DA2921511B1A009E8B48 /* ButtonViewController.swift */; };
+		5B27DA2C215124AB009E8B48 /* Star.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27DA2B215124AB009E8B48 /* Star.swift */; };
 		5B30F4A9214A961E0078D070 /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B30F4A8214A961E0078D070 /* TextViewController.swift */; };
 		5B30F4AC214A961E0078D070 /* Mainn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B30F4AA214A961E0078D070 /* Mainn.storyboard */; };
 		5B30F4AE214A96200078D070 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B30F4AD214A96200078D070 /* Assets.xcassets */; };
@@ -28,7 +30,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5B27DA262150E5A2009E8B48 /* CustomPopAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopAnimation.swift; sourceTree = "<group>"; };
+		5B27DA262150E5A2009E8B48 /* CustomPopAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopAnimator.swift; sourceTree = "<group>"; };
+		5B27DA2921511B1A009E8B48 /* ButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonViewController.swift; sourceTree = "<group>"; };
+		5B27DA2B215124AB009E8B48 /* Star.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Star.swift; sourceTree = "<group>"; };
 		5B30F4A3214A961E0078D070 /* TestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B30F4A8214A961E0078D070 /* TextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
 		5B30F4AB214A961E0078D070 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Mainn.storyboard; sourceTree = "<group>"; };
@@ -61,6 +65,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5B27DA282150EF8E009E8B48 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				5B27DA262150E5A2009E8B48 /* CustomPopAnimator.swift */,
+				5B30F4C2214A9C8D0078D070 /* CustomPushAnimator.swift */,
+			);
+			path = Animation;
+			sourceTree = "<group>";
+		};
 		5B30F49A214A961E0078D070 = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +112,7 @@
 				5B5CF372214FB95400515EEE /* ThirdViewController.storyboard */,
 				5B5CF374214FB96300515EEE /* FourthViewController.storyboard */,
 				5B5CF376214FB96B00515EEE /* NewViewController.storyboard */,
+				5B27DA2B215124AB009E8B48 /* Star.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -113,8 +127,8 @@
 				5B30F4C0214A98DE0078D070 /* NewViewController.swift */,
 				5B30F4A8214A961E0078D070 /* TextViewController.swift */,
 				5BD31E35214AA4B10097927B /* CustomTabBarController.swift */,
-				5B30F4C2214A9C8D0078D070 /* CustomPushAnimator.swift */,
-				5B27DA262150E5A2009E8B48 /* CustomPopAnimation.swift */,
+				5B27DA2921511B1A009E8B48 /* ButtonViewController.swift */,
+				5B27DA282150EF8E009E8B48 /* Animation */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -198,13 +212,15 @@
 				5B5CF38321500BBB00515EEE /* FirstViewController.swift in Sources */,
 				5BD31E36214AA4B10097927B /* CustomTabBarController.swift in Sources */,
 				5B30F4BB214A98AC0078D070 /* SecondViewController.swift in Sources */,
+				5B27DA2C215124AB009E8B48 /* Star.swift in Sources */,
 				5B30F4A9214A961E0078D070 /* TextViewController.swift in Sources */,
 				5B30F4C3214A9C8D0078D070 /* CustomPushAnimator.swift in Sources */,
 				5B30F4BD214A98B40078D070 /* ThirdViewController.swift in Sources */,
 				5B30F4C1214A98DE0078D070 /* NewViewController.swift in Sources */,
 				5B5CF379214FBEFF00515EEE /* CustomAppDelegate.swift in Sources */,
 				5B30F4BF214A98D70078D070 /* FourthViewController.swift in Sources */,
-				5B27DA272150E5A2009E8B48 /* CustomPopAnimation.swift in Sources */,
+				5B27DA272150E5A2009E8B48 /* CustomPopAnimator.swift in Sources */,
+				5B27DA2A21511B1A009E8B48 /* ButtonViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
