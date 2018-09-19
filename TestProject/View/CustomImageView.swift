@@ -8,7 +8,13 @@
 
 import UIKit
 
+protocol CustomImageViewDelegate {
+    func viewChangeLocation(imageView: CustomImageView)
+}
+
 class CustomImageView: UIImageView {
+    
+    var delegate: CustomImageViewDelegate?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -25,7 +31,7 @@ class CustomImageView: UIImageView {
         addGesture()
     }
     
-    func addGesture() {
+    private func addGesture() {
         self.isUserInteractionEnabled = true
         
         let pan = UIPanGestureRecognizer(target: self, action: #selector(changeLocation(_:)))
@@ -38,22 +44,38 @@ class CustomImageView: UIImageView {
         self.addGestureRecognizer(pinch)
     }
     
+    private func changeFrontView(gesture: UIGestureRecognizer) {
+        if gesture.state == .began {
+            self.superview?.addSubview(self)
+        } else if gesture.state == .ended {
+            delegate?.viewChangeLocation(imageView: self)
+        }
+    }
+    
     @objc func changeLocation(_ gesture: UIPanGestureRecognizer) {
-        self.superview!.addSubview(self)
+        changeFrontView(gesture: gesture)
         let translation = gesture.translation(in: self.superview)
         center = CGPoint(x: center.x + translation.x, y: center.y + translation.y)
         gesture.setTranslation(CGPoint.zero, in: self)
     }
     
     @objc func rotateView(_ gesture: UIRotationGestureRecognizer) {
-        self.superview!.addSubview(self)
+        changeFrontView(gesture: gesture)
         transform = transform.rotated(by: gesture.rotation)
         gesture.rotation = 0
     }
     
     @objc func changeSize(_ gesture: UIPinchGestureRecognizer) {
-        self.superview!.addSubview(self)
+        changeFrontView(gesture: gesture)
         transform = transform.scaledBy(x: gesture.scale, y: gesture.scale)
         gesture.scale = 1
+    }
+}
+
+extension UIView {
+    func setNewLocation(pointCenter: CGPoint) {
+        UIView.animate(withDuration: 0.5) {
+            self.center = pointCenter
+        }
     }
 }

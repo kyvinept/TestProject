@@ -63,6 +63,7 @@ extension GestureViewController {
     private func addImageToView(image: UIImage) {
         DispatchQueue.main.async {
             let imageView = CustomImageView(image: image)
+            imageView.delegate = self
             let height = CGFloat(arc4random_uniform(UInt32(150)) + 50)
             let resize = imageView.frame.height/height
             imageView.frame.size.height /= resize
@@ -72,6 +73,33 @@ extension GestureViewController {
             imageView.frame.origin.x = CGFloat(arc4random_uniform(UInt32(sizeView.width - imageView.frame.width)))
             imageView.frame.origin.y = CGFloat(arc4random_uniform(UInt32(sizeView.height - imageView.frame.height - self.navigationController!.navigationBar.frame.height - self.tabBarController!.tabBar.frame.height))) + self.navigationController!.navigationBar.frame.height
             self.view.addSubview(imageView)
+        }
+    }
+}
+
+extension GestureViewController: CustomImageViewDelegate {
+    
+    func viewChangeLocation(imageView: CustomImageView) {
+        for view in view.subviews {
+            if view is CustomImageView && view != imageView {
+                if view.frame.intersects(imageView.frame) {
+                    let height = view.center.y - imageView.center.y
+                    let width = view.center.x - imageView.center.x
+                    if abs(height) > abs(width) {
+                        if height/abs(height) < 0 {
+                            view.setNewLocation(pointCenter: CGPoint(x: view.center.x, y: imageView.frame.origin.y - view.frame.height / 2))
+                        } else {
+                            view.setNewLocation(pointCenter: CGPoint(x: view.center.x, y: imageView.frame.origin.y + imageView.frame.height + view.frame.height / 2))
+                        }
+                    } else {
+                        if height/abs(height) > 0 {
+                            view.setNewLocation(pointCenter: CGPoint(x: imageView.frame.origin.x - view.frame.width / 2, y: view.center.y))
+                        } else {
+                            view.setNewLocation(pointCenter: CGPoint(x: imageView.frame.origin.x + imageView.frame.width + view.frame.width / 2, y: view.center.y))
+                        }
+                    }
+                }
+            }
         }
     }
 }
