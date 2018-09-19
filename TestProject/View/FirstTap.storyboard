@@ -211,6 +211,9 @@
                         <viewLayoutGuide key="safeArea" id="Pby-YM-wFg"/>
                     </view>
                     <navigationItem key="navigationItem" id="SnO-7b-EEo"/>
+                    <connections>
+                        <outlet property="topNavigationBar" destination="xeI-tg-BOx" id="SNt-qi-TfC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a70-l2-Ocq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -14,6 +14,7 @@ protocol GestureViewControllerDelegate {
 
 class GestureViewController: UIViewController {
     
+    @IBOutlet private weak var topNavigationBar: UINavigationBar!
     var delegate: GestureViewControllerDelegate?
     private let imageUrlArray = ["https://as2.ftcdn.net/jpg/00/75/60/21/500_F_75602131_epMBFuHmvreFJDu4DK2mOzlI0vczSkkw.jpg",
                                  "https://as1.ftcdn.net/jpg/01/00/52/58/500_F_100525844_iy9n7Jh4KJbbOwNCOKnv7koqtejka4H8.jpg"]
@@ -97,15 +98,32 @@ extension GestureViewController: CustomImageViewDelegate {
     private func setLocationToView(height: CGFloat, width: CGFloat, imageView: CustomImageView, view: CustomImageView) {
         if abs(height) > abs(width) {
             if height/abs(height) < 0 {
-                view.setNewLocation(pointCenter: CGPoint(x: view.center.x, y: imageView.frame.origin.y - view.frame.height / 2))
+                if imageView.frame.origin.y < topNavigationBar.frame.height + UIApplication.shared.statusBarFrame.height {
+                    view.setNewLocation(pointCenter: CGPoint(x: view.center.x, y: imageView.frame.origin.y + imageView.frame.height + view.frame.height / 2))
+                } else {
+                    view.setNewLocation(pointCenter: CGPoint(x: view.center.x, y: imageView.frame.origin.y - view.frame.height / 2))
+                }
             } else {
-                view.setNewLocation(pointCenter: CGPoint(x: view.center.x, y: imageView.frame.origin.y + imageView.frame.height + view.frame.height / 2))
+                if imageView.frame.origin.y + imageView.frame.height > self.view.frame.height - tabBarController!.tabBar.frame.height {
+                    view.setNewLocation(pointCenter: CGPoint(x: view.center.x, y: imageView.frame.origin.y - view.frame.height / 2))
+                }
+                else {
+                    view.setNewLocation(pointCenter: CGPoint(x: view.center.x, y: imageView.frame.origin.y + imageView.frame.height + view.frame.height / 2))
+                }
             }
         } else {
             if height/abs(height) > 0 {
-                view.setNewLocation(pointCenter: CGPoint(x: imageView.frame.origin.x - view.frame.width / 2, y: view.center.y))
+                if imageView.frame.origin.x < 0 {
+                    view.setNewLocation(pointCenter: CGPoint(x: imageView.frame.origin.x + imageView.frame.width + view.frame.width / 2, y: view.center.y))
+                } else {
+                    view.setNewLocation(pointCenter: CGPoint(x: imageView.frame.origin.x - view.frame.width / 2, y: view.center.y))
+                }
             } else {
-                view.setNewLocation(pointCenter: CGPoint(x: imageView.frame.origin.x + imageView.frame.width + view.frame.width / 2, y: view.center.y))
+                if imageView.frame.origin.x + imageView.frame.width > self.view.frame.width {
+                    view.setNewLocation(pointCenter: CGPoint(x: imageView.frame.origin.x - view.frame.width / 2, y: view.center.y))
+                } else {
+                    view.setNewLocation(pointCenter: CGPoint(x: imageView.frame.origin.x + imageView.frame.width + view.frame.width / 2, y: view.center.y))
+                }
             }
         }
     }
