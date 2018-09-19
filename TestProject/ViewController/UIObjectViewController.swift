@@ -44,11 +44,6 @@ class UIObjectViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        scrollViewSizeSet(scrollView: scrollView)
-    }
-    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
@@ -182,6 +177,7 @@ extension UIObjectViewController {
                                         topConstant: topConstraintConstant)
             scrollView.addConstraints(constraints)
             addToView = imageView
+            scrollViewSizeSet(scrollView: scrollView)
         }
     }
 }

@@ -27,7 +27,7 @@ class ThreadSafeInt {
     }
     
     func addValue(_ index: Int) {
-        queue.async(group: nil, qos: .default, flags: .barrier) {
+        queue.sync {
             self._count += index
         }
     }

@@ -10,13 +10,31 @@ import UIKit
 
 class SecondViewController: UIViewController {
     
-    var i = ThreadSafeInt(count: 0)
+    private let queue = DispatchQueue(label: "l1")
+    private var _count:Int = 0
+    var count:Int {
+        set {
+            queue.sync {
+                self._count = newValue
+            }
+        }
+        get {
+            var i = 0
+            queue.sync {
+                i = _count
+            }
+            return i
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "SecondViewController"
         self.navigationController?.delegate = self
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         threads()
     }
     
@@ -29,30 +47,34 @@ class SecondViewController: UIViewController {
     }
     
     func threads() {
-        let q1 = DispatchQueue(label: "q1", qos: .default, attributes: .concurrent, autoreleaseFrequency: .inherit, target: nil)
-        let q2 = DispatchQueue(label: "q2", qos: .default, attributes: .concurrent, autoreleaseFrequency: .inherit, target: nil)
-        let q3 = DispatchQueue(label: "q3", qos: .default, attributes: .concurrent, autoreleaseFrequency: .inherit, target: nil)
+        count = 0
+        let group = DispatchGroup()
+        let q1 = DispatchQueue(label: "q1", attributes: .concurrent)
+        let q2 = DispatchQueue(label: "q2", attributes: .concurrent)
+//        let q3 = DispatchQueue(label: "q3", attributes: .concurrent)
         
-        q1.async {
+        q1.async(group: group, execute: DispatchWorkItem {
             for _ in 0..<10 {
-                self.i.addValue(1)
-                print(String(self.i.count) + " --- q1")
+                self.count+=1
             }
-        }
+        })
         
-        q2.async {
+        q2.async(group: group, execute: DispatchWorkItem {
             for _ in 0..<10 {
-                self.i.addValue(1)
-                print(String(self.i.count) + " --- q2")
+                self.count+=1
             }
-        }
+        })
         
-        q3.async {
-            for _ in 0..<10 {
-                self.i.addValue(1)
-                print(String(self.i.count) + " --- q3")
-            }
-        }
+        group.notify(queue: DispatchQueue.global(), work: DispatchWorkItem {
+            print(self.count)
+        })
+        
+//        q3.async {
+//            for _ in 0..<10 {
+//                self.count+=1
+//                print(String(self.count) + " --- q3")
+//            }
+//        }
     }
 }
 

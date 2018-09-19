@@ -18,18 +18,27 @@ class FirstViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let identifier = tableView.cellForRow(at: indexPath)?.reuseIdentifier
-        if identifier == "TextCell" {
+        switch identifier {
+        case "TextCell":
             let textVC = self.storyboard?.instantiateViewController(withIdentifier: "TextViewController") as? TextViewController
             if let textVC = textVC {
                 textVC.delegate = self
                 self.navigationController?.pushViewController(textVC, animated: true)
             }
-        } else if identifier == "UIObjectCell" {
+        case "UIObjectCell":
             let textVC = self.storyboard?.instantiateViewController(withIdentifier: "UIObjectViewController") as? UIObjectViewController
             if let textVC = textVC {
                 textVC.delegate = self
                 self.navigationController?.pushViewController(textVC, animated: true)
             }
+        case "GestureCell":
+            let textVC = self.storyboard?.instantiateViewController(withIdentifier: "GestureViewController") as? GestureViewController
+            if let textVC = textVC {
+                textVC.delegate = self
+                self.navigationController?.pushViewController(textVC, animated: true)
+            }
+        default:
+            break
         }
     }
 }
@@ -46,7 +55,7 @@ extension FirstViewController: UINavigationControllerDelegate {
     }
 }
 
-extension FirstViewController: TextViewControllerDelegate, UIObjectViewControllerDelegate {
+extension FirstViewController: TextViewControllerDelegate, UIObjectViewControllerDelegate, GestureViewControllerDelegate {
     
     func backButtonTapped() {
         self.navigationController?.delegate = self
