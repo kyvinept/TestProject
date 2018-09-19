@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Star: UIView {
+class StarView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)

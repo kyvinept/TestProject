@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5B27DA272150E5A2009E8B48 /* CustomPopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27DA262150E5A2009E8B48 /* CustomPopAnimator.swift */; };
-		5B27DA2A21511B1A009E8B48 /* ButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27DA2921511B1A009E8B48 /* ButtonViewController.swift */; };
+		5B27DA2A21511B1A009E8B48 /* UIObjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27DA2921511B1A009E8B48 /* UIObjectViewController.swift */; };
 		5B27DA2C215124AB009E8B48 /* Star.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27DA2B215124AB009E8B48 /* Star.swift */; };
 		5B30F4A9214A961E0078D070 /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B30F4A8214A961E0078D070 /* TextViewController.swift */; };
 		5B30F4AC214A961E0078D070 /* Mainn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B30F4AA214A961E0078D070 /* Mainn.storyboard */; };
@@ -26,12 +26,13 @@
 		5B5CF379214FBEFF00515EEE /* CustomAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5CF378214FBEFF00515EEE /* CustomAppDelegate.swift */; };
 		5B5CF37F214FFF0900515EEE /* FirstTap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B5CF37E214FFF0900515EEE /* FirstTap.storyboard */; };
 		5B5CF38321500BBB00515EEE /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5CF38221500BBB00515EEE /* FirstViewController.swift */; };
+		5BC01EF5215141FB009D5081 /* ThreadSafeInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC01EF4215141FB009D5081 /* ThreadSafeInt.swift */; };
 		5BD31E36214AA4B10097927B /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD31E35214AA4B10097927B /* CustomTabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5B27DA262150E5A2009E8B48 /* CustomPopAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopAnimator.swift; sourceTree = "<group>"; };
-		5B27DA2921511B1A009E8B48 /* ButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonViewController.swift; sourceTree = "<group>"; };
+		5B27DA2921511B1A009E8B48 /* UIObjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIObjectViewController.swift; sourceTree = "<group>"; };
 		5B27DA2B215124AB009E8B48 /* Star.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Star.swift; sourceTree = "<group>"; };
 		5B30F4A3214A961E0078D070 /* TestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B30F4A8214A961E0078D070 /* TextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
@@ -51,6 +52,7 @@
 		5B5CF378214FBEFF00515EEE /* CustomAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAppDelegate.swift; sourceTree = "<group>"; };
 		5B5CF37E214FFF0900515EEE /* FirstTap.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FirstTap.storyboard; sourceTree = "<group>"; };
 		5B5CF38221500BBB00515EEE /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		5BC01EF4215141FB009D5081 /* ThreadSafeInt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadSafeInt.swift; sourceTree = "<group>"; };
 		5BD31E35214AA4B10097927B /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -127,7 +129,8 @@
 				5B30F4C0214A98DE0078D070 /* NewViewController.swift */,
 				5B30F4A8214A961E0078D070 /* TextViewController.swift */,
 				5BD31E35214AA4B10097927B /* CustomTabBarController.swift */,
-				5B27DA2921511B1A009E8B48 /* ButtonViewController.swift */,
+				5B27DA2921511B1A009E8B48 /* UIObjectViewController.swift */,
+				5BC01EF4215141FB009D5081 /* ThreadSafeInt.swift */,
 				5B27DA282150EF8E009E8B48 /* Animation */,
 			);
 			path = ViewController;
@@ -218,9 +221,10 @@
 				5B30F4BD214A98B40078D070 /* ThirdViewController.swift in Sources */,
 				5B30F4C1214A98DE0078D070 /* NewViewController.swift in Sources */,
 				5B5CF379214FBEFF00515EEE /* CustomAppDelegate.swift in Sources */,
+				5BC01EF5215141FB009D5081 /* ThreadSafeInt.swift in Sources */,
 				5B30F4BF214A98D70078D070 /* FourthViewController.swift in Sources */,
 				5B27DA272150E5A2009E8B48 /* CustomPopAnimator.swift in Sources */,
-				5B27DA2A21511B1A009E8B48 /* ButtonViewController.swift in Sources */,
+				5B27DA2A21511B1A009E8B48 /* UIObjectViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
