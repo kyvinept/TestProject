@@ -89,6 +89,23 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AnimationsCell" textLabel="4pf-u4-ITK" style="IBUITableViewCellStyleDefault" id="eEw-ge-3Xp">
+                                        <rect key="frame" x="0.0" y="240" width="414" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eEw-ge-3Xp" id="0Ud-4c-uYy">
+                                            <rect key="frame" x="0.0" y="0.0" width="376" height="59.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Animations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4pf-u4-ITK">
+                                                    <rect key="frame" x="20" y="0.0" width="356" height="59.666666666666664"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -279,6 +296,45 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LgG-3W-vei" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2713" y="465"/>
+        </scene>
+        <!--Animations View Controller-->
+        <scene sceneID="oR3-at-Yzb">
+            <objects>
+                <viewController storyboardIdentifier="AnimationsViewController" id="PJg-30-Pop" customClass="AnimationsViewController" customModule="TestProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="PpQ-HJ-oWd">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zmi-0M-gb3">
+                                <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                                <color key="backgroundColor" red="1" green="0.6248038615" blue="0.2067258924" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <items>
+                                    <navigationItem title="Animations" id="EMJ-KU-DaW">
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="6np-yV-jwZ">
+                                            <connections>
+                                                <action selector="backButtonTapped:" destination="PJg-30-Pop" id="zSr-Wr-3Kw"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.65033309449999999" blue="0.26497652929999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="zmi-0M-gb3" firstAttribute="top" secondItem="iPg-bh-QLt" secondAttribute="top" id="cqH-ce-bfV"/>
+                            <constraint firstItem="zmi-0M-gb3" firstAttribute="trailing" secondItem="iPg-bh-QLt" secondAttribute="trailing" id="dQx-0X-0jn"/>
+                            <constraint firstItem="zmi-0M-gb3" firstAttribute="leading" secondItem="iPg-bh-QLt" secondAttribute="leading" id="esK-9o-rF7"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="iPg-bh-QLt"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="kk8-SH-iGW"/>
+                    <connections>
+                        <outlet property="topNavigationBar" destination="zmi-0M-gb3" id="4Sr-EJ-uQZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UMm-zV-4H8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2661" y="-258"/>
         </scene>
     </scenes>
 </document>

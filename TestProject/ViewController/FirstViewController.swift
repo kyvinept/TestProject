@@ -43,6 +43,12 @@ class FirstViewController: UITableViewController {
                 textVC.delegate = self
                 self.navigationController?.pushViewController(textVC, animated: true)
             }
+        case "AnimationsCell":
+            let textVC = self.storyboard?.instantiateViewController(withIdentifier: "AnimationsViewController") as? AnimationsViewController
+            if let textVC = textVC {
+                textVC.delegate = self
+                self.navigationController?.pushViewController(textVC, animated: true)
+            }
         default:
             break
         }
@@ -61,7 +67,7 @@ extension FirstViewController: UINavigationControllerDelegate {
     }
 }
 
-extension FirstViewController: TextViewControllerDelegate, UIObjectViewControllerDelegate, GestureViewControllerDelegate, DynamicsViewControllerDelegate {
+extension FirstViewController: TextViewControllerDelegate, UIObjectViewControllerDelegate, GestureViewControllerDelegate, DynamicsViewControllerDelegate, AnimationsViewControllerDelegate {
     
     func backButtonTapped() {
         self.navigationController?.delegate = self
