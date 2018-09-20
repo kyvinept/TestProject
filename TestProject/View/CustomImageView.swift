@@ -10,6 +10,8 @@ import UIKit
 
 protocol CustomImageViewDelegate {
     func viewChangeLocation(imageView: CustomImageView)
+    func viewWillChangeLocation(imageView: CustomImageView, translation: CGPoint)
+    func viewWillChangeScale(imageView: CustomImageView, scale: CGFloat)
 }
 
 class CustomImageView: UIImageView {
@@ -54,8 +56,7 @@ class CustomImageView: UIImageView {
     
     @objc func changeLocation(_ gesture: UIPanGestureRecognizer) {
         changeFrontView(gesture: gesture)
-        let translation = gesture.translation(in: self.superview)
-        center = CGPoint(x: center.x + translation.x, y: center.y + translation.y)
+        delegate?.viewWillChangeLocation(imageView: self, translation: gesture.translation(in: self.superview))
         gesture.setTranslation(CGPoint.zero, in: self)
     }
     
@@ -67,7 +68,7 @@ class CustomImageView: UIImageView {
     
     @objc func changeSize(_ gesture: UIPinchGestureRecognizer) {
         changeFrontView(gesture: gesture)
-        transform = transform.scaledBy(x: gesture.scale, y: gesture.scale)
+        delegate?.viewWillChangeScale(imageView: self, scale: gesture.scale)
         gesture.scale = 1
     }
 }
@@ -76,6 +77,13 @@ extension UIView {
     func setNewLocation(pointCenter: CGPoint) {
         UIView.animate(withDuration: 0.5) {
             self.center = pointCenter
+        }
+    }
+    
+    func setNewScaleWithLocation(pointCenter:CGPoint, scale: CGFloat) {
+        UIView.animate(withDuration: 0.5) {
+            self.center = pointCenter
+            self.transform = self.transform.scaledBy(x: scale, y: scale)
         }
     }
 }
