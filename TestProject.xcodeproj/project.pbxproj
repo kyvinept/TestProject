@@ -19,6 +19,8 @@
 		5B30F4BF214A98D70078D070 /* FourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B30F4BE214A98D70078D070 /* FourthViewController.swift */; };
 		5B30F4C1214A98DE0078D070 /* NewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B30F4C0214A98DE0078D070 /* NewViewController.swift */; };
 		5B30F4C3214A9C8D0078D070 /* CustomPushAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B30F4C2214A9C8D0078D070 /* CustomPushAnimator.swift */; };
+		5B3384B62153993600736F5D /* DynamicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3384B52153993600736F5D /* DynamicsViewController.swift */; };
+		5B3384BA2153A07400736F5D /* DynamicsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3384B92153A07400736F5D /* DynamicsView.swift */; };
 		5B410AED21523D1A007C4AD0 /* GestureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B410AEC21523D1A007C4AD0 /* GestureViewController.swift */; };
 		5B410AEF21524CE6007C4AD0 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B410AEE21524CE6007C4AD0 /* CustomImageView.swift */; };
 		5B5CF371214FB94900515EEE /* SecondViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B5CF370214FB94900515EEE /* SecondViewController.storyboard */; };
@@ -47,6 +49,8 @@
 		5B30F4BE214A98D70078D070 /* FourthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthViewController.swift; sourceTree = "<group>"; };
 		5B30F4C0214A98DE0078D070 /* NewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewViewController.swift; sourceTree = "<group>"; };
 		5B30F4C2214A9C8D0078D070 /* CustomPushAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPushAnimator.swift; sourceTree = "<group>"; };
+		5B3384B52153993600736F5D /* DynamicsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicsViewController.swift; sourceTree = "<group>"; };
+		5B3384B92153A07400736F5D /* DynamicsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicsView.swift; sourceTree = "<group>"; };
 		5B410AEC21523D1A007C4AD0 /* GestureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureViewController.swift; sourceTree = "<group>"; };
 		5B410AEE21524CE6007C4AD0 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		5B5CF370214FB94900515EEE /* SecondViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SecondViewController.storyboard; sourceTree = "<group>"; };
@@ -120,6 +124,7 @@
 				5B5CF376214FB96B00515EEE /* NewViewController.storyboard */,
 				5B27DA2B215124AB009E8B48 /* Star.swift */,
 				5B410AEE21524CE6007C4AD0 /* CustomImageView.swift */,
+				5B3384B92153A07400736F5D /* DynamicsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -137,6 +142,7 @@
 				5B27DA2921511B1A009E8B48 /* UIObjectViewController.swift */,
 				5BC01EF4215141FB009D5081 /* ThreadSafeInt.swift */,
 				5B410AEC21523D1A007C4AD0 /* GestureViewController.swift */,
+				5B3384B52153993600736F5D /* DynamicsViewController.swift */,
 				5B27DA282150EF8E009E8B48 /* Animation */,
 			);
 			path = ViewController;
@@ -227,11 +233,13 @@
 				5B30F4A9214A961E0078D070 /* TextViewController.swift in Sources */,
 				5B30F4C3214A9C8D0078D070 /* CustomPushAnimator.swift in Sources */,
 				5B30F4BD214A98B40078D070 /* ThirdViewController.swift in Sources */,
+				5B3384BA2153A07400736F5D /* DynamicsView.swift in Sources */,
 				5B30F4C1214A98DE0078D070 /* NewViewController.swift in Sources */,
 				5B5CF379214FBEFF00515EEE /* CustomAppDelegate.swift in Sources */,
 				5BC01EF5215141FB009D5081 /* ThreadSafeInt.swift in Sources */,
 				5B30F4BF214A98D70078D070 /* FourthViewController.swift in Sources */,
 				5B27DA272150E5A2009E8B48 /* CustomPopAnimator.swift in Sources */,
+				5B3384B62153993600736F5D /* DynamicsViewController.swift in Sources */,
 				5B27DA2A21511B1A009E8B48 /* UIObjectViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

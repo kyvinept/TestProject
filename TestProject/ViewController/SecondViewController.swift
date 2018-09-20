@@ -48,26 +48,23 @@ class SecondViewController: UIViewController {
     
     func threads() {
         count = 0
-        let group = DispatchGroup()
         let q1 = DispatchQueue(label: "q1", attributes: .concurrent)
         let q2 = DispatchQueue(label: "q2", attributes: .concurrent)
 //        let q3 = DispatchQueue(label: "q3", attributes: .concurrent)
         
-        q1.async(group: group, execute: DispatchWorkItem {
+        q1.async {
             for _ in 0..<10 {
                 self.count+=1
+                print(self.count)
             }
-        })
+        }
         
-        q2.async(group: group, execute: DispatchWorkItem {
+        q2.async {
             for _ in 0..<10 {
                 self.count+=1
+                print(self.count)
             }
-        })
-        
-        group.notify(queue: DispatchQueue.global(), work: DispatchWorkItem {
-            print(self.count)
-        })
+        }
         
 //        q3.async {
 //            for _ in 0..<10 {
