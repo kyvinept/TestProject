@@ -19,6 +19,14 @@ class DynamicsViewController: UIViewController {
     private var collision: UICollisionBehavior!
     private var animator: UIDynamicAnimator!
     private var gravity: UIGravityBehavior!
+    private let barrier1Frame = CGRect(x: 0,
+                                       y: 300,
+                                   width: 110,
+                                  height: 20)
+    private let barrier2Frame = CGRect(x: 0,
+                                       y: 470,
+                                   width: 100,
+                                  height: 20)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,30 +68,48 @@ extension DynamicsViewController {
     }
     
     private func setBarrier() {
-        let barrier1 = UIView(frame: CGRect(x: 0, y: 300, width: 110, height: 20))
+        let barrier1 = UIView(frame: barrier1Frame)
         barrier1.backgroundColor = .red
         collision.addBoundary(withIdentifier: NSString(string: "barrier1"), for: UIBezierPath(rect: barrier1.frame))
         self.view.addSubview(barrier1)
         
-        let barrier2 = UIView(frame: CGRect(x: self.view.frame.width - 90, y: 470, width: 110, height: 20))
+        let barrier2 = UIView(frame: CGRect(x: self.view.frame.width - barrier2Frame.width,
+                                            y: barrier2Frame.origin.y,
+                                        width: barrier2Frame.width,
+                                       height: barrier2Frame.height))
         barrier2.backgroundColor = .red
         collision.addBoundary(withIdentifier: NSString(string: "barrier2"), for: UIBezierPath(rect: barrier2.frame))
         self.view.addSubview(barrier2)
     }
     
     private func createDynamicsView() {
+        let size = Int(arc4random_uniform(50) + 70)
         let x = Int(arc4random_uniform(UInt32(self.view.frame.width - 100)))
-        let view = DynamicsView(frame: CGRect(x: x, y: 80, width: 100, height: 100))
+        let topFrame = Int(self.topNavigationBar.frame.height + UIApplication.shared.statusBarFrame.height)
+        let view = DynamicsView(frame: CGRect(x: x,
+                                              y: topFrame,
+                                          width: size,
+                                         height: size))
         view.delegate = self
         self.view.addSubview(view)
         collision.addItem(view)
         gravity.addItem(view)
         animator.addBehavior(gravity)
-        animator.addBehavior(view.setNeedsProperties())
     }
 }
 
 extension DynamicsViewController: DynamicsViewDelegate {
+    
+    func viewChangeLocation(view: DynamicsView, translation: CGPoint) {
+        gravity.removeItem(view)
+        collision.removeItem(view)
+        view.center = CGPoint(x: view.center.x + translation.x, y: view.center.y + translation.y)
+        gravity.addItem(view)
+        collision.addItem(view)
+        animator.removeAllBehaviors()
+        animator.addBehavior(gravity)
+        animator.addBehavior(collision)
+    }
     
     func viewWillDelete(view: DynamicsView) {
         collision.removeItem(view)
