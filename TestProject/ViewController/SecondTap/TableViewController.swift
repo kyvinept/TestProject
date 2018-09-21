@@ -17,14 +17,32 @@ class TableViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
     weak var delegate: TableViewControllerDelegate?
     private var items = [Item]()
+    private var refresh: UIRefreshControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.delegate = self
+        createRefresh()
         createStatusBar()
         getDataForTable()
         registeCell()
         setImage()
+    }
+    
+    private func createRefresh() {
+        refresh = UIRefreshControl()
+        refresh.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        tableView.addSubview(refresh)
+    }
+    
+    @objc func refreshData() {
+        items.append(Item(id: "100",
+                       title: "100 title",
+                 description: "100 description",
+                    imageUrl: ""))
+        items[items.count-1].imageUrl = "https://images-assets.nasa.gov/image/PIA18033/PIA18033~thumb.jpg"
+        tableView.reloadData()
+        refresh.endRefreshing()
     }
     
     override func viewWillAppear(_ animated: Bool) {
