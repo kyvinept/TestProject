@@ -1,20 +1,16 @@
 //
-//  File.swift
+//  Present.swift
 //  TestProject
 //
-//  Created by Silchenko on 13.09.2018.
+//  Created by Silchenko on 21.09.2018.
 //  Copyright © 2018 Silchenko. All rights reserved.
 //
 
 import UIKit
 
-class CustomPushAnimator: NSObject, UIViewControllerAnimatedTransitioning {
+class LeftPresentAnimation: NSObject, UIViewControllerAnimatedTransitioning {
     
-    private var duration: TimeInterval = 0.6
-    
-    override init() {
-        super.init()
-    }
+    private let duration: Double = 2
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return duration
@@ -23,16 +19,15 @@ class CustomPushAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         let containerView = transitionContext.containerView
         let toView = transitionContext.view(forKey: .to)!
-        
+        let fromView = transitionContext.view(forKey: .from)!
         containerView.addSubview(toView)
-        toView.alpha = 0.2
-        toView.transform = CGAffineTransform(scaleX: 0.7, y: 0.05)
-        toView.frame.origin = CGPoint(x: 0, y: 0)
+        
+        let screenWidht = UIScreen.main.bounds.width
+        toView.frame.origin.x = screenWidht
         
         UIView.animate(withDuration: duration, animations: {
-            toView.transform = CGAffineTransform.identity
-            toView.frame.origin = containerView.frame.origin
-            toView.alpha = 1
+            toView.frame.origin.x = 0
+            fromView.frame.origin.x -= screenWidht
         }, completion: { _ in
             transitionContext.completeTransition(true)
         })

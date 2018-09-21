@@ -14,7 +14,16 @@ protocol PresentingViewControllerDelegate: class {
 
 class PresentingViewController: UIViewController {
     
+    enum TypeOfPresentAnimation {
+        case fromRightCorner
+        case rotate
+        case withDamping
+        case toBottomSwap
+        case toLeftSwap
+    }
+    
     weak var delegate: PresentingViewControllerDelegate?
+    private var typeAnimation: TypeOfPresentAnimation = .fromRightCorner
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,8 +56,33 @@ class PresentingViewController: UIViewController {
     @IBAction func partialCurlButtonTapped(_ sender: Any) {
         openNewVC(transitionStyle: .partialCurl)
     }
+
+    @IBAction func fromRightCornerButtonTapped(_ sender: Any) {
+        typeAnimation = .fromRightCorner
+        openNewVCWithCustomAnim()
+    }
     
-    @IBAction func customButtonTapped(_ sender: Any) {
+    @IBAction func rotateButtonTapped(_ sender: Any) {
+        typeAnimation = .rotate
+        openNewVCWithCustomAnim()
+    }
+    
+    @IBAction func withDampingButtonTapped(_ sender: Any) {
+        typeAnimation = .withDamping
+        openNewVCWithCustomAnim()
+    }
+    
+    @IBAction func toBottomSwapButtonTapped(_ sender: Any) {
+        typeAnimation = .toBottomSwap
+        openNewVCWithCustomAnim()
+    }
+    
+    @IBAction func toLeftSwapButtonTapped(_ sender: Any) {
+        typeAnimation = .toLeftSwap
+        openNewVCWithCustomAnim()
+    }
+    
+    private func openNewVCWithCustomAnim() {
         let newVC = createNewVC()
         newVC.transitioningDelegate = self
         self.present(newVC, animated: true, completion: nil)
@@ -79,10 +113,18 @@ extension PresentingViewController: UINavigationControllerDelegate {
 
 extension PresentingViewController: UIViewControllerTransitioningDelegate {
     
-    func animationController(forPresented presented: UIViewController,
-                             presenting: UIViewController,
-                             source: UIViewController)
-        -> UIViewControllerAnimatedTransitioning? {
-            return PresentAnimation()
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        switch typeAnimation {
+        case .fromRightCorner:
+            return AnimationFromRightCorner()
+        case .rotate:
+            return PresentRotateAnimation()
+        case .withDamping:
+            return PresentWithDamping()
+        case .toBottomSwap:
+            return DismissCurrentVC()
+        case .toLeftSwap:
+            return LeftPresentAnimation()
+        }
     }
 }

@@ -1,17 +1,21 @@
 //
-//  PresentAnimation.swift
+//  File.swift
 //  TestProject
 //
-//  Created by Silchenko on 21.09.2018.
+//  Created by Silchenko on 13.09.2018.
 //  Copyright © 2018 Silchenko. All rights reserved.
 //
 
 import UIKit
 
-class PresentAnimation: NSObject, UIViewControllerAnimatedTransitioning {
+class AnimationFromRightCorner: NSObject, UIViewControllerAnimatedTransitioning {
     
-    private let duration: Double = 2
-
+    private var duration: TimeInterval = 0.6
+    
+    override init() {
+        super.init()
+    }
+    
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return duration
     }
@@ -21,17 +25,14 @@ class PresentAnimation: NSObject, UIViewControllerAnimatedTransitioning {
         let toView = transitionContext.view(forKey: .to)!
         
         containerView.addSubview(toView)
-        toView.transform = CGAffineTransform(scaleX: 0, y: 0)
-        let screenFrame = UIScreen.main.bounds
-        toView.center = CGPoint(x: screenFrame.width / 2, y: screenFrame.height / 2)
+        toView.alpha = 0.2
+        toView.transform = CGAffineTransform(scaleX: 0.7, y: 0.05)
+        toView.frame.origin = CGPoint(x: 0, y: 0)
         
-        UIView.animate(withDuration: duration/2) {
-            toView.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
-        }
-        
-        UIView.animate(withDuration: duration/2, animations: {
-            toView.transform = toView.transform.rotated(by: CGFloat.pi)
+        UIView.animate(withDuration: duration, animations: {
             toView.transform = CGAffineTransform.identity
+            toView.frame.origin = containerView.frame.origin
+            toView.alpha = 1
         }, completion: { _ in
             transitionContext.completeTransition(true)
         })

@@ -71,11 +71,11 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="lMU-DD-n8g">
-                                <rect key="frame" x="121.5" y="176" width="132" height="315"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="lMU-DD-n8g">
+                                <rect key="frame" x="108" y="118" width="159" height="431"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="02i-eM-sj5">
-                                        <rect key="frame" x="0.0" y="0.0" width="132" height="39"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="159" height="39"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <state key="normal" title="coverVertical">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -85,7 +85,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aMZ-Go-Y6f">
-                                        <rect key="frame" x="0.0" y="69" width="132" height="39"/>
+                                        <rect key="frame" x="0.0" y="49" width="159" height="39"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <state key="normal" title="crossDissolve">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -95,7 +95,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yq5-S9-600">
-                                        <rect key="frame" x="0.0" y="138" width="132" height="39"/>
+                                        <rect key="frame" x="0.0" y="98" width="159" height="39"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <state key="normal" title="flipHorizontal">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -105,7 +105,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZX4-14-Kaj">
-                                        <rect key="frame" x="0.0" y="207" width="132" height="39"/>
+                                        <rect key="frame" x="0.0" y="147" width="159" height="39"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <state key="normal" title="partialCurl">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -115,13 +115,53 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZV4-QI-Ty8">
-                                        <rect key="frame" x="0.0" y="276" width="132" height="39"/>
+                                        <rect key="frame" x="0.0" y="196" width="159" height="39"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                        <state key="normal" title="Custom">
+                                        <state key="normal" title="fromRightCorner">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="customButtonTapped:" destination="nIu-3S-cOf" eventType="touchUpInside" id="9XW-2I-M6D"/>
+                                            <action selector="fromRightCornerButtonTapped:" destination="nIu-3S-cOf" eventType="touchUpInside" id="MDA-YG-qPs"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KNW-14-wlg">
+                                        <rect key="frame" x="0.0" y="245" width="159" height="39"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <state key="normal" title="rotate">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="rotateButtonTapped:" destination="nIu-3S-cOf" eventType="touchUpInside" id="VWC-DT-6y4"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dQp-8O-oKD">
+                                        <rect key="frame" x="0.0" y="294" width="159" height="39"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <state key="normal" title="withDamping">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="withDampingButtonTapped:" destination="nIu-3S-cOf" eventType="touchUpInside" id="GrM-8f-Uph"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JBf-8J-nBK">
+                                        <rect key="frame" x="0.0" y="343" width="159" height="39"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <state key="normal" title="toBottomSwap">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="toBottomSwapButtonTapped:" destination="nIu-3S-cOf" eventType="touchUpInside" id="L8d-RS-3Qt"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wTP-Dk-2L0">
+                                        <rect key="frame" x="0.0" y="392" width="159" height="39"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <state key="normal" title="toLeftSwap">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="toLeftSwapButtonTapped:" destination="nIu-3S-cOf" eventType="touchUpInside" id="nft-GL-Yhw"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -131,8 +171,8 @@
                         <constraints>
                             <constraint firstItem="sxC-RU-5Ba" firstAttribute="trailing" secondItem="uy3-Fv-7dw" secondAttribute="trailing" id="6PN-4X-SeR"/>
                             <constraint firstItem="sxC-RU-5Ba" firstAttribute="top" secondItem="uy3-Fv-7dw" secondAttribute="top" id="AkH-yW-ijb"/>
-                            <constraint firstItem="lMU-DD-n8g" firstAttribute="centerX" secondItem="YaN-jl-mvu" secondAttribute="centerX" id="VTd-sh-2Jf"/>
-                            <constraint firstItem="lMU-DD-n8g" firstAttribute="centerY" secondItem="YaN-jl-mvu" secondAttribute="centerY" id="l4P-N5-NdP"/>
+                            <constraint firstItem="lMU-DD-n8g" firstAttribute="centerX" secondItem="YaN-jl-mvu" secondAttribute="centerX" id="bzF-6K-QqT"/>
+                            <constraint firstItem="lMU-DD-n8g" firstAttribute="centerY" secondItem="YaN-jl-mvu" secondAttribute="centerY" id="rWX-aq-x2o"/>
                             <constraint firstItem="sxC-RU-5Ba" firstAttribute="leading" secondItem="uy3-Fv-7dw" secondAttribute="leading" id="vsY-Ra-RUv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="uy3-Fv-7dw"/>

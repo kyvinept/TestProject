@@ -48,7 +48,7 @@ extension SecondViewController: UINavigationControllerDelegate {
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         switch operation {
         case .push:
-            return CustomPushAnimator()
+            return AnimationFromRightCorner()
         default:
             return nil
         }

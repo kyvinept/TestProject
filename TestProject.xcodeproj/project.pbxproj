@@ -18,12 +18,15 @@
 		5B30F4BD214A98B40078D070 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B30F4BC214A98B40078D070 /* ThirdViewController.swift */; };
 		5B30F4BF214A98D70078D070 /* FourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B30F4BE214A98D70078D070 /* FourthViewController.swift */; };
 		5B30F4C1214A98DE0078D070 /* NewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B30F4C0214A98DE0078D070 /* NewViewController.swift */; };
-		5B30F4C3214A9C8D0078D070 /* CustomPushAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B30F4C2214A9C8D0078D070 /* CustomPushAnimator.swift */; };
+		5B30F4C3214A9C8D0078D070 /* AnimationFromRightCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B30F4C2214A9C8D0078D070 /* AnimationFromRightCorner.swift */; };
 		5B3384B62153993600736F5D /* DynamicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3384B52153993600736F5D /* DynamicsViewController.swift */; };
 		5B3384BA2153A07400736F5D /* DynamicsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3384B92153A07400736F5D /* DynamicsView.swift */; };
 		5B3384BC2153E5CD00736F5D /* AnimationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3384BB2153E5CD00736F5D /* AnimationsViewController.swift */; };
 		5B38A3172154DD5D00B73B79 /* PresentingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B38A3162154DD5D00B73B79 /* PresentingViewController.swift */; };
-		5B38A3192154E40A00B73B79 /* PresentAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B38A3182154E40A00B73B79 /* PresentAnimation.swift */; };
+		5B38A3192154E40A00B73B79 /* PresentRotateAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B38A3182154E40A00B73B79 /* PresentRotateAnimation.swift */; };
+		5B38A31B2154EDCE00B73B79 /* PresentWithDamping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B38A31A2154EDCE00B73B79 /* PresentWithDamping.swift */; };
+		5B38A31D2154F09300B73B79 /* DismissCurrentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B38A31C2154F09300B73B79 /* DismissCurrentVC.swift */; };
+		5B38A31F2154F1EE00B73B79 /* LeftPresentAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B38A31E2154F1EE00B73B79 /* LeftPresentAnimation.swift */; };
 		5B410AED21523D1A007C4AD0 /* GestureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B410AEC21523D1A007C4AD0 /* GestureViewController.swift */; };
 		5B410AEF21524CE6007C4AD0 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B410AEE21524CE6007C4AD0 /* CustomImageView.swift */; };
 		5B5CF371214FB94900515EEE /* SecondTap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B5CF370214FB94900515EEE /* SecondTap.storyboard */; };
@@ -51,12 +54,15 @@
 		5B30F4BC214A98B40078D070 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		5B30F4BE214A98D70078D070 /* FourthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthViewController.swift; sourceTree = "<group>"; };
 		5B30F4C0214A98DE0078D070 /* NewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewViewController.swift; sourceTree = "<group>"; };
-		5B30F4C2214A9C8D0078D070 /* CustomPushAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPushAnimator.swift; sourceTree = "<group>"; };
+		5B30F4C2214A9C8D0078D070 /* AnimationFromRightCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationFromRightCorner.swift; sourceTree = "<group>"; };
 		5B3384B52153993600736F5D /* DynamicsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicsViewController.swift; sourceTree = "<group>"; };
 		5B3384B92153A07400736F5D /* DynamicsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicsView.swift; sourceTree = "<group>"; };
 		5B3384BB2153E5CD00736F5D /* AnimationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationsViewController.swift; sourceTree = "<group>"; };
 		5B38A3162154DD5D00B73B79 /* PresentingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentingViewController.swift; sourceTree = "<group>"; };
-		5B38A3182154E40A00B73B79 /* PresentAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentAnimation.swift; sourceTree = "<group>"; };
+		5B38A3182154E40A00B73B79 /* PresentRotateAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentRotateAnimation.swift; sourceTree = "<group>"; };
+		5B38A31A2154EDCE00B73B79 /* PresentWithDamping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentWithDamping.swift; sourceTree = "<group>"; };
+		5B38A31C2154F09300B73B79 /* DismissCurrentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissCurrentVC.swift; sourceTree = "<group>"; };
+		5B38A31E2154F1EE00B73B79 /* LeftPresentAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftPresentAnimation.swift; sourceTree = "<group>"; };
 		5B410AEC21523D1A007C4AD0 /* GestureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureViewController.swift; sourceTree = "<group>"; };
 		5B410AEE21524CE6007C4AD0 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		5B5CF370214FB94900515EEE /* SecondTap.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SecondTap.storyboard; sourceTree = "<group>"; };
@@ -85,8 +91,11 @@
 			isa = PBXGroup;
 			children = (
 				5B27DA262150E5A2009E8B48 /* CustomPopAnimator.swift */,
-				5B30F4C2214A9C8D0078D070 /* CustomPushAnimator.swift */,
-				5B38A3182154E40A00B73B79 /* PresentAnimation.swift */,
+				5B30F4C2214A9C8D0078D070 /* AnimationFromRightCorner.swift */,
+				5B38A3182154E40A00B73B79 /* PresentRotateAnimation.swift */,
+				5B38A31A2154EDCE00B73B79 /* PresentWithDamping.swift */,
+				5B38A31C2154F09300B73B79 /* DismissCurrentVC.swift */,
+				5B38A31E2154F1EE00B73B79 /* LeftPresentAnimation.swift */,
 			);
 			path = Animation;
 			sourceTree = "<group>";
@@ -249,25 +258,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B38A31F2154F1EE00B73B79 /* LeftPresentAnimation.swift in Sources */,
 				5B410AED21523D1A007C4AD0 /* GestureViewController.swift in Sources */,
 				5B5CF38321500BBB00515EEE /* FirstViewController.swift in Sources */,
-				5B38A3192154E40A00B73B79 /* PresentAnimation.swift in Sources */,
+				5B38A3192154E40A00B73B79 /* PresentRotateAnimation.swift in Sources */,
 				5BD31E36214AA4B10097927B /* CustomTabBarController.swift in Sources */,
 				5B3384BC2153E5CD00736F5D /* AnimationsViewController.swift in Sources */,
 				5B30F4BB214A98AC0078D070 /* SecondViewController.swift in Sources */,
 				5B410AEF21524CE6007C4AD0 /* CustomImageView.swift in Sources */,
 				5B27DA2C215124AB009E8B48 /* Star.swift in Sources */,
 				5B30F4A9214A961E0078D070 /* TextViewController.swift in Sources */,
-				5B30F4C3214A9C8D0078D070 /* CustomPushAnimator.swift in Sources */,
+				5B30F4C3214A9C8D0078D070 /* AnimationFromRightCorner.swift in Sources */,
 				5B30F4BD214A98B40078D070 /* ThirdViewController.swift in Sources */,
 				5B3384BA2153A07400736F5D /* DynamicsView.swift in Sources */,
 				5B30F4C1214A98DE0078D070 /* NewViewController.swift in Sources */,
+				5B38A31D2154F09300B73B79 /* DismissCurrentVC.swift in Sources */,
 				5B5CF379214FBEFF00515EEE /* CustomAppDelegate.swift in Sources */,
 				5BC01EF5215141FB009D5081 /* ThreadSafeInt.swift in Sources */,
 				5B30F4BF214A98D70078D070 /* FourthViewController.swift in Sources */,
 				5B27DA272150E5A2009E8B48 /* CustomPopAnimator.swift in Sources */,
 				5B3384B62153993600736F5D /* DynamicsViewController.swift in Sources */,
 				5B27DA2A21511B1A009E8B48 /* UIObjectViewController.swift in Sources */,
+				5B38A31B2154EDCE00B73B79 /* PresentWithDamping.swift in Sources */,
 				5B38A3172154DD5D00B73B79 /* PresentingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
