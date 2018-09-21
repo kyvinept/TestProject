@@ -20,7 +20,7 @@ class CustomTabBarController: UITabBarController {
                                                  title: "FirstViewController",
                                                  image: #imageLiteral(resourceName: "star"),
                                          selectedImage: nil)
-        let second = createNewController(viewController: UIStoryboard(name: "SecondViewController", bundle: nil).instantiateViewController(withIdentifier: "SecondViewController"),
+        let second = createNewController(viewController: UIStoryboard(name: "SecondTap", bundle: nil).instantiateViewController(withIdentifier: "SecondViewController"),
                                                   title: "SecondViewController",
                                                   image: #imageLiteral(resourceName: "medical-history"),
                                           selectedImage: nil)

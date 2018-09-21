@@ -15,14 +15,6 @@ class FourthViewController: UIViewController {
         self.title = "FourthViewController"
         self.navigationController?.delegate = self
     }
-    
-    @IBAction func openNewViewController(_ sender: Any) {
-        let newVC = UIStoryboard(name: "NewViewController", bundle: nil).instantiateViewController(withIdentifier: "NewViewController") as? NewViewController
-        if let newVC = newVC {
-            newVC.delegate = self
-            self.navigationController?.pushViewController(newVC, animated: true)
-        }
-    }
 }
 
 extension FourthViewController: UINavigationControllerDelegate {

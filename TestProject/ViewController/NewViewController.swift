@@ -33,8 +33,7 @@ class NewViewController: UIViewController {
     }
     
     @IBAction func backButtonTapped(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
-        delegate?.backButtonTapped()
+        self.dismiss(animated: true, completion: nil)
     }
 }
 
