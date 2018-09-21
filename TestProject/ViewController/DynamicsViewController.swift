@@ -27,6 +27,7 @@ class DynamicsViewController: UIViewController {
                                        y: 470,
                                    width: 100,
                                   height: 20)
+    private let minSize = 70
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,8 +84,9 @@ extension DynamicsViewController {
     }
     
     private func createDynamicsView() {
-        let size = Int(arc4random_uniform(50) + 70)
-        let x = Int(arc4random_uniform(UInt32(self.view.frame.width - 100)))
+        let size = Int(arc4random_uniform(50) + UInt32(minSize))
+        let widthScreen = Int(self.view.frame.width)
+        let x = Int(arc4random_uniform(UInt32(widthScreen - size)))
         let topFrame = Int(self.topNavigationBar.frame.height + UIApplication.shared.statusBarFrame.height)
         let view = DynamicsView(frame: CGRect(x: x,
                                               y: topFrame,

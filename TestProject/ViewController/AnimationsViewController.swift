@@ -18,6 +18,8 @@ class AnimationsViewController: UIViewController {
     weak var delegate: AnimationsViewControllerDelegate?
     private let size: CGFloat = 100
     private let padding: CGFloat = 10
+    private let duration: Double = 2
+    private let decelerationToCenter: CGFloat = 30
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,10 +49,10 @@ class AnimationsViewController: UIViewController {
         let view3 = createViewWithBlockAnimation(frame: CGRect(x: padding, y: view2.center.y + view2.frame.height / 2 + padding, width: size, height: size))
         let view4 = createViewForRotateView(frame: CGRect(x: self.view.center.x - size/2, y: view3.center.y + view3.frame.height / 2 + padding, width: size, height: size))
         let _ = pulseAnimation(frame: CGRect(x: self.view.center.x - size, y: view4.center.y + view4.frame.height / 2 + padding , width: size*2, height: size*2))
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.666) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + duration/3) {
             let _ = self.pulseAnimation(frame: CGRect(x: self.view.center.x - self.size, y: view4.center.y + view4.frame.height / 2 + self.padding , width: self.size*2, height: self.size*2))
         }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.3333) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + duration/3*2) {
             let _ = self.pulseAnimation(frame: CGRect(x: self.view.center.x - self.size, y: view4.center.y + view4.frame.height / 2 + self.padding , width: self.size*2, height: self.size*2))
         }
     }
@@ -68,7 +70,7 @@ class AnimationsViewController: UIViewController {
         alpha.toValue = 0
         let group = CAAnimationGroup()
         group.animations = [alpha, scale]
-        group.duration = 2
+        group.duration = duration
         group.repeatCount = .greatestFiniteMagnitude
         newView.layer.add(group, forKey: "group")
         return newView
@@ -88,7 +90,7 @@ class AnimationsViewController: UIViewController {
         anim.fromValue = 1
         anim.toValue = 0.5
         anim.autoreverses = true
-        anim.duration = 2
+        anim.duration = duration
         anim.repeatCount = .greatestFiniteMagnitude
         newView.layer.add(anim, forKey: "transform.scale")
         return newView
@@ -101,7 +103,7 @@ class AnimationsViewController: UIViewController {
         anim.fromValue = 0.0
         anim.toValue = Double.pi
         anim.autoreverses = true
-        anim.duration = 2
+        anim.duration = duration
         anim.repeatCount = .greatestFiniteMagnitude
         newView.layer.add(anim, forKey: "transform.rotation")
         return newView
@@ -111,11 +113,11 @@ class AnimationsViewController: UIViewController {
         let newView = createView(frame: frame)
         
         let viewFrame = self.view.frame
-        let position = [10 + newView.frame.width/2, viewFrame.width / 2 - 30, viewFrame.width / 2, viewFrame.width / 2 + 30, viewFrame.width - 10 - newView.frame.width / 2]
+        let position = [padding + newView.frame.width/2, viewFrame.width / 2 - self.decelerationToCenter, viewFrame.width / 2, viewFrame.width / 2 + self.decelerationToCenter, viewFrame.width - padding - newView.frame.width / 2]
         let anim = CAKeyframeAnimation(keyPath: "position.x")
         anim.values = position
         anim.autoreverses = true
-        anim.duration = 3
+        anim.duration = duration + 1
         anim.repeatCount = .greatestFiniteMagnitude
         newView.layer.add(anim, forKey: "position.x")
         return newView
@@ -128,22 +130,22 @@ class AnimationsViewController: UIViewController {
     }
     
     private func moveViewToRight(view: UIView) {
-        UIView.animate(withDuration: 2,
+        UIView.animate(withDuration: duration,
                               delay: 0,
              usingSpringWithDamping: 0.8,
               initialSpringVelocity: 0.1,
                             options: .curveEaseIn,
-                         animations: { view.center.x = self.view.frame.width - 10 - view.frame.width / 2 },
+                         animations: { view.center.x = self.view.frame.width - self.padding - view.frame.width / 2 },
                          completion: { _ in self.moveViewToLeft(view: view) })
     }
     
     private func moveViewToLeft(view: UIView) {
-        UIView.animate(withDuration: 2,
+        UIView.animate(withDuration: duration,
                               delay: 0,
              usingSpringWithDamping: 0.1,
               initialSpringVelocity: 1,
                             options: .curveEaseOut,
-                         animations: { view.center.x = 10 + view.frame.width/2 },
+                         animations: { view.center.x = self.padding + view.frame.width/2 },
                          completion: { _ in self.moveViewToRight(view: view) })
     }
 }
