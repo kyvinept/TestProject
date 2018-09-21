@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol TextViewControllerDelegate {
+protocol TextViewControllerDelegate: class {
     func backButtonTapped()
 }
 
@@ -19,7 +19,7 @@ class TextViewController: UIViewController {
     private let leftConstraintConstant: CGFloat = 10
     private let rightConstraintConstant: CGFloat = 10
     private let topConstraintConstant: CGFloat = 10
-    var delegate: TextViewControllerDelegate?
+    weak var delegate: TextViewControllerDelegate?
     @IBOutlet weak var navigationBar: UINavigationBar!
     
     override func viewDidLoad() {

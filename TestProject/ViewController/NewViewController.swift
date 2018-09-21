@@ -8,13 +8,13 @@
 
 import UIKit
 
-protocol NewViewControllerDelegate {
+protocol NewViewControllerDelegate: class {
     func backButtonTapped()
 }
 
 class NewViewController: UIViewController {
     
-    var delegate: NewViewControllerDelegate?
+    weak var delegate: NewViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()

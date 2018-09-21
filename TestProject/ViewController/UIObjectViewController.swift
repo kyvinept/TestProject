@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol UIObjectViewControllerDelegate {
+protocol UIObjectViewControllerDelegate: class {
     func backButtonTapped()
 }
 
@@ -16,7 +16,7 @@ class UIObjectViewController: UIViewController {
     
     @IBOutlet private weak var scrollView: UIScrollView!
     private var addToView: UIView?
-    var delegate: UIObjectViewControllerDelegate?
+    weak var delegate: UIObjectViewControllerDelegate?
     private let imageUrlArray = ["https://as2.ftcdn.net/jpg/00/75/60/21/500_F_75602131_epMBFuHmvreFJDu4DK2mOzlI0vczSkkw.jpg",
                                  "https://as1.ftcdn.net/jpg/01/00/52/58/500_F_100525844_iy9n7Jh4KJbbOwNCOKnv7koqtejka4H8.jpg",
                                  "https://as2.ftcdn.net/jpg/01/37/55/61/500_F_137556122_6deQOCLc8oWDWR3YQZomudzP6EAtETMA.jpg",

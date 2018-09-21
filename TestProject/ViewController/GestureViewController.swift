@@ -8,14 +8,14 @@
 
 import UIKit
 
-protocol GestureViewControllerDelegate {
+protocol GestureViewControllerDelegate: class {
     func backButtonTapped()
 }
 
 class GestureViewController: UIViewController {
     
     @IBOutlet private weak var topNavigationBar: UINavigationBar!
-    var delegate: GestureViewControllerDelegate?
+    weak var delegate: GestureViewControllerDelegate?
     private let imageUrlArray = ["https://as2.ftcdn.net/jpg/00/75/60/21/500_F_75602131_epMBFuHmvreFJDu4DK2mOzlI0vczSkkw.jpg",
                                  "https://as1.ftcdn.net/jpg/01/00/52/58/500_F_100525844_iy9n7Jh4KJbbOwNCOKnv7koqtejka4H8.jpg"]
     private let minWidth: CGFloat = 50

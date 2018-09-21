@@ -8,14 +8,14 @@
 
 import UIKit
 
-protocol AnimationsViewControllerDelegate {
+protocol AnimationsViewControllerDelegate: class {
     func backButtonTapped()
 }
 
 class AnimationsViewController: UIViewController {
 
     @IBOutlet private weak var topNavigationBar: UINavigationBar!
-    var delegate: AnimationsViewControllerDelegate?
+    weak var delegate: AnimationsViewControllerDelegate?
     private let size: CGFloat = 100
     private let padding: CGFloat = 10
     
@@ -45,7 +45,33 @@ class AnimationsViewController: UIViewController {
         let view1 = createViewForChangeScale(frame: CGRect(x: padding, y: self.topNavigationBar.frame.height + UIApplication.shared.statusBarFrame.height + padding, width: size, height: size))
         let view2 = createViewWithCAKeyframeAnimation(frame: CGRect(x: padding, y: view1.center.y + view1.frame.height / 2 + padding, width: size, height: size))
         let view3 = createViewWithBlockAnimation(frame: CGRect(x: padding, y: view2.center.y + view2.frame.height / 2 + padding, width: size, height: size))
-        let _ = createViewForRotateView(frame: CGRect(x: self.view.center.x - size/2, y: view3.center.y + view3.frame.height / 2 + padding, width: size, height: size))
+        let view4 = createViewForRotateView(frame: CGRect(x: self.view.center.x - size/2, y: view3.center.y + view3.frame.height / 2 + padding, width: size, height: size))
+        let _ = pulseAnimation(frame: CGRect(x: self.view.center.x - size, y: view4.center.y + view4.frame.height / 2 + padding , width: size*2, height: size*2))
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.666) {
+            let _ = self.pulseAnimation(frame: CGRect(x: self.view.center.x - self.size, y: view4.center.y + view4.frame.height / 2 + self.padding , width: self.size*2, height: self.size*2))
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.3333) {
+            let _ = self.pulseAnimation(frame: CGRect(x: self.view.center.x - self.size, y: view4.center.y + view4.frame.height / 2 + self.padding , width: self.size*2, height: self.size*2))
+        }
+    }
+    
+    private func pulseAnimation(frame: CGRect) -> UIView{
+        let newView = createView(frame: frame)
+        newView.layer.cornerRadius = newView.frame.width/2
+        newView.backgroundColor = .red
+        
+        let scale = CABasicAnimation(keyPath: "transform.scale")
+        scale.fromValue = 0
+        scale.toValue = 1
+        let alpha = CABasicAnimation(keyPath: "opacity")
+        alpha.fromValue = 1
+        alpha.toValue = 0
+        let group = CAAnimationGroup()
+        group.animations = [alpha, scale]
+        group.duration = 2
+        group.repeatCount = .greatestFiniteMagnitude
+        newView.layer.add(group, forKey: "group")
+        return newView
     }
     
     private func createView(frame: CGRect) -> UIView {

@@ -8,14 +8,14 @@
 
 import UIKit
 
-protocol DynamicsViewDelegate {
+protocol DynamicsViewDelegate: class {
     func viewWillDelete(view: DynamicsView)
     func viewChangeLocation(view: DynamicsView, translation: CGPoint)
 }
 
 class DynamicsView: UIView {
     
-    var delegate: DynamicsViewDelegate?
+    weak var delegate: DynamicsViewDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)

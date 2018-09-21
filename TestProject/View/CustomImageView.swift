@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol CustomImageViewDelegate {
+protocol CustomImageViewDelegate: class {
     func viewChangeLocation(imageView: CustomImageView)
     func viewWillChangeLocation(imageView: CustomImageView, translation: CGPoint)
     func viewWillChangeScale(imageView: CustomImageView, scale: CGFloat)
@@ -16,7 +16,7 @@ protocol CustomImageViewDelegate {
 
 class CustomImageView: UIImageView {
     
-    var delegate: CustomImageViewDelegate?
+    weak var delegate: CustomImageViewDelegate?
 
     override init(frame: CGRect) {
         super.init(frame: frame)

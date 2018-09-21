@@ -8,13 +8,13 @@
 
 import UIKit
 
-protocol DynamicsViewControllerDelegate {
+protocol DynamicsViewControllerDelegate: class {
     func backButtonTapped()
 }
 
 class DynamicsViewController: UIViewController {
 
-    var delegate: DynamicsViewControllerDelegate?
+    weak var delegate: DynamicsViewControllerDelegate?
     @IBOutlet private weak var topNavigationBar: UINavigationBar!
     private var collision: UICollisionBehavior!
     private var animator: UIDynamicAnimator!
