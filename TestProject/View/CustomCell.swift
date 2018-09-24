@@ -21,6 +21,7 @@ class CustomCell: UITableViewCell {
     weak var delegate:CustomCellDelegate?
     private var isDeleteButtonShow = false
     private var deleteButton: UIButton!
+    private let widthDeleteButton: CGFloat = 100
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,7 +30,7 @@ class CustomCell: UITableViewCell {
     }
     
     private func createButton() {
-        deleteButton = UIButton(frame: CGRect(x: self.frame.width, y: 0, width: 100, height: self.frame.height))
+        deleteButton = UIButton(frame: CGRect(x: self.frame.width, y: 0, width: widthDeleteButton, height: self.frame.height))
         deleteButton!.backgroundColor = .red
         deleteButton!.setTitle("Delete", for: .normal)
         deleteButton!.isUserInteractionEnabled = false
@@ -68,10 +69,10 @@ class CustomCell: UITableViewCell {
         isDeleteButtonShow = false
         
         UIView.animate(withDuration: 0.5, animations: {
-            self.frame.origin.x += 100
-            self.deleteButton.frame.origin.x += 50
+            self.frame.origin.x += self.widthDeleteButton
+            self.deleteButton.frame.origin.x += self.widthDeleteButton/2
         }) { (_) in
-            self.frame.size.width -= 200
+            self.frame.size.width -= self.widthDeleteButton*2
         }
     }
     
@@ -81,10 +82,10 @@ class CustomCell: UITableViewCell {
         }
         isDeleteButtonShow = true
         
-        self.frame.size.width += 200
+        self.frame.size.width += widthDeleteButton*2
         UIView.animate(withDuration: 0.5) {
-            self.frame.origin.x -= 100
-            self.deleteButton.frame.origin.x -= 50
+            self.frame.origin.x -= self.widthDeleteButton
+            self.deleteButton.frame.origin.x -= self.widthDeleteButton/2
         }
     }
     

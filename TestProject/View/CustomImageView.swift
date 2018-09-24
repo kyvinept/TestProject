@@ -2,7 +2,7 @@
 //  CustomImageView.swift
 //  TestProject
 //
-//  Created by Silchenko on 19.09.2018.
+//  Created by Silchenko on 24.09.2018.
 //  Copyright © 2018 Silchenko. All rights reserved.
 //
 
@@ -17,7 +17,7 @@ protocol CustomImageViewDelegate: class {
 class CustomImageView: UIImageView {
     
     weak var delegate: CustomImageViewDelegate?
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         addGesture()

@@ -33,7 +33,13 @@
 		5B38A32A21550C6700B73B79 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B38A32921550C6700B73B79 /* CustomCell.swift */; };
 		5B38A32C21552E3600B73B79 /* CustomCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B38A32B21552E3600B73B79 /* CustomCellViewModel.swift */; };
 		5B410AED21523D1A007C4AD0 /* GestureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B410AEC21523D1A007C4AD0 /* GestureViewController.swift */; };
-		5B410AEF21524CE6007C4AD0 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B410AEE21524CE6007C4AD0 /* CustomImageView.swift */; };
+		5B434CD02159349E00FF9FFE /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B434CCF2159349E00FF9FFE /* CollectionViewController.swift */; };
+		5B434CD22159454000FF9FFE /* ImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B434CD12159454000FF9FFE /* ImageCell.xib */; };
+		5B434CD42159455700FF9FFE /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B434CD32159455700FF9FFE /* ImageCell.swift */; };
+		5B434CD6215945DB00FF9FFE /* ImageCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B434CD5215945DB00FF9FFE /* ImageCellViewModel.swift */; };
+		5B434CD82159490400FF9FFE /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B434CD72159490400FF9FFE /* ImageViewController.swift */; };
+		5B434CDC21594C2C00FF9FFE /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B434CDB21594C2C00FF9FFE /* CustomImageView.swift */; };
+		5B434CDE21594CA200FF9FFE /* BigImageShowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B434CDD21594CA200FF9FFE /* BigImageShowView.swift */; };
 		5B5CF371214FB94900515EEE /* SecondTap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B5CF370214FB94900515EEE /* SecondTap.storyboard */; };
 		5B5CF373214FB95400515EEE /* ThirdViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B5CF372214FB95400515EEE /* ThirdViewController.storyboard */; };
 		5B5CF375214FB96300515EEE /* FourthViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B5CF374214FB96300515EEE /* FourthViewController.storyboard */; };
@@ -74,7 +80,13 @@
 		5B38A32921550C6700B73B79 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		5B38A32B21552E3600B73B79 /* CustomCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellViewModel.swift; sourceTree = "<group>"; };
 		5B410AEC21523D1A007C4AD0 /* GestureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureViewController.swift; sourceTree = "<group>"; };
-		5B410AEE21524CE6007C4AD0 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
+		5B434CCF2159349E00FF9FFE /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		5B434CD12159454000FF9FFE /* ImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCell.xib; sourceTree = "<group>"; };
+		5B434CD32159455700FF9FFE /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
+		5B434CD5215945DB00FF9FFE /* ImageCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCellViewModel.swift; sourceTree = "<group>"; };
+		5B434CD72159490400FF9FFE /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
+		5B434CDB21594C2C00FF9FFE /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
+		5B434CDD21594CA200FF9FFE /* BigImageShowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigImageShowView.swift; sourceTree = "<group>"; };
 		5B5CF370214FB94900515EEE /* SecondTap.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SecondTap.storyboard; sourceTree = "<group>"; };
 		5B5CF372214FB95400515EEE /* ThirdViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ThirdViewController.storyboard; sourceTree = "<group>"; };
 		5B5CF374214FB96300515EEE /* FourthViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FourthViewController.storyboard; sourceTree = "<group>"; };
@@ -148,12 +160,16 @@
 				5B5CF372214FB95400515EEE /* ThirdViewController.storyboard */,
 				5B5CF374214FB96300515EEE /* FourthViewController.storyboard */,
 				5B5CF376214FB96B00515EEE /* NewViewController.storyboard */,
+				5B434CDB21594C2C00FF9FFE /* CustomImageView.swift */,
 				5B27DA2B215124AB009E8B48 /* Star.swift */,
-				5B410AEE21524CE6007C4AD0 /* CustomImageView.swift */,
 				5B3384B92153A07400736F5D /* DynamicsView.swift */,
 				5B38A3272154FF0B00B73B79 /* CustomCell.xib */,
 				5B38A32921550C6700B73B79 /* CustomCell.swift */,
 				5B38A32B21552E3600B73B79 /* CustomCellViewModel.swift */,
+				5B434CD12159454000FF9FFE /* ImageCell.xib */,
+				5B434CD32159455700FF9FFE /* ImageCell.swift */,
+				5B434CD5215945DB00FF9FFE /* ImageCellViewModel.swift */,
+				5B434CDD21594CA200FF9FFE /* BigImageShowView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -192,6 +208,8 @@
 				5B30F4BA214A98AC0078D070 /* SecondViewController.swift */,
 				5B38A3162154DD5D00B73B79 /* PresentingViewController.swift */,
 				5B38A3202154FA5400B73B79 /* TableViewController.swift */,
+				5B434CCF2159349E00FF9FFE /* CollectionViewController.swift */,
+				5B434CD72159490400FF9FFE /* ImageViewController.swift */,
 			);
 			path = SecondTap;
 			sourceTree = "<group>";
@@ -269,6 +287,7 @@
 				5B30F4B1214A96200078D070 /* LaunchScreen.storyboard in Resources */,
 				5B5CF373214FB95400515EEE /* ThirdViewController.storyboard in Resources */,
 				5B30F4AE214A96200078D070 /* Assets.xcassets in Resources */,
+				5B434CD22159454000FF9FFE /* ImageCell.xib in Resources */,
 				5B38A3282154FF0B00B73B79 /* CustomCell.xib in Resources */,
 				5B5CF371214FB94900515EEE /* SecondTap.storyboard in Resources */,
 			);
@@ -282,25 +301,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B38A31F2154F1EE00B73B79 /* LeftPresentAnimation.swift in Sources */,
+				5B434CDE21594CA200FF9FFE /* BigImageShowView.swift in Sources */,
 				5B410AED21523D1A007C4AD0 /* GestureViewController.swift in Sources */,
 				5B5CF38321500BBB00515EEE /* FirstViewController.swift in Sources */,
 				5B38A32C21552E3600B73B79 /* CustomCellViewModel.swift in Sources */,
 				5B38A3262154FD2E00B73B79 /* NetworkingManager.swift in Sources */,
+				5B434CD6215945DB00FF9FFE /* ImageCellViewModel.swift in Sources */,
 				5B38A3192154E40A00B73B79 /* PresentRotateAnimation.swift in Sources */,
 				5BD31E36214AA4B10097927B /* CustomTabBarController.swift in Sources */,
 				5B38A3242154FA7000B73B79 /* DataModel.swift in Sources */,
+				5B434CDC21594C2C00FF9FFE /* CustomImageView.swift in Sources */,
 				5B3384BC2153E5CD00736F5D /* AnimationsViewController.swift in Sources */,
 				5B30F4BB214A98AC0078D070 /* SecondViewController.swift in Sources */,
-				5B410AEF21524CE6007C4AD0 /* CustomImageView.swift in Sources */,
 				5B38A3212154FA5400B73B79 /* TableViewController.swift in Sources */,
 				5B27DA2C215124AB009E8B48 /* Star.swift in Sources */,
 				5B30F4A9214A961E0078D070 /* TextViewController.swift in Sources */,
 				5B30F4C3214A9C8D0078D070 /* AnimationFromRightCorner.swift in Sources */,
+				5B434CD02159349E00FF9FFE /* CollectionViewController.swift in Sources */,
 				5B30F4BD214A98B40078D070 /* ThirdViewController.swift in Sources */,
 				5B3384BA2153A07400736F5D /* DynamicsView.swift in Sources */,
 				5B30F4C1214A98DE0078D070 /* NewViewController.swift in Sources */,
 				5B38A31D2154F09300B73B79 /* DismissCurrentVC.swift in Sources */,
 				5B38A32A21550C6700B73B79 /* CustomCell.swift in Sources */,
+				5B434CD82159490400FF9FFE /* ImageViewController.swift in Sources */,
 				5B5CF379214FBEFF00515EEE /* CustomAppDelegate.swift in Sources */,
 				5BC01EF5215141FB009D5081 /* ThreadSafeInt.swift in Sources */,
 				5B30F4BF214A98D70078D070 /* FourthViewController.swift in Sources */,
@@ -309,6 +332,7 @@
 				5B27DA2A21511B1A009E8B48 /* UIObjectViewController.swift in Sources */,
 				5B38A31B2154EDCE00B73B79 /* PresentWithDamping.swift in Sources */,
 				5B38A3172154DD5D00B73B79 /* PresentingViewController.swift in Sources */,
+				5B434CD42159455700FF9FFE /* ImageCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
