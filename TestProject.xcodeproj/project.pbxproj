@@ -27,10 +27,11 @@
 		5B38A31D2154F09300B73B79 /* DismissCurrentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B38A31C2154F09300B73B79 /* DismissCurrentVC.swift */; };
 		5B38A31F2154F1EE00B73B79 /* LeftPresentAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B38A31E2154F1EE00B73B79 /* LeftPresentAnimation.swift */; };
 		5B38A3212154FA5400B73B79 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B38A3202154FA5400B73B79 /* TableViewController.swift */; };
-		5B38A3242154FA7000B73B79 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B38A3232154FA7000B73B79 /* Item.swift */; };
-		5B38A3262154FD2E00B73B79 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B38A3252154FD2E00B73B79 /* Networking.swift */; };
-		5B38A3282154FF0B00B73B79 /* TableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B38A3272154FF0B00B73B79 /* TableCell.xib */; };
-		5B38A32A21550C6700B73B79 /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B38A32921550C6700B73B79 /* TableCell.swift */; };
+		5B38A3242154FA7000B73B79 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B38A3232154FA7000B73B79 /* DataModel.swift */; };
+		5B38A3262154FD2E00B73B79 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B38A3252154FD2E00B73B79 /* NetworkingManager.swift */; };
+		5B38A3282154FF0B00B73B79 /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B38A3272154FF0B00B73B79 /* CustomCell.xib */; };
+		5B38A32A21550C6700B73B79 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B38A32921550C6700B73B79 /* CustomCell.swift */; };
+		5B38A32C21552E3600B73B79 /* CustomCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B38A32B21552E3600B73B79 /* CustomCellViewModel.swift */; };
 		5B410AED21523D1A007C4AD0 /* GestureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B410AEC21523D1A007C4AD0 /* GestureViewController.swift */; };
 		5B410AEF21524CE6007C4AD0 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B410AEE21524CE6007C4AD0 /* CustomImageView.swift */; };
 		5B5CF371214FB94900515EEE /* SecondTap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B5CF370214FB94900515EEE /* SecondTap.storyboard */; };
@@ -67,10 +68,11 @@
 		5B38A31C2154F09300B73B79 /* DismissCurrentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissCurrentVC.swift; sourceTree = "<group>"; };
 		5B38A31E2154F1EE00B73B79 /* LeftPresentAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftPresentAnimation.swift; sourceTree = "<group>"; };
 		5B38A3202154FA5400B73B79 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
-		5B38A3232154FA7000B73B79 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
-		5B38A3252154FD2E00B73B79 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
-		5B38A3272154FF0B00B73B79 /* TableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableCell.xib; sourceTree = "<group>"; };
-		5B38A32921550C6700B73B79 /* TableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCell.swift; sourceTree = "<group>"; };
+		5B38A3232154FA7000B73B79 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		5B38A3252154FD2E00B73B79 /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
+		5B38A3272154FF0B00B73B79 /* CustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
+		5B38A32921550C6700B73B79 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		5B38A32B21552E3600B73B79 /* CustomCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellViewModel.swift; sourceTree = "<group>"; };
 		5B410AEC21523D1A007C4AD0 /* GestureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureViewController.swift; sourceTree = "<group>"; };
 		5B410AEE21524CE6007C4AD0 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		5B5CF370214FB94900515EEE /* SecondTap.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SecondTap.storyboard; sourceTree = "<group>"; };
@@ -149,8 +151,9 @@
 				5B27DA2B215124AB009E8B48 /* Star.swift */,
 				5B410AEE21524CE6007C4AD0 /* CustomImageView.swift */,
 				5B3384B92153A07400736F5D /* DynamicsView.swift */,
-				5B38A3272154FF0B00B73B79 /* TableCell.xib */,
-				5B38A32921550C6700B73B79 /* TableCell.swift */,
+				5B38A3272154FF0B00B73B79 /* CustomCell.xib */,
+				5B38A32921550C6700B73B79 /* CustomCell.swift */,
+				5B38A32B21552E3600B73B79 /* CustomCellViewModel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -196,8 +199,8 @@
 		5B38A3222154FA5E00B73B79 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				5B38A3232154FA7000B73B79 /* Item.swift */,
-				5B38A3252154FD2E00B73B79 /* Networking.swift */,
+				5B38A3232154FA7000B73B79 /* DataModel.swift */,
+				5B38A3252154FD2E00B73B79 /* NetworkingManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -266,7 +269,7 @@
 				5B30F4B1214A96200078D070 /* LaunchScreen.storyboard in Resources */,
 				5B5CF373214FB95400515EEE /* ThirdViewController.storyboard in Resources */,
 				5B30F4AE214A96200078D070 /* Assets.xcassets in Resources */,
-				5B38A3282154FF0B00B73B79 /* TableCell.xib in Resources */,
+				5B38A3282154FF0B00B73B79 /* CustomCell.xib in Resources */,
 				5B5CF371214FB94900515EEE /* SecondTap.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -281,10 +284,11 @@
 				5B38A31F2154F1EE00B73B79 /* LeftPresentAnimation.swift in Sources */,
 				5B410AED21523D1A007C4AD0 /* GestureViewController.swift in Sources */,
 				5B5CF38321500BBB00515EEE /* FirstViewController.swift in Sources */,
-				5B38A3262154FD2E00B73B79 /* Networking.swift in Sources */,
+				5B38A32C21552E3600B73B79 /* CustomCellViewModel.swift in Sources */,
+				5B38A3262154FD2E00B73B79 /* NetworkingManager.swift in Sources */,
 				5B38A3192154E40A00B73B79 /* PresentRotateAnimation.swift in Sources */,
 				5BD31E36214AA4B10097927B /* CustomTabBarController.swift in Sources */,
-				5B38A3242154FA7000B73B79 /* Item.swift in Sources */,
+				5B38A3242154FA7000B73B79 /* DataModel.swift in Sources */,
 				5B3384BC2153E5CD00736F5D /* AnimationsViewController.swift in Sources */,
 				5B30F4BB214A98AC0078D070 /* SecondViewController.swift in Sources */,
 				5B410AEF21524CE6007C4AD0 /* CustomImageView.swift in Sources */,
@@ -296,7 +300,7 @@
 				5B3384BA2153A07400736F5D /* DynamicsView.swift in Sources */,
 				5B30F4C1214A98DE0078D070 /* NewViewController.swift in Sources */,
 				5B38A31D2154F09300B73B79 /* DismissCurrentVC.swift in Sources */,
-				5B38A32A21550C6700B73B79 /* TableCell.swift in Sources */,
+				5B38A32A21550C6700B73B79 /* CustomCell.swift in Sources */,
 				5B5CF379214FBEFF00515EEE /* CustomAppDelegate.swift in Sources */,
 				5BC01EF5215141FB009D5081 /* ThreadSafeInt.swift in Sources */,
 				5B30F4BF214A98D70078D070 /* FourthViewController.swift in Sources */,

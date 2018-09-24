@@ -234,6 +234,7 @@
                                 <connections>
                                     <outlet property="dataSource" destination="KlO-dQ-tdt" id="KpE-aD-jf4"/>
                                     <outlet property="delegate" destination="KlO-dQ-tdt" id="O7g-W3-bpP"/>
+                                    <outlet property="prefetchDataSource" destination="KlO-dQ-tdt" id="M9V-SN-d6n"/>
                                 </connections>
                             </tableView>
                         </subviews>
