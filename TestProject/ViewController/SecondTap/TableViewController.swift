@@ -101,11 +101,11 @@ class TableViewController: UIViewController {
                 return
             }
             if title == "" {
-                self.showErrorMessage(message: "Empty id field. Try again!")
+                self.showErrorMessage(message: "Empty title field. Try again!")
                 return
             }
             if description == "" {
-                self.showErrorMessage(message: "Empty id field. Try again!")
+                self.showErrorMessage(message: "Empty description field. Try again!")
                 return
             }
             self.addItem(id: id,
