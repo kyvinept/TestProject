@@ -225,6 +225,11 @@
                                                 <action selector="backButtonTapped:" destination="KlO-dQ-tdt" id="Xdr-vT-nLD"/>
                                             </connections>
                                         </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="651-KL-zYf">
+                                            <connections>
+                                                <action selector="addItemToTable:" destination="KlO-dQ-tdt" id="FC5-SW-eZs"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>

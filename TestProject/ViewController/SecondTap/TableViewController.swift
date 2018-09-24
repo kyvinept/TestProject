@@ -36,11 +36,6 @@ class TableViewController: UIViewController {
     }
     
     @objc func refreshData() {
-        items.append(DataModel(id: "100 wejfwen glew gelw gnelw nwelg",
-                       title: "100 title wejfwen glew gelw gnelw nwelgk enwl gnwe lgwkenlewn glwen glwek gnweg nwelkgn welgnwlgeqwegp kw[pg we glewkg wel;g kweg",
-                       description: "100 description wejfwen glew gelw gnelw nwelgk enwl gnwe lgwkenlewn glwen glwek gnweg nwelkgn welgnwlgeqwegp kw[pg we glewkg wel;g kweg ",
-                    imageUrl: ""))
-        items[items.count-1].imageUrl = "https://images-assets.nasa.gov/image/PIA18033/PIA18033~thumb.jpg"
         tableView.reloadData()
         refresh.endRefreshing()
     }
@@ -67,7 +62,6 @@ class TableViewController: UIViewController {
                               title: String(i) + " title",
                         description: String(i) + " description",
                            imageUrl: img[i-1])
-            item.delegate = self
             items.append(item)
         }
     }
@@ -85,6 +79,60 @@ class TableViewController: UIViewController {
         img.append("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAqIftOdn-YQ--soQAab_JqgM_v5Q09LbX6JAqjhDEbShw5f7C-A")
         img.append("https://cdn0.tnwcdn.com/wp-content/blogs.dir/1/files/2017/12/Screen-Shot-2017-12-04-at-10.39.57-796x447.png")
         return img
+    }
+    
+    @IBAction func addItemToTable(_ sender: Any) {
+        let alert = UIAlertController(title: "Input", message: nil, preferredStyle: .alert)
+        alert.addTextField { (textField) in
+            textField.placeholder = "id"
+        }
+        alert.addTextField { (textField) in
+            textField.placeholder = "title"
+        }
+        alert.addTextField { (textField) in
+            textField.placeholder = "description"
+        }
+        alert.addAction(UIAlertAction(title: "Input", style: .default, handler: { (_) in
+            let id = alert.textFields![0].text!
+            let title = alert.textFields![1].text!
+            let description = alert.textFields![2].text!
+            if id == "" {
+                self.showErrorMessage(message: "Empty id field. Try again!")
+                return
+            }
+            if title == "" {
+                self.showErrorMessage(message: "Empty id field. Try again!")
+                return
+            }
+            if description == "" {
+                self.showErrorMessage(message: "Empty id field. Try again!")
+                return
+            }
+            self.addItem(id: id,
+                      title: title,
+                description: description)
+            self.dismiss(animated: true, completion: nil)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (_) in
+            self.dismiss(animated: true, completion: nil)
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    private func showErrorMessage(message: String) {
+        let alert = UIAlertController(title: message, message: nil, preferredStyle: .alert)
+        self.present(alert, animated: true, completion: nil)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    private func addItem(id: String, title: String, description: String) {
+        items.append(DataModel(id: id,
+                            title: title,
+                      description: description,
+                         imageUrl: "https://images-assets.nasa.gov/image/PIA18033/PIA18033~thumb.jpg"))
+        tableView.reloadData()
     }
 }
 
@@ -104,7 +152,7 @@ extension TableViewController: UITableViewDelegate, UITableViewDataSource {
             cell = UITableViewCell(style: .default, reuseIdentifier: "Cell") as? CustomCell
         }
         let viewModel = createViewModel(data: items[indexPath.row])
-        cell?.setProperties(model: viewModel)
+        cell?.configure(model: viewModel)
         cell?.delegate = self
         return cell!
     }
@@ -120,14 +168,19 @@ extension TableViewController: UITableViewDelegate, UITableViewDataSource {
                                     titleColor: .black,
                                    description: data.description,
                               descriptionColor: .black,
-                                         image: data.image ?? UIImage(named: "image"))
+                                      imageUrl: data.imageUrl,
+                                         image: data.image)
         return viewModel
     }
     
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         return true
     }
-    
+
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         items.insert(items.remove(at: sourceIndexPath.row), at: destinationIndexPath.row)
     }
@@ -139,25 +192,10 @@ extension TableViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension TableViewController: CustomCellDelegate {
     
-    func swipeCellToDelete(viewModelCell: CustomCellViewModel) {
-        guard let index = items.index(where: { $0.id == viewModelCell.id }) else { return }
-        items.remove(at: index)
-        tableView.deleteRows(at: [IndexPath(item: index, section: 0)], with: .fade)
-    }
-}
-
-extension TableViewController: DataModelDelegate {
-    
-    func imageDownloadFinished(id: String) {
-        let index = items.index { $0.id == id }!
-        DispatchQueue.main.async {
-            let visibleCountCell = self.tableView.visibleCells.count
-            if visibleCountCell <= index {
-                return
-            }
-            let customCell = self.tableView.cellForRow(at: IndexPath(row: index, section: 0)) as! CustomCell
-            customCell.setProperties(model: self.createViewModel(data: self.items[index]))
-        }
+    func deleteButtonTapped(view: CustomCell) {
+        guard let indexPath = tableView.indexPath(for: view) else { return }
+        items.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .fade)
     }
 }
 

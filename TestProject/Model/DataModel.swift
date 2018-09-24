@@ -8,13 +8,8 @@
 
 import UIKit
 
-protocol DataModelDelegate: class {
-    func imageDownloadFinished(id: String)
-}
-
 class DataModel {
     
-    weak var delegate: DataModelDelegate?
     var id: String
     var title: String
     var description: String
@@ -35,7 +30,6 @@ class DataModel {
     private func getImage() {
         NetworkingManager.shared.downloadImage(url: imageUrl) { img in
             self.image = img
-            self.delegate?.imageDownloadFinished(id: self.id)
         }
     }
 }

@@ -19,9 +19,6 @@ struct CustomCellViewModel {
     var description: String
     var descriptionColor: UIColor
     
+    var imageUrl: String
     var image: UIImage?
-    
-    func setDataInCustomCell() {
-        
-    }
 }
