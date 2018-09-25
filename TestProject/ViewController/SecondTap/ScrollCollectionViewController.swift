@@ -18,6 +18,7 @@ class ScrollCollectionViewController: UIViewController {
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var collectionViewHorizontal: UICollectionView!
     weak var delegate: ScrollCollectionViewControllerDelegate?
+    private let spacing: CGFloat = 25
     private var images = [UIImage]()
     private var imagesUrl = ["https://images-assets.nasa.gov/image/PIA18033/PIA18033~thumb.jpg",
                              "https://www.gettyimages.in/landing/assets/static_content/home/info-tabs3.jpg",
@@ -49,8 +50,6 @@ class ScrollCollectionViewController: UIViewController {
                 self.images.append(image)
                 self.collectionView.reloadData()
                 self.collectionViewHorizontal.reloadData()
-                self.collectionView.frame.size.height = self.collectionView.contentSize.height
-                self.scrollView.contentSize.height = self.collectionViewHorizontal.frame.height + self.collectionView.frame.height 
             }
         })
     }
@@ -74,6 +73,7 @@ class ScrollCollectionViewController: UIViewController {
 extension ScrollCollectionViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        calculateSize(count: images.count)
         return images.count
     }
     
@@ -83,6 +83,21 @@ extension ScrollCollectionViewController: UICollectionViewDelegate, UICollection
                                                   borderColor: UIColor.blue.cgColor,
                                                         image: images[indexPath.row]))
         return cell!
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = CGFloat(Int((self.view.frame.width - spacing*3)/2))
+        return CGSize(width: width, height: width)
+    }
+    
+    private func calculateSize(count: Int) {
+        let width = ((self.view.frame.width - spacing*3)/2)
+        var k = count
+        if k % 2 == 1 {
+            k+=1
+        }
+        collectionView.frame.size.height = CGFloat(k/2)*width + spacing*CGFloat((k/2+1))
+        scrollView.contentSize.height = collectionViewHorizontal.frame.height + collectionView.frame.height
     }
 }
 
