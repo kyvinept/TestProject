@@ -43,11 +43,13 @@ class BigImageShowView: UIImageView {
     @objc func panImageView(_ gesture: UIPanGestureRecognizer) {
         let translation = gesture.translation(in: self)
         if self.frame.origin.x + translation.x >= 0 || self.frame.origin.x + self.frame.width + translation.x <= sizeScreen.width {
+            gesture.setTranslation(CGPoint.zero, in: self)
             return
         } else {
             center = CGPoint(x: center.x + translation.x, y: center.y)
         }
         if self.frame.origin.y + translation.y >= 0 || self.frame.origin.y + self.frame.height + translation.y <= sizeScreen.height {
+            gesture.setTranslation(CGPoint.zero, in: self)
             return
         } else {
             center = CGPoint(x: center.x, y: center.y + translation.y)
@@ -62,7 +64,6 @@ class BigImageShowView: UIImageView {
         }
         self.transform = transform.scaledBy(x: gesture.scale, y: gesture.scale)
         center = CGPoint(x: sizeScreen.width / 2, y: sizeScreen.height / 2)
-        print(self.frame.origin.y)
         gesture.scale = 1
     }
 }
