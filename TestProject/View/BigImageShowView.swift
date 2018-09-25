@@ -10,6 +10,9 @@ import UIKit
 
 class BigImageShowView: UIImageView {
     
+    private let maxWidth: CGFloat = 1200
+    private var minWidth: CGFloat = 200
+    
     override init(image: UIImage?) {
         super.init(image: image)
         setGestures()
@@ -22,16 +25,23 @@ class BigImageShowView: UIImageView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        minWidth = frame.width
         setGestures()
     }
     
     private func setGestures() {
-        let pinch = UIPinchGestureRecognizer(target: self, action: #selector(pinchImageView(_:)))
+        self.isUserInteractionEnabled = true
+        let pinch = UIPinchGestureRecognizer(target: self, action: #selector(changeScale(_:)))
         self.addGestureRecognizer(pinch)
     }
     
-    @objc func pinchImageView(_ gesture: UIPinchGestureRecognizer) {
+    @objc func changeScale(_ gesture: UIPinchGestureRecognizer) {
+        if frame.width > maxWidth && gesture.scale > 1 {
+            return
+        } else if frame.width < minWidth && gesture.scale < 1 {
+            return
+        }
         self.transform = self.transform.scaledBy(x: gesture.scale, y: gesture.scale)
-        gesture.scale = 0
+        gesture.scale = 1
     }
 }

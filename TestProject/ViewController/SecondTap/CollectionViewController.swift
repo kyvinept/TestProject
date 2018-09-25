@@ -17,7 +17,7 @@ class CollectionViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     weak var delegate: CollectionViewControllerDelegate?
     private let spacing: CGFloat = 25
-    private let images = ["https://images-assets.nasa.gov/image/PIA18033/PIA18033~thumb.jpg",
+    private var images = ["https://images-assets.nasa.gov/image/PIA18033/PIA18033~thumb.jpg",
                           "https://www.gettyimages.in/landing/assets/static_content/home/info-tabs3.jpg",
                           "https://www.gettyimages.ie/gi-resources/images/Homepage/Hero/UK/CMS_Creative_453010393_NeonShapes.jpg",
                           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAqIftOdn-YQ--soQAab_JqgM_v5Q09LbX6JAqjhDEbShw5f7C-A",
@@ -40,7 +40,7 @@ class CollectionViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
@@ -48,6 +48,27 @@ class CollectionViewController: UIViewController {
     @IBAction func backButtonTapped(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
         delegate?.backButtonTapped()
+    }
+    
+    @IBAction func addButtonTapped(_ sender: Any) {
+        let alert = UIAlertController(title: "Input image url", message: nil, preferredStyle: .alert)
+        alert.addTextField { (textField) in
+            textField.placeholder = "Image url..."
+        }
+        alert.addAction(UIAlertAction(title: "Input", style: .default, handler: { (_) in
+            let url = alert.textFields![0].text!
+            if url == "" {
+                self.showErrorMessage(message: "Empty id field. Try again!")
+                return
+            }
+            self.images.append(url)
+            self.collectionView.reloadData()
+            self.dismiss(animated: true, completion: nil)
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (_) in
+            self.dismiss(animated: true, completion: nil)
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
 }
 
@@ -63,8 +84,8 @@ extension CollectionViewController: UICollectionViewDelegate, UICollectionViewDa
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? ImageCell
-        cell?.configure(model: ImageCellViewModel(borderWidth: 2,
-                                                  borderColor: UIColor.red.cgColor,
+        cell?.configure(model: ImageCellViewModel(borderWidth: 3,
+                                                  borderColor: UIColor.white.cgColor,
                                                      imageUrl: images[indexPath.row]))
         
         return cell!
@@ -74,7 +95,7 @@ extension CollectionViewController: UICollectionViewDelegate, UICollectionViewDa
         let imageVC = self.storyboard?.instantiateViewController(withIdentifier: "ImageViewController") as! ImageViewController
         imageVC.transitioningDelegate = self
         self.present(imageVC, animated: true, completion: nil)
-        imageVC.imageView.downloadImage(imageUrl: images[indexPath.row])
+        imageVC.configure(url: images[indexPath.row])
     }
 }
 

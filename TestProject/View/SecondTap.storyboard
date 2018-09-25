@@ -284,25 +284,38 @@
         <scene sceneID="j9G-uE-eyX">
             <objects>
                 <viewController storyboardIdentifier="ImageViewController" id="QyV-bH-m0Q" customClass="ImageViewController" customModule="TestProject" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="h8s-PS-Mh3">
+                    <view key="view" multipleTouchEnabled="YES" contentMode="scaleAspectFit" id="h8s-PS-Mh3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="s6W-Dd-LPk" customClass="BigImageShowView" customModule="TestProject" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            </imageView>
+                            <navigationBar multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J08-m8-DvZ">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Share image" id="F7D-9o-gqS">
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="nj3-xu-o9E">
+                                            <connections>
+                                                <action selector="backButtonTapped:" destination="QyV-bH-m0Q" id="SmE-P8-d2h"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Share" id="rul-du-ozA">
+                                            <connections>
+                                                <action selector="shareButtonTapped:" destination="QyV-bH-m0Q" id="crt-ep-GcL"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
-                        <color key="backgroundColor" red="0.055621376180000001" green="0.68375566710000002" blue="0.1452114004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="s6W-Dd-LPk" firstAttribute="trailing" secondItem="FJx-TD-F18" secondAttribute="trailing" id="8FX-dR-dpp"/>
-                            <constraint firstItem="s6W-Dd-LPk" firstAttribute="top" secondItem="h8s-PS-Mh3" secondAttribute="top" id="AuI-fX-CtU"/>
-                            <constraint firstItem="s6W-Dd-LPk" firstAttribute="bottom" secondItem="FJx-TD-F18" secondAttribute="bottom" id="JHc-yl-5e5"/>
-                            <constraint firstItem="s6W-Dd-LPk" firstAttribute="leading" secondItem="FJx-TD-F18" secondAttribute="leading" id="Q9r-li-6IW"/>
+                            <constraint firstItem="J08-m8-DvZ" firstAttribute="leading" secondItem="FJx-TD-F18" secondAttribute="leading" id="BB8-GC-plr"/>
+                            <constraint firstItem="J08-m8-DvZ" firstAttribute="top" secondItem="FJx-TD-F18" secondAttribute="top" id="dRs-d9-Nor"/>
+                            <constraint firstItem="J08-m8-DvZ" firstAttribute="trailing" secondItem="FJx-TD-F18" secondAttribute="trailing" id="tto-KL-wan"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FJx-TD-F18"/>
                     </view>
                     <connections>
-                        <outlet property="imageView" destination="s6W-Dd-LPk" id="Yl3-42-fFV"/>
+                        <outlet property="navigationBar" destination="J08-m8-DvZ" id="sno-oc-6ph"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="meK-s6-EAr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -326,13 +339,17 @@
                                                 <action selector="backButtonTapped:" destination="3Bo-RC-R4L" id="Ow7-3A-brk"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="mPq-UI-lw3"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="mPq-UI-lw3">
+                                            <connections>
+                                                <action selector="addButtonTapped:" destination="3Bo-RC-R4L" id="yDy-sd-pAB"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7dg-op-bXO">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.59397524426877513" green="0.76651557552910965" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="25" minimumInteritemSpacing="25" id="Trc-D6-WTF">
                                     <size key="itemSize" width="150" height="150"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>

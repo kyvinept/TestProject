@@ -119,14 +119,6 @@ class TableViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-    private func showErrorMessage(message: String) {
-        let alert = UIAlertController(title: message, message: nil, preferredStyle: .alert)
-        self.present(alert, animated: true, completion: nil)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
-            self.dismiss(animated: true, completion: nil)
-        }
-    }
-    
     private func addItem(id: String, title: String, description: String) {
         items.append(DataModel(id: id,
                             title: title,
@@ -207,6 +199,16 @@ extension TableViewController: UINavigationControllerDelegate {
             return CustomPopAnimator()
         default:
             return nil
+        }
+    }
+}
+
+extension UIViewController {
+    func showErrorMessage(message: String) {
+        let alert = UIAlertController(title: message, message: nil, preferredStyle: .alert)
+        self.present(alert, animated: true, completion: nil)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+            self.dismiss(animated: true, completion: nil)
         }
     }
 }

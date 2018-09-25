@@ -202,8 +202,17 @@ extension UIViewController {
                                              width: view.frame.size.width,
                                             height: UIApplication.shared.statusBarFrame.height))
         statusBarView.backgroundColor = UIColor.white
+        statusBarView.tag = 100
         statusBarView.alpha = 0.68
         view.addSubview(statusBarView)
+    }
+    
+    func deleteStatusBar() {
+        for view in view.subviews {
+            if view.tag == 100 {
+                view.removeFromSuperview()
+            }
+        }
     }
     
     func setConstraints(object: UIView, toObject: UIView, widthSize: CGFloat, toLeftObject: UIView, leftConstant: CGFloat, topConstant: CGFloat) -> [NSLayoutConstraint] {
