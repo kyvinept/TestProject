@@ -42,13 +42,19 @@ class SecondViewController: UITableViewController {
                 textVC.delegate = self
                 self.navigationController?.pushViewController(textVC, animated: true)
             }
+        case "CollectionsCell":
+            let textVC = self.storyboard?.instantiateViewController(withIdentifier: "ScrollCollectionViewController") as? ScrollCollectionViewController
+            if let textVC = textVC {
+                textVC.delegate = self
+                self.navigationController?.pushViewController(textVC, animated: true)
+            }
         default:
             break
         }
     }
 }
 
-extension SecondViewController: PresentingViewControllerDelegate, TableViewControllerDelegate, CollectionViewControllerDelegate {
+extension SecondViewController: PresentingViewControllerDelegate, TableViewControllerDelegate, CollectionViewControllerDelegate, ScrollCollectionViewControllerDelegate {
     
     func backButtonTapped() {
         self.navigationController?.delegate = self

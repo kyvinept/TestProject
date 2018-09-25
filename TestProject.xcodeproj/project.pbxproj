@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5B27AC4E215A3C8C00D1384E /* ImageCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27AC4D215A3C8C00D1384E /* ImageCollectionViewLayout.swift */; };
+		5B27AC50215A73B500D1384E /* ScrollCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27AC4F215A73B500D1384E /* ScrollCollectionViewController.swift */; };
 		5B27DA272150E5A2009E8B48 /* CustomPopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27DA262150E5A2009E8B48 /* CustomPopAnimator.swift */; };
 		5B27DA2A21511B1A009E8B48 /* UIObjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27DA2921511B1A009E8B48 /* UIObjectViewController.swift */; };
 		5B27DA2C215124AB009E8B48 /* Star.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27DA2B215124AB009E8B48 /* Star.swift */; };
@@ -54,6 +55,7 @@
 
 /* Begin PBXFileReference section */
 		5B27AC4D215A3C8C00D1384E /* ImageCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewLayout.swift; sourceTree = "<group>"; };
+		5B27AC4F215A73B500D1384E /* ScrollCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollCollectionViewController.swift; sourceTree = "<group>"; };
 		5B27DA262150E5A2009E8B48 /* CustomPopAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopAnimator.swift; sourceTree = "<group>"; };
 		5B27DA2921511B1A009E8B48 /* UIObjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIObjectViewController.swift; sourceTree = "<group>"; };
 		5B27DA2B215124AB009E8B48 /* Star.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Star.swift; sourceTree = "<group>"; };
@@ -211,8 +213,9 @@
 				5B30F4BA214A98AC0078D070 /* SecondViewController.swift */,
 				5B38A3162154DD5D00B73B79 /* PresentingViewController.swift */,
 				5B38A3202154FA5400B73B79 /* TableViewController.swift */,
-				5B434CCF2159349E00FF9FFE /* CollectionViewController.swift */,
 				5B434CD72159490400FF9FFE /* ImageViewController.swift */,
+				5B434CCF2159349E00FF9FFE /* CollectionViewController.swift */,
+				5B27AC4F215A73B500D1384E /* ScrollCollectionViewController.swift */,
 			);
 			path = SecondTap;
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 				5B27DA272150E5A2009E8B48 /* CustomPopAnimator.swift in Sources */,
 				5B3384B62153993600736F5D /* DynamicsViewController.swift in Sources */,
 				5B27DA2A21511B1A009E8B48 /* UIObjectViewController.swift in Sources */,
+				5B27AC50215A73B500D1384E /* ScrollCollectionViewController.swift in Sources */,
 				5B38A31B2154EDCE00B73B79 /* PresentWithDamping.swift in Sources */,
 				5B38A3172154DD5D00B73B79 /* PresentingViewController.swift in Sources */,
 				5B27AC4E215A3C8C00D1384E /* ImageCollectionViewLayout.swift in Sources */,
