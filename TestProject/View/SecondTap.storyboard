@@ -488,13 +488,13 @@
                         </subviews>
                         <color key="backgroundColor" red="0.055621376180000001" green="0.68375566710000002" blue="0.1452114004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="e7Q-8s-tAZ" firstAttribute="bottom" secondItem="7q7-rI-L55" secondAttribute="bottom" id="EWe-ff-trK"/>
-                            <constraint firstItem="e7Q-8s-tAZ" firstAttribute="trailing" secondItem="7q7-rI-L55" secondAttribute="trailing" id="RNq-4u-XWd"/>
-                            <constraint firstItem="f2y-Ne-eCQ" firstAttribute="leading" secondItem="7q7-rI-L55" secondAttribute="leading" id="URp-u6-6Mv"/>
-                            <constraint firstItem="f2y-Ne-eCQ" firstAttribute="trailing" secondItem="7q7-rI-L55" secondAttribute="trailing" id="ZL8-QT-2da"/>
-                            <constraint firstItem="e7Q-8s-tAZ" firstAttribute="top" secondItem="f2y-Ne-eCQ" secondAttribute="bottom" id="eTB-OU-28s"/>
-                            <constraint firstItem="e7Q-8s-tAZ" firstAttribute="leading" secondItem="7q7-rI-L55" secondAttribute="leading" id="ra9-zu-PrM"/>
-                            <constraint firstItem="f2y-Ne-eCQ" firstAttribute="top" secondItem="7q7-rI-L55" secondAttribute="top" id="vqk-IV-HYL"/>
+                            <constraint firstItem="e7Q-8s-tAZ" firstAttribute="top" secondItem="f2y-Ne-eCQ" secondAttribute="bottom" id="4Uw-3F-ZQY"/>
+                            <constraint firstAttribute="bottom" secondItem="e7Q-8s-tAZ" secondAttribute="bottom" id="PWC-Iw-vB5"/>
+                            <constraint firstItem="e7Q-8s-tAZ" firstAttribute="leading" secondItem="CgQ-qm-qq3" secondAttribute="leading" id="RcK-Zr-8lc"/>
+                            <constraint firstItem="f2y-Ne-eCQ" firstAttribute="leading" secondItem="CgQ-qm-qq3" secondAttribute="leading" id="gBq-Oa-aGm"/>
+                            <constraint firstAttribute="trailing" secondItem="e7Q-8s-tAZ" secondAttribute="trailing" id="mCG-ka-v70"/>
+                            <constraint firstItem="f2y-Ne-eCQ" firstAttribute="top" secondItem="7q7-rI-L55" secondAttribute="top" id="ntK-HR-qn0"/>
+                            <constraint firstAttribute="trailing" secondItem="f2y-Ne-eCQ" secondAttribute="trailing" id="v4H-vf-n0U"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7q7-rI-L55"/>
                     </view>

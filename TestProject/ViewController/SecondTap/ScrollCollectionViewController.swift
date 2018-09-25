@@ -38,6 +38,33 @@ class ScrollCollectionViewController: UIViewController {
         collectionViewHorizontal.register(UINib(nibName: "ImageCell", bundle: nil), forCellWithReuseIdentifier: "Cell")
     }
     
+    private func sizeForHorizontalCollectionView() {
+        let height = self.view.frame.height / 3
+        if height > 200 {
+            collectionViewHorizontal.frame.size.height = height
+        } else {
+            collectionViewHorizontal.frame.size.height = 200
+        }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        collectionViewHorizontal.frame.size.width = scrollView.frame.width
+        collectionView.frame.size.width = scrollView.frame.width
+        collectionView.frame.origin.y = collectionViewHorizontal.frame.origin.y + collectionViewHorizontal.frame.height
+        collectionView.reloadData()
+        switch UIDevice.current.orientation {
+        case .portrait:
+            deleteStatusBar()
+            createStatusBar()
+        case .landscapeLeft, .landscapeRight:
+            deleteStatusBar()
+            createStatusBar()
+        default:
+            break
+        }
+    }
+    
     private func createImageCells() {
         for i in 0..<imagesUrl.count {
             downloadNewImage(imageUrl: imagesUrl[i])
@@ -86,12 +113,17 @@ extension ScrollCollectionViewController: UICollectionViewDelegate, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = CGFloat(Int((self.view.frame.width - spacing*3)/2))
-        return CGSize(width: width, height: width)
+        if collectionView == collectionViewHorizontal {
+            let height = collectionViewHorizontal.frame.height - spacing*2
+            return CGSize(width: height, height: height)
+        } else {
+            let width = CGFloat(Int((scrollView.frame.width - spacing*3)/2))
+            return CGSize(width: width, height: width)
+        }
     }
     
     private func calculateSize(count: Int) {
-        let width = ((self.view.frame.width - spacing*3)/2)
+        let width = ((scrollView.frame.width - spacing*3)/2)
         var k = count
         if k % 2 == 1 {
             k+=1
