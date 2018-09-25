@@ -26,8 +26,17 @@ class ImageViewController: UIViewController {
         self.view.addSubview(navigationBar)
     }
     
+    private func changeSizeImageView(image: UIImage) {
+        let width = image.size.width
+        let scale = width / self.view.frame.width
+        let height = image.size.height / scale
+        imageView.frame.size.height = height
+        imageView.center = self.view.center
+    }
+    
     func configure(image: UIImage) {
         imageView.image = image
+        changeSizeImageView(image: image)
     }
     
     func configure(url: String) {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B27AC4E215A3C8C00D1384E /* ImageCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27AC4D215A3C8C00D1384E /* ImageCollectionViewLayout.swift */; };
 		5B27DA272150E5A2009E8B48 /* CustomPopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27DA262150E5A2009E8B48 /* CustomPopAnimator.swift */; };
 		5B27DA2A21511B1A009E8B48 /* UIObjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27DA2921511B1A009E8B48 /* UIObjectViewController.swift */; };
 		5B27DA2C215124AB009E8B48 /* Star.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27DA2B215124AB009E8B48 /* Star.swift */; };
@@ -52,6 +53,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5B27AC4D215A3C8C00D1384E /* ImageCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewLayout.swift; sourceTree = "<group>"; };
 		5B27DA262150E5A2009E8B48 /* CustomPopAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopAnimator.swift; sourceTree = "<group>"; };
 		5B27DA2921511B1A009E8B48 /* UIObjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIObjectViewController.swift; sourceTree = "<group>"; };
 		5B27DA2B215124AB009E8B48 /* Star.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Star.swift; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				5B434CD32159455700FF9FFE /* ImageCell.swift */,
 				5B434CD5215945DB00FF9FFE /* ImageCellViewModel.swift */,
 				5B434CDD21594CA200FF9FFE /* BigImageShowView.swift */,
+				5B27AC4D215A3C8C00D1384E /* ImageCollectionViewLayout.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 				5B27DA2A21511B1A009E8B48 /* UIObjectViewController.swift in Sources */,
 				5B38A31B2154EDCE00B73B79 /* PresentWithDamping.swift in Sources */,
 				5B38A3172154DD5D00B73B79 /* PresentingViewController.swift in Sources */,
+				5B27AC4E215A3C8C00D1384E /* ImageCollectionViewLayout.swift in Sources */,
 				5B434CD42159455700FF9FFE /* ImageCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

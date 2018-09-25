@@ -12,5 +12,5 @@ struct ImageCellViewModel {
     
     var borderWidth: CGFloat
     var borderColor: CGColor
-    var imageUrl: String
+    var image: UIImage
 }

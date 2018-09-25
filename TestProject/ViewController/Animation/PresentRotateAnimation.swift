@@ -10,7 +10,7 @@ import UIKit
 
 class PresentRotateAnimation: NSObject, UIViewControllerAnimatedTransitioning {
     
-    private let duration: Double = 2
+    private let duration: Double = 1
 
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return duration

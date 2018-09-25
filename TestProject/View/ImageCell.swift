@@ -13,8 +13,7 @@ class ImageCell: UICollectionViewCell {
     @IBOutlet private weak var imageView: UIImageView!
     
     func configure(model: ImageCellViewModel) {
-        imageView.image = UIImage(named: "image")
-        imageView.downloadImage(imageUrl: model.imageUrl)
+        imageView.image = model.image
         imageView.contentMode = .scaleAspectFit
         
         self.layer.borderColor = model.borderColor
