@@ -44,6 +44,11 @@ class AnimationsViewController: UIViewController {
         delegate?.backButtonTapped()
     }
     
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        scrollViewSizeSet(scrollView: scrollView)
+    }
+    
     private func createViews() {
         let view1 = createViewForChangeScale(frame: CGRect(x: padding, y: padding, width: size, height: size))
         let view2 = createViewWithCAKeyframeAnimation(frame: CGRect(x: padding, y: view1.center.y + view1.frame.height / 2 + padding, width: size, height: size))
