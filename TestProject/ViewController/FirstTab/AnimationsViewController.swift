@@ -14,6 +14,7 @@ protocol AnimationsViewControllerDelegate: class {
 
 class AnimationsViewController: UIViewController {
 
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet private weak var topNavigationBar: UINavigationBar!
     weak var delegate: AnimationsViewControllerDelegate?
     private let size: CGFloat = 100
@@ -44,7 +45,7 @@ class AnimationsViewController: UIViewController {
     }
     
     private func createViews() {
-        let view1 = createViewForChangeScale(frame: CGRect(x: padding, y: self.topNavigationBar.frame.height + UIApplication.shared.statusBarFrame.height + padding, width: size, height: size))
+        let view1 = createViewForChangeScale(frame: CGRect(x: padding, y: padding, width: size, height: size))
         let view2 = createViewWithCAKeyframeAnimation(frame: CGRect(x: padding, y: view1.center.y + view1.frame.height / 2 + padding, width: size, height: size))
         let view3 = createViewWithBlockAnimation(frame: CGRect(x: padding, y: view2.center.y + view2.frame.height / 2 + padding, width: size, height: size))
         let view4 = createViewForRotateView(frame: CGRect(x: self.view.center.x - size/2, y: view3.center.y + view3.frame.height / 2 + padding, width: size, height: size))
@@ -57,7 +58,7 @@ class AnimationsViewController: UIViewController {
         }
     }
     
-    private func pulseAnimation(frame: CGRect) -> UIView{
+    private func pulseAnimation(frame: CGRect) -> UIView {
         let newView = createView(frame: frame)
         newView.layer.cornerRadius = newView.frame.width/2
         newView.backgroundColor = .red
@@ -79,7 +80,7 @@ class AnimationsViewController: UIViewController {
     private func createView(frame: CGRect) -> UIView {
         let newView = UIView(frame: frame)
         newView.backgroundColor = UIColor.randomColor()
-        self.view.addSubview(newView)
+        self.scrollView.addSubview(newView)
         return newView
     }
     
@@ -158,6 +159,27 @@ extension AnimationsViewController: UINavigationControllerDelegate {
             return CustomPopAnimator()
         default:
             return nil
+        }
+    }
+}
+
+extension AnimationsViewController {
+    
+    open override var supportedInterfaceOrientations: UIInterfaceOrientationMask{
+        get {
+            return .portrait
+        }
+    }
+    
+    open override var shouldAutorotate: Bool {
+        get {
+            return false
+        }
+    }
+    
+    open override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation{
+        get {
+            return .portrait
         }
     }
 }

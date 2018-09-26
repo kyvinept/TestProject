@@ -12,7 +12,6 @@ class BigImageShowView: UIImageView {
     
     private let maxWidth: CGFloat = 1200
     private var minWidth: CGFloat = 200
-    private var sizeScreen: CGRect!
     
     override init(image: UIImage?) {
         super.init(image: image)
@@ -31,7 +30,6 @@ class BigImageShowView: UIImageView {
     }
     
     private func setGestures() {
-        sizeScreen = UIScreen.main.bounds
         self.isUserInteractionEnabled = true
         let pinch = UIPinchGestureRecognizer(target: self, action: #selector(changeScale(_:)))
         self.addGestureRecognizer(pinch)
@@ -41,16 +39,15 @@ class BigImageShowView: UIImageView {
     }
     
     @objc func panImageView(_ gesture: UIPanGestureRecognizer) {
+        let sizeScreen = UIScreen.main.bounds
         let translation = gesture.translation(in: self)
         if self.frame.origin.x + translation.x >= 0 || self.frame.origin.x + self.frame.width + translation.x <= sizeScreen.width {
             gesture.setTranslation(CGPoint.zero, in: self)
-            return
         } else {
             center = CGPoint(x: center.x + translation.x, y: center.y)
         }
         if self.frame.origin.y + translation.y >= 0 || self.frame.origin.y + self.frame.height + translation.y <= sizeScreen.height {
             gesture.setTranslation(CGPoint.zero, in: self)
-            return
         } else {
             center = CGPoint(x: center.x, y: center.y + translation.y)
         }
@@ -58,6 +55,7 @@ class BigImageShowView: UIImageView {
     }
     
     @objc func changeScale(_ gesture: UIPinchGestureRecognizer) {
+        let sizeScreen = UIScreen.main.bounds
         if frame.width <= minWidth && gesture.scale < 1 {
             self.transform = CGAffineTransform.identity
             return

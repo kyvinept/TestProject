@@ -25,12 +25,14 @@ class CustomCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        createButton()
         createGegsture()
     }
     
     private func createButton() {
-        deleteButton = UIButton(frame: CGRect(x: self.frame.width, y: 0, width: widthDeleteButton, height: self.frame.height))
+        if deleteButton == nil {
+            deleteButton = UIButton()
+        }
+        deleteButton.frame = CGRect(x: self.frame.width, y: 0, width: widthDeleteButton, height: self.frame.height)
         deleteButton!.backgroundColor = .red
         deleteButton!.setTitle("Delete", for: .normal)
         deleteButton!.isUserInteractionEnabled = false
@@ -94,6 +96,7 @@ class CustomCell: UITableViewCell {
     }
     
     func configure(model: CustomCellViewModel) {
+        createButton()
         if model.image == nil {
             imgView.image = UIImage(named: "image")
             imgView.downloadImage(imageUrl: model.imageUrl)

@@ -46,6 +46,14 @@ class GestureViewController: UIViewController {
 
 extension GestureViewController {
     
+    private func changeLocationViews() {
+        for view in self.view.subviews {
+            if view is CustomImageView {
+                checkIntersectsViews(imageView: view as! CustomImageView)
+            }
+        }
+    }
+    
     private func getImages() {
         for url in imageUrlArray {
             if let url = URL(string: url) {
@@ -69,6 +77,7 @@ extension GestureViewController {
             imageView.delegate = self
             let height = CGFloat(arc4random_uniform(UInt32(100)) + 50)
             let resize = imageView.frame.height/height
+            imageView.tag = 10
             imageView.frame.size.height /= resize
             imageView.frame.size.width /= resize
             imageView.contentMode = .scaleAspectFit
@@ -251,6 +260,27 @@ extension GestureViewController: UINavigationControllerDelegate {
             return CustomPopAnimator()
         default:
             return nil
+        }
+    }
+}
+
+extension GestureViewController {
+    
+    open override var supportedInterfaceOrientations: UIInterfaceOrientationMask{
+        get {
+            return .portrait
+        }
+    }
+
+    open override var shouldAutorotate: Bool {
+        get {
+            return false
+        }
+    }
+
+    open override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation{
+        get {
+            return .portrait
         }
     }
 }

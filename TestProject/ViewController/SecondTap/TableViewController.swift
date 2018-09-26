@@ -29,6 +29,21 @@ class TableViewController: UIViewController {
         tableView.setEditing(true, animated: true)
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        tableView.reloadData()
+        switch UIDevice.current.orientation {
+        case .portrait:
+            deleteStatusBar()
+            createStatusBar()
+        case .landscapeLeft, .landscapeRight:
+            deleteStatusBar()
+            createStatusBar()
+        default:
+            break
+        }
+    }
+    
     private func createRefresh() {
         refresh = UIRefreshControl()
         refresh.addTarget(self, action: #selector(refreshData), for: .valueChanged)

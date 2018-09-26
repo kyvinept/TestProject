@@ -34,6 +34,21 @@ class UIObjectViewController: UIViewController {
         createElements()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        scrollViewSizeSet(scrollView: scrollView)
+        switch UIDevice.current.orientation {
+        case .portrait:
+            deleteStatusBar()
+            createStatusBar()
+        case .landscapeLeft, .landscapeRight:
+            deleteStatusBar()
+            createStatusBar()
+        default:
+            break
+        }
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         scrollViewSizeSet(scrollView: scrollView)

@@ -26,12 +26,38 @@ class ImageViewController: UIViewController {
         self.view.addSubview(navigationBar)
     }
     
-    private func changeSizeImageView(image: UIImage) {
-        let width = image.size.width
-        let scale = width / self.view.frame.width
-        let height = image.size.height / scale
-        imageView.frame.size.height = height
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         imageView.center = self.view.center
+        changeSizeImageView(image: imageView.image!)
+        switch UIDevice.current.orientation {
+        case .portrait:
+            deleteStatusBar()
+            createStatusBar()
+        case .landscapeLeft, .landscapeRight:
+            deleteStatusBar()
+            createStatusBar()
+        default:
+            break
+        }
+    }
+    
+    private func changeSizeImageView(image: UIImage) {
+        if self.view.frame.width < self.view.frame.height {
+            let width = image.size.width
+            let scale = width / self.view.frame.width
+            let height = image.size.height / scale
+            imageView.frame.size.height = height
+            imageView.frame.size.width = self.view.frame.width
+            imageView.center = self.view.center
+        } else {
+            let height = image.size.height
+            let scale = height / self.view.frame.height
+            let width = image.size.width / scale
+            imageView.frame.size.width = width
+            imageView.frame.size.height = self.view.frame.height
+            imageView.center = self.view.center
+        }
     }
     
     func configure(image: UIImage) {

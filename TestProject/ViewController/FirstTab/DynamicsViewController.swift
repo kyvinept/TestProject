@@ -37,6 +37,20 @@ class DynamicsViewController: UIViewController {
         createDynamicsView()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        switch UIDevice.current.orientation {
+        case .portrait:
+            deleteStatusBar()
+            createStatusBar()
+        case .landscapeLeft,.landscapeRight:
+            deleteStatusBar()
+            createStatusBar()
+        default:
+            break
+        }
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
@@ -128,6 +142,27 @@ extension DynamicsViewController: UINavigationControllerDelegate {
             return CustomPopAnimator()
         default:
             return nil
+        }
+    }
+}
+
+extension DynamicsViewController {
+    
+    open override var supportedInterfaceOrientations: UIInterfaceOrientationMask{
+        get {
+            return .portrait
+        }
+    }
+    
+    open override var shouldAutorotate: Bool {
+        get {
+            return false
+        }
+    }
+    
+    open override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation{
+        get {
+            return .portrait
         }
     }
 }

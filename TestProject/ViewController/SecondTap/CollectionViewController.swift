@@ -38,6 +38,20 @@ class CollectionViewController: UIViewController {
         createImageCells()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        switch UIDevice.current.orientation {
+        case .portrait:
+            deleteStatusBar()
+            createStatusBar()
+        case .landscapeLeft, .landscapeRight:
+            deleteStatusBar()
+            createStatusBar()
+        default:
+            break
+        }
+    }
+    
     private func createImageCells() {
         for i in 0..<imagesUrl.count {
             downloadNewImage(imageUrl: imagesUrl[i])
