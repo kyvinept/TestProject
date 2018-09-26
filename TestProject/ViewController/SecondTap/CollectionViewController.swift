@@ -157,7 +157,7 @@ extension CollectionViewController: UIViewControllerTransitioningDelegate {
 extension CollectionViewController: ImageCollectionViewLayoutDelegate {
     
     func heightFor(index: Int) -> CGFloat {
-        let width = Int((self.view.frame.width - spacing*3)/2)
+        let width = Int((collectionView.frame.width - spacing*3)/2)
         let scale = images[index].preferredPresentationSizeForItemProvider.width / CGFloat(width)
         let height = images[index].preferredPresentationSizeForItemProvider.height / scale
         return CGFloat(height)

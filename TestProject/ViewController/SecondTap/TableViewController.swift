@@ -57,11 +57,16 @@ class TableViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        tabBarController?.tabBar.barTintColor = UIColor(red: 151.0/256,
+                                                      green: 195.0/256,
+                                                       blue: 1,
+                                                      alpha: 1)
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        tabBarController?.tabBar.barTintColor = nil
         self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     

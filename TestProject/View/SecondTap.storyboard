@@ -262,6 +262,7 @@
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vCS-p0-GDM">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <color key="backgroundColor" red="0.59215686270000001" green="0.76651557550000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <items>
                                     <navigationItem title="UITableView" id="O9r-zJ-a7s">
                                         <barButtonItem key="leftBarButtonItem" title="Back" id="2fw-X9-8So">
@@ -287,15 +288,15 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="0.055621376180000001" green="0.68375566710000002" blue="0.1452114004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="V9S-rb-Kdp" firstAttribute="leading" secondItem="J1q-U9-C7S" secondAttribute="leading" id="7r8-Lj-UJh"/>
+                            <constraint firstItem="V9S-rb-Kdp" firstAttribute="bottom" secondItem="LEP-Gt-7Rk" secondAttribute="bottom" id="5gL-hd-9eU"/>
                             <constraint firstItem="vCS-p0-GDM" firstAttribute="top" secondItem="LEP-Gt-7Rk" secondAttribute="top" id="AEf-fC-VS0"/>
                             <constraint firstAttribute="trailing" secondItem="vCS-p0-GDM" secondAttribute="trailing" id="PDb-cb-qju"/>
-                            <constraint firstAttribute="bottom" secondItem="V9S-rb-Kdp" secondAttribute="bottom" id="U2m-9v-QuL"/>
                             <constraint firstItem="vCS-p0-GDM" firstAttribute="leading" secondItem="J1q-U9-C7S" secondAttribute="leading" id="XY8-j3-zOl"/>
-                            <constraint firstItem="V9S-rb-Kdp" firstAttribute="top" secondItem="vCS-p0-GDM" secondAttribute="bottom" id="amj-3N-uMC"/>
-                            <constraint firstAttribute="trailing" secondItem="V9S-rb-Kdp" secondAttribute="trailing" id="dZ5-Af-qxa"/>
+                            <constraint firstItem="V9S-rb-Kdp" firstAttribute="leading" secondItem="LEP-Gt-7Rk" secondAttribute="leading" id="fb8-L4-ow7"/>
+                            <constraint firstItem="V9S-rb-Kdp" firstAttribute="top" secondItem="vCS-p0-GDM" secondAttribute="bottom" id="uYe-RY-dlg"/>
+                            <constraint firstItem="V9S-rb-Kdp" firstAttribute="trailing" secondItem="LEP-Gt-7Rk" secondAttribute="trailing" id="vDQ-VR-rmv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LEP-Gt-7Rk"/>
                     </view>
@@ -396,16 +397,15 @@
                                 </connections>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" red="0.055621376180000001" green="0.68375566710000002" blue="0.1452114004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.59397524430000004" green="0.76651557550000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="7dg-op-bXO" secondAttribute="bottom" id="3Oe-wy-gDY"/>
+                            <constraint firstItem="7dg-op-bXO" firstAttribute="top" secondItem="JJw-ys-Ww0" secondAttribute="bottom" id="6dY-Bn-QxS"/>
                             <constraint firstAttribute="trailing" secondItem="JJw-ys-Ww0" secondAttribute="trailing" id="Fd8-YX-xeF"/>
-                            <constraint firstAttribute="trailing" secondItem="7dg-op-bXO" secondAttribute="trailing" id="Q7Q-hW-ckI"/>
-                            <constraint firstItem="7dg-op-bXO" firstAttribute="top" secondItem="JJw-ys-Ww0" secondAttribute="bottom" id="oRK-KU-iAr"/>
-                            <constraint firstItem="7dg-op-bXO" firstAttribute="leading" secondItem="ubc-0Q-VcV" secondAttribute="leading" id="rPE-ZH-dYn"/>
                             <constraint firstItem="JJw-ys-Ww0" firstAttribute="top" secondItem="CLX-CO-8I9" secondAttribute="top" id="slv-dn-Pph"/>
-                            <constraint firstItem="7dg-op-bXO" firstAttribute="top" secondItem="JJw-ys-Ww0" secondAttribute="bottom" id="t5e-YL-2xb"/>
                             <constraint firstItem="JJw-ys-Ww0" firstAttribute="leading" secondItem="ubc-0Q-VcV" secondAttribute="leading" id="uqj-zY-x4s"/>
+                            <constraint firstItem="7dg-op-bXO" firstAttribute="leading" secondItem="CLX-CO-8I9" secondAttribute="leading" id="x81-AZ-B6i"/>
+                            <constraint firstItem="7dg-op-bXO" firstAttribute="bottom" secondItem="CLX-CO-8I9" secondAttribute="bottom" id="x8C-qg-Gk5"/>
+                            <constraint firstItem="7dg-op-bXO" firstAttribute="trailing" secondItem="CLX-CO-8I9" secondAttribute="trailing" id="yW4-6m-YG8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="CLX-CO-8I9"/>
                     </view>
@@ -427,6 +427,7 @@
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f2y-Ne-eCQ">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <color key="backgroundColor" red="0.59215686274509804" green="0.76651557550000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <items>
                                     <navigationItem title="CollectionViews" id="GYc-D0-a8N">
                                         <barButtonItem key="leftBarButtonItem" title="Back" id="2Pd-Ev-u8N">
@@ -470,7 +471,7 @@
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="D0Z-cU-noo">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.59397524430000004" green="0.76651557550000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="25" minimumInteritemSpacing="25" id="ed7-vR-EPL">
                                             <size key="itemSize" width="150" height="150"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -497,15 +498,16 @@
                                 </subviews>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" red="0.055621376180000001" green="0.68375566710000002" blue="0.1452114004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="e7Q-8s-tAZ" firstAttribute="top" secondItem="f2y-Ne-eCQ" secondAttribute="bottom" id="4Uw-3F-ZQY"/>
-                            <constraint firstAttribute="bottom" secondItem="e7Q-8s-tAZ" secondAttribute="bottom" id="PWC-Iw-vB5"/>
-                            <constraint firstItem="e7Q-8s-tAZ" firstAttribute="leading" secondItem="CgQ-qm-qq3" secondAttribute="leading" id="RcK-Zr-8lc"/>
-                            <constraint firstItem="f2y-Ne-eCQ" firstAttribute="leading" secondItem="CgQ-qm-qq3" secondAttribute="leading" id="gBq-Oa-aGm"/>
-                            <constraint firstAttribute="trailing" secondItem="e7Q-8s-tAZ" secondAttribute="trailing" id="mCG-ka-v70"/>
-                            <constraint firstItem="f2y-Ne-eCQ" firstAttribute="top" secondItem="7q7-rI-L55" secondAttribute="top" id="ntK-HR-qn0"/>
-                            <constraint firstAttribute="trailing" secondItem="f2y-Ne-eCQ" secondAttribute="trailing" id="v4H-vf-n0U"/>
+                            <constraint firstItem="e7Q-8s-tAZ" firstAttribute="leading" secondItem="7q7-rI-L55" secondAttribute="leading" id="3Xk-f0-nxQ"/>
+                            <constraint firstItem="e7Q-8s-tAZ" firstAttribute="bottom" secondItem="7q7-rI-L55" secondAttribute="bottom" id="CLz-Ju-51c"/>
+                            <constraint firstItem="e7Q-8s-tAZ" firstAttribute="top" secondItem="f2y-Ne-eCQ" secondAttribute="bottom" id="DrF-wq-hq2"/>
+                            <constraint firstItem="f2y-Ne-eCQ" firstAttribute="leading" secondItem="CgQ-qm-qq3" secondAttribute="leading" id="INe-hv-3a0"/>
+                            <constraint firstItem="e7Q-8s-tAZ" firstAttribute="trailing" secondItem="7q7-rI-L55" secondAttribute="trailing" id="VpT-UR-cgz"/>
+                            <constraint firstAttribute="trailing" secondItem="f2y-Ne-eCQ" secondAttribute="trailing" id="dCa-5y-Qm9"/>
+                            <constraint firstItem="e7Q-8s-tAZ" firstAttribute="top" secondItem="f2y-Ne-eCQ" secondAttribute="bottom" id="fnl-Md-W5C"/>
+                            <constraint firstItem="f2y-Ne-eCQ" firstAttribute="top" secondItem="7q7-rI-L55" secondAttribute="top" id="sUn-ae-NWb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7q7-rI-L55"/>
                     </view>
