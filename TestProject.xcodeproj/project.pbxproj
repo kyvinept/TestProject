@@ -35,6 +35,7 @@
 		5B38A32A21550C6700B73B79 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B38A32921550C6700B73B79 /* CustomCell.swift */; };
 		5B38A32C21552E3600B73B79 /* CustomCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B38A32B21552E3600B73B79 /* CustomCellViewModel.swift */; };
 		5B3F5507215B8BCC00A1D9D2 /* StackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3F5506215B8BCC00A1D9D2 /* StackViewController.swift */; };
+		5B3F5509215B982400A1D9D2 /* CoreAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3F5508215B982400A1D9D2 /* CoreAnimationViewController.swift */; };
 		5B410AED21523D1A007C4AD0 /* GestureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B410AEC21523D1A007C4AD0 /* GestureViewController.swift */; };
 		5B434CD02159349E00FF9FFE /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B434CCF2159349E00FF9FFE /* CollectionViewController.swift */; };
 		5B434CD22159454000FF9FFE /* ImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B434CD12159454000FF9FFE /* ImageCell.xib */; };
@@ -85,6 +86,7 @@
 		5B38A32921550C6700B73B79 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		5B38A32B21552E3600B73B79 /* CustomCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellViewModel.swift; sourceTree = "<group>"; };
 		5B3F5506215B8BCC00A1D9D2 /* StackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewController.swift; sourceTree = "<group>"; };
+		5B3F5508215B982400A1D9D2 /* CoreAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreAnimationViewController.swift; sourceTree = "<group>"; };
 		5B410AEC21523D1A007C4AD0 /* GestureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureViewController.swift; sourceTree = "<group>"; };
 		5B434CCF2159349E00FF9FFE /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		5B434CD12159454000FF9FFE /* ImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCell.xib; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 				5B434CCF2159349E00FF9FFE /* CollectionViewController.swift */,
 				5B27AC4F215A73B500D1384E /* ScrollCollectionViewController.swift */,
 				5B3F5506215B8BCC00A1D9D2 /* StackViewController.swift */,
+				5B3F5508215B982400A1D9D2 /* CoreAnimationViewController.swift */,
 			);
 			path = SecondTap;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 				5B38A3172154DD5D00B73B79 /* PresentingViewController.swift in Sources */,
 				5B3F5507215B8BCC00A1D9D2 /* StackViewController.swift in Sources */,
 				5B27AC4E215A3C8C00D1384E /* ImageCollectionViewLayout.swift in Sources */,
+				5B3F5509215B982400A1D9D2 /* CoreAnimationViewController.swift in Sources */,
 				5B434CD42159455700FF9FFE /* ImageCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
