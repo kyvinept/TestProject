@@ -87,26 +87,34 @@ extension CoreAnimationViewController {
     private func createBlurView() {
         height += size*2
         let view = UIView(frame: CGRect(x: padding, y: height, width: size, height: size))
+        let image = UIImage(named: "image")!
+        addFilterToImage(view: view, image: image)
+        view.layer.contents = image.cgImage
+        self.scrollView.addSubview(view)
+    }
+
+    private func addFilterToImage(view: UIView, image: UIImage) {
         DispatchQueue.global().async {
-            let ciInput = CIImage(image: UIImage(named: "image")!)!
-            let filter = CIFilter(name: "CIGaussianBlur", withInputParameters: ["inputImage": ciInput, "inputRadius": 8])
-            let ciOutput = filter?.outputImage
+            let ciImage = CIImage(image: image)!
+            let filter = CIFilter(name: "CIGaussianBlur")!
+            filter.setValue(ciImage, forKey: kCIInputImageKey)
+            filter.setValue(8, forKey: kCIInputRadiusKey)
+            
             let ciContext = CIContext(options: nil)
-            let cgImage = ciContext.createCGImage(ciOutput!, from: (ciOutput?.extent)!)
+            let cgImage = ciContext.createCGImage(filter.outputImage!, from: (filter.outputImage?.extent)!)
             DispatchQueue.main.async {
                 view.layer.contents = cgImage
-                self.scrollView.addSubview(view)
             }
         }
     }
     
     private func createCart() {
-        height += size + padding
+        height += size + size/3
         let view = UIView(frame: CGRect(x: padding, y: height, width: size, height: size))
         view.layer.backgroundColor = UIColor.yellow.cgColor
         
         var perspective = CATransform3DIdentity
-        perspective.m34 = -1 / -500
+        perspective.m34 = 1 / -500
         view.layer.transform = CATransform3DRotate(perspective, CGFloat.pi, 0, 1, 0)
         
         let anim = CABasicAnimation(keyPath: "transform")
@@ -116,7 +124,6 @@ extension CoreAnimationViewController {
         anim.repeatCount = .greatestFiniteMagnitude
         anim.autoreverses = true
         view.layer.add(anim, forKey: "")
-//        view.layer.addSublayer(layer)
         scrollView.addSubview(view)
     }
 }
