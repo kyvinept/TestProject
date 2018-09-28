@@ -34,7 +34,7 @@ class CustomCell: UITableViewCell {
         }
         deleteButton.frame = CGRect(x: self.frame.width, y: 0, width: widthDeleteButton, height: self.frame.height)
         deleteButton!.backgroundColor = .red
-        deleteButton!.setTitle("Delete", for: .normal)
+        deleteButton!.setTitle(NSLocalizedString("Delete", comment: ""), for: .normal)
         deleteButton!.isUserInteractionEnabled = false
         self.addSubview(deleteButton!)
     }

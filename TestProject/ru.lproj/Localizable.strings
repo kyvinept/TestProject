@@ -1,0 +1,27 @@
+/* 
+  Localizable.strings
+  TestProject
+
+  Created by Silchenko on 28.09.2018.
+  Copyright © 2018 Silchenko. All rights reserved.
+*/
+
+"FirstViewController" = "ПервыйКонтроллер";
+"SecondViewController" = "ВторойКонтроллер";
+"ThirdViewController" = "ТретийКонтроллер";
+"FourthViewController" = "ЧетвертыйКонтроллер";
+"Button" = "Кнопка";
+"Button was tapped" = "Кнопка была нажата";
+"Label number " = "Номер лейбла ";
+"TextField number " = "Номер текстового поля ";
+"TextView number " = "Номер текстовой вьюхи ";
+"Delete" = "Удалить";
+"Input" = "Ввод";
+"description" = "описание";
+"id" = "id";
+"title" = "название";
+"Empty id field. Try again!" = "Пустое id поле. Повторите ввод!";
+"Empty title field. Try again!" = "Поле \"название\" пустое. Повторите ввод!";
+"Empty description field. Try again!" = "Поле \"описание\" пустое. Повторите ввод!";
+"Cancel" = "Отмена";
+"Delete" = "Удалить";

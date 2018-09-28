@@ -12,7 +12,7 @@
 "2fw-X9-8So.title" = "Назад";
 
 /* Class = "UILabel"; text = "Custom Modal View Controller Presenting"; ObjectID = "427-Ri-Zha"; */
-"427-Ri-Zha.text" = "Открытие кастомного модального вьюконтроллера";
+"427-Ri-Zha.text" = "Открытие кастомного вьюконтроллера";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "8se-Cd-IOf"; */
 "8se-Cd-IOf.normalTitle" = "Кнопка";
@@ -39,7 +39,7 @@
 "I60-3t-cT2.title" = "КоллекшнВью";
 
 /* Class = "UILabel"; text = "CollectionViews"; ObjectID = "J6P-7G-Am5"; */
-"J6P-7G-Am5.text" = "КоллекшнВью";
+"J6P-7G-Am5.text" = "КоллекшнВьюхи";
 
 /* Class = "UIButton"; normalTitle = "toBottomSwap"; ObjectID = "JBf-8J-nBK"; */
 "JBf-8J-nBK.normalTitle" = "Свайп вниз";
@@ -69,13 +69,13 @@
 "Y3p-vR-u3N.normalTitle" = "+";
 
 /* Class = "UIButton"; normalTitle = "flipHorizontal"; ObjectID = "Yq5-S9-600"; */
-"Yq5-S9-600.normalTitle" = "Горизонтальный переворот";
+"Yq5-S9-600.normalTitle" = "Переворот";
 
 /* Class = "UIButton"; normalTitle = "fromRightCorner"; ObjectID = "ZV4-QI-Ty8"; */
 "ZV4-QI-Ty8.normalTitle" = "С правого края";
 
 /* Class = "UIButton"; normalTitle = "partialCurl"; ObjectID = "ZX4-14-Kaj"; */
-"ZX4-14-Kaj.normalTitle" = "Частичный разворот";
+"ZX4-14-Kaj.normalTitle" = "Разворот";
 
 /* Class = "UINavigationItem"; title = "CoreAnimation"; ObjectID = "Zg3-ec-4LG"; */
 "Zg3-ec-4LG.title" = "Анимации";

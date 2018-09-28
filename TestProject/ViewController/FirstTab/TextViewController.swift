@@ -128,7 +128,7 @@ extension TextViewController {
     
     private func createLabel(widthSize: CGFloat, toItem: UIView, item: Int) -> UILabel {
         let label = UILabel()
-        let str = "Label number " + String(item)
+        let str = NSLocalizedString("Label number ", comment: "") + String(item)
         let attributedString = NSMutableAttributedString(string: str)
         attributedString.addAttribute(NSAttributedStringKey.foregroundColor,
                                       value: UIColor.randomColor(),
@@ -151,7 +151,7 @@ extension TextViewController {
     
     private func createTextField(widthSize: CGFloat, toItem: UIView, item: Int) -> UITextField {
         let textField = UITextField()
-        textField.text = "TextField number " + String(item)
+        textField.text = NSLocalizedString("TextField number ", comment: "") + String(item)
         textField.backgroundColor = UIColor.randomColor()
         textField.delegate = self
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -184,7 +184,7 @@ extension TextViewController {
     
     private func createTextView(widthSize: CGFloat, toItem: UIView, item: Int) -> UITextView {
         let textView = UITextView()
-        textView.text = "TextView number " + String(item)
+        textView.text = NSLocalizedString("TextView number ", comment: "") + String(item)
         textView.textColor = UIColor.randomColor()
         textView.isScrollEnabled = false
         textView.keyboardType = randomKeyboardType()

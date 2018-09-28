@@ -12,7 +12,7 @@ class SecondViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "SecondViewController"
+        self.title = NSLocalizedString("SecondViewController", comment: "")
         self.navigationController?.delegate = self
     }
     
