@@ -12,7 +12,7 @@ class FourthViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "FourthViewController"
+        self.title = NSLocalizedString("FourthViewController", comment: "")
         self.navigationController?.delegate = self
     }
 }

@@ -1,0 +1,6 @@
+
+/* Class = "UIButton"; normalTitle = "Dismiss"; ObjectID = "d1o-sn-9m8"; */
+"d1o-sn-9m8.normalTitle" = "Закрыть";
+
+/* Class = "UILabel"; text = "NewViewController opened"; ObjectID = "oVW-jc-Hjc"; */
+"oVW-jc-Hjc.text" = "НовыйВьюКонтроллер открыт";

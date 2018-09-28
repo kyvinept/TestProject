@@ -10,8 +10,6 @@ import UIKit
 
 class CustomTabBarController: UITabBarController {
     
-    //private var shouldRotate = true
-
     override func viewDidLoad() {
         super.viewDidLoad()
         createNavigationControllers()
@@ -19,19 +17,19 @@ class CustomTabBarController: UITabBarController {
     
     private func createNavigationControllers() {
         let first = createNewController(viewController: UIStoryboard(name: "FirstTap", bundle: nil).instantiateViewController(withIdentifier: "FirstViewController"),
-                                                 title: "FirstViewController",
+                                                 title: NSLocalizedString("FirstViewController", comment: ""),
                                                  image: #imageLiteral(resourceName: "star"),
                                          selectedImage: nil)
         let second = createNewController(viewController: UIStoryboard(name: "SecondTap", bundle: nil).instantiateViewController(withIdentifier: "SecondViewController"),
-                                                  title: "SecondViewController",
+                                                  title: NSLocalizedString("SecondViewController", comment: ""),
                                                   image: #imageLiteral(resourceName: "medical-history"),
                                           selectedImage: nil)
         let third = createNewController(viewController: UIStoryboard(name: "ThirdViewController", bundle: nil).instantiateViewController(withIdentifier: "ThirdViewController"),
-                                                 title: "ThirdViewController",
+                                                 title: NSLocalizedString("ThirdViewController", comment: ""),
                                                  image: #imageLiteral(resourceName: "download"),
                                          selectedImage: nil)
         let fourth = createNewController(viewController: UIStoryboard(name: "FourthViewController", bundle: nil).instantiateViewController(withIdentifier: "FourthViewController"),
-                                                  title: "FourthViewController",
+                                                  title: NSLocalizedString("FourthViewController", comment: ""),
                                                   image: #imageLiteral(resourceName: "round-add-button"),
                                           selectedImage: nil)
         

@@ -136,7 +136,7 @@ extension UIObjectViewController {
     private func createButton(widthSize: CGFloat, heightSize: CGFloat, toItem: UIView) -> UIView {
         let button = UIButton()
         button.setImage(UIImage(named: "star"), for: .normal)
-        button.setTitle("Button", for: .normal)
+        button.setTitle(NSLocalizedString("Button", comment: ""), for: .normal)
         switch arc4random_uniform(2) {
         case 1:
             button.semanticContentAttribute = .forceRightToLeft
@@ -164,7 +164,7 @@ extension UIObjectViewController {
     
     @objc func newButtonTapped() {
         let alert = UIAlertController(title: "",
-                                    message: "Button was tapped",
+                                    message: NSLocalizedString("Button was tapped", comment: ""),
                              preferredStyle: .alert)
         self.present(alert, animated: true) {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {

@@ -13,7 +13,7 @@ class FirstViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.delegate = self
-        self.title = "FirstViewController"
+        self.title = NSLocalizedString("FirstViewController", comment: "")
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -1,0 +1,27 @@
+/* 
+  Localizable.strings
+  TestProject
+
+  Created by Silchenko on 28.09.2018.
+  Copyright © 2018 Silchenko. All rights reserved.
+*/
+
+"FirstViewController" = "FirstViewController";
+"SecondViewController" = "SecondViewController";
+"ThirdViewController" = "ThirdViewController";
+"FourthViewController" = "FourthViewController";
+"Button" = "Button";
+"Button was tapped" = "Button was tapped";
+"Label number " = "Label number ";
+"TextField number " = "TextField number ";
+"TextView number " = "TextView number ";
+"Delete" = "Delete";
+"Input" = "Input";
+"description" = "description";
+"id" = "id";
+"title" = "title";
+"Empty id field. Try again!" = "Empty id field. Try again!";
+"Empty title field. Try again!" = "Empty title field. Try again!";
+"Empty description field. Try again!" = "Empty description field. Try again!";
+"Cancel" = "Cancel";
+"Delete" = "Delete";

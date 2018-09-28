@@ -29,7 +29,7 @@ class ThirdViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "ThirdViewController"
+        self.title = NSLocalizedString("ThirdViewController", comment: "")
         self.navigationController?.delegate = self
         threads()
     }
@@ -38,7 +38,6 @@ class ThirdViewController: UIViewController {
         count = 0
         let q1 = DispatchQueue(label: "q1", attributes: .concurrent)
         let q2 = DispatchQueue(label: "q2", attributes: .concurrent)
-        //        let q3 = DispatchQueue(label: "q3", attributes: .concurrent)
         
         q1.async {
             for _ in 0..<10 {
@@ -53,13 +52,6 @@ class ThirdViewController: UIViewController {
                 print(self.count)
             }
         }
-        
-        //        q3.async {
-        //            for _ in 0..<10 {
-        //                self.count+=1
-        //                print(String(self.count) + " --- q3")
-        //            }
-        //        }
     }
 }
 

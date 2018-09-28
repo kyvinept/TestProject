@@ -79,8 +79,8 @@ class TableViewController: UIViewController {
         let img = setUrlImage()
         for i in 1...10 {
             let item = DataModel(id: String(i),
-                              title: String(i) + " title",
-                        description: String(i) + " description",
+                              title: String(i) + " " + NSLocalizedString("title", comment: ""),
+                        description: String(i) + " " + NSLocalizedString("description", comment: ""),
                            imageUrl: img[i-1])
             items.append(item)
         }
@@ -102,30 +102,30 @@ class TableViewController: UIViewController {
     }
     
     @IBAction func addItemToTable(_ sender: Any) {
-        let alert = UIAlertController(title: "Input", message: nil, preferredStyle: .alert)
+        let alert = UIAlertController(title: NSLocalizedString("Input", comment: ""), message: nil, preferredStyle: .alert)
         alert.addTextField { (textField) in
-            textField.placeholder = "id"
+            textField.placeholder = NSLocalizedString("id", comment: "")
         }
         alert.addTextField { (textField) in
-            textField.placeholder = "title"
+            textField.placeholder = NSLocalizedString("title", comment: "")
         }
         alert.addTextField { (textField) in
-            textField.placeholder = "description"
+            textField.placeholder = NSLocalizedString("description", comment: "")
         }
-        alert.addAction(UIAlertAction(title: "Input", style: .default, handler: { (_) in
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Input", comment: ""), style: .default, handler: { (_) in
             let id = alert.textFields![0].text!
             let title = alert.textFields![1].text!
             let description = alert.textFields![2].text!
             if id == "" {
-                self.showErrorMessage(message: "Empty id field. Try again!")
+                self.showErrorMessage(message: NSLocalizedString("Empty id field. Try again!", comment: ""))
                 return
             }
             if title == "" {
-                self.showErrorMessage(message: "Empty title field. Try again!")
+                self.showErrorMessage(message: NSLocalizedString("Empty title field. Try again!", comment: ""))
                 return
             }
             if description == "" {
-                self.showErrorMessage(message: "Empty description field. Try again!")
+                self.showErrorMessage(message: NSLocalizedString("Empty description field. Try again!", comment: ""))
                 return
             }
             self.addItem(id: id,
@@ -133,7 +133,7 @@ class TableViewController: UIViewController {
                 description: description)
             self.dismiss(animated: true, completion: nil)
         }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (_) in
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .default, handler: { (_) in
             self.dismiss(animated: true, completion: nil)
         }))
         self.present(alert, animated: true, completion: nil)
