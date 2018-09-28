@@ -1,0 +1,48 @@
+
+/* Class = "UILabel"; text = "UILabel, UITextField, UITextView"; ObjectID = "0ua-pj-AjP"; */
+"0ua-pj-AjP.text" = "Лейбл, текстовое поле, текстовый вид";
+
+/* Class = "UILabel"; text = "Animations"; ObjectID = "4pf-u4-ITK"; */
+"4pf-u4-ITK.text" = "Анимации";
+
+/* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "6np-yV-jwZ"; */
+"6np-yV-jwZ.title" = "Назад";
+
+/* Class = "UILabel"; text = "UIKit Dynamics"; ObjectID = "Bve-gA-Mir"; */
+"Bve-gA-Mir.text" = "Работа с физикой";
+
+/* Class = "UINavigationItem"; title = "Animations"; ObjectID = "EMJ-KU-DaW"; */
+"EMJ-KU-DaW.title" = "Анимации";
+
+/* Class = "UILabel"; text = "UIButton, UIImageView"; ObjectID = "FKd-is-VQJ"; */
+"FKd-is-VQJ.text" = "Кнопки, картинки";
+
+/* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "Mpm-7c-5RS"; */
+"Mpm-7c-5RS.title" = "Назад";
+
+/* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "Qz0-xh-b1p"; */
+"Qz0-xh-b1p.title" = "Назад";
+
+/* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "cMg-5Y-8Xi"; */
+"cMg-5Y-8Xi.title" = "Назад";
+
+/* Class = "UIBarButtonItem"; title = "New view"; ObjectID = "fnQ-SC-308"; */
+"fnQ-SC-308.title" = "Новый вид";
+
+/* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "hHK-xe-geP"; */
+"hHK-xe-geP.title" = "Назад";
+
+/* Class = "UILabel"; text = "Gesture"; ObjectID = "kxN-Ly-6VF"; */
+"kxN-Ly-6VF.text" = "Гестуры";
+
+/* Class = "UINavigationItem"; title = "Gesture"; ObjectID = "mbN-U6-yVD"; */
+"mbN-U6-yVD.title" = "Гестуры";
+
+/* Class = "UINavigationItem"; title = "TextViewController"; ObjectID = "ooo-Dq-wur"; */
+"ooo-Dq-wur.title" = "ТекстВьюКонтроллер";
+
+/* Class = "UINavigationItem"; title = "UIKit Dynamics"; ObjectID = "yma-Oy-xYB"; */
+"yma-Oy-xYB.title" = "Работа с физикой";
+
+/* Class = "UINavigationItem"; title = "UIObject"; ObjectID = "yuf-e8-zPp"; */
+"yuf-e8-zPp.title" = "Объекты";

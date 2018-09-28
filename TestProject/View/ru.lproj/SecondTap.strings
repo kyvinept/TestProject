@@ -1,0 +1,141 @@
+
+/* Class = "UIButton"; normalTitle = "coverVertical"; ObjectID = "02i-eM-sj5"; */
+"02i-eM-sj5.normalTitle" = "Вертикальная";
+
+/* Class = "UILabel"; text = "CoreAnimation"; ObjectID = "1l6-fA-zmc"; */
+"1l6-fA-zmc.text" = "Анимации";
+
+/* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "2Pd-Ev-u8N"; */
+"2Pd-Ev-u8N.title" = "Назад";
+
+/* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "2fw-X9-8So"; */
+"2fw-X9-8So.title" = "Назад";
+
+/* Class = "UILabel"; text = "Custom Modal View Controller Presenting"; ObjectID = "427-Ri-Zha"; */
+"427-Ri-Zha.text" = "Открытие кастомного модального вьюконтроллера";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "8se-Cd-IOf"; */
+"8se-Cd-IOf.normalTitle" = "Кнопка";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "9U0-Bl-ye6"; */
+"9U0-Bl-ye6.normalTitle" = "Кнопка";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "AG7-n4-cer"; */
+"AG7-n4-cer.normalTitle" = "Кнопка";
+
+/* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "CS1-cO-I1n"; */
+"CS1-cO-I1n.title" = "Назад";
+
+/* Class = "UINavigationItem"; title = "Share image"; ObjectID = "F7D-9o-gqS"; */
+"F7D-9o-gqS.title" = "Поделиться картинкой";
+
+/* Class = "UINavigationItem"; title = "CollectionViews"; ObjectID = "GYc-D0-a8N"; */
+"GYc-D0-a8N.title" = "КоллекшнВью";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Gd3-WY-3hk"; */
+"Gd3-WY-3hk.normalTitle" = "Кнопка";
+
+/* Class = "UINavigationItem"; title = "UICollectionView"; ObjectID = "I60-3t-cT2"; */
+"I60-3t-cT2.title" = "КоллекшнВью";
+
+/* Class = "UILabel"; text = "CollectionViews"; ObjectID = "J6P-7G-Am5"; */
+"J6P-7G-Am5.text" = "КоллекшнВью";
+
+/* Class = "UIButton"; normalTitle = "toBottomSwap"; ObjectID = "JBf-8J-nBK"; */
+"JBf-8J-nBK.normalTitle" = "Свайп вниз";
+
+/* Class = "UIButton"; normalTitle = "rotate"; ObjectID = "KNW-14-wlg"; */
+"KNW-14-wlg.normalTitle" = "Поворот";
+
+/* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "LjO-hA-sBk"; */
+"LjO-hA-sBk.title" = "Назад";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "MaC-iV-uTV"; */
+"MaC-iV-uTV.normalTitle" = "Кнопка";
+
+/* Class = "UINavigationItem"; title = "UITableView"; ObjectID = "O9r-zJ-a7s"; */
+"O9r-zJ-a7s.title" = "ТейблВью";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Oxf-Jd-8z7"; */
+"Oxf-Jd-8z7.normalTitle" = "Кнопка";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "VeF-0N-MK2"; */
+"VeF-0N-MK2.normalTitle" = "Кнопка";
+
+/* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "WCC-hU-XOU"; */
+"WCC-hU-XOU.title" = "Назад";
+
+/* Class = "UIButton"; normalTitle = "+"; ObjectID = "Y3p-vR-u3N"; */
+"Y3p-vR-u3N.normalTitle" = "+";
+
+/* Class = "UIButton"; normalTitle = "flipHorizontal"; ObjectID = "Yq5-S9-600"; */
+"Yq5-S9-600.normalTitle" = "Горизонтальный переворот";
+
+/* Class = "UIButton"; normalTitle = "fromRightCorner"; ObjectID = "ZV4-QI-Ty8"; */
+"ZV4-QI-Ty8.normalTitle" = "С правого края";
+
+/* Class = "UIButton"; normalTitle = "partialCurl"; ObjectID = "ZX4-14-Kaj"; */
+"ZX4-14-Kaj.normalTitle" = "Частичный разворот";
+
+/* Class = "UINavigationItem"; title = "CoreAnimation"; ObjectID = "Zg3-ec-4LG"; */
+"Zg3-ec-4LG.title" = "Анимации";
+
+/* Class = "UIButton"; normalTitle = "crossDissolve"; ObjectID = "aMZ-Go-Y6f"; */
+"aMZ-Go-Y6f.normalTitle" = "Появление";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "b0k-Xz-hKL"; */
+"b0k-Xz-hKL.normalTitle" = "Кнопка";
+
+/* Class = "UIButton"; normalTitle = "withDamping"; ObjectID = "dQp-8O-oKD"; */
+"dQp-8O-oKD.normalTitle" = "С затуханием";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "eZh-PL-gn4"; */
+"eZh-PL-gn4.normalTitle" = "Кнопка";
+
+/* Class = "UINavigationItem"; title = "Presenting VC"; ObjectID = "fLg-Ih-Dbe"; */
+"fLg-Ih-Dbe.title" = "Показать ВьюКонтроллер";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "gdi-jv-OBN"; */
+"gdi-jv-OBN.normalTitle" = "Кнопка";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "jEJ-BD-caD"; */
+"jEJ-BD-caD.normalTitle" = "Кнопка";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "lcc-KZ-PxK"; */
+"lcc-KZ-PxK.normalTitle" = "Кнопка";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "mnu-ul-6Ha"; */
+"mnu-ul-6Ha.normalTitle" = "Кнопка";
+
+/* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "nj3-xu-o9E"; */
+"nj3-xu-o9E.title" = "Назад";
+
+/* Class = "UILabel"; text = "UITableView"; ObjectID = "oBC-wS-W5E"; */
+"oBC-wS-W5E.text" = "ТейблВью";
+
+/* Class = "UILabel"; text = "StackView"; ObjectID = "otH-dA-JMm"; */
+"otH-dA-JMm.text" = "СтекВью";
+
+/* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "ou7-T2-0Oh"; */
+"ou7-T2-0Oh.title" = "Назад";
+
+/* Class = "UINavigationItem"; title = "UICollectionView"; ObjectID = "qLR-ig-mEb"; */
+"qLR-ig-mEb.title" = "КоллекшнВью";
+
+/* Class = "UIBarButtonItem"; title = "Share"; ObjectID = "rul-du-ozA"; */
+"rul-du-ozA.title" = "Поделиться";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "ruw-dv-zU5"; */
+"ruw-dv-zU5.normalTitle" = "Кнопка";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "uRR-eS-A1Y"; */
+"uRR-eS-A1Y.normalTitle" = "Кнопка";
+
+/* Class = "UIButton"; normalTitle = "toLeftSwap"; ObjectID = "wTP-Dk-2L0"; */
+"wTP-Dk-2L0.normalTitle" = "Свайп в лево";
+
+/* Class = "UILabel"; text = "UICollectionView"; ObjectID = "yaA-Vb-uc8"; */
+"yaA-Vb-uc8.text" = "КоллекшнВью";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "ynG-cm-w3B"; */
+"ynG-cm-w3B.normalTitle" = "Кнопка";

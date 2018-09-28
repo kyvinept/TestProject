@@ -44,13 +44,13 @@
 		5B434CD82159490400FF9FFE /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B434CD72159490400FF9FFE /* ImageViewController.swift */; };
 		5B434CDC21594C2C00FF9FFE /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B434CDB21594C2C00FF9FFE /* CustomImageView.swift */; };
 		5B434CDE21594CA200FF9FFE /* BigImageShowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B434CDD21594CA200FF9FFE /* BigImageShowView.swift */; };
-		5B5CF371214FB94900515EEE /* SecondTap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B5CF370214FB94900515EEE /* SecondTap.storyboard */; };
 		5B5CF373214FB95400515EEE /* ThirdViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B5CF372214FB95400515EEE /* ThirdViewController.storyboard */; };
 		5B5CF375214FB96300515EEE /* FourthViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B5CF374214FB96300515EEE /* FourthViewController.storyboard */; };
 		5B5CF377214FB96B00515EEE /* NewViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B5CF376214FB96B00515EEE /* NewViewController.storyboard */; };
 		5B5CF379214FBEFF00515EEE /* CustomAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5CF378214FBEFF00515EEE /* CustomAppDelegate.swift */; };
-		5B5CF37F214FFF0900515EEE /* FirstTap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B5CF37E214FFF0900515EEE /* FirstTap.storyboard */; };
 		5B5CF38321500BBB00515EEE /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5CF38221500BBB00515EEE /* FirstViewController.swift */; };
+		5B6502A0215D3C9C0051747F /* FirstTap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B6502A2215D3C9C0051747F /* FirstTap.storyboard */; };
+		5B6502A7215D3CA80051747F /* SecondTap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B6502A9215D3CA80051747F /* SecondTap.storyboard */; };
 		5BC01EF5215141FB009D5081 /* ThreadSafeInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC01EF4215141FB009D5081 /* ThreadSafeInt.swift */; };
 		5BD31E36214AA4B10097927B /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD31E35214AA4B10097927B /* CustomTabBarController.swift */; };
 /* End PBXBuildFile section */
@@ -95,13 +95,18 @@
 		5B434CD72159490400FF9FFE /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		5B434CDB21594C2C00FF9FFE /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		5B434CDD21594CA200FF9FFE /* BigImageShowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigImageShowView.swift; sourceTree = "<group>"; };
-		5B5CF370214FB94900515EEE /* SecondTap.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SecondTap.storyboard; sourceTree = "<group>"; };
 		5B5CF372214FB95400515EEE /* ThirdViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ThirdViewController.storyboard; sourceTree = "<group>"; };
 		5B5CF374214FB96300515EEE /* FourthViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FourthViewController.storyboard; sourceTree = "<group>"; };
 		5B5CF376214FB96B00515EEE /* NewViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewViewController.storyboard; sourceTree = "<group>"; };
 		5B5CF378214FBEFF00515EEE /* CustomAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAppDelegate.swift; sourceTree = "<group>"; };
-		5B5CF37E214FFF0900515EEE /* FirstTap.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FirstTap.storyboard; sourceTree = "<group>"; };
 		5B5CF38221500BBB00515EEE /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		5B65029F215D3C920051747F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		5B6502A1215D3C9C0051747F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/FirstTap.storyboard; sourceTree = "<group>"; };
+		5B6502A4215D3C9F0051747F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/FirstTap.strings; sourceTree = "<group>"; };
+		5B6502A6215D3CA00051747F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/FirstTap.strings; sourceTree = "<group>"; };
+		5B6502A8215D3CA80051747F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SecondTap.storyboard; sourceTree = "<group>"; };
+		5B6502AB215D3CAA0051747F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SecondTap.strings; sourceTree = "<group>"; };
+		5B6502AD215D3CAE0051747F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/SecondTap.strings; sourceTree = "<group>"; };
 		5BC01EF4215141FB009D5081 /* ThreadSafeInt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadSafeInt.swift; sourceTree = "<group>"; };
 		5BD31E35214AA4B10097927B /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -163,8 +168,8 @@
 			isa = PBXGroup;
 			children = (
 				5B30F4AF214A96200078D070 /* LaunchScreen.storyboard */,
-				5B5CF37E214FFF0900515EEE /* FirstTap.storyboard */,
-				5B5CF370214FB94900515EEE /* SecondTap.storyboard */,
+				5B6502A2215D3C9C0051747F /* FirstTap.storyboard */,
+				5B6502A9215D3CA80051747F /* SecondTap.storyboard */,
 				5B5CF372214FB95400515EEE /* ThirdViewController.storyboard */,
 				5B5CF374214FB96300515EEE /* FourthViewController.storyboard */,
 				5B5CF376214FB96B00515EEE /* NewViewController.storyboard */,
@@ -277,6 +282,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 5B30F49A214A961E0078D070;
 			productRefGroup = 5B30F4A4214A961E0078D070 /* Products */;
@@ -293,7 +299,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B5CF37F214FFF0900515EEE /* FirstTap.storyboard in Resources */,
+				5B6502A0215D3C9C0051747F /* FirstTap.storyboard in Resources */,
 				5B5CF375214FB96300515EEE /* FourthViewController.storyboard in Resources */,
 				5B5CF377214FB96B00515EEE /* NewViewController.storyboard in Resources */,
 				5B30F4B1214A96200078D070 /* LaunchScreen.storyboard in Resources */,
@@ -301,7 +307,7 @@
 				5B30F4AE214A96200078D070 /* Assets.xcassets in Resources */,
 				5B434CD22159454000FF9FFE /* ImageCell.xib in Resources */,
 				5B38A3282154FF0B00B73B79 /* CustomCell.xib in Resources */,
-				5B5CF371214FB94900515EEE /* SecondTap.storyboard in Resources */,
+				5B6502A7215D3CA80051747F /* SecondTap.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,8 +365,29 @@
 			isa = PBXVariantGroup;
 			children = (
 				5B30F4B0214A96200078D070 /* Base */,
+				5B65029F215D3C920051747F /* ru */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		5B6502A2215D3C9C0051747F /* FirstTap.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5B6502A1215D3C9C0051747F /* Base */,
+				5B6502A4215D3C9F0051747F /* en */,
+				5B6502A6215D3CA00051747F /* ru */,
+			);
+			name = FirstTap.storyboard;
+			sourceTree = "<group>";
+		};
+		5B6502A9215D3CA80051747F /* SecondTap.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5B6502A8215D3CA80051747F /* Base */,
+				5B6502AB215D3CAA0051747F /* en */,
+				5B6502AD215D3CAE0051747F /* ru */,
+			);
+			name = SecondTap.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -370,6 +397,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -430,6 +458,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
