@@ -9,6 +9,8 @@
 import UIKit
 
 class CustomTabBarController: UITabBarController {
+    
+    //private var shouldRotate = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +22,7 @@ class CustomTabBarController: UITabBarController {
                                                  title: "FirstViewController",
                                                  image: #imageLiteral(resourceName: "star"),
                                          selectedImage: nil)
-        let second = createNewController(viewController: UIStoryboard(name: "SecondViewController", bundle: nil).instantiateViewController(withIdentifier: "SecondViewController"),
+        let second = createNewController(viewController: UIStoryboard(name: "SecondTap", bundle: nil).instantiateViewController(withIdentifier: "SecondViewController"),
                                                   title: "SecondViewController",
                                                   image: #imageLiteral(resourceName: "medical-history"),
                                           selectedImage: nil)
@@ -44,5 +46,65 @@ class CustomTabBarController: UITabBarController {
                                                        image: image,
                                                selectedImage: selectedImage)
         return navigationController
+    }
+}
+
+extension CustomTabBarController {
+    
+    override open var shouldAutorotate: Bool {
+        get {
+            if let selectedVC = selectedViewController{
+                return selectedVC.shouldAutorotate
+            }
+            return super.shouldAutorotate
+        }
+    }
+    
+    override open var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation{
+        get {
+            if let selectedVC = selectedViewController{
+                return selectedVC.preferredInterfaceOrientationForPresentation
+            }
+            return super.preferredInterfaceOrientationForPresentation
+        }
+    }
+    
+    override open var supportedInterfaceOrientations: UIInterfaceOrientationMask{
+        get {
+            if let selectedVC = selectedViewController{
+                return selectedVC.supportedInterfaceOrientations
+            }
+            return super.supportedInterfaceOrientations
+        }
+    }
+}
+
+extension UINavigationController {
+    
+    override open var shouldAutorotate: Bool {
+        get {
+            if let selectedVC = visibleViewController {
+                return selectedVC.shouldAutorotate
+            }
+            return super.shouldAutorotate
+        }
+    }
+    
+    override open var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation{
+        get {
+            if let selectedVC = visibleViewController {
+                return selectedVC.preferredInterfaceOrientationForPresentation
+            }
+            return super.preferredInterfaceOrientationForPresentation
+        }
+    }
+    
+    override open var supportedInterfaceOrientations: UIInterfaceOrientationMask{
+        get {
+            if let selectedVC = visibleViewController {
+                return selectedVC.supportedInterfaceOrientations
+            }
+            return super.supportedInterfaceOrientations
+        }
     }
 }

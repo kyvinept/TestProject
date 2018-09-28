@@ -12,6 +12,7 @@ import UIKit
 class CustomAppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
+    var shouldRotate = false
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
@@ -19,5 +20,4 @@ class CustomAppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         return true
     }
-    
 }

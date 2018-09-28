@@ -13,16 +13,7 @@ class FourthViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "FourthViewController"
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         self.navigationController?.delegate = self
-    }
-    
-    @IBAction func openNewViewController(_ sender: Any) {
-        let newVC = UIStoryboard(name: "NewViewController", bundle: nil).instantiateViewController(withIdentifier: "NewViewController")
-        self.navigationController?.pushViewController(newVC, animated: true)
     }
 }
 
@@ -31,9 +22,17 @@ extension FourthViewController: UINavigationControllerDelegate {
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         switch operation {
         case .push:
-            return CustomPushAnimator()
+            return AnimationFromRightCorner()
         default:
             return nil
         }
     }
 }
+
+extension FourthViewController: NewViewControllerDelegate {
+    
+    func backButtonTapped() {
+        self.navigationController?.delegate = self
+    }
+}
+

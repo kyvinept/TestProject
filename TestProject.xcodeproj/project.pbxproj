@@ -7,31 +7,62 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5B27DA272150E5A2009E8B48 /* CustomPopAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27DA262150E5A2009E8B48 /* CustomPopAnimation.swift */; };
+		5B27AC4E215A3C8C00D1384E /* ImageCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27AC4D215A3C8C00D1384E /* ImageCollectionViewLayout.swift */; };
+		5B27AC50215A73B500D1384E /* ScrollCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27AC4F215A73B500D1384E /* ScrollCollectionViewController.swift */; };
+		5B27DA272150E5A2009E8B48 /* CustomPopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27DA262150E5A2009E8B48 /* CustomPopAnimator.swift */; };
+		5B27DA2A21511B1A009E8B48 /* UIObjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27DA2921511B1A009E8B48 /* UIObjectViewController.swift */; };
+		5B27DA2C215124AB009E8B48 /* Star.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27DA2B215124AB009E8B48 /* Star.swift */; };
 		5B30F4A9214A961E0078D070 /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B30F4A8214A961E0078D070 /* TextViewController.swift */; };
-		5B30F4AC214A961E0078D070 /* Mainn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B30F4AA214A961E0078D070 /* Mainn.storyboard */; };
 		5B30F4AE214A96200078D070 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B30F4AD214A96200078D070 /* Assets.xcassets */; };
 		5B30F4B1214A96200078D070 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B30F4AF214A96200078D070 /* LaunchScreen.storyboard */; };
 		5B30F4BB214A98AC0078D070 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B30F4BA214A98AC0078D070 /* SecondViewController.swift */; };
 		5B30F4BD214A98B40078D070 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B30F4BC214A98B40078D070 /* ThirdViewController.swift */; };
 		5B30F4BF214A98D70078D070 /* FourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B30F4BE214A98D70078D070 /* FourthViewController.swift */; };
 		5B30F4C1214A98DE0078D070 /* NewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B30F4C0214A98DE0078D070 /* NewViewController.swift */; };
-		5B30F4C3214A9C8D0078D070 /* CustomPushAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B30F4C2214A9C8D0078D070 /* CustomPushAnimator.swift */; };
-		5B5CF371214FB94900515EEE /* SecondViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B5CF370214FB94900515EEE /* SecondViewController.storyboard */; };
+		5B30F4C3214A9C8D0078D070 /* AnimationFromRightCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B30F4C2214A9C8D0078D070 /* AnimationFromRightCorner.swift */; };
+		5B3384B62153993600736F5D /* DynamicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3384B52153993600736F5D /* DynamicsViewController.swift */; };
+		5B3384BA2153A07400736F5D /* DynamicsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3384B92153A07400736F5D /* DynamicsView.swift */; };
+		5B3384BC2153E5CD00736F5D /* AnimationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3384BB2153E5CD00736F5D /* AnimationsViewController.swift */; };
+		5B38A3172154DD5D00B73B79 /* PresentingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B38A3162154DD5D00B73B79 /* PresentingViewController.swift */; };
+		5B38A3192154E40A00B73B79 /* PresentRotateAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B38A3182154E40A00B73B79 /* PresentRotateAnimation.swift */; };
+		5B38A31B2154EDCE00B73B79 /* PresentWithDamping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B38A31A2154EDCE00B73B79 /* PresentWithDamping.swift */; };
+		5B38A31D2154F09300B73B79 /* DismissCurrentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B38A31C2154F09300B73B79 /* DismissCurrentVC.swift */; };
+		5B38A31F2154F1EE00B73B79 /* LeftPresentAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B38A31E2154F1EE00B73B79 /* LeftPresentAnimation.swift */; };
+		5B38A3212154FA5400B73B79 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B38A3202154FA5400B73B79 /* TableViewController.swift */; };
+		5B38A3242154FA7000B73B79 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B38A3232154FA7000B73B79 /* DataModel.swift */; };
+		5B38A3262154FD2E00B73B79 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B38A3252154FD2E00B73B79 /* NetworkingManager.swift */; };
+		5B38A3282154FF0B00B73B79 /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B38A3272154FF0B00B73B79 /* CustomCell.xib */; };
+		5B38A32A21550C6700B73B79 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B38A32921550C6700B73B79 /* CustomCell.swift */; };
+		5B38A32C21552E3600B73B79 /* CustomCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B38A32B21552E3600B73B79 /* CustomCellViewModel.swift */; };
+		5B3F5507215B8BCC00A1D9D2 /* StackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3F5506215B8BCC00A1D9D2 /* StackViewController.swift */; };
+		5B3F5509215B982400A1D9D2 /* CoreAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3F5508215B982400A1D9D2 /* CoreAnimationViewController.swift */; };
+		5B410AED21523D1A007C4AD0 /* GestureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B410AEC21523D1A007C4AD0 /* GestureViewController.swift */; };
+		5B434CD02159349E00FF9FFE /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B434CCF2159349E00FF9FFE /* CollectionViewController.swift */; };
+		5B434CD22159454000FF9FFE /* ImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B434CD12159454000FF9FFE /* ImageCell.xib */; };
+		5B434CD42159455700FF9FFE /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B434CD32159455700FF9FFE /* ImageCell.swift */; };
+		5B434CD6215945DB00FF9FFE /* ImageCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B434CD5215945DB00FF9FFE /* ImageCellViewModel.swift */; };
+		5B434CD82159490400FF9FFE /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B434CD72159490400FF9FFE /* ImageViewController.swift */; };
+		5B434CDC21594C2C00FF9FFE /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B434CDB21594C2C00FF9FFE /* CustomImageView.swift */; };
+		5B434CDE21594CA200FF9FFE /* BigImageShowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B434CDD21594CA200FF9FFE /* BigImageShowView.swift */; };
+		5B5CF371214FB94900515EEE /* SecondTap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B5CF370214FB94900515EEE /* SecondTap.storyboard */; };
 		5B5CF373214FB95400515EEE /* ThirdViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B5CF372214FB95400515EEE /* ThirdViewController.storyboard */; };
 		5B5CF375214FB96300515EEE /* FourthViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B5CF374214FB96300515EEE /* FourthViewController.storyboard */; };
 		5B5CF377214FB96B00515EEE /* NewViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B5CF376214FB96B00515EEE /* NewViewController.storyboard */; };
 		5B5CF379214FBEFF00515EEE /* CustomAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5CF378214FBEFF00515EEE /* CustomAppDelegate.swift */; };
 		5B5CF37F214FFF0900515EEE /* FirstTap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B5CF37E214FFF0900515EEE /* FirstTap.storyboard */; };
 		5B5CF38321500BBB00515EEE /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5CF38221500BBB00515EEE /* FirstViewController.swift */; };
+		5BC01EF5215141FB009D5081 /* ThreadSafeInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC01EF4215141FB009D5081 /* ThreadSafeInt.swift */; };
 		5BD31E36214AA4B10097927B /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD31E35214AA4B10097927B /* CustomTabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5B27DA262150E5A2009E8B48 /* CustomPopAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopAnimation.swift; sourceTree = "<group>"; };
+		5B27AC4D215A3C8C00D1384E /* ImageCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewLayout.swift; sourceTree = "<group>"; };
+		5B27AC4F215A73B500D1384E /* ScrollCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollCollectionViewController.swift; sourceTree = "<group>"; };
+		5B27DA262150E5A2009E8B48 /* CustomPopAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopAnimator.swift; sourceTree = "<group>"; };
+		5B27DA2921511B1A009E8B48 /* UIObjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIObjectViewController.swift; sourceTree = "<group>"; };
+		5B27DA2B215124AB009E8B48 /* Star.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Star.swift; sourceTree = "<group>"; };
 		5B30F4A3214A961E0078D070 /* TestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B30F4A8214A961E0078D070 /* TextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
-		5B30F4AB214A961E0078D070 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Mainn.storyboard; sourceTree = "<group>"; };
 		5B30F4AD214A96200078D070 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5B30F4B0214A96200078D070 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5B30F4B2214A96200078D070 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -39,14 +70,39 @@
 		5B30F4BC214A98B40078D070 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		5B30F4BE214A98D70078D070 /* FourthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthViewController.swift; sourceTree = "<group>"; };
 		5B30F4C0214A98DE0078D070 /* NewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewViewController.swift; sourceTree = "<group>"; };
-		5B30F4C2214A9C8D0078D070 /* CustomPushAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPushAnimator.swift; sourceTree = "<group>"; };
-		5B5CF370214FB94900515EEE /* SecondViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SecondViewController.storyboard; sourceTree = "<group>"; };
+		5B30F4C2214A9C8D0078D070 /* AnimationFromRightCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationFromRightCorner.swift; sourceTree = "<group>"; };
+		5B3384B52153993600736F5D /* DynamicsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicsViewController.swift; sourceTree = "<group>"; };
+		5B3384B92153A07400736F5D /* DynamicsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicsView.swift; sourceTree = "<group>"; };
+		5B3384BB2153E5CD00736F5D /* AnimationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationsViewController.swift; sourceTree = "<group>"; };
+		5B38A3162154DD5D00B73B79 /* PresentingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentingViewController.swift; sourceTree = "<group>"; };
+		5B38A3182154E40A00B73B79 /* PresentRotateAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentRotateAnimation.swift; sourceTree = "<group>"; };
+		5B38A31A2154EDCE00B73B79 /* PresentWithDamping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentWithDamping.swift; sourceTree = "<group>"; };
+		5B38A31C2154F09300B73B79 /* DismissCurrentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissCurrentVC.swift; sourceTree = "<group>"; };
+		5B38A31E2154F1EE00B73B79 /* LeftPresentAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftPresentAnimation.swift; sourceTree = "<group>"; };
+		5B38A3202154FA5400B73B79 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		5B38A3232154FA7000B73B79 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		5B38A3252154FD2E00B73B79 /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
+		5B38A3272154FF0B00B73B79 /* CustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
+		5B38A32921550C6700B73B79 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		5B38A32B21552E3600B73B79 /* CustomCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellViewModel.swift; sourceTree = "<group>"; };
+		5B3F5506215B8BCC00A1D9D2 /* StackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewController.swift; sourceTree = "<group>"; };
+		5B3F5508215B982400A1D9D2 /* CoreAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreAnimationViewController.swift; sourceTree = "<group>"; };
+		5B410AEC21523D1A007C4AD0 /* GestureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GestureViewController.swift; sourceTree = "<group>"; };
+		5B434CCF2159349E00FF9FFE /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		5B434CD12159454000FF9FFE /* ImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCell.xib; sourceTree = "<group>"; };
+		5B434CD32159455700FF9FFE /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
+		5B434CD5215945DB00FF9FFE /* ImageCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCellViewModel.swift; sourceTree = "<group>"; };
+		5B434CD72159490400FF9FFE /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
+		5B434CDB21594C2C00FF9FFE /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
+		5B434CDD21594CA200FF9FFE /* BigImageShowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigImageShowView.swift; sourceTree = "<group>"; };
+		5B5CF370214FB94900515EEE /* SecondTap.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SecondTap.storyboard; sourceTree = "<group>"; };
 		5B5CF372214FB95400515EEE /* ThirdViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ThirdViewController.storyboard; sourceTree = "<group>"; };
 		5B5CF374214FB96300515EEE /* FourthViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FourthViewController.storyboard; sourceTree = "<group>"; };
 		5B5CF376214FB96B00515EEE /* NewViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewViewController.storyboard; sourceTree = "<group>"; };
 		5B5CF378214FBEFF00515EEE /* CustomAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAppDelegate.swift; sourceTree = "<group>"; };
 		5B5CF37E214FFF0900515EEE /* FirstTap.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FirstTap.storyboard; sourceTree = "<group>"; };
 		5B5CF38221500BBB00515EEE /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		5BC01EF4215141FB009D5081 /* ThreadSafeInt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadSafeInt.swift; sourceTree = "<group>"; };
 		5BD31E35214AA4B10097927B /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -61,6 +117,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5B27DA282150EF8E009E8B48 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				5B27DA262150E5A2009E8B48 /* CustomPopAnimator.swift */,
+				5B30F4C2214A9C8D0078D070 /* AnimationFromRightCorner.swift */,
+				5B38A3182154E40A00B73B79 /* PresentRotateAnimation.swift */,
+				5B38A31A2154EDCE00B73B79 /* PresentWithDamping.swift */,
+				5B38A31C2154F09300B73B79 /* DismissCurrentVC.swift */,
+				5B38A31E2154F1EE00B73B79 /* LeftPresentAnimation.swift */,
+			);
+			path = Animation;
+			sourceTree = "<group>";
+		};
 		5B30F49A214A961E0078D070 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +152,7 @@
 				5B5CF378214FBEFF00515EEE /* CustomAppDelegate.swift */,
 				5B30F4B9214A98940078D070 /* ViewController */,
 				5B30F4B8214A988C0078D070 /* View */,
+				5B38A3222154FA5E00B73B79 /* Model */,
 				5B30F4AD214A96200078D070 /* Assets.xcassets */,
 				5B30F4B2214A96200078D070 /* Info.plist */,
 			);
@@ -92,13 +162,23 @@
 		5B30F4B8214A988C0078D070 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				5B30F4AA214A961E0078D070 /* Mainn.storyboard */,
 				5B30F4AF214A96200078D070 /* LaunchScreen.storyboard */,
 				5B5CF37E214FFF0900515EEE /* FirstTap.storyboard */,
-				5B5CF370214FB94900515EEE /* SecondViewController.storyboard */,
+				5B5CF370214FB94900515EEE /* SecondTap.storyboard */,
 				5B5CF372214FB95400515EEE /* ThirdViewController.storyboard */,
 				5B5CF374214FB96300515EEE /* FourthViewController.storyboard */,
 				5B5CF376214FB96B00515EEE /* NewViewController.storyboard */,
+				5B434CDB21594C2C00FF9FFE /* CustomImageView.swift */,
+				5B27DA2B215124AB009E8B48 /* Star.swift */,
+				5B3384B92153A07400736F5D /* DynamicsView.swift */,
+				5B38A3272154FF0B00B73B79 /* CustomCell.xib */,
+				5B38A32921550C6700B73B79 /* CustomCell.swift */,
+				5B38A32B21552E3600B73B79 /* CustomCellViewModel.swift */,
+				5B434CD12159454000FF9FFE /* ImageCell.xib */,
+				5B434CD32159455700FF9FFE /* ImageCell.swift */,
+				5B434CD5215945DB00FF9FFE /* ImageCellViewModel.swift */,
+				5B434CDD21594CA200FF9FFE /* BigImageShowView.swift */,
+				5B27AC4D215A3C8C00D1384E /* ImageCollectionViewLayout.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -106,17 +186,53 @@
 		5B30F4B9214A98940078D070 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				5B5CF38221500BBB00515EEE /* FirstViewController.swift */,
-				5B30F4BA214A98AC0078D070 /* SecondViewController.swift */,
+				5B38A3142154DA1C00B73B79 /* FirstTab */,
+				5B38A3152154DC4C00B73B79 /* SecondTap */,
 				5B30F4BC214A98B40078D070 /* ThirdViewController.swift */,
 				5B30F4BE214A98D70078D070 /* FourthViewController.swift */,
-				5B30F4C0214A98DE0078D070 /* NewViewController.swift */,
-				5B30F4A8214A961E0078D070 /* TextViewController.swift */,
 				5BD31E35214AA4B10097927B /* CustomTabBarController.swift */,
-				5B30F4C2214A9C8D0078D070 /* CustomPushAnimator.swift */,
-				5B27DA262150E5A2009E8B48 /* CustomPopAnimation.swift */,
+				5BC01EF4215141FB009D5081 /* ThreadSafeInt.swift */,
+				5B30F4C0214A98DE0078D070 /* NewViewController.swift */,
+				5B27DA282150EF8E009E8B48 /* Animation */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		5B38A3142154DA1C00B73B79 /* FirstTab */ = {
+			isa = PBXGroup;
+			children = (
+				5B5CF38221500BBB00515EEE /* FirstViewController.swift */,
+				5B3384B52153993600736F5D /* DynamicsViewController.swift */,
+				5B410AEC21523D1A007C4AD0 /* GestureViewController.swift */,
+				5B27DA2921511B1A009E8B48 /* UIObjectViewController.swift */,
+				5B30F4A8214A961E0078D070 /* TextViewController.swift */,
+				5B3384BB2153E5CD00736F5D /* AnimationsViewController.swift */,
+			);
+			path = FirstTab;
+			sourceTree = "<group>";
+		};
+		5B38A3152154DC4C00B73B79 /* SecondTap */ = {
+			isa = PBXGroup;
+			children = (
+				5B30F4BA214A98AC0078D070 /* SecondViewController.swift */,
+				5B38A3162154DD5D00B73B79 /* PresentingViewController.swift */,
+				5B38A3202154FA5400B73B79 /* TableViewController.swift */,
+				5B434CD72159490400FF9FFE /* ImageViewController.swift */,
+				5B434CCF2159349E00FF9FFE /* CollectionViewController.swift */,
+				5B27AC4F215A73B500D1384E /* ScrollCollectionViewController.swift */,
+				5B3F5506215B8BCC00A1D9D2 /* StackViewController.swift */,
+				5B3F5508215B982400A1D9D2 /* CoreAnimationViewController.swift */,
+			);
+			path = SecondTap;
+			sourceTree = "<group>";
+		};
+		5B38A3222154FA5E00B73B79 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5B38A3232154FA7000B73B79 /* DataModel.swift */,
+				5B38A3252154FD2E00B73B79 /* NetworkingManager.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,8 +299,9 @@
 				5B30F4B1214A96200078D070 /* LaunchScreen.storyboard in Resources */,
 				5B5CF373214FB95400515EEE /* ThirdViewController.storyboard in Resources */,
 				5B30F4AE214A96200078D070 /* Assets.xcassets in Resources */,
-				5B5CF371214FB94900515EEE /* SecondViewController.storyboard in Resources */,
-				5B30F4AC214A961E0078D070 /* Mainn.storyboard in Resources */,
+				5B434CD22159454000FF9FFE /* ImageCell.xib in Resources */,
+				5B38A3282154FF0B00B73B79 /* CustomCell.xib in Resources */,
+				5B5CF371214FB94900515EEE /* SecondTap.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,30 +312,49 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B38A31F2154F1EE00B73B79 /* LeftPresentAnimation.swift in Sources */,
+				5B434CDE21594CA200FF9FFE /* BigImageShowView.swift in Sources */,
+				5B410AED21523D1A007C4AD0 /* GestureViewController.swift in Sources */,
 				5B5CF38321500BBB00515EEE /* FirstViewController.swift in Sources */,
+				5B38A32C21552E3600B73B79 /* CustomCellViewModel.swift in Sources */,
+				5B38A3262154FD2E00B73B79 /* NetworkingManager.swift in Sources */,
+				5B434CD6215945DB00FF9FFE /* ImageCellViewModel.swift in Sources */,
+				5B38A3192154E40A00B73B79 /* PresentRotateAnimation.swift in Sources */,
 				5BD31E36214AA4B10097927B /* CustomTabBarController.swift in Sources */,
+				5B38A3242154FA7000B73B79 /* DataModel.swift in Sources */,
+				5B434CDC21594C2C00FF9FFE /* CustomImageView.swift in Sources */,
+				5B3384BC2153E5CD00736F5D /* AnimationsViewController.swift in Sources */,
 				5B30F4BB214A98AC0078D070 /* SecondViewController.swift in Sources */,
+				5B38A3212154FA5400B73B79 /* TableViewController.swift in Sources */,
+				5B27DA2C215124AB009E8B48 /* Star.swift in Sources */,
 				5B30F4A9214A961E0078D070 /* TextViewController.swift in Sources */,
-				5B30F4C3214A9C8D0078D070 /* CustomPushAnimator.swift in Sources */,
+				5B30F4C3214A9C8D0078D070 /* AnimationFromRightCorner.swift in Sources */,
+				5B434CD02159349E00FF9FFE /* CollectionViewController.swift in Sources */,
 				5B30F4BD214A98B40078D070 /* ThirdViewController.swift in Sources */,
+				5B3384BA2153A07400736F5D /* DynamicsView.swift in Sources */,
 				5B30F4C1214A98DE0078D070 /* NewViewController.swift in Sources */,
+				5B38A31D2154F09300B73B79 /* DismissCurrentVC.swift in Sources */,
+				5B38A32A21550C6700B73B79 /* CustomCell.swift in Sources */,
+				5B434CD82159490400FF9FFE /* ImageViewController.swift in Sources */,
 				5B5CF379214FBEFF00515EEE /* CustomAppDelegate.swift in Sources */,
+				5BC01EF5215141FB009D5081 /* ThreadSafeInt.swift in Sources */,
 				5B30F4BF214A98D70078D070 /* FourthViewController.swift in Sources */,
-				5B27DA272150E5A2009E8B48 /* CustomPopAnimation.swift in Sources */,
+				5B27DA272150E5A2009E8B48 /* CustomPopAnimator.swift in Sources */,
+				5B3384B62153993600736F5D /* DynamicsViewController.swift in Sources */,
+				5B27DA2A21511B1A009E8B48 /* UIObjectViewController.swift in Sources */,
+				5B27AC50215A73B500D1384E /* ScrollCollectionViewController.swift in Sources */,
+				5B38A31B2154EDCE00B73B79 /* PresentWithDamping.swift in Sources */,
+				5B38A3172154DD5D00B73B79 /* PresentingViewController.swift in Sources */,
+				5B3F5507215B8BCC00A1D9D2 /* StackViewController.swift in Sources */,
+				5B27AC4E215A3C8C00D1384E /* ImageCollectionViewLayout.swift in Sources */,
+				5B3F5509215B982400A1D9D2 /* CoreAnimationViewController.swift in Sources */,
+				5B434CD42159455700FF9FFE /* ImageCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		5B30F4AA214A961E0078D070 /* Mainn.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5B30F4AB214A961E0078D070 /* Base */,
-			);
-			name = Mainn.storyboard;
-			sourceTree = "<group>";
-		};
 		5B30F4AF214A96200078D070 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

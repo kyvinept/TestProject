@@ -1,21 +1,21 @@
 //
-//  NewViewController.swift
+//  StackViewController.swift
 //  TestProject
 //
-//  Created by Silchenko on 13.09.2018.
+//  Created by Silchenko on 26.09.2018.
 //  Copyright © 2018 Silchenko. All rights reserved.
 //
 
 import UIKit
 
-protocol NewViewControllerDelegate: class {
+protocol StackViewControllerDelegate: class {
     func backButtonTapped()
 }
 
-class NewViewController: UIViewController {
+class StackViewController: UIViewController {
     
-    weak var delegate: NewViewControllerDelegate?
-
+    weak var delegate: StackViewControllerDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.delegate = self
@@ -27,17 +27,24 @@ class NewViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        deleteStatusBar()
+        createStatusBar()
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     @IBAction func backButtonTapped(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
+        delegate?.backButtonTapped()
     }
 }
 
-extension NewViewController: UINavigationControllerDelegate {
+extension StackViewController: UINavigationControllerDelegate {
     
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         switch operation {

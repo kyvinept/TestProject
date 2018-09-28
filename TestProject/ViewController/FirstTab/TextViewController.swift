@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol TextViewControllerDelegate: class {
+    func backButtonTapped()
+}
+
 class TextViewController: UIViewController {
     
     @IBOutlet private weak var scrollView: UIScrollView!
@@ -15,24 +19,46 @@ class TextViewController: UIViewController {
     private let leftConstraintConstant: CGFloat = 10
     private let rightConstraintConstant: CGFloat = 10
     private let topConstraintConstant: CGFloat = 10
+    weak var delegate: TextViewControllerDelegate?
+    @IBOutlet weak var navigationBar: UINavigationBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.delegate = self
-        self.title = "TextViewController"
         addGesture()
         addNotification()
         createElements()
+        createStatusBar()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        scrollViewSizeSet()
+        scrollViewSizeSet(scrollView: scrollView)
+        switch UIDevice.current.orientation {
+        case .portrait:
+            deleteStatusBar()
+            createStatusBar()
+        case .landscapeLeft, .landscapeRight:
+            deleteStatusBar()
+            createStatusBar()
+        default:
+            break
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        scrollViewSizeSet()
+        scrollViewSizeSet(scrollView: scrollView)
     }
     
     @objc private func keyboardWillShow(notification: NSNotification) {
@@ -68,6 +94,11 @@ class TextViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
+    
+    @IBAction func backButtonTapped(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+        delegate?.backButtonTapped()
+    }
 }
 
 extension TextViewController {
@@ -95,39 +126,6 @@ extension TextViewController {
         }
     }
     
-    private func scrollViewSizeSet(){
-        var contentRect = CGRect.zero
-        for view in scrollView.subviews {
-            contentRect = contentRect.union(view.frame)
-        }
-        scrollView.contentSize = contentRect.size
-    }
-    
-    private func setConstraints(object: UIView, toObject: UIView, widthSize: CGFloat) -> (NSLayoutConstraint, NSLayoutConstraint, NSLayoutConstraint) {
-        let left = NSLayoutConstraint(item: object,
-                                 attribute: NSLayoutAttribute.left,
-                                 relatedBy: NSLayoutRelation.equal,
-                                    toItem: scrollView,
-                                 attribute: NSLayoutAttribute.left,
-                                multiplier: 1,
-                                  constant: leftConstraintConstant)
-        let top = NSLayoutConstraint(item: object,
-                                attribute: NSLayoutAttribute.top,
-                                relatedBy: NSLayoutRelation.equal,
-                                   toItem: toObject,
-                                attribute: NSLayoutAttribute.bottom,
-                               multiplier: 1,
-                                 constant: topConstraintConstant)
-        let width = NSLayoutConstraint(item: object,
-                                  attribute: NSLayoutAttribute.width,
-                                  relatedBy: NSLayoutRelation.equal,
-                                     toItem: nil,
-                                  attribute: NSLayoutAttribute.notAnAttribute,
-                                 multiplier: 1,
-                                   constant: widthSize)
-        return (left, top, width)
-    }
-    
     private func createLabel(widthSize: CGFloat, toItem: UIView, item: Int) -> UILabel {
         let label = UILabel()
         let str = "Label number " + String(item)
@@ -143,8 +141,11 @@ extension TextViewController {
         scrollView.addSubview(label)
         let constraints = setConstraints(object: label,
                                        toObject: toItem,
-                                      widthSize: widthSize)
-        scrollView.addConstraints([constraints.0, constraints.1, constraints.2])
+                                      widthSize: widthSize,
+                                   toLeftObject: scrollView,
+                                   leftConstant: leftConstraintConstant,
+                                    topConstant: topConstraintConstant)
+        scrollView.addConstraints(constraints)
         return label
     }
     
@@ -159,8 +160,11 @@ extension TextViewController {
         scrollView.addSubview(textField)
         let constraints = setConstraints(object: textField,
                                        toObject: toItem,
-                                      widthSize: widthSize)
-        scrollView.addConstraints([constraints.0, constraints.1, constraints.2])
+                                      widthSize: widthSize,
+                                   toLeftObject: scrollView,
+                                   leftConstant: leftConstraintConstant,
+                                    topConstant: topConstraintConstant)
+        scrollView.addConstraints(constraints)
         return textField
     }
     
@@ -188,8 +192,11 @@ extension TextViewController {
         scrollView.addSubview(textView)
         let constraints = setConstraints(object: textView,
                                        toObject: toItem,
-                                      widthSize: widthSize)
-        scrollView.addConstraints([constraints.0, constraints.1, constraints.2])
+                                      widthSize: widthSize,
+                                   toLeftObject: scrollView,
+                                   leftConstant: leftConstraintConstant,
+                                    topConstant: topConstraintConstant)
+        scrollView.addConstraints(constraints)
         return textView
     }
 }
