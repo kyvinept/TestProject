@@ -25,3 +25,10 @@
 "Empty description field. Try again!" = "Поле \"описание\" пустое. Повторите ввод!";
 "Cancel" = "Отмена";
 "Delete" = "Удалить";
+"Business" = "Бизнес";
+"Entertainment" = "Развлечения";
+"General" = "Общие";
+"Health" = "Здоровье";
+"Science" = "Наука";
+"Sports" = "Спорт";
+"Technology" = "Технологии";

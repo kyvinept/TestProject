@@ -71,10 +71,10 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="56"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yri-tZ-BS3">
-                                        <rect key="frame" x="0.0" y="0.0" width="70" height="56"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="56"/>
                                         <color key="backgroundColor" red="0.50980392156862742" green="0.75294117647058822" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="70" id="kNe-L8-IRa"/>
+                                            <constraint firstAttribute="width" constant="80" id="kNe-L8-IRa"/>
                                         </constraints>
                                         <state key="normal" title="Category">
                                             <color key="titleColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -84,7 +84,7 @@
                                         </connections>
                                     </button>
                                     <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="0LB-ql-4xN">
-                                        <rect key="frame" x="70" y="0.0" width="305" height="56"/>
+                                        <rect key="frame" x="80" y="0.0" width="295" height="56"/>
                                         <color key="tintColor" red="0.59215686270000001" green="0.76651557550000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="barTintColor" red="0.59215686270000001" green="0.76651557550000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <textInputTraits key="textInputTraits"/>

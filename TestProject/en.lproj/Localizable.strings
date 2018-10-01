@@ -25,3 +25,10 @@
 "Empty description field. Try again!" = "Empty description field. Try again!";
 "Cancel" = "Cancel";
 "Delete" = "Delete";
+"Business" = "Business";
+"Entertainment" = "Entertainment";
+"General" = "General";
+"Health" = "Health";
+"Science" = "Science";
+"Sports" = "Sports";
+"Technology" = "Technology";

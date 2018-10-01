@@ -27,7 +27,7 @@ class CategoryViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = category[indexPath.row]
+        cell.textLabel?.text = NSLocalizedString(category[indexPath.row], comment: "") 
         return cell
     }
     
