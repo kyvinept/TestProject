@@ -10,6 +10,37 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Category View Controller-->
+        <scene sceneID="IUj-Z1-WLa">
+            <objects>
+                <tableViewController storyboardIdentifier="CategoryViewController" id="Zdl-Wm-Gm1" customClass="CategoryViewController" customModule="TestProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Qfd-g7-gXs">
+                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.59215686270000001" green="0.76651557550000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="Tcx-JN-Q7W">
+                                <rect key="frame" x="0.0" y="28" width="200" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Tcx-JN-Q7W" id="rVc-Jv-Xip">
+                                    <rect key="frame" x="0.0" y="0.0" width="200" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.59215686270000001" green="0.76651557550000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Zdl-Wm-Gm1" id="kBf-Aw-Unp"/>
+                            <outlet property="delegate" destination="Zdl-Wm-Gm1" id="0CT-Df-t5S"/>
+                        </connections>
+                    </tableView>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="200" height="200"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4jL-p2-eOH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-990" y="-232"/>
+        </scene>
         <!--Third View Controller-->
         <scene sceneID="Cqt-Z9-nLA">
             <objects>
@@ -19,7 +50,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jMQ-Yo-bbj">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="76" width="375" height="547"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="ggy-et-GJr">
@@ -36,17 +67,50 @@
                                     <outlet property="delegate" destination="lzJ-a1-OjF" id="4H6-do-0Lf"/>
                                 </connections>
                             </tableView>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Myn-z6-PHM">
+                                <rect key="frame" x="0.0" y="20" width="375" height="56"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yri-tZ-BS3">
+                                        <rect key="frame" x="0.0" y="0.0" width="70" height="56"/>
+                                        <color key="backgroundColor" red="0.50980392156862742" green="0.75294117647058822" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="70" id="kNe-L8-IRa"/>
+                                        </constraints>
+                                        <state key="normal" title="Category">
+                                            <color key="titleColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="categoryButtonTapped:" destination="lzJ-a1-OjF" eventType="touchUpInside" id="Yf5-xX-QKt"/>
+                                        </connections>
+                                    </button>
+                                    <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="0LB-ql-4xN">
+                                        <rect key="frame" x="70" y="0.0" width="305" height="56"/>
+                                        <color key="tintColor" red="0.59215686270000001" green="0.76651557550000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="barTintColor" red="0.59215686270000001" green="0.76651557550000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="lzJ-a1-OjF" id="cuZ-To-JBQ"/>
+                                        </connections>
+                                    </searchBar>
+                                </subviews>
+                            </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="jMQ-Yo-bbj" firstAttribute="leading" secondItem="O7M-45-GaC" secondAttribute="leading" id="FxK-PN-H2M"/>
-                            <constraint firstItem="jMQ-Yo-bbj" firstAttribute="bottom" secondItem="O7M-45-GaC" secondAttribute="bottom" id="YIR-6j-0cK"/>
-                            <constraint firstItem="jMQ-Yo-bbj" firstAttribute="trailing" secondItem="O7M-45-GaC" secondAttribute="trailing" id="fj2-1i-iOC"/>
-                            <constraint firstItem="jMQ-Yo-bbj" firstAttribute="top" secondItem="O7M-45-GaC" secondAttribute="top" id="rJj-BS-UcY"/>
+                            <constraint firstItem="jMQ-Yo-bbj" firstAttribute="leading" secondItem="O7M-45-GaC" secondAttribute="leading" id="bgG-Wu-Td5"/>
+                            <constraint firstItem="jMQ-Yo-bbj" firstAttribute="trailing" secondItem="O7M-45-GaC" secondAttribute="trailing" id="bni-ee-xJP"/>
+                            <constraint firstItem="Myn-z6-PHM" firstAttribute="top" secondItem="O7M-45-GaC" secondAttribute="top" id="efd-7C-giI"/>
+                            <constraint firstAttribute="trailing" secondItem="Myn-z6-PHM" secondAttribute="trailing" id="iao-cq-Ef6"/>
+                            <constraint firstItem="Myn-z6-PHM" firstAttribute="leading" secondItem="O7M-45-GaC" secondAttribute="leading" id="jAy-Qp-zM5"/>
+                            <constraint firstItem="jMQ-Yo-bbj" firstAttribute="top" secondItem="Myn-z6-PHM" secondAttribute="bottom" id="jDm-Cv-bav"/>
+                            <constraint firstItem="jMQ-Yo-bbj" firstAttribute="bottom" secondItem="O7M-45-GaC" secondAttribute="bottom" id="sid-9Y-Grh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O7M-45-GaC"/>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="searchBar" destination="0LB-ql-4xN" id="nxa-CB-Jqo"/>
                         <outlet property="tableView" destination="jMQ-Yo-bbj" id="zm6-1l-Muv"/>
                     </connections>
                 </viewController>

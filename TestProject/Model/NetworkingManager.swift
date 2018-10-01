@@ -12,8 +12,8 @@ import SwiftyJSON
 class NetworkingManager {
     
     static let shared = NetworkingManager()
-    private let url = "https://newsapi.org/v2/top-headlines?"
     private let apiKey = "24650d0a7d5d4029b6b74c8affd2cb93"
+    private let countOfNewsInData = 20
     private let concurrent = DispatchQueue(label: "com.concurrent.Networking", attributes: .concurrent)
     
     private init() { }
@@ -27,18 +27,29 @@ class NetworkingManager {
         }
     }
     
-    func receiveData(country: Country, saveNews: @escaping ([News]) -> ()) {
-        let urlString = url + "country=" + country.rawValue + "&apiKey=" + apiKey
+    func receiveData(country: Country, currentCountNews: Int, saveNews: @escaping ([News]) -> ()) {
+        let urlString = SearchMode.topHeadlines.rawValue + "country=" + country.rawValue + returnEndUrl(currentCountNews: currentCountNews)
         guard let url = URL(string: urlString) else { return }
         
         downloadDataFromServer(url: url, saveNews: saveNews)
     }
     
-    func receiveData(category: Category, saveNews: @escaping ([News]) -> ()) {
-        let urlString = url + "category=" + category.rawValue + "&apiKey=" + apiKey
+    func receiveData(category: Category, currentCountNews: Int, saveNews: @escaping ([News]) -> ()) {
+        let urlString = SearchMode.topHeadlines.rawValue + "category=" + category.rawValue + returnEndUrl(currentCountNews: currentCountNews)
         guard let url = URL(string: urlString) else { return }
         
         downloadDataFromServer(url: url, saveNews: saveNews)
+    }
+    
+    func receiveData(query: String, currentCountNews: Int, saveNews: @escaping ([News]) -> ()) {
+        let urlString = SearchMode.everything.rawValue + "q=" + query + returnEndUrl(currentCountNews: currentCountNews)
+        guard let url = URL(string: urlString) else { return }
+        
+        downloadDataFromServer(url: url, saveNews: saveNews)
+    }
+    
+    private func returnEndUrl(currentCountNews: Int) -> String {
+         return "&page=" + String(currentCountNews/countOfNewsInData+1) + "&apiKey=" + apiKey
     }
     
     private func downloadDataFromServer(url: URL, saveNews: @escaping ([News]) -> ()) {
@@ -53,6 +64,17 @@ class NetworkingManager {
     private func receiveNews(json: JSON, saveNews: @escaping ([News]) -> ()) {
         let news = Mapper.shared.parseNews(json: json)
         saveNews(news)
+    }
+    
+    enum SearchType: String {
+        case category
+        case country
+        case query
+    }
+    
+    private enum SearchMode: String {
+        case topHeadlines = "https://newsapi.org/v2/top-headlines?"
+        case everything = "https://newsapi.org/v2/everything?"
     }
     
     enum Category: String {
