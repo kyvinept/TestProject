@@ -110,6 +110,12 @@ extension ThirdViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let newsVC = storyboard?.instantiateViewController(withIdentifier: "NewsViewController") as! NewsViewController
+        newsVC.configure(news: news[indexPath.row])
+        self.navigationController?.pushViewController(newsVC, animated: true)
+    }
+    
     private func registerCell() {
         tableView.register(UINib(nibName: "NewsCell", bundle: nil), forCellReuseIdentifier: "Cell")
     }

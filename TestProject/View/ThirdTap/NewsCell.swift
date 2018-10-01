@@ -24,7 +24,10 @@ class NewsCell: UITableViewCell {
         if let image = model.image {
             imgView.image = image
         } else if let url = model.imageUrl {
+            imgView.image = UIImage(named: "picture")
             imgView.downloadImage(imageUrl: url)
+        } else {
+            imgView.image = UIImage(named: "picture")
         }
     }
 }
