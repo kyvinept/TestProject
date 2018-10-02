@@ -36,7 +36,6 @@ class NetworkingManager {
     
     func receiveData(country: Country, currentCountNews: Int, saveNews: @escaping ([News]) -> (), requestFailed: @escaping (URL) -> ()) {
         guard let url = request.buildGetCountryRequest(country: country, currentCountNews: currentCountNews) else { return }
-        
         downloadDataFromServer(url: url,
                           saveNews: saveNews,
                      requestFailed: requestFailed)
@@ -44,7 +43,6 @@ class NetworkingManager {
     
     func receiveData(category: Category, currentCountNews: Int, saveNews: @escaping ([News]) -> (), requestFailed: @escaping (URL) -> ()) {
         guard let url = request.buildGetCategoryRequest(category: category, currentCountNews: currentCountNews) else { return }
-        
         downloadDataFromServer(url: url,
                           saveNews: saveNews,
                      requestFailed: requestFailed)
@@ -52,7 +50,6 @@ class NetworkingManager {
     
     func receiveData(query: String, currentCountNews: Int, saveNews: @escaping ([News]) -> (), requestFailed: @escaping (URL) -> ()) {
         guard let url = request.buildGetQueryRequest(query: query, currentCountNews: currentCountNews) else { return }
-        
         downloadDataFromServer(url: url,
                           saveNews: saveNews,
                      requestFailed: requestFailed)

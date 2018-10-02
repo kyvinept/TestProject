@@ -125,26 +125,25 @@ class ThirdViewController: UIViewController {
 
 extension ThirdViewController: UITableViewDelegate, UITableViewDataSource {
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if (scrollView.contentOffset.y + scrollView.frame.height > tableView.contentSize.height) && news.count >= newsInRequest {
-            if spinner.isAnimating == true { return }
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == news.count - 1 {
             spinner.startAnimating()
             switch searchType {
             case .category:
                 NetworkingManager.shared.receiveData(category: category,
-                                             currentCountNews: news.count,
+                                                     currentCountNews: news.count,
                                                      saveNews: saveAdditionalNews,
-                                                requestFailed: errorLoadingData)
+                                                     requestFailed: errorLoadingData)
             case .country:
                 NetworkingManager.shared.receiveData(country: country,
-                                            currentCountNews: news.count,
-                                                    saveNews: saveAdditionalNews,
-                                               requestFailed: errorLoadingData)
+                                                     currentCountNews: news.count,
+                                                     saveNews: saveAdditionalNews,
+                                                     requestFailed: errorLoadingData)
             case .query:
                 NetworkingManager.shared.receiveData(query: query,
-                                          currentCountNews: news.count,
-                                                  saveNews: saveAdditionalNews,
-                                             requestFailed: errorLoadingData)
+                                                     currentCountNews: news.count,
+                                                     saveNews: saveAdditionalNews,
+                                                     requestFailed: errorLoadingData)
             }
         }
     }
