@@ -34,48 +34,114 @@ class NetworkingManager {
         }
     }
     
-    func receiveData(country: Country, currentCountNews: Int, saveNews: @escaping ([News]) -> (), requestFailed: @escaping (URL) -> ()) {
+    func receiveNews(fromCountry country: Country, currentCountNews: Int, successfulBlock: @escaping ([News]) -> (), failBlock: @escaping (URL) -> ()) {
         guard let url = request.buildGetCountryRequest(country: country, currentCountNews: currentCountNews) else { return }
         downloadDataFromServer(url: url,
-                          saveNews: saveNews,
-                     requestFailed: requestFailed)
+                   successfulBlock: successfulBlock,
+                         failBlock: failBlock)
     }
     
-    func receiveData(category: Category, currentCountNews: Int, saveNews: @escaping ([News]) -> (), requestFailed: @escaping (URL) -> ()) {
+    func receiveNews(fromCategory category: Category, currentCountNews: Int, successfulBlock: @escaping ([News]) -> (), failBlock: @escaping (URL) -> ()) {
         guard let url = request.buildGetCategoryRequest(category: category, currentCountNews: currentCountNews) else { return }
         downloadDataFromServer(url: url,
-                          saveNews: saveNews,
-                     requestFailed: requestFailed)
+                   successfulBlock: successfulBlock,
+                         failBlock: failBlock)
     }
     
-    func receiveData(query: String, currentCountNews: Int, saveNews: @escaping ([News]) -> (), requestFailed: @escaping (URL) -> ()) {
+    func receiveNews(withQuery query: String, currentCountNews: Int, successfulBlock: @escaping ([News]) -> (), failBlock: @escaping (URL) -> ()) {
         guard let url = request.buildGetQueryRequest(query: query, currentCountNews: currentCountNews) else { return }
         downloadDataFromServer(url: url,
-                          saveNews: saveNews,
-                     requestFailed: requestFailed)
+                   successfulBlock: successfulBlock,
+                         failBlock: failBlock)
     }
     
-    func receiveData(from url: URL, saveNews: @escaping ([News]) -> (), requestFailed: @escaping (URL) -> ()) {
+    func receiveNews(fromUrl url: URL, successfulBlock: @escaping ([News]) -> (), failBlock: @escaping (URL) -> ()) {
         downloadDataFromServer(url: url,
-                          saveNews: saveNews,
-                     requestFailed: requestFailed)
+                   successfulBlock: successfulBlock,
+                         failBlock: failBlock)
     }
     
-    private func downloadDataFromServer(url: URL, saveNews: @escaping ([News]) -> (), requestFailed: @escaping (URL) -> ()) {
+    private func downloadDataFromServer(url: URL, successfulBlock: @escaping ([News]) -> (), failBlock: @escaping (URL) -> ()) {
         Alamofire.request(url).responseJSON { response in
             switch response.result {
             case .success(let data):
                 let json = JSON(data)
-                self.receiveNews(json: json, saveNews: saveNews)
+                self.parseNews(json: json, successfulBlock: successfulBlock)
             case .failure(_):
-                requestFailed(url)
+                failBlock(url)
             }
         }
     }
     
-    func receiveNews(json: JSON, saveNews: @escaping ([News]) -> ()) {
+    func parseNews(json: JSON, successfulBlock: @escaping ([News]) -> ()) {
         let news = Mapper.shared.parseNews(json: json)
-        saveNews(news)
+        successfulBlock(news)
+    }
+    
+    func receiveItems(withId id: Int? = nil, successfulBlock: @escaping (String) -> (), failBlock: @escaping () -> ()) {
+        Alamofire.request(request.buildRequestForTestApi(withIdItem: id))
+        .responseJSON { response in
+            switch response.result {
+            case .success(let data):
+                successfulBlock(String(describing: data))
+            case .failure(_):
+                failBlock()
+            }
+        }
+    }
+    
+    func putItem(withId id: Int, title: String, body: String, userId: Int, successfulBlock: @escaping (String) -> (), failBlock: @escaping () -> ()) {
+        let url = request.buildRequestForTestApi(withIdItem: id)
+        let parameters: [String : Any] = ["title": title, "body": body, "userId": userId]
+        Alamofire.request(url, method: .put, parameters: parameters)
+        .responseJSON { response in
+            switch response.result {
+            case .success(let data):
+                successfulBlock(String(describing: data))
+            case .failure(_):
+                failBlock()
+            }
+        }
+    }
+    
+    func postItem(withId id: Int?, title: String, body: String, userId: Int, successfulBlock: @escaping (String) -> (), failBlock: @escaping () -> ()) {
+        let url = request.buildRequestForTestApi(withIdItem: id)
+        let parameters: [String : Any] = ["title": title, "body": body, "userId": userId]
+        Alamofire.request(url, method: .post, parameters: parameters)
+        .responseJSON { response in
+            switch response.result {
+            case .success(let data):
+                successfulBlock(String(describing: data))
+            case .failure(_):
+                failBlock()
+            }
+        }
+    }
+    
+    func patchItem(withId id: Int, title: String, body: String, userId: Int, successfulBlock: @escaping (String) -> (), failBlock: @escaping () -> ()) {
+        let url = request.buildRequestForTestApi(withIdItem: id)
+        let parameters: [String : Any] = ["title": title, "body": body, "userId": userId]
+        Alamofire.request(url, method: .patch, parameters: parameters)
+        .responseJSON { response in
+            switch response.result {
+            case .success(let data):
+                successfulBlock(String(describing: data))
+            case .failure(_):
+                failBlock()
+            }
+        }
+    }
+    
+    func deleteItem(withId id: Int, successfulBlock: @escaping () -> (), failBlock: @escaping () -> ()) {
+        Alamofire.request(request.buildRequestForTestApi(withIdItem: id), method: .delete)
+        .responseJSON { response in
+            switch response.result {
+            case .success(_):
+                successfulBlock()
+            case .failure(_):
+                failBlock()
+            }
+        }
     }
    
     enum SearchType: String {

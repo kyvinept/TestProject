@@ -28,6 +28,18 @@ class ThirdViewController: UIViewController {
         receiveNews()
         createSnipper()
         createRefreshControll()
+        createNavigationBarButton()
+    }
+    
+    func createNavigationBarButton() {
+        let button = UIBarButtonItem(title: "TestApi", style: .done, target: self, action: #selector(testApiButtonTapped))
+        self.navigationItem.rightBarButtonItem = button
+    }
+    
+    @objc func testApiButtonTapped() {
+        let testVC = storyboard?.instantiateViewController(withIdentifier: "TestApiController") as! TestApiController
+        testVC.delegate = self
+        self.navigationController?.pushViewController(testVC, animated: true)
     }
     
     func errorLoadingData(from url: URL) {
@@ -36,9 +48,9 @@ class ThirdViewController: UIViewController {
                              preferredStyle: .alert)
         let button = UIAlertAction(title: "Try again", style: .default) { (_) in
             self.dismiss(animated: true, completion: nil)
-            NetworkingManager.shared.receiveData(from: url,
-                                             saveNews: self.saveNews,
-                                        requestFailed: self.errorLoadingData)
+            NetworkingManager.shared.receiveNews(fromUrl: url,
+                                      successfulBlock: self.saveNews,
+                                            failBlock: self.errorLoadingData)
         }
         alert.addAction(button)
         self.present(alert,
@@ -71,16 +83,16 @@ class ThirdViewController: UIViewController {
         guard let location = Locale.current.languageCode else { return }
         if let country = NetworkingManager.Country(rawValue: location) {
             self.country = country
-            NetworkingManager.shared.receiveData(country: country,
+            NetworkingManager.shared.receiveNews(fromCountry: country,
                                         currentCountNews: news.count,
-                                                saveNews: saveNews,
-                                           requestFailed: errorLoadingData)
+                                         successfulBlock: saveNews,
+                                               failBlock: errorLoadingData)
         } else {
             self.country = .us
-            NetworkingManager.shared.receiveData(country: country,
+            NetworkingManager.shared.receiveNews(fromCountry: country,
                                         currentCountNews: news.count,
-                                                saveNews: saveNews,
-                                           requestFailed: errorLoadingData)
+                                         successfulBlock: saveNews,
+                                               failBlock: errorLoadingData)
         }
     }
     
@@ -130,20 +142,20 @@ extension ThirdViewController: UITableViewDelegate, UITableViewDataSource {
             spinner.startAnimating()
             switch searchType {
             case .category:
-                NetworkingManager.shared.receiveData(category: category,
-                                                     currentCountNews: news.count,
-                                                     saveNews: saveAdditionalNews,
-                                                     requestFailed: errorLoadingData)
+                NetworkingManager.shared.receiveNews(fromCategory: category,
+                                             currentCountNews: news.count,
+                                              successfulBlock: saveAdditionalNews,
+                                                    failBlock: errorLoadingData)
             case .country:
-                NetworkingManager.shared.receiveData(country: country,
-                                                     currentCountNews: news.count,
-                                                     saveNews: saveAdditionalNews,
-                                                     requestFailed: errorLoadingData)
+                NetworkingManager.shared.receiveNews(fromCountry: country,
+                                            currentCountNews: news.count,
+                                             successfulBlock: saveAdditionalNews,
+                                                   failBlock: errorLoadingData)
             case .query:
-                NetworkingManager.shared.receiveData(query: query,
-                                                     currentCountNews: news.count,
-                                                     saveNews: saveAdditionalNews,
-                                                     requestFailed: errorLoadingData)
+                NetworkingManager.shared.receiveNews(withQuery: query,
+                                          currentCountNews: news.count,
+                                           successfulBlock: saveAdditionalNews,
+                                                 failBlock: errorLoadingData)
             }
         }
     }
@@ -185,10 +197,10 @@ extension ThirdViewController: UITableViewDelegate, UITableViewDataSource {
 extension ThirdViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        NetworkingManager.shared.receiveData(query: searchBar.text!,
+        NetworkingManager.shared.receiveNews(withQuery: searchBar.text!,
                                   currentCountNews: news.count,
-                                          saveNews: saveNews,
-                                     requestFailed: errorLoadingData)
+                                   successfulBlock: saveNews,
+                                         failBlock: errorLoadingData)
         searchType = .query
         query = searchBar.text!
         searchBar.endEditing(true)
@@ -221,11 +233,19 @@ extension ThirdViewController: UIPopoverPresentationControllerDelegate {
 extension ThirdViewController: CategoryViewControllerDelegate {
     
     func didSelectCategory(category: String) {
-        NetworkingManager.shared.receiveData(category: NetworkingManager.Category(rawValue: category)!,
+        NetworkingManager.shared.receiveNews(fromCategory: NetworkingManager.Category(rawValue: category)!,
                                      currentCountNews: news.count,
-                                             saveNews: saveNews,
-                                        requestFailed: errorLoadingData)
+                                      successfulBlock: saveNews,
+                                            failBlock: errorLoadingData)
         searchType = .category
         self.category = NetworkingManager.Category(rawValue: category)!
+    }
+}
+
+extension ThirdViewController: TestApiControllerDelegate {
+    
+    func newsWasDownloaded(news: [News]) {
+        self.news = news
+        tableView.reloadData()
     }
 }

@@ -15,6 +15,7 @@
 		5B27DA2A21511B1A009E8B48 /* UIObjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27DA2921511B1A009E8B48 /* UIObjectViewController.swift */; };
 		5B27DA2C215124AB009E8B48 /* Star.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27DA2B215124AB009E8B48 /* Star.swift */; };
 		5B2F243C21635B140044F93A /* NetworkRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2F243B21635B140044F93A /* NetworkRequestBuilder.swift */; };
+		5B2F2440216394430044F93A /* TestApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2F243F216394430044F93A /* TestApiController.swift */; };
 		5B30F4A9214A961E0078D070 /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B30F4A8214A961E0078D070 /* TextViewController.swift */; };
 		5B30F4AE214A96200078D070 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B30F4AD214A96200078D070 /* Assets.xcassets */; };
 		5B30F4B1214A96200078D070 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B30F4AF214A96200078D070 /* LaunchScreen.storyboard */; };
@@ -78,6 +79,7 @@
 		5B27DA2921511B1A009E8B48 /* UIObjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIObjectViewController.swift; sourceTree = "<group>"; };
 		5B27DA2B215124AB009E8B48 /* Star.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Star.swift; sourceTree = "<group>"; };
 		5B2F243B21635B140044F93A /* NetworkRequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestBuilder.swift; sourceTree = "<group>"; };
+		5B2F243F216394430044F93A /* TestApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestApiController.swift; sourceTree = "<group>"; };
 		5B30F4A3214A961E0078D070 /* TestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B30F4A8214A961E0078D070 /* TextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
 		5B30F4AD214A96200078D070 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -280,6 +282,7 @@
 				5B30F4BC214A98B40078D070 /* ThirdViewController.swift */,
 				5BF1C336216240EB00693B1F /* CategoryViewController.swift */,
 				5BF1C33821625C8000693B1F /* NewsViewController.swift */,
+				5B2F243F216394430044F93A /* TestApiController.swift */,
 			);
 			path = ThirdTap;
 			sourceTree = "<group>";
@@ -495,6 +498,7 @@
 				5B3F5507215B8BCC00A1D9D2 /* StackViewController.swift in Sources */,
 				5B2F243C21635B140044F93A /* NetworkRequestBuilder.swift in Sources */,
 				5B27AC4E215A3C8C00D1384E /* ImageCollectionViewLayout.swift in Sources */,
+				5B2F2440216394430044F93A /* TestApiController.swift in Sources */,
 				5B3F5509215B982400A1D9D2 /* CoreAnimationViewController.swift in Sources */,
 				5B434CD42159455700FF9FFE /* ImageCell.swift in Sources */,
 			);

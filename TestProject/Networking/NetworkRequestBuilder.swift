@@ -24,7 +24,15 @@ class NetworkRequestBuilder: NetworkRequestBuilderProtocol {
     func buildGetQueryRequest(query: String, currentCountNews: Int) -> URL? {
         return URL(string: SearchMode.everything.rawValue + "q=" + query + returnPageNumber(currentCountNews: currentCountNews) + returnApiKey())
     }
- 
+    
+    func buildRequestForTestApi(withIdItem id: Int? = nil) -> String {
+        if let id = id {
+            return "https://jsonplaceholder.typicode.com/posts/" + String(id)
+        } else {
+            return "https://jsonplaceholder.typicode.com/posts"
+        }
+    }
+    
     private func returnPageNumber(currentCountNews: Int) -> String {
         return "&page=" + String(currentCountNews/countOfNewsInData+1)
     }
