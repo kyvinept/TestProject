@@ -14,6 +14,7 @@
 		5B27DA272150E5A2009E8B48 /* CustomPopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27DA262150E5A2009E8B48 /* CustomPopAnimator.swift */; };
 		5B27DA2A21511B1A009E8B48 /* UIObjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27DA2921511B1A009E8B48 /* UIObjectViewController.swift */; };
 		5B27DA2C215124AB009E8B48 /* Star.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27DA2B215124AB009E8B48 /* Star.swift */; };
+		5B2F243C21635B140044F93A /* NetworkRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2F243B21635B140044F93A /* NetworkRequestBuilder.swift */; };
 		5B30F4A9214A961E0078D070 /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B30F4A8214A961E0078D070 /* TextViewController.swift */; };
 		5B30F4AE214A96200078D070 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B30F4AD214A96200078D070 /* Assets.xcassets */; };
 		5B30F4B1214A96200078D070 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B30F4AF214A96200078D070 /* LaunchScreen.storyboard */; };
@@ -76,6 +77,7 @@
 		5B27DA262150E5A2009E8B48 /* CustomPopAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopAnimator.swift; sourceTree = "<group>"; };
 		5B27DA2921511B1A009E8B48 /* UIObjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIObjectViewController.swift; sourceTree = "<group>"; };
 		5B27DA2B215124AB009E8B48 /* Star.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Star.swift; sourceTree = "<group>"; };
+		5B2F243B21635B140044F93A /* NetworkRequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestBuilder.swift; sourceTree = "<group>"; };
 		5B30F4A3214A961E0078D070 /* TestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B30F4A8214A961E0078D070 /* TextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
 		5B30F4AD214A96200078D070 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				5B30F4B9214A98940078D070 /* ViewController */,
 				5B30F4B8214A988C0078D070 /* View */,
 				5B38A3222154FA5E00B73B79 /* Model */,
+				5BF1C348216283BE00693B1F /* Networking */,
 				5B30F4AD214A96200078D070 /* Assets.xcassets */,
 				5B30F4B2214A96200078D070 /* Info.plist */,
 				5B02EB9D215E09E7009B8346 /* Localizable.strings */,
@@ -266,8 +269,6 @@
 			isa = PBXGroup;
 			children = (
 				5B38A3232154FA7000B73B79 /* DataModel.swift */,
-				5B38A3252154FD2E00B73B79 /* NetworkingManager.swift */,
-				5B57548A215E5EFF0062BF72 /* Mapper.swift */,
 				5B57548C215E637C0062BF72 /* News.swift */,
 			);
 			path = Model;
@@ -292,6 +293,16 @@
 				5B575493215E6E990062BF72 /* NewsCellViewModel.swift */,
 			);
 			path = ThirdTap;
+			sourceTree = "<group>";
+		};
+		5BF1C348216283BE00693B1F /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				5B57548A215E5EFF0062BF72 /* Mapper.swift */,
+				5B38A3252154FD2E00B73B79 /* NetworkingManager.swift */,
+				5B2F243B21635B140044F93A /* NetworkRequestBuilder.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		754807EB35636B899EC737ED /* Frameworks */ = {
@@ -420,12 +431,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-TestProject/Pods-TestProject-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -480,6 +493,7 @@
 				5B38A31B2154EDCE00B73B79 /* PresentWithDamping.swift in Sources */,
 				5B38A3172154DD5D00B73B79 /* PresentingViewController.swift in Sources */,
 				5B3F5507215B8BCC00A1D9D2 /* StackViewController.swift in Sources */,
+				5B2F243C21635B140044F93A /* NetworkRequestBuilder.swift in Sources */,
 				5B27AC4E215A3C8C00D1384E /* ImageCollectionViewLayout.swift in Sources */,
 				5B3F5509215B982400A1D9D2 /* CoreAnimationViewController.swift in Sources */,
 				5B434CD42159455700FF9FFE /* ImageCell.swift in Sources */,

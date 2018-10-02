@@ -9,7 +9,7 @@
 import UIKit
 
 protocol CategoryViewControllerDelegate: class {
-    func categoryWasSelected(category: String)
+    func didSelectCategory(category: String)
 }
 
 class CategoryViewController: UITableViewController {
@@ -32,7 +32,7 @@ class CategoryViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        delegate?.categoryWasSelected(category: category[indexPath.row].lowercased())
+        delegate?.didSelectCategory(category: category[indexPath.row].lowercased())
         dismiss(animated: true, completion: nil)
     }
 }

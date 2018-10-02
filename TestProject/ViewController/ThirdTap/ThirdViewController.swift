@@ -17,6 +17,7 @@ class ThirdViewController: UIViewController {
     private var country: NetworkingManager.Country!
     private var refresh: UIRefreshControl!
     private var searchType = NetworkingManager.SearchType.country
+    private var newsInRequest = 20
     private var query = ""
     private var category: NetworkingManager.Category!
     
@@ -27,6 +28,22 @@ class ThirdViewController: UIViewController {
         receiveNews()
         createSnipper()
         createRefreshControll()
+    }
+    
+    func errorLoadingData(from url: URL) {
+        let alert = UIAlertController(title: "Error",
+                                    message: "Check your internet connection",
+                             preferredStyle: .alert)
+        let button = UIAlertAction(title: "Try again", style: .default) { (_) in
+            self.dismiss(animated: true, completion: nil)
+            NetworkingManager.shared.receiveData(from: url,
+                                             saveNews: self.saveNews,
+                                        requestFailed: self.errorLoadingData)
+        }
+        alert.addAction(button)
+        self.present(alert,
+                     animated: true,
+                   completion: nil)
     }
     
     private func createSnipper() {
@@ -40,7 +57,9 @@ class ThirdViewController: UIViewController {
         refresh = UIRefreshControl()
         tableView.addSubview(refresh)
         refresh.tintColor = UIColor.gray
-        refresh.addTarget(self, action: #selector(refreshTableView), for: .valueChanged)
+        refresh.addTarget(self,
+                          action: #selector(refreshTableView),
+                             for: .valueChanged)
     }
     
     @objc func refreshTableView() {
@@ -52,10 +71,16 @@ class ThirdViewController: UIViewController {
         guard let location = Locale.current.languageCode else { return }
         if let country = NetworkingManager.Country(rawValue: location) {
             self.country = country
-            NetworkingManager.shared.receiveData(country: country, currentCountNews: news.count, saveNews: saveNews)
+            NetworkingManager.shared.receiveData(country: country,
+                                        currentCountNews: news.count,
+                                                saveNews: saveNews,
+                                           requestFailed: errorLoadingData)
         } else {
             self.country = .us
-            NetworkingManager.shared.receiveData(country: country, currentCountNews: news.count, saveNews: saveNews)
+            NetworkingManager.shared.receiveData(country: country,
+                                        currentCountNews: news.count,
+                                                saveNews: saveNews,
+                                           requestFailed: errorLoadingData)
         }
     }
     
@@ -88,24 +113,38 @@ class ThirdViewController: UIViewController {
         categoryVC.preferredContentSize = CGSize(width: 200, height: 200)
         popover!.sourceView = self.view
         popover?.backgroundColor = .gray
-        popover!.sourceRect = CGRect(x: 0, y: 0, width: 100, height: 120)
-        self.present(categoryVC, animated: true, completion: nil)
+        popover!.sourceRect = CGRect(x: 0,
+                                     y: 0,
+                                 width: 100,
+                                height: 120)
+        self.present(categoryVC,
+                     animated: true,
+                   completion: nil)
     }
 }
 
 extension ThirdViewController: UITableViewDelegate, UITableViewDataSource {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if (scrollView.contentOffset.y + scrollView.frame.height > tableView.contentSize.height + 40) && news.count >= 20 {
+        if (scrollView.contentOffset.y + scrollView.frame.height > tableView.contentSize.height) && news.count >= newsInRequest {
             if spinner.isAnimating == true { return }
             spinner.startAnimating()
             switch searchType {
             case .category:
-                NetworkingManager.shared.receiveData(category: category, currentCountNews: news.count, saveNews: saveAdditionalNews)
+                NetworkingManager.shared.receiveData(category: category,
+                                             currentCountNews: news.count,
+                                                     saveNews: saveAdditionalNews,
+                                                requestFailed: errorLoadingData)
             case .country:
-                NetworkingManager.shared.receiveData(country: country, currentCountNews: news.count, saveNews: saveAdditionalNews)
+                NetworkingManager.shared.receiveData(country: country,
+                                            currentCountNews: news.count,
+                                                    saveNews: saveAdditionalNews,
+                                               requestFailed: errorLoadingData)
             case .query:
-                NetworkingManager.shared.receiveData(query: query, currentCountNews: news.count, saveNews: saveAdditionalNews)
+                NetworkingManager.shared.receiveData(query: query,
+                                          currentCountNews: news.count,
+                                                  saveNews: saveAdditionalNews,
+                                             requestFailed: errorLoadingData)
             }
         }
     }
@@ -147,7 +186,10 @@ extension ThirdViewController: UITableViewDelegate, UITableViewDataSource {
 extension ThirdViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        NetworkingManager.shared.receiveData(query: searchBar.text!, currentCountNews: news.count, saveNews: saveNews)
+        NetworkingManager.shared.receiveData(query: searchBar.text!,
+                                  currentCountNews: news.count,
+                                          saveNews: saveNews,
+                                     requestFailed: errorLoadingData)
         searchType = .query
         query = searchBar.text!
         searchBar.endEditing(true)
@@ -179,8 +221,11 @@ extension ThirdViewController: UIPopoverPresentationControllerDelegate {
 
 extension ThirdViewController: CategoryViewControllerDelegate {
     
-    func categoryWasSelected(category: String) {
-        NetworkingManager.shared.receiveData(category: NetworkingManager.Category(rawValue: category)!, currentCountNews: news.count, saveNews: saveNews)
+    func didSelectCategory(category: String) {
+        NetworkingManager.shared.receiveData(category: NetworkingManager.Category(rawValue: category)!,
+                                     currentCountNews: news.count,
+                                             saveNews: saveNews,
+                                        requestFailed: errorLoadingData)
         searchType = .category
         self.category = NetworkingManager.Category(rawValue: category)!
     }

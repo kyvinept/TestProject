@@ -7,4 +7,5 @@ target 'TestProject' do
 
   # Pods for TestProject
   pod 'SwiftyJSON'
+  pod 'Alamofire'
 end
