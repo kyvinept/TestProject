@@ -21,28 +21,36 @@ class TestApiController: UIViewController {
     }
     
     private func showAlertForUser(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let alert = UIAlertController(title: title,
+                                    message: message,
+                             preferredStyle: .alert)
         let action = UIAlertAction(title: "Ok", style: .default) { (_) in
             self.dismiss(animated: true, completion: nil)
         }
         alert.addAction(action)
-        self.present(alert, animated: true, completion: nil)
+        self.present(alert,
+                     animated: true,
+                   completion: nil)
     }
     
     @IBAction func removeItemButtonTapped(_ sender: Any) {
-        NetworkingManager.shared.deleteItem(withId: 1, successfulBlock: {
-            self.showAlertForUser(title: "Success", message: "Item with id = 1 was deleted!")
-        }) {
-            self.showAlertForUser(title: "Error", message: "Item wasn't deleted.")
-        }
+        NetworkingManager.shared.deleteItem(withId: 1,
+                                      successBlock: {
+                                          self.showAlertForUser(title: "Success", message: "Item with id = 1 was deleted!")
+                                      },
+                                         failBlock: {
+                                             self.showAlertForUser(title: "Error", message: "Item wasn't deleted.")
+                                         })
     }
     
     @IBAction func getItemsButtonTapped(_ sender: Any) {
-        NetworkingManager.shared.receiveItems(withId: 1, successfulBlock: { str in
-            self.showAlertForUser(title: "Success", message: str)
-        }) {
-            self.showAlertForUser(title: "Error", message: "Item wasn't deleted.")
-        }
+        NetworkingManager.shared.receiveItems(withId: 1,
+                                        successBlock: { str in
+                                            self.showAlertForUser(title: "Success", message: str)
+                                        },
+                                           failBlock: {
+                                               self.showAlertForUser(title: "Error", message: "Item wasn't deleted.")
+                                           })
     }
     
     @IBAction func putItemButtonTapped(_ sender: Any) {
@@ -50,23 +58,24 @@ class TestApiController: UIViewController {
                                           title: "newtitle",
                                            body: "newbody",
                                          userId: 1,
-        successfulBlock: { str in
-            self.showAlertForUser(title: "Success", message: str)
-        }) {
-            self.showAlertForUser(title: "Error", message: "Item wasn't deleted.")
-        }
+                                   successBlock: { str in
+                                       self.showAlertForUser(title: "Success", message: str)
+                                   },
+                                      failBlock: {
+                                          self.showAlertForUser(title: "Error", message: "Item wasn't deleted.")
+                                      })
     }
     
     @IBAction func postItemButtonTapped(_ sender: Any) {
-        NetworkingManager.shared.postItem(withId: nil,
-                                           title: "newtitle",
-                                            body: "newbody",
-                                          userId: 1,
-        successfulBlock: { str in
-            self.showAlertForUser(title: "Success", message: str)
-        }) {
-            self.showAlertForUser(title: "Error", message: "Item wasn't deleted.")
-        }
+        NetworkingManager.shared.postItem(title: "newtitle",
+                                           body: "newbody",
+                                         userId: 1,
+                                   successBlock: { str in
+                                       self.showAlertForUser(title: "Success", message: str)
+                                   },
+                                      failBlock: {
+                                          self.showAlertForUser(title: "Error", message: "Item wasn't deleted.")
+                                      })
     }
     
     @IBAction func patchItemButtonTapped(_ sender: Any) {
@@ -74,11 +83,12 @@ class TestApiController: UIViewController {
                                             title: "newtitle",
                                              body: "newbody",
                                            userId: 1,
-        successfulBlock: { str in
-            self.showAlertForUser(title: "Success", message: str)
-        }) {
-            self.showAlertForUser(title: "Error", message: "Item wasn't deleted.")
-        }
+                                     successBlock: { str in
+                                         self.showAlertForUser(title: "Success", message: str)
+                                     },
+                                        failBlock: {
+                                            self.showAlertForUser(title: "Error", message: "Item wasn't deleted.")
+                                        })
     }
     
     private func returnNewsToParentVC(news: [News]) {

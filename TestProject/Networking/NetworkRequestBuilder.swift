@@ -25,12 +25,12 @@ class NetworkRequestBuilder: NetworkRequestBuilderProtocol {
         return URL(string: SearchMode.everything.rawValue + "q=" + query + returnPageNumber(currentCountNews: currentCountNews) + returnApiKey())
     }
     
-    func buildRequestForTestApi(withIdItem id: Int? = nil) -> String {
-        if let id = id {
-            return "https://jsonplaceholder.typicode.com/posts/" + String(id)
-        } else {
-            return "https://jsonplaceholder.typicode.com/posts"
-        }
+    func buildRequestForTestApi(withIdItem id: Int) -> String {
+        return "https://jsonplaceholder.typicode.com/posts/" + String(id)
+    }
+    
+    func buildRequestForTestApi() -> String {
+        return "https://jsonplaceholder.typicode.com/posts"
     }
     
     private func returnPageNumber(currentCountNews: Int) -> String {
