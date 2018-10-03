@@ -50,7 +50,6 @@ class ThirdViewController: UIViewController {
                                     message: "Check your internet connection",
                              preferredStyle: .alert)
         let button = UIAlertAction(title: "Try again", style: .default) { (_) in
-            self.dismiss(animated: true, completion: nil)
             NetworkingManager.shared.receiveNews(fromUrl: url,
                                             successBlock: { news in
                                                 self.saveNews(news: news)

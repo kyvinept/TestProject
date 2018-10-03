@@ -168,7 +168,7 @@ extension UIObjectViewController {
                              preferredStyle: .alert)
         self.present(alert, animated: true) {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
-                self.dismiss(animated: true, completion: nil)
+                alert.dismiss(animated: true, completion: nil)
             }
         }
     }

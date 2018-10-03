@@ -133,9 +133,7 @@ class TableViewController: UIViewController {
                 description: description)
             self.dismiss(animated: true, completion: nil)
         }))
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .default, handler: { (_) in
-            self.dismiss(animated: true, completion: nil)
-        }))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .default))
         self.present(alert, animated: true, completion: nil)
     }
     
@@ -228,7 +226,7 @@ extension UIViewController {
         let alert = UIAlertController(title: message, message: nil, preferredStyle: .alert)
         self.present(alert, animated: true, completion: nil)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
-            self.dismiss(animated: true, completion: nil)
+            alert.dismiss(animated: true, completion: nil)
         }
     }
 }

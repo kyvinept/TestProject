@@ -85,11 +85,8 @@ class CollectionViewController: UIViewController {
                 self.showErrorMessage(message: "Empty id field. Try again!")
                 return
             }
-            self.dismiss(animated: true, completion: nil)
         }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (_) in
-            self.dismiss(animated: true, completion: nil)
-        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         self.present(alert, animated: true, completion: nil)
     }
     

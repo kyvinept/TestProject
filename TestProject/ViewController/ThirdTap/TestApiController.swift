@@ -24,9 +24,7 @@ class TestApiController: UIViewController {
         let alert = UIAlertController(title: title,
                                     message: message,
                              preferredStyle: .alert)
-        let action = UIAlertAction(title: "Ok", style: .default) { (_) in
-            self.dismiss(animated: true, completion: nil)
-        }
+        let action = UIAlertAction(title: "Ok", style: .default)
         alert.addAction(action)
         self.present(alert,
                      animated: true,
