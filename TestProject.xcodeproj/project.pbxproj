@@ -66,6 +66,18 @@
 		635E18A6A1059679B3B38B50 /* Pods_TestProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5719E8B8F1896240D09995A2 /* Pods_TestProject.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXBuildRule section */
+		5B2810462164AF4E000AF33D /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			fileType = asset.file.usd;
+			isEditable = 1;
+			outputFiles = (
+			);
+			script = "# asset_validation\n";
+		};
+/* End PBXBuildRule section */
+
 /* Begin PBXFileReference section */
 		5719E8B8F1896240D09995A2 /* Pods_TestProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B02EB9C215E09E7009B8346 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -78,6 +90,7 @@
 		5B27DA262150E5A2009E8B48 /* CustomPopAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopAnimator.swift; sourceTree = "<group>"; };
 		5B27DA2921511B1A009E8B48 /* UIObjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIObjectViewController.swift; sourceTree = "<group>"; };
 		5B27DA2B215124AB009E8B48 /* Star.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Star.swift; sourceTree = "<group>"; };
+		5B2810452164AED2000AF33D /* Location.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Location.gpx; sourceTree = "<group>"; };
 		5B2F243B21635B140044F93A /* NetworkRequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestBuilder.swift; sourceTree = "<group>"; };
 		5B2F243F216394430044F93A /* TestApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestApiController.swift; sourceTree = "<group>"; };
 		5B30F4A3214A961E0078D070 /* TestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -196,6 +209,7 @@
 				5B30F4AD214A96200078D070 /* Assets.xcassets */,
 				5B30F4B2214A96200078D070 /* Info.plist */,
 				5B02EB9D215E09E7009B8346 /* Localizable.strings */,
+				5B2810452164AED2000AF33D /* Location.gpx */,
 			);
 			path = TestProject;
 			sourceTree = "<group>";
@@ -339,6 +353,7 @@
 				BC1B934EA85FF6E568C01926 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
+				5B2810462164AF4E000AF33D /* PBXBuildRule */,
 			);
 			dependencies = (
 			);
