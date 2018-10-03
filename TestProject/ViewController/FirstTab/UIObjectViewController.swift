@@ -12,7 +12,7 @@ protocol UIObjectViewControllerDelegate: class {
     func backButtonTapped()
 }
 
-class UIObjectViewController: UIViewController {
+class UIObjectViewController: BaseViewController {
     
     @IBOutlet private weak var scrollView: UIScrollView!
     private var addToView: UIView?
@@ -197,17 +197,17 @@ extension UIObjectViewController {
     }
 }
 
-extension UIObjectViewController: UINavigationControllerDelegate {
-    
-    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        switch operation {
-        case .pop:
-            return CustomPopAnimator()
-        default:
-            return nil
-        }
-    }
-}
+//extension UIObjectViewController: UINavigationControllerDelegate {
+//
+//    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+//        switch operation {
+//        case .pop:
+//            return CustomPopAnimator()
+//        default:
+//            return nil
+//        }
+//    }
+//}
 
 extension UIViewController {
     

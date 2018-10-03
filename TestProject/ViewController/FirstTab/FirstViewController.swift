@@ -55,21 +55,33 @@ class FirstViewController: UITableViewController {
     }
 }
 
-extension FirstViewController: UINavigationControllerDelegate {
-    
-    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        switch operation {
-        case .push:
-            return AnimationFromRightCorner()
-        default:
-            return nil
-        }
-    }
-}
+//extension FirstViewController: UINavigationControllerDelegate {
+//    
+//    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+//        switch operation {
+//        case .push:
+//            return AnimationFromRightCorner()
+//        default:
+//            return nil
+//        }
+//    }
+//}
 
 extension FirstViewController: TextViewControllerDelegate, UIObjectViewControllerDelegate, GestureViewControllerDelegate, DynamicsViewControllerDelegate, AnimationsViewControllerDelegate {
     
     func backButtonTapped() {
         self.navigationController?.delegate = self
+    }
+}
+
+extension FirstViewController: UINavigationControllerDelegate {
+    
+    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        switch operation {
+        case .pop:
+            return CustomPopAnimator()
+        default:
+            return nil
+        }
     }
 }

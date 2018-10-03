@@ -12,7 +12,7 @@ protocol CollectionViewControllerDelegate: class {
     func backButtonTapped()
 }
 
-class CollectionViewController: UIViewController {
+class CollectionViewController: BaseViewController {
     
     @IBOutlet private weak var collectionView: UICollectionView!
     weak var delegate: CollectionViewControllerDelegate?
@@ -132,17 +132,17 @@ extension CollectionViewController: UICollectionViewDelegate, UICollectionViewDa
 //    }
 }
 
-extension CollectionViewController: UINavigationControllerDelegate {
-    
-    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        switch operation {
-        case .pop:
-            return CustomPopAnimator()
-        default:
-            return nil
-        }
-    }
-}
+//extension CollectionViewController: UINavigationControllerDelegate {
+//    
+//    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+//        switch operation {
+//        case .pop:
+//            return CustomPopAnimator()
+//        default:
+//            return nil
+//        }
+//    }
+//}
 
 extension CollectionViewController: UIViewControllerTransitioningDelegate {
     

@@ -349,33 +349,49 @@
             <point key="canvasLocation" x="1260" y="41.829085457271368"/>
         </scene>
         <!--Gallery View Controller-->
-        <scene sceneID="gZa-ep-aJh">
+        <scene sceneID="EzS-oM-PSw">
             <objects>
-                <collectionViewController storyboardIdentifier="GalleryViewController" id="laQ-vR-Z9D" customClass="GalleryViewController" customModule="TestProject" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="TIo-23-wk2">
+                <viewController storyboardIdentifier="GalleryViewController" id="pIL-WC-ZSC" customClass="GalleryViewController" customModule="TestProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OAV-mP-E5R">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7gd-lw-wps">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" red="0.50980392159999999" green="0.75294117650000003" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <collectionViewLayout key="collectionViewLayout" id="bUv-Pr-4ln" customClass="ImageCollectionViewLayout" customModule="TestProject" customModuleProvider="target"/>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="kyN-dg-XMd" customClass="ImageCell" customModule="TestProject" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="pIL-WC-ZSC" id="PfQ-qv-xqK"/>
+                                    <outlet property="delegate" destination="pIL-WC-ZSC" id="IWg-4p-AEM"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" red="0.50980392159999999" green="0.75294117650000003" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <collectionViewLayout key="collectionViewLayout" id="cqc-y9-OpO" customClass="ImageCollectionViewLayout" customModule="TestProject" customModuleProvider="target"/>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="pie-M9-oL8" customClass="ImageCell" customModule="TestProject" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </view>
-                            </collectionViewCell>
-                        </cells>
-                        <connections>
-                            <outlet property="dataSource" destination="laQ-vR-Z9D" id="aw8-26-iGR"/>
-                            <outlet property="delegate" destination="laQ-vR-Z9D" id="kP0-On-C2N"/>
-                        </connections>
-                    </collectionView>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="AT9-GJ-Q60" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <constraints>
+                            <constraint firstItem="7gd-lw-wps" firstAttribute="leading" secondItem="mcI-Wa-tsZ" secondAttribute="leading" id="eX6-2R-gLu"/>
+                            <constraint firstItem="7gd-lw-wps" firstAttribute="bottom" secondItem="mcI-Wa-tsZ" secondAttribute="bottom" id="pUO-cm-Y1J"/>
+                            <constraint firstItem="7gd-lw-wps" firstAttribute="trailing" secondItem="mcI-Wa-tsZ" secondAttribute="trailing" id="uTB-ZZ-a8x"/>
+                            <constraint firstItem="7gd-lw-wps" firstAttribute="top" secondItem="mcI-Wa-tsZ" secondAttribute="top" id="ve6-fZ-MOV"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="mcI-Wa-tsZ"/>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="7gd-lw-wps" id="Czk-34-0qf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wr5-aw-SBS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1060" y="1051"/>
+            <point key="canvasLocation" x="-1135.2" y="1018.7406296851575"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="ShQ-fI-Gn8">

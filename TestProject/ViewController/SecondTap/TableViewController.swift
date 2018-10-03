@@ -12,7 +12,7 @@ protocol TableViewControllerDelegate: class {
     func backButtonTapped()
 }
 
-class TableViewController: UIViewController {
+class TableViewController: BaseViewController {
 
     @IBOutlet private weak var tableView: UITableView!
     weak var delegate: TableViewControllerDelegate?
@@ -209,17 +209,17 @@ extension TableViewController: CustomCellDelegate {
     }
 }
 
-extension TableViewController: UINavigationControllerDelegate {
-    
-    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        switch operation {
-        case .pop:
-            return CustomPopAnimator()
-        default:
-            return nil
-        }
-    }
-}
+//extension TableViewController: UINavigationControllerDelegate {
+//    
+//    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+//        switch operation {
+//        case .pop:
+//            return CustomPopAnimator()
+//        default:
+//            return nil
+//        }
+//    }
+//}
 
 extension UIViewController {
     func showErrorMessage(message: String) {

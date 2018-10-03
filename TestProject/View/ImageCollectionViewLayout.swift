@@ -23,9 +23,7 @@ class ImageCollectionViewLayout: UICollectionViewLayout {
     private var cache = [UICollectionViewLayoutAttributes]()
     
     override func prepare() {
-        guard let collectionView = collectionView else {//cache.isEmpty == true,
-            return
-        }
+        guard let collectionView = collectionView else { return }
         leftY = margin
         rightY = margin
         for item in 0 ..< collectionView.numberOfItems(inSection: 0) {
@@ -33,7 +31,7 @@ class ImageCollectionViewLayout: UICollectionViewLayout {
             let cellHeight = self.delegate!.heightFor(index: item)
             frame.size.height = cellHeight
             frame.size.width = (collectionView.frame.size.width - 2 * margin) / 2 - horizontalSpacing/2
-            if item % 2 == 0 {
+            if leftY <= rightY {
                 frame.origin.x = margin
                 frame.origin.y = leftY
                 leftY += cellHeight + verticalSpacing
@@ -47,7 +45,6 @@ class ImageCollectionViewLayout: UICollectionViewLayout {
             attributes.frame = frame
             cache.append(attributes)
         }
-        
     }
     
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {

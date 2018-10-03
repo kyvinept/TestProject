@@ -12,7 +12,7 @@ protocol CoreAnimationViewControllerDelegate: class {
     func backButtonTapped()
 }
 
-class CoreAnimationViewController: UIViewController {
+class CoreAnimationViewController: BaseViewController {
     
     @IBOutlet private weak var scrollView: UIScrollView!
     private let padding: CGFloat = 10
@@ -128,14 +128,14 @@ extension CoreAnimationViewController {
     }
 }
 
-extension CoreAnimationViewController: UINavigationControllerDelegate {
-    
-    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        switch operation {
-        case .pop:
-            return CustomPopAnimator()
-        default:
-            return nil
-        }
-    }
-}
+//extension CoreAnimationViewController: UINavigationControllerDelegate {
+//    
+//    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+//        switch operation {
+//        case .pop:
+//            return CustomPopAnimator()
+//        default:
+//            return nil
+//        }
+//    }
+//}

@@ -12,7 +12,7 @@ protocol PresentingViewControllerDelegate: class {
     func backButtonTapped()
 }
 
-class PresentingViewController: UIViewController {
+class PresentingViewController: BaseViewController {
     
     enum TypeOfPresentAnimation {
         case fromRightCorner
@@ -113,17 +113,17 @@ class PresentingViewController: UIViewController {
     }
 }
 
-extension PresentingViewController: UINavigationControllerDelegate {
-    
-    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        switch operation {
-        case .pop:
-            return CustomPopAnimator()
-        default:
-            return nil
-        }
-    }
-}
+//extension PresentingViewController: UINavigationControllerDelegate {
+//    
+//    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+//        switch operation {
+//        case .pop:
+//            return CustomPopAnimator()
+//        default:
+//            return nil
+//        }
+//    }
+//}
 
 extension PresentingViewController: UIViewControllerTransitioningDelegate {
     

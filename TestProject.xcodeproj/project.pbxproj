@@ -15,6 +15,7 @@
 		5B27DA2A21511B1A009E8B48 /* UIObjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27DA2921511B1A009E8B48 /* UIObjectViewController.swift */; };
 		5B27DA2C215124AB009E8B48 /* Star.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27DA2B215124AB009E8B48 /* Star.swift */; };
 		5B2810482164E77C000AF33D /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2810472164E77C000AF33D /* GalleryViewController.swift */; };
+		5B28104A216511DD000AF33D /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B281049216511DD000AF33D /* BaseViewController.swift */; };
 		5B2F243C21635B140044F93A /* NetworkRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2F243B21635B140044F93A /* NetworkRequestBuilder.swift */; };
 		5B2F2440216394430044F93A /* TestApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2F243F216394430044F93A /* TestApiController.swift */; };
 		5B30F4A9214A961E0078D070 /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B30F4A8214A961E0078D070 /* TextViewController.swift */; };
@@ -92,6 +93,7 @@
 		5B27DA2921511B1A009E8B48 /* UIObjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIObjectViewController.swift; sourceTree = "<group>"; };
 		5B27DA2B215124AB009E8B48 /* Star.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Star.swift; sourceTree = "<group>"; };
 		5B2810472164E77C000AF33D /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
+		5B281049216511DD000AF33D /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		5B2F243B21635B140044F93A /* NetworkRequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestBuilder.swift; sourceTree = "<group>"; };
 		5B2F243F216394430044F93A /* TestApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestApiController.swift; sourceTree = "<group>"; };
 		5B30F4A3214A961E0078D070 /* TestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -241,6 +243,7 @@
 		5B30F4B9214A98940078D070 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				5B281049216511DD000AF33D /* BaseViewController.swift */,
 				5B38A3142154DA1C00B73B79 /* FirstTab */,
 				5B38A3152154DC4C00B73B79 /* SecondTap */,
 				5B575489215E5D8B0062BF72 /* ThirdTap */,
@@ -484,6 +487,7 @@
 				5BD31E36214AA4B10097927B /* CustomTabBarController.swift in Sources */,
 				5B38A3242154FA7000B73B79 /* DataModel.swift in Sources */,
 				5B434CDC21594C2C00FF9FFE /* CustomImageView.swift in Sources */,
+				5B28104A216511DD000AF33D /* BaseViewController.swift in Sources */,
 				5B3384BC2153E5CD00736F5D /* AnimationsViewController.swift in Sources */,
 				5B30F4BB214A98AC0078D070 /* SecondViewController.swift in Sources */,
 				5B38A3212154FA5400B73B79 /* TableViewController.swift in Sources */,

@@ -12,7 +12,7 @@ protocol StackViewControllerDelegate: class {
     func backButtonTapped()
 }
 
-class StackViewController: UIViewController {
+class StackViewController: BaseViewController {
     
     weak var delegate: StackViewControllerDelegate?
     
@@ -44,14 +44,14 @@ class StackViewController: UIViewController {
     }
 }
 
-extension StackViewController: UINavigationControllerDelegate {
-    
-    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        switch operation {
-        case .pop:
-            return CustomPopAnimator()
-        default:
-            return nil
-        }
-    }
-}
+//extension StackViewController: UINavigationControllerDelegate {
+//    
+//    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+//        switch operation {
+//        case .pop:
+//            return CustomPopAnimator()
+//        default:
+//            return nil
+//        }
+//    }
+//}

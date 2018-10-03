@@ -12,7 +12,7 @@ protocol DynamicsViewControllerDelegate: class {
     func backButtonTapped()
 }
 
-class DynamicsViewController: UIViewController {
+class DynamicsViewController: BaseViewController {
 
     weak var delegate: DynamicsViewControllerDelegate?
     @IBOutlet private weak var topNavigationBar: UINavigationBar!
@@ -134,17 +134,17 @@ extension DynamicsViewController: DynamicsViewDelegate {
     }
 }
 
-extension DynamicsViewController: UINavigationControllerDelegate {
-    
-    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        switch operation {
-        case .pop:
-            return CustomPopAnimator()
-        default:
-            return nil
-        }
-    }
-}
+//extension DynamicsViewController: UINavigationControllerDelegate {
+//    
+//    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+//        switch operation {
+//        case .pop:
+//            return CustomPopAnimator()
+//        default:
+//            return nil
+//        }
+//    }
+//}
 
 extension DynamicsViewController {
     
