@@ -44,7 +44,7 @@ class FourthViewController: UIViewController {
             self.addRadiusCircle(location: location)
             let region = CLCircularRegion(center: location.coordinate,
                                           radius: circleRadius,
-                                          identifier: "Circle")
+                                      identifier: "Circle")
             region.notifyOnEntry = true
             region.notifyOnExit = false
             locationManager.startMonitoring(for: region)
@@ -98,7 +98,6 @@ extension FourthViewController: CLLocationManagerDelegate {
                 directions.calculate { response, error in
                     guard let unwrappedResponse = response else { return }
                     self.mapView.add(unwrappedResponse.routes.first!.polyline)
-                    self.mapView.setVisibleMapRect(unwrappedResponse.routes.first!.polyline.boundingMapRect, animated: true)
                 }
             }
         }

@@ -14,6 +14,7 @@
 		5B27DA272150E5A2009E8B48 /* CustomPopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27DA262150E5A2009E8B48 /* CustomPopAnimator.swift */; };
 		5B27DA2A21511B1A009E8B48 /* UIObjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27DA2921511B1A009E8B48 /* UIObjectViewController.swift */; };
 		5B27DA2C215124AB009E8B48 /* Star.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27DA2B215124AB009E8B48 /* Star.swift */; };
+		5B2810482164E77C000AF33D /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2810472164E77C000AF33D /* GalleryViewController.swift */; };
 		5B2F243C21635B140044F93A /* NetworkRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2F243B21635B140044F93A /* NetworkRequestBuilder.swift */; };
 		5B2F2440216394430044F93A /* TestApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B2F243F216394430044F93A /* TestApiController.swift */; };
 		5B30F4A9214A961E0078D070 /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B30F4A8214A961E0078D070 /* TextViewController.swift */; };
@@ -90,6 +91,7 @@
 		5B27DA262150E5A2009E8B48 /* CustomPopAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopAnimator.swift; sourceTree = "<group>"; };
 		5B27DA2921511B1A009E8B48 /* UIObjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIObjectViewController.swift; sourceTree = "<group>"; };
 		5B27DA2B215124AB009E8B48 /* Star.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Star.swift; sourceTree = "<group>"; };
+		5B2810472164E77C000AF33D /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		5B2F243B21635B140044F93A /* NetworkRequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestBuilder.swift; sourceTree = "<group>"; };
 		5B2F243F216394430044F93A /* TestApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestApiController.swift; sourceTree = "<group>"; };
 		5B30F4A3214A961E0078D070 /* TestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -275,6 +277,7 @@
 				5B27AC4F215A73B500D1384E /* ScrollCollectionViewController.swift */,
 				5B3F5506215B8BCC00A1D9D2 /* StackViewController.swift */,
 				5B3F5508215B982400A1D9D2 /* CoreAnimationViewController.swift */,
+				5B2810472164E77C000AF33D /* GalleryViewController.swift */,
 			);
 			path = SecondTap;
 			sourceTree = "<group>";
@@ -488,6 +491,7 @@
 				5BF1C337216240EB00693B1F /* CategoryViewController.swift in Sources */,
 				5B27DA2C215124AB009E8B48 /* Star.swift in Sources */,
 				5B30F4A9214A961E0078D070 /* TextViewController.swift in Sources */,
+				5B2810482164E77C000AF33D /* GalleryViewController.swift in Sources */,
 				5B30F4C3214A9C8D0078D070 /* AnimationFromRightCorner.swift in Sources */,
 				5B434CD02159349E00FF9FFE /* CollectionViewController.swift in Sources */,
 				5B57548B215E5EFF0062BF72 /* Mapper.swift in Sources */,
