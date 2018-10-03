@@ -90,7 +90,6 @@
 		5B27DA262150E5A2009E8B48 /* CustomPopAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopAnimator.swift; sourceTree = "<group>"; };
 		5B27DA2921511B1A009E8B48 /* UIObjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIObjectViewController.swift; sourceTree = "<group>"; };
 		5B27DA2B215124AB009E8B48 /* Star.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Star.swift; sourceTree = "<group>"; };
-		5B2810452164AED2000AF33D /* Location.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Location.gpx; sourceTree = "<group>"; };
 		5B2F243B21635B140044F93A /* NetworkRequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestBuilder.swift; sourceTree = "<group>"; };
 		5B2F243F216394430044F93A /* TestApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestApiController.swift; sourceTree = "<group>"; };
 		5B30F4A3214A961E0078D070 /* TestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -209,7 +208,6 @@
 				5B30F4AD214A96200078D070 /* Assets.xcassets */,
 				5B30F4B2214A96200078D070 /* Info.plist */,
 				5B02EB9D215E09E7009B8346 /* Localizable.strings */,
-				5B2810452164AED2000AF33D /* Location.gpx */,
 			);
 			path = TestProject;
 			sourceTree = "<group>";
