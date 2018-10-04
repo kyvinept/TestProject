@@ -123,6 +123,23 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImagesCell" textLabel="7te-Tt-J6X" style="IBUITableViewCellStyleDefault" id="YIn-XD-IHp">
+                                        <rect key="frame" x="0.0" y="360" width="375" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YIn-XD-IHp" id="4Ym-ag-rMH">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="ImagesCell" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7te-Tt-J6X">
+                                                    <rect key="frame" x="16" y="0.0" width="343" height="59.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -144,18 +161,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sxC-RU-5Ba">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <items>
-                                    <navigationItem title="Presenting VC" id="fLg-Ih-Dbe">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="WCC-hU-XOU">
-                                            <connections>
-                                                <action selector="backButtonTapped:" destination="nIu-3S-cOf" id="mmp-QI-nQh"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="DLy-u7-4aq">
                                 <rect key="frame" x="23.5" y="216" width="328" height="235"/>
                                 <subviews>
@@ -274,10 +279,7 @@
                         <color key="backgroundColor" red="0.055621376180000001" green="0.68375566710000002" blue="0.1452114004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="DLy-u7-4aq" firstAttribute="centerX" secondItem="YaN-jl-mvu" secondAttribute="centerX" id="85T-ul-QsF"/>
-                            <constraint firstItem="sxC-RU-5Ba" firstAttribute="leading" secondItem="YaN-jl-mvu" secondAttribute="leading" id="bJO-t7-8d2"/>
                             <constraint firstItem="DLy-u7-4aq" firstAttribute="centerY" secondItem="YaN-jl-mvu" secondAttribute="centerY" id="env-V2-r8b"/>
-                            <constraint firstItem="sxC-RU-5Ba" firstAttribute="top" secondItem="uy3-Fv-7dw" secondAttribute="top" id="jtR-Ah-c4f"/>
-                            <constraint firstAttribute="trailing" secondItem="sxC-RU-5Ba" secondAttribute="trailing" id="mft-qf-Dd4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="uy3-Fv-7dw"/>
                     </view>
@@ -294,32 +296,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DQ9-iU-kR0">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <items>
-                                    <navigationItem title="CoreAnimation" id="Zg3-ec-4LG">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="LjO-hA-sBk">
-                                            <connections>
-                                                <action selector="backButtonTapped:" destination="v0V-Lu-jlH" id="BiL-Vw-caq"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UsR-Pw-PLc">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" red="0.59215686270000001" green="0.76651557550000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="0.59215686270000001" green="0.76651557550000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="UsR-Pw-PLc" firstAttribute="bottom" secondItem="ALA-zD-icY" secondAttribute="bottom" id="EiS-6U-h3Y"/>
-                            <constraint firstAttribute="trailing" secondItem="DQ9-iU-kR0" secondAttribute="trailing" id="LOK-PY-OsB"/>
-                            <constraint firstItem="UsR-Pw-PLc" firstAttribute="trailing" secondItem="ALA-zD-icY" secondAttribute="trailing" id="UTt-ux-Tcj"/>
-                            <constraint firstItem="DQ9-iU-kR0" firstAttribute="leading" secondItem="QH7-7v-43o" secondAttribute="leading" id="Weh-Ct-77m"/>
-                            <constraint firstItem="DQ9-iU-kR0" firstAttribute="top" secondItem="ALA-zD-icY" secondAttribute="top" id="Wsx-dN-6XZ"/>
-                            <constraint firstItem="UsR-Pw-PLc" firstAttribute="top" secondItem="DQ9-iU-kR0" secondAttribute="bottom" id="Ysv-NM-CUb"/>
-                            <constraint firstItem="UsR-Pw-PLc" firstAttribute="leading" secondItem="ALA-zD-icY" secondAttribute="leading" id="zNh-Kd-gCY"/>
+                            <constraint firstItem="UsR-Pw-PLc" firstAttribute="trailing" secondItem="ALA-zD-icY" secondAttribute="trailing" id="dY5-SJ-YYO"/>
+                            <constraint firstItem="UsR-Pw-PLc" firstAttribute="bottom" secondItem="ALA-zD-icY" secondAttribute="bottom" id="dhG-vJ-Rpa"/>
+                            <constraint firstItem="UsR-Pw-PLc" firstAttribute="top" secondItem="ALA-zD-icY" secondAttribute="top" id="qWV-T8-Syp"/>
+                            <constraint firstItem="UsR-Pw-PLc" firstAttribute="leading" secondItem="ALA-zD-icY" secondAttribute="leading" id="w1L-TA-2fh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ALA-zD-icY"/>
                     </view>
@@ -331,6 +318,51 @@
             </objects>
             <point key="canvasLocation" x="1260" y="41.829085457271368"/>
         </scene>
+        <!--Gallery View Controller-->
+        <scene sceneID="EzS-oM-PSw">
+            <objects>
+                <viewController storyboardIdentifier="GalleryViewController" id="pIL-WC-ZSC" customClass="GalleryViewController" customModule="TestProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OAV-mP-E5R">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7gd-lw-wps">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" red="0.50980392159999999" green="0.75294117650000003" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <collectionViewLayout key="collectionViewLayout" id="bUv-Pr-4ln" customClass="ImageCollectionViewLayout" customModule="TestProject" customModuleProvider="target"/>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="kyN-dg-XMd" customClass="ImageCell" customModule="TestProject" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="pIL-WC-ZSC" id="PfQ-qv-xqK"/>
+                                    <outlet property="delegate" destination="pIL-WC-ZSC" id="IWg-4p-AEM"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.50980392159999999" green="0.75294117650000003" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="7gd-lw-wps" firstAttribute="leading" secondItem="mcI-Wa-tsZ" secondAttribute="leading" id="eX6-2R-gLu"/>
+                            <constraint firstItem="7gd-lw-wps" firstAttribute="bottom" secondItem="mcI-Wa-tsZ" secondAttribute="bottom" id="pUO-cm-Y1J"/>
+                            <constraint firstItem="7gd-lw-wps" firstAttribute="trailing" secondItem="mcI-Wa-tsZ" secondAttribute="trailing" id="uTB-ZZ-a8x"/>
+                            <constraint firstItem="7gd-lw-wps" firstAttribute="top" secondItem="mcI-Wa-tsZ" secondAttribute="top" id="ve6-fZ-MOV"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="mcI-Wa-tsZ"/>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="7gd-lw-wps" id="Czk-34-0qf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wr5-aw-SBS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1135.2" y="1018.7406296851575"/>
+        </scene>
         <!--Table View Controller-->
         <scene sceneID="ShQ-fI-Gn8">
             <objects>
@@ -339,26 +371,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vCS-p0-GDM">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <color key="backgroundColor" red="0.59215686270000001" green="0.76651557550000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <items>
-                                    <navigationItem title="UITableView" id="O9r-zJ-a7s">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="2fw-X9-8So">
-                                            <connections>
-                                                <action selector="backButtonTapped:" destination="KlO-dQ-tdt" id="Xdr-vT-nLD"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="651-KL-zYf">
-                                            <connections>
-                                                <action selector="addItemToTable:" destination="KlO-dQ-tdt" id="FC5-SW-eZs"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="V9S-rb-Kdp">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="KlO-dQ-tdt" id="KpE-aD-jf4"/>
@@ -370,11 +384,8 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="V9S-rb-Kdp" firstAttribute="bottom" secondItem="LEP-Gt-7Rk" secondAttribute="bottom" id="5gL-hd-9eU"/>
-                            <constraint firstItem="vCS-p0-GDM" firstAttribute="top" secondItem="LEP-Gt-7Rk" secondAttribute="top" id="AEf-fC-VS0"/>
-                            <constraint firstAttribute="trailing" secondItem="vCS-p0-GDM" secondAttribute="trailing" id="PDb-cb-qju"/>
-                            <constraint firstItem="vCS-p0-GDM" firstAttribute="leading" secondItem="J1q-U9-C7S" secondAttribute="leading" id="XY8-j3-zOl"/>
+                            <constraint firstItem="V9S-rb-Kdp" firstAttribute="top" secondItem="LEP-Gt-7Rk" secondAttribute="top" id="Q3H-NB-POy"/>
                             <constraint firstItem="V9S-rb-Kdp" firstAttribute="leading" secondItem="LEP-Gt-7Rk" secondAttribute="leading" id="fb8-L4-ow7"/>
-                            <constraint firstItem="V9S-rb-Kdp" firstAttribute="top" secondItem="vCS-p0-GDM" secondAttribute="bottom" id="uYe-RY-dlg"/>
                             <constraint firstItem="V9S-rb-Kdp" firstAttribute="trailing" secondItem="LEP-Gt-7Rk" secondAttribute="trailing" id="vDQ-VR-rmv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LEP-Gt-7Rk"/>
@@ -395,20 +406,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SkZ-Ud-hM5">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <items>
-                                    <navigationItem title="UICollectionView" id="I60-3t-cT2">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="CS1-cO-I1n">
-                                            <connections>
-                                                <action selector="backButtonTapped:" destination="FHg-TY-8gs" id="WGh-g5-Wo2"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="15j-zr-baU">
-                                <rect key="frame" x="0.0" y="64" width="375" height="183"/>
+                                <rect key="frame" x="0.0" y="70" width="375" height="183"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="CWA-DL-PKr">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="42"/>
@@ -571,12 +570,9 @@
                         </subviews>
                         <color key="backgroundColor" red="0.59215686270000001" green="0.76651557550000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="15j-zr-baU" firstAttribute="top" secondItem="SkZ-Ud-hM5" secondAttribute="bottom" id="Clr-1S-D9E"/>
-                            <constraint firstItem="SkZ-Ud-hM5" firstAttribute="leading" secondItem="bwP-ad-Fhq" secondAttribute="leading" id="Mff-12-RP6"/>
-                            <constraint firstItem="SkZ-Ud-hM5" firstAttribute="top" secondItem="8AT-bl-K94" secondAttribute="top" id="cw2-xL-P1r"/>
-                            <constraint firstItem="8AT-bl-K94" firstAttribute="trailing" secondItem="15j-zr-baU" secondAttribute="trailing" id="kfn-9F-4xE"/>
-                            <constraint firstAttribute="trailing" secondItem="SkZ-Ud-hM5" secondAttribute="trailing" id="nui-Om-XJB"/>
-                            <constraint firstItem="15j-zr-baU" firstAttribute="leading" secondItem="8AT-bl-K94" secondAttribute="leading" id="pV8-Bb-D3d"/>
+                            <constraint firstItem="15j-zr-baU" firstAttribute="top" secondItem="8AT-bl-K94" secondAttribute="top" constant="50" id="00N-7t-oQh"/>
+                            <constraint firstItem="15j-zr-baU" firstAttribute="leading" secondItem="8AT-bl-K94" secondAttribute="leading" id="DPA-ZQ-2yS"/>
+                            <constraint firstItem="8AT-bl-K94" firstAttribute="trailing" secondItem="15j-zr-baU" secondAttribute="trailing" id="e5s-Cv-rrq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8AT-bl-K94"/>
                     </view>
@@ -599,7 +595,7 @@
                                     <navigationItem title="Share image" id="F7D-9o-gqS">
                                         <barButtonItem key="leftBarButtonItem" title="Back" id="nj3-xu-o9E">
                                             <connections>
-                                                <action selector="backButtonTapped:" destination="QyV-bH-m0Q" id="SmE-P8-d2h"/>
+                                                <action selector="backButtonTapped:" destination="QyV-bH-m0Q" id="vsh-PX-nHz"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Share" id="rul-du-ozA">
@@ -625,7 +621,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="meK-s6-EAr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1770.4000000000001" y="262.21889055472263"/>
+            <point key="canvasLocation" x="-2210" y="264"/>
         </scene>
         <!--Collection View Controller-->
         <scene sceneID="qi1-j5-IPt">
@@ -635,25 +631,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JJw-ys-Ww0">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <items>
-                                    <navigationItem title="UICollectionView" id="qLR-ig-mEb">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="ou7-T2-0Oh">
-                                            <connections>
-                                                <action selector="backButtonTapped:" destination="3Bo-RC-R4L" id="Ow7-3A-brk"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="mPq-UI-lw3">
-                                            <connections>
-                                                <action selector="addButtonTapped:" destination="3Bo-RC-R4L" id="yDy-sd-pAB"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7dg-op-bXO">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" red="0.59397524426877513" green="0.76651557552910965" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewLayout key="collectionViewLayout" id="s7x-pw-B54" customClass="ImageCollectionViewLayout" customModule="TestProject" customModuleProvider="target"/>
                                 <cells>
@@ -676,13 +655,10 @@
                         </subviews>
                         <color key="backgroundColor" red="0.59397524430000004" green="0.76651557550000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="7dg-op-bXO" firstAttribute="top" secondItem="JJw-ys-Ww0" secondAttribute="bottom" id="6dY-Bn-QxS"/>
-                            <constraint firstAttribute="trailing" secondItem="JJw-ys-Ww0" secondAttribute="trailing" id="Fd8-YX-xeF"/>
-                            <constraint firstItem="JJw-ys-Ww0" firstAttribute="top" secondItem="CLX-CO-8I9" secondAttribute="top" id="slv-dn-Pph"/>
-                            <constraint firstItem="JJw-ys-Ww0" firstAttribute="leading" secondItem="ubc-0Q-VcV" secondAttribute="leading" id="uqj-zY-x4s"/>
-                            <constraint firstItem="7dg-op-bXO" firstAttribute="leading" secondItem="CLX-CO-8I9" secondAttribute="leading" id="x81-AZ-B6i"/>
-                            <constraint firstItem="7dg-op-bXO" firstAttribute="bottom" secondItem="CLX-CO-8I9" secondAttribute="bottom" id="x8C-qg-Gk5"/>
-                            <constraint firstItem="7dg-op-bXO" firstAttribute="trailing" secondItem="CLX-CO-8I9" secondAttribute="trailing" id="yW4-6m-YG8"/>
+                            <constraint firstItem="7dg-op-bXO" firstAttribute="trailing" secondItem="CLX-CO-8I9" secondAttribute="trailing" id="aRw-x9-ldq"/>
+                            <constraint firstItem="7dg-op-bXO" firstAttribute="top" secondItem="CLX-CO-8I9" secondAttribute="top" id="kl7-o6-jB0"/>
+                            <constraint firstItem="7dg-op-bXO" firstAttribute="leading" secondItem="CLX-CO-8I9" secondAttribute="leading" id="lFU-ld-4Vo"/>
+                            <constraint firstItem="7dg-op-bXO" firstAttribute="bottom" secondItem="CLX-CO-8I9" secondAttribute="bottom" id="xNB-io-i7A"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="CLX-CO-8I9"/>
                     </view>
@@ -692,7 +668,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="diU-FZ-SPd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1006" y="281"/>
+            <point key="canvasLocation" x="-1007.2" y="280.20989505247377"/>
         </scene>
         <!--Scroll Collection View Controller-->
         <scene sceneID="LFE-cV-RCi">
@@ -702,24 +678,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f2y-Ne-eCQ">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <color key="backgroundColor" red="0.59215686274509804" green="0.76651557550000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <items>
-                                    <navigationItem title="CollectionViews" id="GYc-D0-a8N">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="2Pd-Ev-u8N">
-                                            <connections>
-                                                <action selector="backButtonTapped:" destination="n5t-vx-Xzp" id="m9I-EQ-aEo"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e7Q-8s-tAZ">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="S1F-dM-8FM">
-                                        <rect key="frame" x="0.0" y="250" width="375" height="353"/>
+                                        <rect key="frame" x="0.0" y="250" width="375" height="397"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="25" minimumInteritemSpacing="25" id="Qkz-Bz-Jct">
@@ -777,14 +740,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="e7Q-8s-tAZ" firstAttribute="leading" secondItem="7q7-rI-L55" secondAttribute="leading" id="3Xk-f0-nxQ"/>
-                            <constraint firstItem="e7Q-8s-tAZ" firstAttribute="bottom" secondItem="7q7-rI-L55" secondAttribute="bottom" id="CLz-Ju-51c"/>
-                            <constraint firstItem="e7Q-8s-tAZ" firstAttribute="top" secondItem="f2y-Ne-eCQ" secondAttribute="bottom" id="DrF-wq-hq2"/>
-                            <constraint firstItem="f2y-Ne-eCQ" firstAttribute="leading" secondItem="CgQ-qm-qq3" secondAttribute="leading" id="INe-hv-3a0"/>
-                            <constraint firstItem="e7Q-8s-tAZ" firstAttribute="trailing" secondItem="7q7-rI-L55" secondAttribute="trailing" id="VpT-UR-cgz"/>
-                            <constraint firstAttribute="trailing" secondItem="f2y-Ne-eCQ" secondAttribute="trailing" id="dCa-5y-Qm9"/>
-                            <constraint firstItem="e7Q-8s-tAZ" firstAttribute="top" secondItem="f2y-Ne-eCQ" secondAttribute="bottom" id="fnl-Md-W5C"/>
-                            <constraint firstItem="f2y-Ne-eCQ" firstAttribute="top" secondItem="7q7-rI-L55" secondAttribute="top" id="sUn-ae-NWb"/>
+                            <constraint firstItem="e7Q-8s-tAZ" firstAttribute="top" secondItem="7q7-rI-L55" secondAttribute="top" id="88B-iA-E3K"/>
+                            <constraint firstItem="e7Q-8s-tAZ" firstAttribute="leading" secondItem="7q7-rI-L55" secondAttribute="leading" id="A5a-d5-2VV"/>
+                            <constraint firstItem="e7Q-8s-tAZ" firstAttribute="bottom" secondItem="7q7-rI-L55" secondAttribute="bottom" id="Msl-0g-EqX"/>
+                            <constraint firstItem="e7Q-8s-tAZ" firstAttribute="bottom" secondItem="7q7-rI-L55" secondAttribute="bottom" id="NOQ-EV-isj"/>
+                            <constraint firstItem="e7Q-8s-tAZ" firstAttribute="top" secondItem="7q7-rI-L55" secondAttribute="top" id="PsP-V4-g5w"/>
+                            <constraint firstItem="e7Q-8s-tAZ" firstAttribute="leading" secondItem="7q7-rI-L55" secondAttribute="leading" id="hpJ-jq-ppf"/>
+                            <constraint firstItem="e7Q-8s-tAZ" firstAttribute="trailing" secondItem="7q7-rI-L55" secondAttribute="trailing" id="oyJ-FD-aQd"/>
+                            <constraint firstItem="e7Q-8s-tAZ" firstAttribute="trailing" secondItem="7q7-rI-L55" secondAttribute="trailing" id="vz3-Mc-xjH"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7q7-rI-L55"/>
                     </view>

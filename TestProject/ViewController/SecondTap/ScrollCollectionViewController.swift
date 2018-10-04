@@ -8,16 +8,11 @@
 
 import UIKit
 
-protocol ScrollCollectionViewControllerDelegate: class {
-    func backButtonTapped()
-}
-
-class ScrollCollectionViewController: UIViewController {
+class ScrollCollectionViewController: BaseViewController {
     
     @IBOutlet private weak var scrollView: UIScrollView!
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var collectionViewHorizontal: UICollectionView!
-    weak var delegate: ScrollCollectionViewControllerDelegate?
     private let spacing: CGFloat = 25
     private var images = [UIImage]()
     private var imagesUrl = ["https://images-assets.nasa.gov/image/PIA18033/PIA18033~thumb.jpg",
@@ -33,6 +28,7 @@ class ScrollCollectionViewController: UIViewController {
         super.viewDidLoad()
         self.navigationController?.delegate = self
         createStatusBar()
+        createBackButton()
         createImageCells()
         collectionView.register(UINib(nibName: "ImageCell", bundle: nil), forCellWithReuseIdentifier: "Cell")
         collectionViewHorizontal.register(UINib(nibName: "ImageCell", bundle: nil), forCellWithReuseIdentifier: "Cell")
@@ -53,16 +49,6 @@ class ScrollCollectionViewController: UIViewController {
         collectionView.frame.size.width = scrollView.frame.width
         collectionView.frame.origin.y = collectionViewHorizontal.frame.origin.y + collectionViewHorizontal.frame.height
         collectionView.reloadData()
-        switch UIDevice.current.orientation {
-        case .portrait:
-            deleteStatusBar()
-            createStatusBar()
-        case .landscapeLeft, .landscapeRight:
-            deleteStatusBar()
-            createStatusBar()
-        default:
-            break
-        }
     }
     
     private func createImageCells() {
@@ -87,13 +73,11 @@ class ScrollCollectionViewController: UIViewController {
                                                       green: 195.0/256,
                                                        blue: 1,
                                                       alpha: 1)
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         tabBarController?.tabBar.barTintColor = nil
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     @IBAction func backButtonTapped(_ sender: Any) {
@@ -135,17 +119,5 @@ extension ScrollCollectionViewController: UICollectionViewDelegate, UICollection
         }
         collectionView.frame.size.height = CGFloat(k/2)*width + spacing*CGFloat((k/2+1))
         scrollView.contentSize.height = collectionViewHorizontal.frame.height + collectionView.frame.height
-    }
-}
-
-extension ScrollCollectionViewController: UINavigationControllerDelegate {
-    
-    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        switch operation {
-        case .pop:
-            return CustomPopAnimator()
-        default:
-            return nil
-        }
     }
 }

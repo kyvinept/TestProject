@@ -8,11 +8,7 @@
 
 import UIKit
 
-protocol PresentingViewControllerDelegate: class {
-    func backButtonTapped()
-}
-
-class PresentingViewController: UIViewController {
+class PresentingViewController: BaseViewController {
     
     enum TypeOfPresentAnimation {
         case fromRightCorner
@@ -22,37 +18,13 @@ class PresentingViewController: UIViewController {
         case toLeftSwap
     }
     
-    weak var delegate: PresentingViewControllerDelegate?
     private var typeAnimation: TypeOfPresentAnimation = .fromRightCorner
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.delegate = self
         createStatusBar()
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        switch UIDevice.current.orientation {
-        case .portrait:
-            deleteStatusBar()
-            createStatusBar()
-        case .landscapeLeft, .landscapeRight:
-            deleteStatusBar()
-            createStatusBar()
-        default:
-            break
-        }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
-    }
-    
-    @IBAction func backButtonTapped(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
-        delegate?.backButtonTapped()
+        createBackButton()
     }
     
     @IBAction func coverVerticalButtonTapped(_ sender: Any) {
@@ -110,18 +82,6 @@ class PresentingViewController: UIViewController {
     
     private func createNewVC() -> UIViewController {
         return UIStoryboard(name: "NewViewController", bundle: nil).instantiateViewController(withIdentifier: "NewViewController")
-    }
-}
-
-extension PresentingViewController: UINavigationControllerDelegate {
-    
-    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        switch operation {
-        case .pop:
-            return CustomPopAnimator()
-        default:
-            return nil
-        }
     }
 }
 

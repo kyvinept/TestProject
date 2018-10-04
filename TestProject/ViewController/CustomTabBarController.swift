@@ -24,7 +24,7 @@ class CustomTabBarController: UITabBarController {
                                                   title: NSLocalizedString("SecondViewController", comment: ""),
                                                   image: #imageLiteral(resourceName: "medical-history"),
                                           selectedImage: nil)
-        let third = createNewController(viewController: UIStoryboard(name: "ThirdViewController", bundle: nil).instantiateViewController(withIdentifier: "ThirdViewController"),
+        let third = createNewController(viewController: UIStoryboard(name: "ThirdTap", bundle: nil).instantiateViewController(withIdentifier: "ThirdViewController"),
                                                  title: NSLocalizedString("ThirdViewController", comment: ""),
                                                  image: #imageLiteral(resourceName: "download"),
                                          selectedImage: nil)

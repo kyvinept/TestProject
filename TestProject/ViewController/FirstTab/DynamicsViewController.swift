@@ -8,14 +8,8 @@
 
 import UIKit
 
-protocol DynamicsViewControllerDelegate: class {
-    func backButtonTapped()
-}
+class DynamicsViewController: BaseViewController {
 
-class DynamicsViewController: UIViewController {
-
-    weak var delegate: DynamicsViewControllerDelegate?
-    @IBOutlet private weak var topNavigationBar: UINavigationBar!
     private var collision: UICollisionBehavior!
     private var animator: UIDynamicAnimator!
     private var gravity: UIGravityBehavior!
@@ -34,38 +28,17 @@ class DynamicsViewController: UIViewController {
         self.navigationController?.delegate = self
         createStatusBar()
         setProperties()
+        createBackButton()
+        createNewItemButton()
         createDynamicsView()
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        switch UIDevice.current.orientation {
-        case .portrait:
-            deleteStatusBar()
-            createStatusBar()
-        case .landscapeLeft,.landscapeRight:
-            deleteStatusBar()
-            createStatusBar()
-        default:
-            break
-        }
+    private func createNewItemButton() {
+        let button = UIBarButtonItem(title: "NewItem", style: .done, target: self, action: #selector(newItemButtonTapped))
+        self.navigationItem.rightBarButtonItem = button
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
-    }
-
-    @IBAction func backButtonTapped(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
-        delegate?.backButtonTapped()
-    }
-    @IBAction func createNewItemButtonTapped(_ sender: Any) {
+    @objc func newItemButtonTapped() {
         createDynamicsView()
     }
 }
@@ -101,7 +74,7 @@ extension DynamicsViewController {
         let size = Int(arc4random_uniform(50) + UInt32(minSize))
         let widthScreen = Int(self.view.frame.width)
         let x = Int(arc4random_uniform(UInt32(widthScreen - size)))
-        let topFrame = Int(self.topNavigationBar.frame.height + UIApplication.shared.statusBarFrame.height)
+        let topFrame = Int(self.navigationController!.navigationBar.bounds.height)
         let view = DynamicsView(frame: CGRect(x: x,
                                               y: topFrame,
                                           width: size,
@@ -131,18 +104,6 @@ extension DynamicsViewController: DynamicsViewDelegate {
         collision.removeItem(view)
         gravity.removeItem(view)
         view.removeFromSuperview()
-    }
-}
-
-extension DynamicsViewController: UINavigationControllerDelegate {
-    
-    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        switch operation {
-        case .pop:
-            return CustomPopAnimator()
-        default:
-            return nil
-        }
     }
 }
 

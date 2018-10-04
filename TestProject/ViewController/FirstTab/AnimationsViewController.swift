@@ -8,15 +8,9 @@
 
 import UIKit
 
-protocol AnimationsViewControllerDelegate: class {
-    func backButtonTapped()
-}
-
-class AnimationsViewController: UIViewController {
+class AnimationsViewController: BaseViewController {
 
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet private weak var topNavigationBar: UINavigationBar!
-    weak var delegate: AnimationsViewControllerDelegate?
     private let size: CGFloat = 100
     private let padding: CGFloat = 10
     private let duration: Double = 2
@@ -27,21 +21,7 @@ class AnimationsViewController: UIViewController {
         self.navigationController?.delegate = self
         createStatusBar()
         createViews()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
-    }
-    
-    @IBAction func backButtonTapped(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
-        delegate?.backButtonTapped()
+        createBackButton()
     }
     
     override func viewWillLayoutSubviews() {
@@ -153,18 +133,6 @@ class AnimationsViewController: UIViewController {
                             options: .curveEaseOut,
                          animations: { view.center.x = self.padding + view.frame.width/2 },
                          completion: { _ in self.moveViewToRight(view: view) })
-    }
-}
-
-extension AnimationsViewController: UINavigationControllerDelegate {
-    
-    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        switch operation {
-        case .pop:
-            return CustomPopAnimator()
-        default:
-            return nil
-        }
     }
 }
 

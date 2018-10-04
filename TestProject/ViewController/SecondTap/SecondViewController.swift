@@ -60,13 +60,19 @@ class SecondViewController: UITableViewController {
                 textVC.delegate = self
                 self.navigationController?.pushViewController(textVC, animated: true)
             }
+        case "ImagesCell":
+            let textVC = self.storyboard?.instantiateViewController(withIdentifier: "GalleryViewController") as? GalleryViewController
+            if let textVC = textVC {
+                textVC.delegate = self
+                self.navigationController?.pushViewController(textVC, animated: true)
+            }
         default:
             break
         }
     }
 }
 
-extension SecondViewController: PresentingViewControllerDelegate, TableViewControllerDelegate, CollectionViewControllerDelegate, ScrollCollectionViewControllerDelegate, StackViewControllerDelegate, CoreAnimationViewControllerDelegate {
+extension SecondViewController: NavigationControllerDelegate {
     
     func backButtonTapped() {
         self.navigationController?.delegate = self
@@ -84,4 +90,3 @@ extension SecondViewController: UINavigationControllerDelegate {
         }
     }
 }
-

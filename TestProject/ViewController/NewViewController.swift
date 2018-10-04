@@ -12,9 +12,9 @@ protocol NewViewControllerDelegate: class {
     func backButtonTapped()
 }
 
-class NewViewController: UIViewController {
+class NewViewController: BaseViewController {
     
-    weak var delegate: NewViewControllerDelegate?
+    //weak var delegate: NewViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,14 +37,14 @@ class NewViewController: UIViewController {
     }
 }
 
-extension NewViewController: UINavigationControllerDelegate {
-    
-    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        switch operation {
-        case .pop:
-            return CustomPopAnimator()
-        default:
-            return nil
-        }
-    }
-}
+//extension NewViewController: UINavigationControllerDelegate {
+//    
+//    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+//        switch operation {
+//        case .pop:
+//            return CustomPopAnimator()
+//        default:
+//            return nil
+//        }
+//    }
+//}

@@ -8,20 +8,17 @@
 
 import UIKit
 
-protocol TableViewControllerDelegate: class {
-    func backButtonTapped()
-}
-
-class TableViewController: UIViewController {
+class TableViewController: BaseViewController {
 
     @IBOutlet private weak var tableView: UITableView!
-    weak var delegate: TableViewControllerDelegate?
     private var items = [DataModel]()
     private var refresh: UIRefreshControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.delegate = self
+        createBackButton()
+        createAddButton()
         createRefresh()
         createStatusBar()
         getDataForTable()
@@ -32,16 +29,11 @@ class TableViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         tableView.reloadData()
-        switch UIDevice.current.orientation {
-        case .portrait:
-            deleteStatusBar()
-            createStatusBar()
-        case .landscapeLeft, .landscapeRight:
-            deleteStatusBar()
-            createStatusBar()
-        default:
-            break
-        }
+    }
+    
+    private func createAddButton() {
+        let button = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
+        self.navigationItem.rightBarButtonItem = button
     }
     
     private func createRefresh() {
@@ -61,18 +53,11 @@ class TableViewController: UIViewController {
                                                       green: 195.0/256,
                                                        blue: 1,
                                                       alpha: 1)
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         tabBarController?.tabBar.barTintColor = nil
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
-    }
-    
-    @IBAction func backButtonTapped(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
-        delegate?.backButtonTapped()
     }
     
     private func getDataForTable() {
@@ -101,7 +86,7 @@ class TableViewController: UIViewController {
         return img
     }
     
-    @IBAction func addItemToTable(_ sender: Any) {
+    @objc func addButtonTapped(_ sender: Any) {
         let alert = UIAlertController(title: NSLocalizedString("Input", comment: ""), message: nil, preferredStyle: .alert)
         alert.addTextField { (textField) in
             textField.placeholder = NSLocalizedString("id", comment: "")
@@ -133,9 +118,7 @@ class TableViewController: UIViewController {
                 description: description)
             self.dismiss(animated: true, completion: nil)
         }))
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .default, handler: { (_) in
-            self.dismiss(animated: true, completion: nil)
-        }))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .default))
         self.present(alert, animated: true, completion: nil)
     }
     
@@ -211,24 +194,12 @@ extension TableViewController: CustomCellDelegate {
     }
 }
 
-extension TableViewController: UINavigationControllerDelegate {
-    
-    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        switch operation {
-        case .pop:
-            return CustomPopAnimator()
-        default:
-            return nil
-        }
-    }
-}
-
 extension UIViewController {
     func showErrorMessage(message: String) {
         let alert = UIAlertController(title: message, message: nil, preferredStyle: .alert)
         self.present(alert, animated: true, completion: nil)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
-            self.dismiss(animated: true, completion: nil)
+            alert.dismiss(animated: true, completion: nil)
         }
     }
 }

@@ -8,22 +8,17 @@
 
 import UIKit
 
-protocol CoreAnimationViewControllerDelegate: class {
-    func backButtonTapped()
-}
-
-class CoreAnimationViewController: UIViewController {
+class CoreAnimationViewController: BaseViewController {
     
     @IBOutlet private weak var scrollView: UIScrollView!
     private let padding: CGFloat = 10
     private let size: CGFloat = 150
-    weak var delegate: CoreAnimationViewControllerDelegate?
     private var height: CGFloat = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.delegate = self
-        createStatusBar()
+        createBackButton()
         createGradientView()
         createBeziePathView()
         createBlurView()
@@ -32,24 +27,7 @@ class CoreAnimationViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        deleteStatusBar()
-        createStatusBar()
         scrollView.contentSize.height = height + size + padding
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
-    }
-    
-    @IBAction func backButtonTapped(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
-        delegate?.backButtonTapped()
     }
 }
 
@@ -125,17 +103,5 @@ extension CoreAnimationViewController {
         anim.autoreverses = true
         view.layer.add(anim, forKey: "")
         scrollView.addSubview(view)
-    }
-}
-
-extension CoreAnimationViewController: UINavigationControllerDelegate {
-    
-    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        switch operation {
-        case .pop:
-            return CustomPopAnimator()
-        default:
-            return nil
-        }
     }
 }

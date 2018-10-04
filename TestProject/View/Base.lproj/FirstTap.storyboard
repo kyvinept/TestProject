@@ -128,29 +128,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qql-M6-WeM">
-                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="716"/>
                             </scrollView>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CTb-6r-qVh">
-                                <rect key="frame" x="0.0" y="20" width="414" height="44"/>
-                                <color key="backgroundColor" red="1" green="0.62480386147684097" blue="0.20672589244410744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <items>
-                                    <navigationItem title="TextViewController" id="ooo-Dq-wur">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="hHK-xe-geP">
-                                            <connections>
-                                                <action selector="backButtonTapped:" destination="4pg-T6-cbN" id="zpS-GA-LlY"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.65478308819999997" blue="0.25808161639999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="qql-M6-WeM" firstAttribute="top" secondItem="CTb-6r-qVh" secondAttribute="bottom" id="5lf-eB-mMd"/>
                             <constraint firstItem="qql-M6-WeM" firstAttribute="trailing" secondItem="LKk-Kc-J7K" secondAttribute="trailing" id="Fqz-05-VPN"/>
-                            <constraint firstItem="CTb-6r-qVh" firstAttribute="top" secondItem="LKk-Kc-J7K" secondAttribute="top" id="PbI-rv-gwS"/>
-                            <constraint firstItem="CTb-6r-qVh" firstAttribute="leading" secondItem="FfT-EQ-iGP" secondAttribute="leading" id="Thn-47-g5q"/>
-                            <constraint firstAttribute="trailing" secondItem="CTb-6r-qVh" secondAttribute="trailing" id="UFs-He-mfq"/>
+                            <constraint firstItem="qql-M6-WeM" firstAttribute="top" secondItem="LKk-Kc-J7K" secondAttribute="top" id="coh-68-Qhn"/>
                             <constraint firstItem="qql-M6-WeM" firstAttribute="leading" secondItem="LKk-Kc-J7K" secondAttribute="leading" id="weN-Ux-llf"/>
                             <constraint firstItem="qql-M6-WeM" firstAttribute="bottom" secondItem="LKk-Kc-J7K" secondAttribute="bottom" id="xEd-Em-Ue7"/>
                         </constraints>
@@ -159,7 +143,6 @@
                     <navigationItem key="navigationItem" id="Gqd-Lh-mii"/>
                     <connections>
                         <outlet property="bottomConstraint" destination="xEd-Em-Ue7" id="Bur-PC-ekY"/>
-                        <outlet property="navigationBar" destination="CTb-6r-qVh" id="McY-hU-Jbq"/>
                         <outlet property="scrollView" destination="qql-M6-WeM" id="e3d-X7-fiV"/>
                     </connections>
                 </viewController>
@@ -175,30 +158,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pwt-Cy-1fb">
-                                <rect key="frame" x="0.0" y="20" width="414" height="44"/>
-                                <color key="backgroundColor" red="1" green="0.6248038615" blue="0.2067258924" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <items>
-                                    <navigationItem title="UIObject" id="yuf-e8-zPp">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="Mpm-7c-5RS">
-                                            <connections>
-                                                <action selector="backButtonTapped:" destination="xnM-l1-f5C" id="CPB-DK-CK5"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DVK-sE-Za1">
-                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="716"/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.65033309449999999" blue="0.26497652929999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Pwt-Cy-1fb" firstAttribute="leading" secondItem="wm7-e6-WA4" secondAttribute="leading" id="0Au-xc-iQN"/>
-                            <constraint firstItem="DVK-sE-Za1" firstAttribute="top" secondItem="Pwt-Cy-1fb" secondAttribute="bottom" id="0vg-XO-orp"/>
                             <constraint firstItem="DVK-sE-Za1" firstAttribute="bottom" secondItem="eNv-nH-Wn6" secondAttribute="bottom" id="B0l-DV-PgR"/>
-                            <constraint firstItem="Pwt-Cy-1fb" firstAttribute="top" secondItem="eNv-nH-Wn6" secondAttribute="top" id="Wyc-hg-HJK"/>
-                            <constraint firstAttribute="trailing" secondItem="Pwt-Cy-1fb" secondAttribute="trailing" id="gnP-JD-NLQ"/>
+                            <constraint firstItem="DVK-sE-Za1" firstAttribute="top" secondItem="eNv-nH-Wn6" secondAttribute="top" id="Rm0-eA-g1b"/>
                             <constraint firstItem="DVK-sE-Za1" firstAttribute="leading" secondItem="eNv-nH-Wn6" secondAttribute="leading" id="l0D-NJ-e1a"/>
                             <constraint firstItem="DVK-sE-Za1" firstAttribute="trailing" secondItem="eNv-nH-Wn6" secondAttribute="trailing" id="wal-Ao-R4u"/>
                         </constraints>
@@ -220,33 +187,10 @@
                     <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="AIk-ww-CeM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xeI-tg-BOx">
-                                <rect key="frame" x="0.0" y="20" width="414" height="44"/>
-                                <color key="backgroundColor" red="1" green="0.6248038615" blue="0.2067258924" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <items>
-                                    <navigationItem title="Gesture" id="mbN-U6-yVD">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="Qz0-xh-b1p">
-                                            <connections>
-                                                <action selector="backButtonTapped:" destination="0F5-xk-vqg" id="MLv-37-n0i"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                        </subviews>
                         <color key="backgroundColor" red="1" green="0.65033309449999999" blue="0.26497652929999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="xeI-tg-BOx" secondAttribute="trailing" id="4wj-96-ow5"/>
-                            <constraint firstItem="xeI-tg-BOx" firstAttribute="top" secondItem="Pby-YM-wFg" secondAttribute="top" id="RHJ-TI-osj"/>
-                            <constraint firstItem="xeI-tg-BOx" firstAttribute="leading" secondItem="AIk-ww-CeM" secondAttribute="leading" id="o6e-wF-HsF"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Pby-YM-wFg"/>
                     </view>
                     <navigationItem key="navigationItem" id="SnO-7b-EEo"/>
-                    <connections>
-                        <outlet property="topNavigationBar" destination="xeI-tg-BOx" id="SNt-qi-TfC"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a70-l2-Ocq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -259,38 +203,10 @@
                     <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="tCA-in-d4m">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QsS-Yc-B3u">
-                                <rect key="frame" x="0.0" y="20" width="414" height="44"/>
-                                <color key="backgroundColor" red="1" green="0.6248038615" blue="0.2067258924" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <items>
-                                    <navigationItem title="UIKit Dynamics" id="yma-Oy-xYB">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="cMg-5Y-8Xi">
-                                            <connections>
-                                                <action selector="backButtonTapped:" destination="eFw-Jl-bnE" id="vK2-c1-O1F"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="New view" id="fnQ-SC-308">
-                                            <connections>
-                                                <action selector="createNewItemButtonTapped:" destination="eFw-Jl-bnE" id="dEg-Cy-Hph"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                        </subviews>
                         <color key="backgroundColor" red="1" green="0.65033309449999999" blue="0.26497652929999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="QsS-Yc-B3u" firstAttribute="top" secondItem="ahO-vx-qJ1" secondAttribute="top" id="7xg-Lv-yln"/>
-                            <constraint firstItem="QsS-Yc-B3u" firstAttribute="leading" secondItem="tCA-in-d4m" secondAttribute="leading" id="Jnw-eW-Hde"/>
-                            <constraint firstAttribute="trailing" secondItem="QsS-Yc-B3u" secondAttribute="trailing" id="svl-hy-gZo"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ahO-vx-qJ1"/>
                     </view>
                     <navigationItem key="navigationItem" id="LSi-Qn-bva"/>
-                    <connections>
-                        <outlet property="topNavigationBar" destination="QsS-Yc-B3u" id="WGk-gq-WNT"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LgG-3W-vei" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -304,39 +220,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zmi-0M-gb3">
-                                <rect key="frame" x="0.0" y="20" width="414" height="44"/>
-                                <color key="backgroundColor" red="1" green="0.6248038615" blue="0.2067258924" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <items>
-                                    <navigationItem title="Animations" id="EMJ-KU-DaW">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="6np-yV-jwZ">
-                                            <connections>
-                                                <action selector="backButtonTapped:" destination="PJg-30-Pop" id="zSr-Wr-3Kw"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Db7-R7-Ps3">
-                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="716"/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.65033309449999999" blue="0.26497652929999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Db7-R7-Ps3" secondAttribute="trailing" id="4FT-0l-2zU"/>
                             <constraint firstItem="Db7-R7-Ps3" firstAttribute="bottom" secondItem="iPg-bh-QLt" secondAttribute="bottom" id="LmB-H1-pOg"/>
-                            <constraint firstItem="zmi-0M-gb3" firstAttribute="top" secondItem="iPg-bh-QLt" secondAttribute="top" id="T1n-WG-QQu"/>
                             <constraint firstItem="Db7-R7-Ps3" firstAttribute="leading" secondItem="PpQ-HJ-oWd" secondAttribute="leading" id="afU-0c-dHC"/>
-                            <constraint firstAttribute="trailing" secondItem="zmi-0M-gb3" secondAttribute="trailing" id="byD-2D-wzw"/>
-                            <constraint firstItem="Db7-R7-Ps3" firstAttribute="top" secondItem="zmi-0M-gb3" secondAttribute="bottom" id="ecj-oP-a9g"/>
-                            <constraint firstItem="zmi-0M-gb3" firstAttribute="leading" secondItem="PpQ-HJ-oWd" secondAttribute="leading" id="snT-3X-5W7"/>
+                            <constraint firstItem="Db7-R7-Ps3" firstAttribute="top" secondItem="iPg-bh-QLt" secondAttribute="top" id="z2q-GN-3hv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="iPg-bh-QLt"/>
                     </view>
                     <navigationItem key="navigationItem" id="kk8-SH-iGW"/>
                     <connections>
                         <outlet property="scrollView" destination="Db7-R7-Ps3" id="eLd-mT-tNc"/>
-                        <outlet property="topNavigationBar" destination="zmi-0M-gb3" id="4Sr-EJ-uQZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UMm-zV-4H8" userLabel="First Responder" sceneMemberID="firstResponder"/>

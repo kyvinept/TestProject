@@ -8,19 +8,13 @@
 
 import UIKit
 
-protocol TextViewControllerDelegate: class {
-    func backButtonTapped()
-}
-
-class TextViewController: UIViewController {
+class TextViewController: BaseViewController {
     
     @IBOutlet private weak var scrollView: UIScrollView!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     private let leftConstraintConstant: CGFloat = 10
     private let rightConstraintConstant: CGFloat = 10
     private let topConstraintConstant: CGFloat = 10
-    weak var delegate: TextViewControllerDelegate?
-    @IBOutlet weak var navigationBar: UINavigationBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,31 +23,12 @@ class TextViewController: UIViewController {
         addNotification()
         createElements()
         createStatusBar()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        createBackButton()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         scrollViewSizeSet(scrollView: scrollView)
-        switch UIDevice.current.orientation {
-        case .portrait:
-            deleteStatusBar()
-            createStatusBar()
-        case .landscapeLeft, .landscapeRight:
-            deleteStatusBar()
-            createStatusBar()
-        default:
-            break
-        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -93,11 +68,6 @@ class TextViewController: UIViewController {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
-    }
-    
-    @IBAction func backButtonTapped(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
-        delegate?.backButtonTapped()
     }
 }
 
@@ -198,18 +168,6 @@ extension TextViewController {
                                     topConstant: topConstraintConstant)
         scrollView.addConstraints(constraints)
         return textView
-    }
-}
-
-extension TextViewController: UINavigationControllerDelegate {
-    
-    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        switch operation {
-        case .pop:
-            return CustomPopAnimator()
-        default:
-            return nil
-        }
     }
 }
 

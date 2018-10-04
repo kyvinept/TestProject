@@ -8,15 +8,10 @@
 
 import UIKit
 
-protocol UIObjectViewControllerDelegate: class {
-    func backButtonTapped()
-}
-
-class UIObjectViewController: UIViewController {
+class UIObjectViewController: BaseViewController {
     
     @IBOutlet private weak var scrollView: UIScrollView!
     private var addToView: UIView?
-    weak var delegate: UIObjectViewControllerDelegate?
     private let imageUrlArray = ["https://as2.ftcdn.net/jpg/00/75/60/21/500_F_75602131_epMBFuHmvreFJDu4DK2mOzlI0vczSkkw.jpg",
                                  "https://as1.ftcdn.net/jpg/01/00/52/58/500_F_100525844_iy9n7Jh4KJbbOwNCOKnv7koqtejka4H8.jpg",
                                  "https://as2.ftcdn.net/jpg/01/37/55/61/500_F_137556122_6deQOCLc8oWDWR3YQZomudzP6EAtETMA.jpg",
@@ -31,42 +26,18 @@ class UIObjectViewController: UIViewController {
         super.viewDidLoad()
         self.navigationController?.delegate = self
         createStatusBar()
+        createBackButton()
         createElements()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         scrollViewSizeSet(scrollView: scrollView)
-        switch UIDevice.current.orientation {
-        case .portrait:
-            deleteStatusBar()
-            createStatusBar()
-        case .landscapeLeft, .landscapeRight:
-            deleteStatusBar()
-            createStatusBar()
-        default:
-            break
-        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         scrollViewSizeSet(scrollView: scrollView)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
-    }
-    
-    @IBAction func backButtonTapped(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
-        delegate?.backButtonTapped()
     }
 }
 
@@ -168,7 +139,7 @@ extension UIObjectViewController {
                              preferredStyle: .alert)
         self.present(alert, animated: true) {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
-                self.dismiss(animated: true, completion: nil)
+                alert.dismiss(animated: true, completion: nil)
             }
         }
     }
@@ -193,18 +164,6 @@ extension UIObjectViewController {
             scrollView.addConstraints(constraints)
             addToView = imageView
             scrollViewSizeSet(scrollView: scrollView)
-        }
-    }
-}
-
-extension UIObjectViewController: UINavigationControllerDelegate {
-    
-    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        switch operation {
-        case .pop:
-            return CustomPopAnimator()
-        default:
-            return nil
         }
     }
 }
