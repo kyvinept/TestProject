@@ -8,14 +8,8 @@
 
 import UIKit
 
-protocol GestureViewControllerDelegate: class {
-    func backButtonTapped()
-}
-
 class GestureViewController: BaseViewController {
     
-    @IBOutlet private weak var topNavigationBar: UINavigationBar!
-    weak var delegate: GestureViewControllerDelegate?
     private let imageUrlArray = ["https://as2.ftcdn.net/jpg/00/75/60/21/500_F_75602131_epMBFuHmvreFJDu4DK2mOzlI0vczSkkw.jpg",
                                  "https://as1.ftcdn.net/jpg/01/00/52/58/500_F_100525844_iy9n7Jh4KJbbOwNCOKnv7koqtejka4H8.jpg"]
     private let minWidth: CGFloat = 50
@@ -25,22 +19,8 @@ class GestureViewController: BaseViewController {
         super.viewDidLoad()
         self.navigationController?.delegate = self
         createStatusBar()
+        createBackButton()
         getImages()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
-    }
-    
-    @IBAction func backButtonTapped(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
-        delegate?.backButtonTapped()
     }
 }
 
@@ -99,7 +79,8 @@ extension GestureViewController {
     }
     
     private func randomPointForView(imageView: CustomImageView) {
-        let topFrame = self.topNavigationBar.frame.height + UIApplication.shared.statusBarFrame.height
+        let topFrame = self.navigationController!.navigationBar.bounds.height
+        print(topFrame)
         let bottomFrame = self.view.frame.height - self.tabBarController!.tabBar.frame.height
         imageView.frame.origin.x = CGFloat(arc4random_uniform(UInt32(UIScreen.main.bounds.width - imageView.frame.width)))
         imageView.frame.origin.y = CGFloat(arc4random_uniform(UInt32(bottomFrame - topFrame - imageView.frame.height)) + UInt32(topFrame))
@@ -119,8 +100,8 @@ extension GestureViewController: CustomImageViewDelegate {
         } else if imageView.frame.origin.x + imageView.frame.width > self.view.frame.width {
             imageView.frame.origin.x = self.view.frame.width - imageView.frame.width
         }
-        if imageView.frame.origin.y < topNavigationBar.frame.height + UIApplication.shared.statusBarFrame.height {
-            imageView.frame.origin.y = topNavigationBar.frame.height + UIApplication.shared.statusBarFrame.height
+        if imageView.frame.origin.y < self.navigationController!.navigationBar.bounds.height {
+            imageView.frame.origin.y = self.navigationController!.navigationBar.bounds.height
         } else if imageView.frame.origin.y + imageView.frame.height > self.view.frame.height - tabBarController!.tabBar.frame.height {
             imageView.frame.origin.y = self.view.frame.height - tabBarController!.tabBar.frame.height - imageView.frame.height
         }
@@ -128,8 +109,8 @@ extension GestureViewController: CustomImageViewDelegate {
     
     func viewWillChangeLocation(imageView: CustomImageView, translation: CGPoint) {
         imageView.center = CGPoint(x: imageView.center.x + translation.x, y: imageView.center.y + translation.y)
-        if imageView.frame.origin.y < topNavigationBar.frame.height + UIApplication.shared.statusBarFrame.height {
-            imageView.frame.origin.y = topNavigationBar.frame.height + UIApplication.shared.statusBarFrame.height
+        if imageView.frame.origin.y < self.navigationController!.navigationBar.bounds.height {
+            imageView.frame.origin.y = self.navigationController!.navigationBar.bounds.height
         }
         if imageView.frame.origin.y + translation.y + imageView.frame.height > self.view.frame.height - tabBarController!.tabBar.frame.height {
             imageView.frame.origin.y = self.view.frame.height - tabBarController!.tabBar.frame.height - imageView.frame.height
@@ -174,7 +155,7 @@ extension GestureViewController: CustomImageViewDelegate {
     }
     
     private func changeLocationTop(view: CustomImageView, imageView: CustomImageView) {
-        let topFrame = topNavigationBar.frame.height + UIApplication.shared.statusBarFrame.height
+        let topFrame = self.navigationController!.navigationBar.bounds.height
         if imageView.frame.origin.y - view.frame.height > topFrame {
             view.setNewLocation(pointCenter: CGPoint(x: view.center.x, y: imageView.frame.origin.y - view.frame.height / 2))
         } else {
@@ -251,18 +232,6 @@ extension GestureViewController: CustomImageViewDelegate {
         return newView.frame
     }
 }
-
-//extension GestureViewController: UINavigationControllerDelegate {
-//    
-//    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-//        switch operation {
-//        case .pop:
-//            return CustomPopAnimator()
-//        default:
-//            return nil
-//        }
-//    }
-//}
 
 extension GestureViewController {
     

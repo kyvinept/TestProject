@@ -9,13 +9,8 @@
 import UIKit
 import Photos
 
-protocol GalleryViewControllerDelegate: class {
-    func backButtonTapped()
-}
-
 class GalleryViewController: BaseViewController {
 
-    var delegate: GalleryViewControllerDelegate?
     @IBOutlet private weak var collectionView: UICollectionView!
     private var imagePicker = UIImagePickerController()
     private let spacing: CGFloat = 25
@@ -33,11 +28,6 @@ class GalleryViewController: BaseViewController {
         createRightButtons()
     }
     
-    private func createBackButton() {
-        let button = UIBarButtonItem(title: "Back", style: .done, target: self, action: #selector(backButtonTapped))
-        self.navigationItem.leftBarButtonItem = button
-    }
-    
     private func createRightButtons() {
         let camera = UIBarButtonItem(barButtonSystemItem: .camera, target: self, action: #selector(cameraButtonTapped))
         let gallery = UIBarButtonItem(barButtonSystemItem: .organize, target: self, action: #selector(galleryButtonTapped))
@@ -52,11 +42,6 @@ class GalleryViewController: BaseViewController {
     @objc func galleryButtonTapped() {
         imagePicker.sourceType = .photoLibrary
         present(imagePicker, animated: true, completion: nil)
-    }
-    
-    @objc func backButtonTapped() {
-        self.navigationController?.popViewController(animated: true)
-        delegate?.backButtonTapped()
     }
 }
 
@@ -77,7 +62,7 @@ extension GalleryViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
     
     private func configureCell(index: Int) -> ImageCellViewModel {
-        return ImageCellViewModel(borderWidth: 2,
+        return ImageCellViewModel(borderWidth: 0,
                                   borderColor: UIColor.red.cgColor,
                                         image: photo[index])
     }

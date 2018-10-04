@@ -72,7 +72,7 @@ class SecondViewController: UITableViewController {
     }
 }
 
-extension SecondViewController: PresentingViewControllerDelegate, TableViewControllerDelegate, CollectionViewControllerDelegate, ScrollCollectionViewControllerDelegate, StackViewControllerDelegate, CoreAnimationViewControllerDelegate, GalleryViewControllerDelegate {
+extension SecondViewController: NavigationControllerDelegate {
     
     func backButtonTapped() {
         self.navigationController?.delegate = self
@@ -83,8 +83,8 @@ extension SecondViewController: UINavigationControllerDelegate {
     
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         switch operation {
-        case .pop:
-            return CustomPopAnimator()
+        case .push:
+            return AnimationFromRightCorner()
         default:
             return nil
         }

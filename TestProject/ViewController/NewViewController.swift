@@ -14,7 +14,7 @@ protocol NewViewControllerDelegate: class {
 
 class NewViewController: BaseViewController {
     
-    weak var delegate: NewViewControllerDelegate?
+    //weak var delegate: NewViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()

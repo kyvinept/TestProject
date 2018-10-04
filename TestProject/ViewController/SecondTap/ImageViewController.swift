@@ -30,16 +30,8 @@ class ImageViewController: UIViewController {
         super.viewDidLayoutSubviews()
         imageView.center = self.view.center
         changeSizeImageView(image: imageView.image!)
-        switch UIDevice.current.orientation {
-        case .portrait:
-            deleteStatusBar()
-            createStatusBar()
-        case .landscapeLeft, .landscapeRight:
-            deleteStatusBar()
-            createStatusBar()
-        default:
-            break
-        }
+        deleteStatusBar()
+        createStatusBar()
     }
     
     private func changeSizeImageView(image: UIImage) {

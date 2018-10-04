@@ -8,14 +8,9 @@
 
 import UIKit
 
-protocol CollectionViewControllerDelegate: class {
-    func backButtonTapped()
-}
-
 class CollectionViewController: BaseViewController {
     
     @IBOutlet private weak var collectionView: UICollectionView!
-    weak var delegate: CollectionViewControllerDelegate?
     private let spacing: CGFloat = 25
     private var images = [UIImage]()
     private var imagesUrl = ["https://images-assets.nasa.gov/image/PIA18033/PIA18033~thumb.jpg",
@@ -31,6 +26,8 @@ class CollectionViewController: BaseViewController {
         super.viewDidLoad()
         self.navigationController?.delegate = self
         createStatusBar()
+        createBackButton()
+        createAddButton()
         collectionView.register(UINib(nibName: "ImageCell", bundle: nil), forCellWithReuseIdentifier: "Cell")
         if let layout = collectionView?.collectionViewLayout as? ImageCollectionViewLayout {
             layout.delegate = self
@@ -38,43 +35,12 @@ class CollectionViewController: BaseViewController {
         createImageCells()
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        switch UIDevice.current.orientation {
-        case .portrait:
-            deleteStatusBar()
-            createStatusBar()
-        case .landscapeLeft, .landscapeRight:
-            deleteStatusBar()
-            createStatusBar()
-        default:
-            break
-        }
+    private func createAddButton() {
+        let button = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
+        self.navigationItem.rightBarButtonItem = button
     }
     
-    private func createImageCells() {
-        for i in 0..<imagesUrl.count {
-            downloadNewImage(imageUrl: imagesUrl[i])
-        }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
-        self.collectionView.reloadData()
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
-    }
-    
-    @IBAction func backButtonTapped(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
-        delegate?.backButtonTapped()
-    }
-    
-    @IBAction func addButtonTapped(_ sender: Any) {
+    @objc func addButtonTapped() {
         let alert = UIAlertController(title: "Input image url", message: nil, preferredStyle: .alert)
         alert.addTextField { (textField) in
             textField.placeholder = "Image url..."
@@ -88,6 +54,17 @@ class CollectionViewController: BaseViewController {
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    private func createImageCells() {
+        for i in 0..<imagesUrl.count {
+            downloadNewImage(imageUrl: imagesUrl[i])
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.collectionView.reloadData()
     }
     
     private func downloadNewImage(imageUrl: String) {
@@ -121,28 +98,7 @@ extension CollectionViewController: UICollectionViewDelegate, UICollectionViewDa
         self.present(imageVC, animated: true, completion: nil)
         imageVC.configure(image: images[indexPath.row])
     }
-    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        let width = Int((self.view.frame.width - spacing*3)/2)
-//        let scale = images[indexPath.row].preferredPresentationSizeForItemProvider.width / CGFloat(width)
-//        print(scale)
-//        let height = images[indexPath.row].preferredPresentationSizeForItemProvider.height / scale
-//        print(height)
-//        return CGSize(width: CGFloat(width), height: height)
-//    }
 }
-
-//extension CollectionViewController: UINavigationControllerDelegate {
-//    
-//    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-//        switch operation {
-//        case .pop:
-//            return CustomPopAnimator()
-//        default:
-//            return nil
-//        }
-//    }
-//}
 
 extension CollectionViewController: UIViewControllerTransitioningDelegate {
     

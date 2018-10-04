@@ -8,20 +8,17 @@
 
 import UIKit
 
-protocol TableViewControllerDelegate: class {
-    func backButtonTapped()
-}
-
 class TableViewController: BaseViewController {
 
     @IBOutlet private weak var tableView: UITableView!
-    weak var delegate: TableViewControllerDelegate?
     private var items = [DataModel]()
     private var refresh: UIRefreshControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.delegate = self
+        createBackButton()
+        createAddButton()
         createRefresh()
         createStatusBar()
         getDataForTable()
@@ -32,16 +29,11 @@ class TableViewController: BaseViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         tableView.reloadData()
-        switch UIDevice.current.orientation {
-        case .portrait:
-            deleteStatusBar()
-            createStatusBar()
-        case .landscapeLeft, .landscapeRight:
-            deleteStatusBar()
-            createStatusBar()
-        default:
-            break
-        }
+    }
+    
+    private func createAddButton() {
+        let button = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
+        self.navigationItem.rightBarButtonItem = button
     }
     
     private func createRefresh() {
@@ -61,18 +53,11 @@ class TableViewController: BaseViewController {
                                                       green: 195.0/256,
                                                        blue: 1,
                                                       alpha: 1)
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         tabBarController?.tabBar.barTintColor = nil
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
-    }
-    
-    @IBAction func backButtonTapped(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
-        delegate?.backButtonTapped()
     }
     
     private func getDataForTable() {
@@ -101,7 +86,7 @@ class TableViewController: BaseViewController {
         return img
     }
     
-    @IBAction func addItemToTable(_ sender: Any) {
+    @objc func addButtonTapped(_ sender: Any) {
         let alert = UIAlertController(title: NSLocalizedString("Input", comment: ""), message: nil, preferredStyle: .alert)
         alert.addTextField { (textField) in
             textField.placeholder = NSLocalizedString("id", comment: "")
@@ -208,18 +193,6 @@ extension TableViewController: CustomCellDelegate {
         tableView.deleteRows(at: [indexPath], with: .fade)
     }
 }
-
-//extension TableViewController: UINavigationControllerDelegate {
-//    
-//    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-//        switch operation {
-//        case .pop:
-//            return CustomPopAnimator()
-//        default:
-//            return nil
-//        }
-//    }
-//}
 
 extension UIViewController {
     func showErrorMessage(message: String) {

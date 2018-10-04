@@ -8,10 +8,26 @@
 
 import UIKit
 
+protocol NavigationControllerDelegate: class {
+    func backButtonTapped()
+}
+
 class BaseViewController: UIViewController {
+    
+    weak var delegate: NavigationControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    func createBackButton() {
+        let button = UIBarButtonItem(title: "Back", style: .done, target: self, action: #selector(backButtonTapped))
+        self.navigationItem.leftBarButtonItem = button
+    }
+    
+    @objc func backButtonTapped() {
+        self.navigationController?.popViewController(animated: true)
+        delegate?.backButtonTapped()
     }
 }
 

@@ -8,10 +8,6 @@
 
 import UIKit
 
-protocol TextViewControllerDelegate: class {
-    func backButtonTapped()
-}
-
 class TextViewController: BaseViewController {
     
     @IBOutlet private weak var scrollView: UIScrollView!
@@ -19,8 +15,6 @@ class TextViewController: BaseViewController {
     private let leftConstraintConstant: CGFloat = 10
     private let rightConstraintConstant: CGFloat = 10
     private let topConstraintConstant: CGFloat = 10
-    weak var delegate: TextViewControllerDelegate?
-    @IBOutlet weak var navigationBar: UINavigationBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,31 +23,12 @@ class TextViewController: BaseViewController {
         addNotification()
         createElements()
         createStatusBar()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        createBackButton()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         scrollViewSizeSet(scrollView: scrollView)
-        switch UIDevice.current.orientation {
-        case .portrait:
-            deleteStatusBar()
-            createStatusBar()
-        case .landscapeLeft, .landscapeRight:
-            deleteStatusBar()
-            createStatusBar()
-        default:
-            break
-        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -93,11 +68,6 @@ class TextViewController: BaseViewController {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
-    }
-    
-    @IBAction func backButtonTapped(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
-        delegate?.backButtonTapped()
     }
 }
 
@@ -200,18 +170,6 @@ extension TextViewController {
         return textView
     }
 }
-
-//extension TextViewController: UINavigationControllerDelegate {
-//    
-//    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-//        switch operation {
-//        case .pop:
-//            return CustomPopAnimator()
-//        default:
-//            return nil
-//        }
-//    }
-//}
 
 extension TextViewController: UITextFieldDelegate {
     
