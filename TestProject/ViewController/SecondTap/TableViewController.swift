@@ -123,10 +123,11 @@ class TableViewController: BaseViewController {
     }
     
     private func addItem(id: String, title: String, description: String) {
-        items.append(DataModel(id: id,
-                            title: title,
-                      description: description,
-                         imageUrl: "https://images-assets.nasa.gov/image/PIA18033/PIA18033~thumb.jpg"))
+        let data = DataModel(id: id,
+                          title: title,
+                    description: description,
+                       imageUrl: "https://images-assets.nasa.gov/image/PIA18033/PIA18033~thumb.jpg")
+        items.append(data)
         tableView.reloadData()
     }
 }

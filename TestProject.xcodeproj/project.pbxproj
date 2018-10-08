@@ -59,6 +59,7 @@
 		5B5CF38321500BBB00515EEE /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5CF38221500BBB00515EEE /* FirstViewController.swift */; };
 		5B6502A0215D3C9C0051747F /* FirstTap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B6502A2215D3C9C0051747F /* FirstTap.storyboard */; };
 		5B6502A7215D3CA80051747F /* SecondTap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B6502A9215D3CA80051747F /* SecondTap.storyboard */; };
+		5B78E7CD216604A100794065 /* SaveDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B78E7CC216604A100794065 /* SaveDataController.swift */; };
 		5BC01EF5215141FB009D5081 /* ThreadSafeInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC01EF4215141FB009D5081 /* ThreadSafeInt.swift */; };
 		5BD31E36214AA4B10097927B /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD31E35214AA4B10097927B /* CustomTabBarController.swift */; };
 		5BF1C337216240EB00693B1F /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF1C336216240EB00693B1F /* CategoryViewController.swift */; };
@@ -144,6 +145,7 @@
 		5B6502A8215D3CA80051747F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SecondTap.storyboard; sourceTree = "<group>"; };
 		5B6502AB215D3CAA0051747F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SecondTap.strings; sourceTree = "<group>"; };
 		5B6502AD215D3CAE0051747F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/SecondTap.strings; sourceTree = "<group>"; };
+		5B78E7CC216604A100794065 /* SaveDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveDataController.swift; sourceTree = "<group>"; };
 		5BC01EF4215141FB009D5081 /* ThreadSafeInt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadSafeInt.swift; sourceTree = "<group>"; };
 		5BD31E35214AA4B10097927B /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		5BF1C336216240EB00693B1F /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
@@ -281,6 +283,7 @@
 				5B3F5506215B8BCC00A1D9D2 /* StackViewController.swift */,
 				5B3F5508215B982400A1D9D2 /* CoreAnimationViewController.swift */,
 				5B2810472164E77C000AF33D /* GalleryViewController.swift */,
+				5B78E7CC216604A100794065 /* SaveDataController.swift */,
 			);
 			path = SecondTap;
 			sourceTree = "<group>";
@@ -507,6 +510,7 @@
 				5B57548D215E637C0062BF72 /* News.swift in Sources */,
 				5B434CD82159490400FF9FFE /* ImageViewController.swift in Sources */,
 				5B5CF379214FBEFF00515EEE /* CustomAppDelegate.swift in Sources */,
+				5B78E7CD216604A100794065 /* SaveDataController.swift in Sources */,
 				5BC01EF5215141FB009D5081 /* ThreadSafeInt.swift in Sources */,
 				5B30F4BF214A98D70078D070 /* FourthViewController.swift in Sources */,
 				5B27DA272150E5A2009E8B48 /* CustomPopAnimator.swift in Sources */,

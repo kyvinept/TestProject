@@ -66,6 +66,12 @@ class SecondViewController: UITableViewController {
                 textVC.delegate = self
                 self.navigationController?.pushViewController(textVC, animated: true)
             }
+        case "SaveDataCell":
+            let textVC = self.storyboard?.instantiateViewController(withIdentifier: "SaveDataController") as? SaveDataController
+            if let textVC = textVC {
+                textVC.delegate = self
+                self.navigationController?.pushViewController(textVC, animated: true)
+            }
         default:
             break
         }
