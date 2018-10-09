@@ -36,9 +36,13 @@ class TaskViewController: BaseViewController {
     }
     
     private func loadData() {
-        tasks = data.loadData()
-        tasks.reverse()
-        tableView.reloadData()
+        data.loadData { (modelTasks) in
+            self.tasks = modelTasks
+            self.tasks.reverse()
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
     }
     
     @objc func addButtonTapped() {

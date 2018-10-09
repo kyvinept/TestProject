@@ -11,6 +11,13 @@ import UIKit
 
 class DBManager {
     
+    enum Entity: String {
+        case Task
+        case Note
+    }
+    
+    let queue = DispatchQueue(label: "com.concurrent.DBManager", qos: .background, attributes: .concurrent, autoreleaseFrequency: .inherit, target: nil)
+    
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "ToDo")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
@@ -34,46 +41,53 @@ class DBManager {
     }
     
     func addTask(withModel task: TaskModel) {
-        let entity = NSEntityDescription.entity(forEntityName: "Task", in: persistentContainer.viewContext)
-        let newTask = NSManagedObject(entity: entity!, insertInto: persistentContainer.viewContext) as! Task
-        newTask.id = Int32(task.id!)
-        newTask.name = task.name
-        newTask.completed = task.completed
-        saveContext()
+        queue.async {
+            let entity = NSEntityDescription.entity(forEntityName: Entity.Task.rawValue, in: self.persistentContainer.viewContext)
+            let newTask = NSManagedObject(entity: entity!, insertInto: self.persistentContainer.viewContext) as! Task
+            newTask.id = Int32(task.id!)
+            newTask.name = task.name
+            newTask.completed = task.completed
+            self.saveContext()
+        }
     }
     
     func addNote(withModel note: NoteModel, toTask task: TaskModel) {
-        let entity = NSEntityDescription.entity(forEntityName: "Note", in: persistentContainer.viewContext)
-        let newNote = NSManagedObject(entity: entity!, insertInto: persistentContainer.viewContext) as! Note
-        newNote.id = Int32(note.id!)
-        newNote.text = note.text
-        newNote.completed = note.completed
-        
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Task")
-        fetchRequest.returnsObjectsAsFaults = false
-        let context = self.persistentContainer.viewContext
-        var tasks = [Task]()
-        do {
-            tasks = try context.fetch(fetchRequest) as! [Task]
-            let filterTask = tasks.first { Int($0.id) == task.id }
-            newNote.task = filterTask
-        } catch {
-            print("Failed")
+        queue.async {
+            let entity = NSEntityDescription.entity(forEntityName: Entity.Note.rawValue, in: self.persistentContainer.viewContext)
+            let newNote = NSManagedObject(entity: entity!, insertInto: self.persistentContainer.viewContext) as! Note
+            newNote.id = Int32(note.id!)
+            newNote.text = note.text
+            newNote.completed = note.completed
+            
+            let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: Entity.Task.rawValue)
+            fetchRequest.returnsObjectsAsFaults = false
+            let context = self.persistentContainer.viewContext
+            var tasks = [Task]()
+            do {
+                tasks = try context.fetch(fetchRequest) as! [Task]
+                let filterTask = tasks.first { Int($0.id) == task.id }
+                newNote.task = filterTask
+            } catch {
+                print("Failed")
+            }
+            self.saveContext()
         }
-        saveContext()
     }
     
-    func loadData() -> [TaskModel] {
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Task")
-        fetchRequest.returnsObjectsAsFaults = false
-        let context = self.persistentContainer.viewContext
-        var task = [Task]()
-        do {
-            task = try context.fetch(fetchRequest) as! [Task]
-        } catch {
-            print("Failed")
+    func loadData(successBlock: @escaping ([TaskModel]) -> ()) {
+        queue.async {
+            let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: Entity.Task.rawValue)
+            fetchRequest.returnsObjectsAsFaults = false
+            let context = self.persistentContainer.viewContext
+            var task = [Task]()
+            do {
+                task = try context.fetch(fetchRequest) as! [Task]
+                let createTasks = self.createNewTaskModel(tasks: task)
+                successBlock(createTasks)
+            } catch {
+                print("Failed")
+            }
         }
-        return createNewTaskModel(tasks: task)
     }
     
     private func createNewTaskModel(tasks: [Task]) -> [TaskModel] {
@@ -103,94 +117,89 @@ class DBManager {
     }
     
     func deleteTask(task: TaskModel) {
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Task")
-        fetchRequest.returnsObjectsAsFaults = false
-        let context = self.persistentContainer.viewContext
-        var tasks = [Task]()
-        do {
-            tasks = try context.fetch(fetchRequest) as! [Task]
-            for object in tasks {
-                if Int(object.id) == task.id {
-                    persistentContainer.viewContext.delete(object)
-                    break;
+        queue.async {
+            let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: Entity.Task.rawValue)
+            fetchRequest.returnsObjectsAsFaults = false
+            let context = self.persistentContainer.viewContext
+            var tasks = [Task]()
+            do {
+                tasks = try context.fetch(fetchRequest) as! [Task]
+                for object in tasks {
+                    if Int(object.id) == task.id {
+                        self.persistentContainer.viewContext.delete(object)
+                        break;
+                    }
                 }
+                self.saveContext()
+            } catch {
+                print("Failed")
             }
-            saveContext()
-        } catch {
-            print("Failed")
         }
     }
     
     func updateNoteValue(_ note: NoteModel, fromTask task: TaskModel) {
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Task")
-        fetchRequest.returnsObjectsAsFaults = false
-        let context = self.persistentContainer.viewContext
-        var tasks = [Task]()
-        do {
-            tasks = try context.fetch(fetchRequest) as! [Task]
-            for object in tasks {
-                if Int(object.id) == task.id {
-                    for currentNote in Array(object.notes!) as! [Note] {
-                        if Int(currentNote.id) == note.id {
-                            currentNote.completed = note.completed
-                            saveContext()
-                            return
+        queue.async {
+            let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: Entity.Task.rawValue)
+            fetchRequest.returnsObjectsAsFaults = false
+            let context = self.persistentContainer.viewContext
+            var tasks = [Task]()
+            do {
+                tasks = try context.fetch(fetchRequest) as! [Task]
+                for object in tasks {
+                    if Int(object.id) == task.id {
+                        for currentNote in Array(object.notes!) as! [Note] {
+                            if Int(currentNote.id) == note.id {
+                                currentNote.completed = note.completed
+                                self.saveContext()
+                                return
+                            }
                         }
                     }
                 }
+            } catch {
+                print("Failed")
             }
-        } catch {
-            print("Failed")
         }
     }
     
     func updateTaskValue(_ task: TaskModel) {
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Task")
-        fetchRequest.returnsObjectsAsFaults = false
-        let context = self.persistentContainer.viewContext
-        var tasks = [Task]()
-        do {
-            tasks = try context.fetch(fetchRequest) as! [Task]
-            tasks.first { Int($0.id) == task.id }?.completed = task.completed
-            saveContext()
-        } catch {
-            print("Failed")
+        queue.async {
+            let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: Entity.Task.rawValue)
+            fetchRequest.returnsObjectsAsFaults = false
+            let context = self.persistentContainer.viewContext
+            var tasks = [Task]()
+            do {
+                tasks = try context.fetch(fetchRequest) as! [Task]
+                tasks.first { Int($0.id) == task.id }?.completed = task.completed
+                self.saveContext()
+            } catch {
+                print("Failed")
+            }
         }
     }
     
     func deleteNote(_ note: NoteModel, fromTask task: TaskModel) {
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Task")
-        fetchRequest.returnsObjectsAsFaults = false
-        let context = self.persistentContainer.viewContext
-        var tasks = [Task]()
-        do {
-            tasks = try context.fetch(fetchRequest) as! [Task]
-            for object in tasks {
-                if Int(object.id) == task.id {
-                    for currentNote in Array(object.notes!) as! [Note] {
-                        if Int(currentNote.id) == note.id {
-                            persistentContainer.viewContext.delete(currentNote)
-                            break;
+        queue.async {
+            let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: Entity.Task.rawValue)
+            fetchRequest.returnsObjectsAsFaults = false
+            let context = self.persistentContainer.viewContext
+            var tasks = [Task]()
+            do {
+                tasks = try context.fetch(fetchRequest) as! [Task]
+                for object in tasks {
+                    if Int(object.id) == task.id {
+                        for currentNote in Array(object.notes!) as! [Note] {
+                            if Int(currentNote.id) == note.id {
+                                self.persistentContainer.viewContext.delete(currentNote)
+                                break;
+                            }
                         }
                     }
                 }
+                self.saveContext()
+            } catch {
+                print("Failed")
             }
-            saveContext()
-        } catch {
-            print("Failed")
         }
-        
-//        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Note")
-//        let result = try? persistentContainer.viewContext.fetch(fetchRequest)
-//        let notes = result as! [Note]
-//        for object in notes {
-//            print(object)
-//            print(note)
-//            if object == note {
-//                persistentContainer.viewContext.delete(object)
-//                saveContext()
-//                return
-//            }
-//        }
     }
 }
