@@ -220,6 +220,7 @@
 				5B30F4B9214A98940078D070 /* ViewController */,
 				5B30F4B8214A988C0078D070 /* View */,
 				5B38A3222154FA5E00B73B79 /* Model */,
+				5B989662216CCF0F002173D3 /* DataBaseManager */,
 				5BF1C348216283BE00693B1F /* Networking */,
 				5B30F4AD214A96200078D070 /* Assets.xcassets */,
 				5B30F4B2214A96200078D070 /* Info.plist */,
@@ -304,8 +305,6 @@
 			children = (
 				5B38A3232154FA7000B73B79 /* DataModel.swift */,
 				5B57548C215E637C0062BF72 /* News.swift */,
-				5B6B2943216B52AC00B3D541 /* ToDo.xcdatamodeld */,
-				5B6B2946216B560500B3D541 /* DBManager.swift */,
 				5B98965E216C96CB002173D3 /* Task.swift */,
 				5B989660216C96D3002173D3 /* Note.swift */,
 			);
@@ -332,6 +331,15 @@
 				5B575493215E6E990062BF72 /* NewsCellViewModel.swift */,
 			);
 			path = ThirdTap;
+			sourceTree = "<group>";
+		};
+		5B989662216CCF0F002173D3 /* DataBaseManager */ = {
+			isa = PBXGroup;
+			children = (
+				5B6B2943216B52AC00B3D541 /* ToDo.xcdatamodeld */,
+				5B6B2946216B560500B3D541 /* DBManager.swift */,
+			);
+			path = DataBaseManager;
 			sourceTree = "<group>";
 		};
 		5BF1C348216283BE00693B1F /* Networking */ = {

@@ -39,10 +39,23 @@ class TaskViewController: BaseViewController {
         data.loadData { (modelTasks) in
             self.tasks = modelTasks
             self.tasks.reverse()
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
+            self.createTasks()
         }
+    }
+    
+    private func createTasks() {
+        let group = DispatchGroup()
+        group.enter()
+        for i in 0...100000 {
+            let task = self.createNewTask(withName: String(i) + " task name")
+            self.tasks.insert(task, at: 0)
+            self.data.addTask(withModel: task)
+        }
+        group.leave()
+        
+        group.notify(queue: DispatchQueue.main, work: DispatchWorkItem(block: {
+            self.tableView.reloadData()
+        }))
     }
     
     @objc func addButtonTapped() {

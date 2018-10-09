@@ -11,14 +11,14 @@ import UIKit
 
 class DBManager {
     
-    enum Entity: String {
+    private enum Entity: String {
         case Task
         case Note
     }
     
-    let queue = DispatchQueue(label: "com.concurrent.DBManager", qos: .background, attributes: .concurrent, autoreleaseFrequency: .inherit, target: nil)
+    private let queue = DispatchQueue(label: "com.concurrent.DBManager")
     
-    lazy var persistentContainer: NSPersistentContainer = {
+    private lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "ToDo")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
@@ -28,14 +28,15 @@ class DBManager {
         return container
     }()
     
-    func saveContext () {
-        let context = persistentContainer.viewContext
-        if context.hasChanges {
-            do {
-                try context.save()
-            } catch {
-                let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+    private func saveContext () {
+        queue.async {
+            let context = self.persistentContainer.viewContext
+            if context.hasChanges {
+                do {
+                    try context.save()
+                } catch {
+                    print("error save data")
+                }
             }
         }
     }
