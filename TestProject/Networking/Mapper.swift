@@ -30,7 +30,7 @@ class Mapper {
         return News(id: json["source"]["id"].string,
                 author: json["author"].string,
                  title: json["title"].string ?? "No title",
-           description: json["description"].string ?? "No description",
+       descriptionNews: json["description"].string ?? "No description",
            publishedAt: json["publishedAt"].string ?? "No daTe",
                content: json["content"].string ?? "No content",
               imageUrl: json["urlToImage"].string)

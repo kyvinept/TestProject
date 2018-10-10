@@ -70,7 +70,7 @@ class TaskViewController: BaseViewController {
     
     private func createNewTask(withName name: String) -> TaskModel {
         let task = TaskModel()
-        let index = self.tasks.max { a, b in a.id! < b.id! }?.id
+        let index = self.tasks.max { $0.id! < $1.id! }?.id
         if let index = index {
             task.id = index + 1
         } else {
@@ -104,14 +104,6 @@ extension TaskViewController: UITableViewDelegate, UITableViewDataSource {
         noteVC.configure(task: tasks[indexPath.row])
         
         tableView.deselectRow(at: indexPath, animated: true)
-    }
-    
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            data.deleteTask(task: self.tasks[indexPath.row])
-            tasks.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        }
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {

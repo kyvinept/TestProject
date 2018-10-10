@@ -62,9 +62,12 @@
 		5B6B2945216B52AC00B3D541 /* ToDo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5B6B2943216B52AC00B3D541 /* ToDo.xcdatamodeld */; };
 		5B6B2947216B560500B3D541 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6B2946216B560500B3D541 /* DBManager.swift */; };
 		5B6B2949216BA67D00B3D541 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6B2948216BA67D00B3D541 /* NoteViewController.swift */; };
+		5B7346B5216DDC14002FC414 /* News.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5B7346B3216DDC14002FC414 /* News.xcdatamodeld */; };
 		5B78E7CD216604A100794065 /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B78E7CC216604A100794065 /* TaskViewController.swift */; };
 		5B98965F216C96CB002173D3 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B98965E216C96CB002173D3 /* Task.swift */; };
 		5B989661216C96D3002173D3 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B989660216C96D3002173D3 /* Note.swift */; };
+		5B989668216CFA45002173D3 /* Migration.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5B989667216CFA45002173D3 /* Migration.xcmappingmodel */; };
+		5B98966A216CFE7A002173D3 /* CustomMigrationPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B989669216CFE7A002173D3 /* CustomMigrationPolicy.swift */; };
 		5BC01EF5215141FB009D5081 /* ThreadSafeInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC01EF4215141FB009D5081 /* ThreadSafeInt.swift */; };
 		5BD31E36214AA4B10097927B /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD31E35214AA4B10097927B /* CustomTabBarController.swift */; };
 		5BF1C337216240EB00693B1F /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF1C336216240EB00693B1F /* CategoryViewController.swift */; };
@@ -153,9 +156,13 @@
 		5B6B2944216B52AC00B3D541 /* Task.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Task.xcdatamodel; sourceTree = "<group>"; };
 		5B6B2946216B560500B3D541 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		5B6B2948216BA67D00B3D541 /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
+		5B7346B4216DDC14002FC414 /* News.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = News.xcdatamodel; sourceTree = "<group>"; };
 		5B78E7CC216604A100794065 /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
 		5B98965E216C96CB002173D3 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		5B989660216C96D3002173D3 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		5B989666216CED9C002173D3 /* Task 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Task 2.xcdatamodel"; sourceTree = "<group>"; };
+		5B989667216CFA45002173D3 /* Migration.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = Migration.xcmappingmodel; sourceTree = "<group>"; };
+		5B989669216CFE7A002173D3 /* CustomMigrationPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMigrationPolicy.swift; sourceTree = "<group>"; };
 		5BC01EF4215141FB009D5081 /* ThreadSafeInt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadSafeInt.swift; sourceTree = "<group>"; };
 		5BD31E35214AA4B10097927B /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		5BF1C336216240EB00693B1F /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
@@ -336,7 +343,10 @@
 		5B989662216CCF0F002173D3 /* DataBaseManager */ = {
 			isa = PBXGroup;
 			children = (
+				5B7346B3216DDC14002FC414 /* News.xcdatamodeld */,
 				5B6B2943216B52AC00B3D541 /* ToDo.xcdatamodeld */,
+				5B989669216CFE7A002173D3 /* CustomMigrationPolicy.swift */,
+				5B989667216CFA45002173D3 /* Migration.xcmappingmodel */,
 				5B6B2946216B560500B3D541 /* DBManager.swift */,
 			);
 			path = DataBaseManager;
@@ -515,6 +525,7 @@
 				5B38A3192154E40A00B73B79 /* PresentRotateAnimation.swift in Sources */,
 				5BD31E36214AA4B10097927B /* CustomTabBarController.swift in Sources */,
 				5B38A3242154FA7000B73B79 /* DataModel.swift in Sources */,
+				5B7346B5216DDC14002FC414 /* News.xcdatamodeld in Sources */,
 				5B434CDC21594C2C00FF9FFE /* CustomImageView.swift in Sources */,
 				5B28104A216511DD000AF33D /* BaseViewController.swift in Sources */,
 				5B3384BC2153E5CD00736F5D /* AnimationsViewController.swift in Sources */,
@@ -540,11 +551,13 @@
 				5B78E7CD216604A100794065 /* TaskViewController.swift in Sources */,
 				5BC01EF5215141FB009D5081 /* ThreadSafeInt.swift in Sources */,
 				5B30F4BF214A98D70078D070 /* FourthViewController.swift in Sources */,
+				5B98966A216CFE7A002173D3 /* CustomMigrationPolicy.swift in Sources */,
 				5B27DA272150E5A2009E8B48 /* CustomPopAnimator.swift in Sources */,
 				5B3384B62153993600736F5D /* DynamicsViewController.swift in Sources */,
 				5BF1C33921625C8000693B1F /* NewsViewController.swift in Sources */,
 				5B27DA2A21511B1A009E8B48 /* UIObjectViewController.swift in Sources */,
 				5B27AC50215A73B500D1384E /* ScrollCollectionViewController.swift in Sources */,
+				5B989668216CFA45002173D3 /* Migration.xcmappingmodel in Sources */,
 				5B38A31B2154EDCE00B73B79 /* PresentWithDamping.swift in Sources */,
 				5B6B2949216BA67D00B3D541 /* NoteViewController.swift in Sources */,
 				5B38A3172154DD5D00B73B79 /* PresentingViewController.swift in Sources */,
@@ -812,10 +825,22 @@
 		5B6B2943216B52AC00B3D541 /* ToDo.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				5B989666216CED9C002173D3 /* Task 2.xcdatamodel */,
 				5B6B2944216B52AC00B3D541 /* Task.xcdatamodel */,
 			);
-			currentVersion = 5B6B2944216B52AC00B3D541 /* Task.xcdatamodel */;
+			currentVersion = 5B989666216CED9C002173D3 /* Task 2.xcdatamodel */;
 			path = ToDo.xcdatamodeld;
+			sourceTree = "<group>";
+			usesTabs = 0;
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		5B7346B3216DDC14002FC414 /* News.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				5B7346B4216DDC14002FC414 /* News.xcdatamodel */,
+			);
+			currentVersion = 5B7346B4216DDC14002FC414 /* News.xcdatamodel */;
+			path = News.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

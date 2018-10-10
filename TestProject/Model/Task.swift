@@ -11,6 +11,7 @@ import UIKit
 class TaskModel {
     
     var id: Int?
+    var text: String?
     var name: String?
     var completed = false
     var notes = [NoteModel]()
