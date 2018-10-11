@@ -25,7 +25,6 @@ class CollectionViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.delegate = self
-        createStatusBar()
         createBackButton()
         createAddButton()
         collectionView.register(UINib(nibName: "ImageCell", bundle: nil), forCellWithReuseIdentifier: "Cell")

@@ -80,7 +80,6 @@ extension GestureViewController {
     
     private func randomPointForView(imageView: CustomImageView) {
         let topFrame = self.navigationController!.navigationBar.bounds.height
-        print(topFrame)
         let bottomFrame = self.view.frame.height - self.tabBarController!.tabBar.frame.height
         imageView.frame.origin.x = CGFloat(arc4random_uniform(UInt32(UIScreen.main.bounds.width - imageView.frame.width)))
         imageView.frame.origin.y = CGFloat(arc4random_uniform(UInt32(bottomFrame - topFrame - imageView.frame.height)) + UInt32(topFrame))
@@ -91,15 +90,18 @@ extension GestureViewController: CustomImageViewDelegate {
     
     func viewWillChangeScale(imageView: CustomImageView, scale: CGFloat) {
         imageView.transform = imageView.transform.scaledBy(x: scale, y: scale)
+        
         if imageView.frame.width > self.view.frame.width {
             imageView.frame.size.width = self.view.frame.width
             imageView.frame.origin.x = self.view.frame.origin.x
         }
+        
         if imageView.frame.origin.x < 0 {
             imageView.frame.origin.x = 0
         } else if imageView.frame.origin.x + imageView.frame.width > self.view.frame.width {
             imageView.frame.origin.x = self.view.frame.width - imageView.frame.width
         }
+        
         if imageView.frame.origin.y < self.navigationController!.navigationBar.bounds.height {
             imageView.frame.origin.y = self.navigationController!.navigationBar.bounds.height
         } else if imageView.frame.origin.y + imageView.frame.height > self.view.frame.height - tabBarController!.tabBar.frame.height {
@@ -109,15 +111,19 @@ extension GestureViewController: CustomImageViewDelegate {
     
     func viewWillChangeLocation(imageView: CustomImageView, translation: CGPoint) {
         imageView.center = CGPoint(x: imageView.center.x + translation.x, y: imageView.center.y + translation.y)
+        
         if imageView.frame.origin.y < self.navigationController!.navigationBar.bounds.height {
             imageView.frame.origin.y = self.navigationController!.navigationBar.bounds.height
         }
+        
         if imageView.frame.origin.y + translation.y + imageView.frame.height > self.view.frame.height - tabBarController!.tabBar.frame.height {
             imageView.frame.origin.y = self.view.frame.height - tabBarController!.tabBar.frame.height - imageView.frame.height
         }
+        
         if imageView.frame.origin.x + translation.x < 0 {
             imageView.frame.origin.x = 0
         }
+        
         if imageView.frame.origin.x + translation.x + imageView.frame.width > self.view.frame.width {
             imageView.frame.origin.x = self.view.frame.width - imageView.frame.width
         }
@@ -156,10 +162,12 @@ extension GestureViewController: CustomImageViewDelegate {
     
     private func changeLocationTop(view: CustomImageView, imageView: CustomImageView) {
         let topFrame = self.navigationController!.navigationBar.bounds.height
+        
         if imageView.frame.origin.y - view.frame.height > topFrame {
             view.setNewLocation(pointCenter: CGPoint(x: view.center.x, y: imageView.frame.origin.y - view.frame.height / 2))
         } else {
             let scale = (imageView.frame.origin.y - topFrame) / view.frame.height
+            
             if checkFrame(view: view, scale: scale).height < minHeight {
                 checkFreeHorizontalSpace(imageView: imageView, view: view)
             } else {
@@ -179,10 +187,12 @@ extension GestureViewController: CustomImageViewDelegate {
     
     private func changeLocationBottom(view: CustomImageView, imageView: CustomImageView) {
         let bottomFrame = self.view.frame.height - tabBarController!.tabBar.frame.height
+        
         if imageView.frame.origin.y + imageView.frame.height + view.frame.height < bottomFrame {
             view.setNewLocation(pointCenter: CGPoint(x: view.center.x, y: imageView.frame.origin.y + imageView.frame.height + view.frame.height / 2))
         } else {
             let scale = (bottomFrame - (imageView.frame.origin.y + imageView.frame.height)) / view.frame.height
+            
             if checkFrame(view: view, scale: scale).height < minHeight {
                 checkFreeHorizontalSpace(imageView: imageView, view: view)
             } else {
@@ -196,6 +206,7 @@ extension GestureViewController: CustomImageViewDelegate {
             view.setNewLocation(pointCenter: CGPoint(x: imageView.frame.origin.x - view.frame.width / 2, y: view.center.y))
         } else {
             let scale = imageView.frame.origin.x / view.frame.width
+            
             if checkFrame(view: view, scale: scale).width < minWidth {
                 checkFreeVerticalSpace(imageView: imageView, view: view)
             } else {
@@ -218,6 +229,7 @@ extension GestureViewController: CustomImageViewDelegate {
             view.setNewLocation(pointCenter: CGPoint(x: imageView.frame.origin.x + imageView.frame.width + view.frame.width / 2, y: view.center.y))
         } else {
             let scale = (self.view.frame.width - (imageView.frame.origin.x + imageView.frame.width)) / view.frame.width
+            
             if checkFrame(view: view, scale: scale).width < minWidth {
                 checkFreeVerticalSpace(imageView: imageView, view: view)
             } else {

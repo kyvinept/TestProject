@@ -30,6 +30,10 @@ class ScrollCollectionViewController: BaseViewController {
         createStatusBar()
         createBackButton()
         createImageCells()
+        registerCell()
+    }
+    
+    private func registerCell() {
         collectionView.register(UINib(nibName: "ImageCell", bundle: nil), forCellWithReuseIdentifier: "Cell")
         collectionViewHorizontal.register(UINib(nibName: "ImageCell", bundle: nil), forCellWithReuseIdentifier: "Cell")
     }
@@ -45,6 +49,7 @@ class ScrollCollectionViewController: BaseViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        
         collectionViewHorizontal.frame.size.width = scrollView.frame.width
         collectionView.frame.size.width = scrollView.frame.width
         collectionView.frame.origin.y = collectionViewHorizontal.frame.origin.y + collectionViewHorizontal.frame.height

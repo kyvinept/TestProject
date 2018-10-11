@@ -11,6 +11,7 @@ import SwiftyJSON
 import Alamofire
 
 protocol NetworkRequestBuilderProtocol: class {
+    
     func buildGetCountryRequest(country: NetworkingManager.Country, currentCountNews: Int) -> URL?
     func buildGetCategoryRequest(category: NetworkingManager.Category, currentCountNews: Int) -> URL?
     func buildGetQueryRequest(query: String, currentCountNews: Int) -> URL?

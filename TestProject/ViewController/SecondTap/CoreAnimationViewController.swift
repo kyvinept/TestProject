@@ -18,6 +18,7 @@ class CoreAnimationViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.delegate = self
+        
         createBackButton()
         createGradientView()
         createBeziePathView()

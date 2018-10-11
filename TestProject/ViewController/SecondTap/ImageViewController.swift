@@ -36,13 +36,16 @@ class ImageViewController: UIViewController {
     
     private func changeSizeImageView(image: UIImage) {
         if self.view.frame.width < self.view.frame.height {
+            
             let width = image.size.width
             let scale = width / self.view.frame.width
             let height = image.size.height / scale
             imageView.frame.size.height = height
             imageView.frame.size.width = self.view.frame.width
             imageView.center = self.view.center
+            
         } else {
+            
             let height = image.size.height
             let scale = height / self.view.frame.height
             let width = image.size.width / scale
@@ -70,5 +73,9 @@ class ImageViewController: UIViewController {
         let activityVC = UIActivityViewController(activityItems: [image], applicationActivities: nil)
         activityVC.popoverPresentationController?.sourceView = self.view
         self.present(activityVC, animated: true, completion: nil)
+    }
+    
+    @IBAction func facebookShareButtonTapped(_ sender: Any) {
+        
     }
 }

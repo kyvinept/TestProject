@@ -12,12 +12,14 @@ import UIKit
 class DBManager {
     
     private enum DataModel: String {
+        
         case news = "News"
         case toDo = "ToDo"
         
         enum News: String {
             case newsEntity = "NewsEntity"
         }
+        
         enum ToDo: String {
             case task = "Task"
             case note = "Note"
@@ -57,6 +59,7 @@ class DBManager {
             self.dataModelType = .toDo
             let entity = NSEntityDescription.entity(forEntityName: DataModel.ToDo.task.rawValue, in: self.persistentContainer.viewContext)
             let newTask = NSManagedObject(entity: entity!, insertInto: self.persistentContainer.viewContext) as! Task
+            
             newTask.id = Int32(task.id!)
             newTask.text = task.text
             newTask.name = task.name
@@ -70,6 +73,7 @@ class DBManager {
             self.dataModelType = .toDo
             let entity = NSEntityDescription.entity(forEntityName: DataModel.ToDo.task.rawValue, in: self.persistentContainer.viewContext)
             let newNote = NSManagedObject(entity: entity!, insertInto: self.persistentContainer.viewContext) as! Note
+            
             newNote.id = Int32(note.id!)
             newNote.text = note.text
             newNote.completed = note.completed
@@ -78,6 +82,7 @@ class DBManager {
             fetchRequest.returnsObjectsAsFaults = false
             let context = self.persistentContainer.viewContext
             var tasks = [Task]()
+            
             do {
                 tasks = try context.fetch(fetchRequest) as! [Task]
                 let filterTask = tasks.first { Int($0.id) == task.id }
@@ -96,6 +101,7 @@ class DBManager {
             fetchRequest.returnsObjectsAsFaults = false
             let context = self.persistentContainer.viewContext
             var task = [Task]()
+            
             do {
                 task = try context.fetch(fetchRequest) as! [Task]
                 let createTasks = self.createNewTaskModel(tasks: task)
@@ -109,6 +115,7 @@ class DBManager {
     private func createNewTaskModel(tasks: [Task]) -> [TaskModel] {
         self.dataModelType = .toDo
         var taskModel = [TaskModel]()
+        
         for task in tasks {
             let newTask = TaskModel()
             newTask.id = Int(task.id)
@@ -123,6 +130,7 @@ class DBManager {
     private func createNewNoteModel(notes: [Note], task: TaskModel) -> [NoteModel] {
         self.dataModelType = .toDo
         var noteModel = [NoteModel]()
+        
         for note in notes {
             let newNote = NoteModel()
             newNote.id = Int(note.id)
@@ -140,6 +148,7 @@ class DBManager {
             let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: DataModel.ToDo.task.rawValue)
             fetchRequest.returnsObjectsAsFaults = false
             let context = self.persistentContainer.viewContext
+            
             var tasks = [Task]()
             do {
                 tasks = try context.fetch(fetchRequest) as! [Task]
@@ -162,6 +171,7 @@ class DBManager {
             let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: DataModel.ToDo.task.rawValue)
             fetchRequest.returnsObjectsAsFaults = false
             let context = self.persistentContainer.viewContext
+            
             var tasks = [Task]()
             do {
                 tasks = try context.fetch(fetchRequest) as! [Task]
@@ -188,6 +198,7 @@ class DBManager {
             let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: DataModel.ToDo.task.rawValue)
             fetchRequest.returnsObjectsAsFaults = false
             let context = self.persistentContainer.viewContext
+            
             var tasks = [Task]()
             do {
                 tasks = try context.fetch(fetchRequest) as! [Task]
@@ -206,6 +217,7 @@ class DBManager {
             fetchRequest.returnsObjectsAsFaults = false
             let context = self.persistentContainer.viewContext
             var tasks = [Task]()
+            
             do {
                 tasks = try context.fetch(fetchRequest) as! [Task]
                 for object in tasks {
@@ -256,8 +268,8 @@ class DBManager {
         queue.async {
             let entity = NSEntityDescription.entity(forEntityName: DataModel.News.newsEntity.rawValue, in: self.persistentContainer.viewContext)
             if let entity = entity {
-                for n in self.willSaveNews {
-                    self.createNews(entity: entity, news: n)
+                for news in self.willSaveNews {
+                    self.createNews(entity: entity, news: news)
                 }
             }
         }
@@ -269,6 +281,7 @@ class DBManager {
             let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: DataModel.News.newsEntity.rawValue)
             fetchRequest.returnsObjectsAsFaults = false
             let context = self.persistentContainer.viewContext
+            
             var loadedNews = [NewsEntity]()
             do {
                 loadedNews = try context.fetch(fetchRequest) as! [NewsEntity]
@@ -288,6 +301,7 @@ class DBManager {
             let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: DataModel.News.newsEntity.rawValue)
             fetchRequest.returnsObjectsAsFaults = false
             let context = self.persistentContainer.viewContext
+            
             var loadedNews = [NewsEntity]()
             do {
                 loadedNews = try context.fetch(fetchRequest) as! [NewsEntity]
@@ -327,6 +341,7 @@ class DBManager {
             let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: DataModel.News.newsEntity.rawValue)
             fetchRequest.returnsObjectsAsFaults = false
             let context = self.persistentContainer.viewContext
+            
             var news = [NewsEntity]()
             do {
                 news = try context.fetch(fetchRequest) as! [NewsEntity]
@@ -345,6 +360,7 @@ class DBManager {
     
     private func createNewNews(news: [NewsEntity]) -> [News] {
         var allNews = [News]()
+        
         for newNews in news {
             var image: UIImage? = nil
             if let img = newNews.image {
@@ -365,8 +381,10 @@ class DBManager {
 }
 
 extension Data {
+    
     init?(image: UIImage?) {
         self.init()
+        
         if let image = image {
             if let data: Data = UIImagePNGRepresentation(image) {
                 self = data

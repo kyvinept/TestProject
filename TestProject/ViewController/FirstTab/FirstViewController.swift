@@ -18,6 +18,7 @@ class FirstViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let identifier = tableView.cellForRow(at: indexPath)?.reuseIdentifier
+        
         switch identifier {
         case "TextCell":
             let textVC = self.storyboard?.instantiateViewController(withIdentifier: "TextViewController") as? TextViewController
@@ -45,6 +46,12 @@ class FirstViewController: UITableViewController {
             }
         case "AnimationsCell":
             let textVC = self.storyboard?.instantiateViewController(withIdentifier: "AnimationsViewController") as? AnimationsViewController
+            if let textVC = textVC {
+                textVC.delegate = self
+                self.navigationController?.pushViewController(textVC, animated: true)
+            }
+        case "LoginCell":
+            let textVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController
             if let textVC = textVC {
                 textVC.delegate = self
                 self.navigationController?.pushViewController(textVC, animated: true)

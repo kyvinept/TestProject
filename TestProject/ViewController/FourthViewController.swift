@@ -25,6 +25,7 @@ class FourthViewController: BaseViewController {
         super.viewDidLoad()
         self.title = NSLocalizedString("FourthViewController", comment: "")
         self.navigationController?.delegate = self
+        
         setLocationManager()
         setMonitoringEnterRegion()
     }
@@ -61,13 +62,16 @@ extension FourthViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         if overlay is MKCircle {
+            
             let circle = MKCircleRenderer(overlay: overlay)
             let randomColor = UIColor.randomColor()
             circle.strokeColor = randomColor
             circle.fillColor = randomColor.withAlphaComponent(0.3)
             circle.lineWidth = 2
             return circle
+            
         } else if overlay is MKPolyline {
+            
             let polylineRenderer = MKPolylineRenderer(overlay: overlay)
             polylineRenderer.strokeColor = UIColor.blue
             polylineRenderer.lineWidth = 5
@@ -81,12 +85,14 @@ extension FourthViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first?.coordinate {
+            
             let region = MKCoordinateRegion(center: location, span: MKCoordinateSpanMake(coordinateDelta, coordinateDelta))
             newPin.coordinate = location
             mapView.setRegion(region, animated: true)
             mapView.addAnnotation(newPin)
             
             for circleLocation in circleLocations {
+                
                 let request = MKDirectionsRequest()
                 request.source = MKMapItem(placemark: MKPlacemark(coordinate: location))
                 request.destination = MKMapItem(placemark: MKPlacemark(coordinate: circleLocation.coordinate))
@@ -127,15 +133,3 @@ extension FourthViewController: CLLocationManagerDelegate {
                    completion: nil)
     }
 }
-
-//extension FourthViewController: UINavigationControllerDelegate {
-//    
-//    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-//        switch operation {
-//        case .push:
-//            return AnimationFromRightCorner()
-//        default:
-//            return nil
-//        }
-//    }
-//}

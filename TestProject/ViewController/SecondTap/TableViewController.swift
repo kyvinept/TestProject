@@ -17,13 +17,14 @@ class TableViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.delegate = self
+        tableView.setEditing(true, animated: true)
+        
         createBackButton()
         createAddButton()
         createRefresh()
         createStatusBar()
         getDataForTable()
         registeCell()
-        tableView.setEditing(true, animated: true)
     }
     
     override func viewDidLayoutSubviews() {

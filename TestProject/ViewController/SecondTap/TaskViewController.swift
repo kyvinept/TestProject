@@ -54,7 +54,7 @@ class TaskViewController: BaseViewController {
         }
         alert.addAction(UIAlertAction(title: "Save",
                                       style: .default,
-                                    handler: { (action) in
+                                    handler: { action in
                                         let text = alert.textFields!.first!.text!
                                         if text != "" {
                                             let task = self.createNewTask(withName: text)
@@ -70,7 +70,7 @@ class TaskViewController: BaseViewController {
     
     private func createNewTask(withName name: String) -> TaskModel {
         let task = TaskModel()
-        let index = self.tasks.max { $0.id! < $1.id! }?.id
+        let index = self.tasks.max{ $0.id! < $1.id! }?.id
         if let index = index {
             task.id = index + 1
         } else {
@@ -107,7 +107,7 @@ extension TaskViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+        let delete = UITableViewRowAction(style: .destructive, title: "Delete") { action, indexPath in
             self.data.deleteTask(task: self.tasks[indexPath.row])
             self.tasks.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)

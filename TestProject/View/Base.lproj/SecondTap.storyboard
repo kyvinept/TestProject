@@ -609,17 +609,24 @@
                             <navigationBar multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J08-m8-DvZ">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <items>
-                                    <navigationItem title="Share image" id="F7D-9o-gqS">
+                                    <navigationItem id="F7D-9o-gqS">
                                         <barButtonItem key="leftBarButtonItem" title="Back" id="nj3-xu-o9E">
                                             <connections>
                                                 <action selector="backButtonTapped:" destination="QyV-bH-m0Q" id="vsh-PX-nHz"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Share" id="rul-du-ozA">
-                                            <connections>
-                                                <action selector="shareButtonTapped:" destination="QyV-bH-m0Q" id="crt-ep-GcL"/>
-                                            </connections>
-                                        </barButtonItem>
+                                        <rightBarButtonItems>
+                                            <barButtonItem title="Share" id="rul-du-ozA">
+                                                <connections>
+                                                    <action selector="shareButtonTapped:" destination="QyV-bH-m0Q" id="crt-ep-GcL"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem title="Item" image="facebookSmall" id="JED-Dq-HCc">
+                                                <connections>
+                                                    <action selector="facebookShareButtonTapped:" destination="QyV-bH-m0Q" id="svP-bD-3bo"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </rightBarButtonItems>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -867,4 +874,7 @@
             <point key="canvasLocation" x="581.60000000000002" y="-680.5097451274363"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="facebookSmall" width="24" height="24"/>
+    </resources>
 </document>

@@ -36,4 +36,3 @@ class Mapper {
               imageUrl: json["urlToImage"].string)
     }
 }
-//24650d0a7d5d4029b6b74c8affd2cb93

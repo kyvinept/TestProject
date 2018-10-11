@@ -8,4 +8,9 @@ target 'TestProject' do
   # Pods for TestProject
   pod 'SwiftyJSON'
   pod 'Alamofire'
+  pod 'GoogleSignIn'
+  pod 'FacebookLogin'
+  pod 'FacebookShare'
+  pod 'FBSDKLoginKit'
+  pod 'TwitterKit'
 end

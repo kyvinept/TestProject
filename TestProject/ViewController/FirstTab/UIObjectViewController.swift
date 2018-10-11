@@ -154,6 +154,7 @@ extension UIObjectViewController {
             imageView.contentMode = .scaleAspectFit
             imageView.translatesAutoresizingMaskIntoConstraints = false
             self.scrollView.addSubview(imageView)
+            
             let constraints = setConstraints(object: imageView,
                                            toObject: self.addToView ?? self.scrollView,
                                           widthSize: imageView.frame.width,

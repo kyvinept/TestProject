@@ -160,6 +160,7 @@ extension TextViewController {
         textView.keyboardType = randomKeyboardType()
         textView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.addSubview(textView)
+        
         let constraints = setConstraints(object: textView,
                                        toObject: toItem,
                                       widthSize: widthSize,

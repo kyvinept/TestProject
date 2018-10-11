@@ -106,6 +106,23 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LoginCell" textLabel="gm9-GR-nI5" style="IBUITableViewCellStyleDefault" id="CFM-dR-Ybl">
+                                        <rect key="frame" x="0.0" y="300" width="414" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CFM-dR-Ybl" id="Tsz-IX-bd7">
+                                            <rect key="frame" x="0.0" y="0.0" width="376" height="59.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gm9-GR-nI5">
+                                                    <rect key="frame" x="20" y="0.0" width="356" height="59.666666666666664"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -196,6 +213,65 @@
             </objects>
             <point key="canvasLocation" x="-1810" y="665"/>
         </scene>
+        <!--Login View Controller-->
+        <scene sceneID="qDf-ah-UFz">
+            <objects>
+                <viewController storyboardIdentifier="LoginViewController" id="zrZ-7c-z5C" customClass="LoginViewController" customModule="TestProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ieL-Uh-20z">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="ESG-yQ-2qy">
+                                <rect key="frame" x="157" y="188" width="100" height="360"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LKP-L9-JDN">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="17A-0x-LL8"/>
+                                            <constraint firstAttribute="width" constant="100" id="rsl-f7-89D"/>
+                                        </constraints>
+                                        <state key="normal" image="gmail"/>
+                                        <connections>
+                                            <action selector="googleLoginButtonTapped:" destination="zrZ-7c-z5C" eventType="touchUpInside" id="qVG-Jw-oWh"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iGf-Dj-Eqj">
+                                        <rect key="frame" x="0.0" y="130" width="100" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="LJM-rQ-aIA"/>
+                                            <constraint firstAttribute="width" constant="100" id="anf-Yg-yVc"/>
+                                        </constraints>
+                                        <state key="normal" image="facebook"/>
+                                        <connections>
+                                            <action selector="facebookLoginButtonTapped:" destination="zrZ-7c-z5C" eventType="touchUpInside" id="8PA-qs-0FR"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4sf-UQ-mmE">
+                                        <rect key="frame" x="0.0" y="260" width="100" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="DGY-tX-0GT"/>
+                                            <constraint firstAttribute="height" constant="100" id="NKK-T7-05u"/>
+                                        </constraints>
+                                        <state key="normal" image="twitter"/>
+                                        <connections>
+                                            <action selector="twitterLoginButtonTapped:" destination="zrZ-7c-z5C" eventType="touchUpInside" id="BuT-Fh-X8y"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.65033309449999999" blue="0.26497652929999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ESG-yQ-2qy" firstAttribute="centerX" secondItem="ieL-Uh-20z" secondAttribute="centerX" id="2Nr-Ht-cy2"/>
+                            <constraint firstItem="ESG-yQ-2qy" firstAttribute="centerY" secondItem="ieL-Uh-20z" secondAttribute="centerY" id="LC9-zF-cS7"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="P0P-g7-agc"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DDa-3i-33A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3704.347826086957" y="425.54347826086962"/>
+        </scene>
         <!--Dynamics View Controller-->
         <scene sceneID="waT-AP-KaN">
             <objects>
@@ -243,4 +319,9 @@
             <point key="canvasLocation" x="-2662.3188405797105" y="-258.42391304347831"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="facebook" width="256" height="256"/>
+        <image name="gmail" width="256" height="256"/>
+        <image name="twitter" width="256" height="256"/>
+    </resources>
 </document>

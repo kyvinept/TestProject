@@ -25,6 +25,7 @@ class ThirdViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = NSLocalizedString("ThirdViewController", comment: "")
+        
         registerCell()
         receiveNews()
         createSnipper()
@@ -85,15 +86,15 @@ class ThirdViewController: UIViewController {
     
     private func failedLoadNews() {
         let alert = UIAlertController(title: "Error",
-                                      message: "Check your internet connection",
-                                      preferredStyle: .alert)
+                                    message: "Check your internet connection",
+                             preferredStyle: .alert)
         let button = UIAlertAction(title: "Try again", style: .default) { (_) in
             self.receiveNews()
         }
         alert.addAction(button)
         self.present(alert,
                      animated: true,
-                     completion: nil)
+                   completion: nil)
         self.spinner.stopAnimating()
     }
     
@@ -120,6 +121,7 @@ class ThirdViewController: UIViewController {
     
     private func receiveNews() {
         guard let location = Locale.current.languageCode else { return }
+        
         if let country = NetworkingManager.Country(rawValue: location) {
             self.country = country
             NetworkingManager.shared.receiveNews(fromCountry: country,
@@ -145,9 +147,11 @@ class ThirdViewController: UIViewController {
     
     func saveNews(news: [News]) {
         self.news = news
+        
         for n in self.news {
             n.delegate = self
         }
+        
         manager.addNews(news: news)
         DispatchQueue.main.async {
             self.tableView.reloadData()
@@ -155,9 +159,10 @@ class ThirdViewController: UIViewController {
     }
     
     func saveAdditionalNews(news: [News]) {
-        for n in news {
-            self.news.append(n)
+        for addNews in news {
+            self.news.append(addNews)
         }
+        
         DispatchQueue.main.async {
             if news.count != 0 {
                 self.tableView.reloadData()
@@ -168,12 +173,14 @@ class ThirdViewController: UIViewController {
     
     @IBAction func categoryButtonTapped(_ sender: Any) {
         searchBar.endEditing(true)
+        
         let categoryVC = storyboard?.instantiateViewController(withIdentifier: "CategoryViewController") as! CategoryViewController
         categoryVC.modalPresentationStyle = .popover
         categoryVC.delegate = self
+        categoryVC.preferredContentSize = CGSize(width: 200, height: 200)
+
         let popover = categoryVC.popoverPresentationController
         popover!.delegate = self
-        categoryVC.preferredContentSize = CGSize(width: 200, height: 200)
         popover!.sourceView = self.view
         popover?.backgroundColor = .gray
         popover!.sourceRect = CGRect(x: 0,
@@ -191,6 +198,7 @@ extension ThirdViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.row == news.count - 1 {
             spinner.startAnimating()
+            
             switch searchType {
             case .category:
                 NetworkingManager.shared.receiveNews(fromCategory: category,
