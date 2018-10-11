@@ -29,7 +29,7 @@ class NewsViewController: UIViewController {
     private func showNews() {
         imageView.image = news.image ?? UIImage(named: "picture")
         titleLabel.text = news.title
-        descriptionLabel.text = news.description
+        descriptionLabel.text = news.descriptionNews
         authorLabel.text = news.author
         timeLabel.text = news.publishedAt
     }

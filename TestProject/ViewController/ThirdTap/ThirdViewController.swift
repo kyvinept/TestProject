@@ -20,6 +20,7 @@ class ThirdViewController: UIViewController {
     private var newsInRequest = 20
     private var query = ""
     private var category: NetworkingManager.Category!
+    private let manager = DBManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,22 +47,54 @@ class ThirdViewController: UIViewController {
     }
     
     func errorLoadingData(from url: URL) {
+        if news.count == 0 {
+            manager.loadNews(successBlock: { news in
+                                 self.loadedNews(news: news)
+                             }, failBlock: {
+                                 self.failedLoadNews()
+                             })
+        } else {
+            let alert = UIAlertController(title: "Error",
+                                        message: "Check your internet connection",
+                                 preferredStyle: .alert)
+            let button = UIAlertAction(title: "Try again", style: .default) { (_) in
+                NetworkingManager.shared.receiveNews(fromUrl: url,
+                                                successBlock: { news in
+                                                    self.saveNews(news: news)
+                                                },
+                                                   failBlock: { url in
+                                                       self.errorLoadingData(from: url)
+                                                   })
+            }
+            let cancel = UIAlertAction(title: "Cancel", style: .destructive, handler: nil)
+            alert.addAction(button)
+            alert.addAction(cancel)
+            self.present(alert,
+                         animated: true,
+                       completion: nil)
+            self.spinner.stopAnimating()
+        }
+    }
+    
+    private func loadedNews(news: [News]) {
+        self.news = news
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    
+    private func failedLoadNews() {
         let alert = UIAlertController(title: "Error",
-                                    message: "Check your internet connection",
-                             preferredStyle: .alert)
+                                      message: "Check your internet connection",
+                                      preferredStyle: .alert)
         let button = UIAlertAction(title: "Try again", style: .default) { (_) in
-            NetworkingManager.shared.receiveNews(fromUrl: url,
-                                            successBlock: { news in
-                                                self.saveNews(news: news)
-                                            },
-                                               failBlock: { url in
-                                                   self.errorLoadingData(from: url)
-                                               })
+            self.receiveNews()
         }
         alert.addAction(button)
         self.present(alert,
                      animated: true,
-                   completion: nil)
+                     completion: nil)
+        self.spinner.stopAnimating()
     }
     
     private func createSnipper() {
@@ -112,6 +145,10 @@ class ThirdViewController: UIViewController {
     
     func saveNews(news: [News]) {
         self.news = news
+        for n in self.news {
+            n.delegate = self
+        }
+        manager.addNews(news: news)
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
@@ -281,5 +318,12 @@ extension ThirdViewController: TestApiControllerDelegate {
     func newsWasDownloaded(news: [News]) {
         self.news = news
         tableView.reloadData()
+    }
+}
+
+extension ThirdViewController: NewsDelegate {
+    
+    func imageDownloaded(news: News) {
+        manager.updateImageNews(news)
     }
 }

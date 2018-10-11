@@ -66,6 +66,12 @@ class SecondViewController: UITableViewController {
                 textVC.delegate = self
                 self.navigationController?.pushViewController(textVC, animated: true)
             }
+        case "TaskCell":
+            let textVC = self.storyboard?.instantiateViewController(withIdentifier: "TaskViewController") as? TaskViewController
+            if let textVC = textVC {
+                textVC.delegate = self
+                self.navigationController?.pushViewController(textVC, animated: true)
+            }
         default:
             break
         }
