@@ -626,6 +626,11 @@
                                                     <action selector="facebookShareButtonTapped:" destination="QyV-bH-m0Q" id="svP-bD-3bo"/>
                                                 </connections>
                                             </barButtonItem>
+                                            <barButtonItem title="Item" image="gmailSmall" id="Kl9-25-CMW">
+                                                <connections>
+                                                    <action selector="gmailShareButtonTapped:" destination="QyV-bH-m0Q" id="sGo-RY-7x8"/>
+                                                </connections>
+                                            </barButtonItem>
                                         </rightBarButtonItems>
                                     </navigationItem>
                                 </items>
@@ -876,5 +881,6 @@
     </scenes>
     <resources>
         <image name="facebookSmall" width="24" height="24"/>
+        <image name="gmailSmall" width="24" height="24"/>
     </resources>
 </document>

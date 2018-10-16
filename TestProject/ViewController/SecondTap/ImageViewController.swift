@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MessageUI
 
 class ImageViewController: UIViewController {
     
@@ -76,6 +77,16 @@ class ImageViewController: UIViewController {
     }
     
     @IBAction func facebookShareButtonTapped(_ sender: Any) {
-        
+        ShareServices.share.shareFacebook(image: imageView.image!, from: self)
+    }
+    
+    @IBAction func gmailShareButtonTapped(_ sender: Any) {
+        ShareServices.share.shareGmail(viewController: self, image: imageView.image!)
+    }
+}
+
+extension ImageViewController : MFMailComposeViewControllerDelegate {
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true)
     }
 }

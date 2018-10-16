@@ -11,9 +11,9 @@ import FacebookLogin
 import FacebookCore
 import GoogleSignIn
 
-class LoginSevices: NSObject {
+class LoginServices: NSObject {
     
-    static let shared = LoginSevices()
+    static let shared = LoginServices()
     
     private override init() {
         super.init()
@@ -24,7 +24,7 @@ class LoginSevices: NSObject {
     
 }
 
-extension LoginSevices {
+extension LoginServices {
     
     func logInFromFacebook() {
         let loginManager = LoginManager()
@@ -57,7 +57,7 @@ extension LoginSevices {
     }
 }
 
-extension LoginSevices: GIDSignInDelegate, GIDSignInUIDelegate {
+extension LoginServices: GIDSignInDelegate, GIDSignInUIDelegate {
     
     func logInFromGoogle() {
         GIDSignIn.sharedInstance().signIn()

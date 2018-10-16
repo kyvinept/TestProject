@@ -24,11 +24,11 @@ class LoginViewController: BaseViewController {
         
     }
     @IBAction func googleLoginButtonTapped(_ sender: Any) {
-        LoginSevices.shared.logInFromGoogle()
+        LoginServices.shared.logInFromGoogle()
     }
     
     @IBAction func facebookLoginButtonTapped(_ sender: Any) {
-        LoginSevices.shared.logInFromFacebook()
+        LoginServices.shared.logInFromFacebook()
     }
     
     @IBAction func twitterLoginButtonTapped(_ sender: Any) {
