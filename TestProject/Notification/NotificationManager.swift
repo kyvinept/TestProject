@@ -37,8 +37,11 @@ class NotificationManager: NSObject {
             print("Permission granted: \(granted)")
             guard granted else { return }
             self.getNotificationSettings()
+            self.getTokenForFirebase()
         }
-        
+    }
+    
+    func getTokenForFirebase() {
         InstanceID.instanceID().instanceID { (result, error) in
             if let error = error {
                 print("Error fetching remote instange ID: \(error)")
