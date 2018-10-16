@@ -232,7 +232,6 @@
 			children = (
 				5B65D4502176190B00694EDF /* Source */,
 				5B65D4492176178200694EDF /* Resources */,
-				5B65D43B2175CAF100694EDF /* TestProject.entitlements */,
 			);
 			path = TestProject;
 			sourceTree = "<group>";
@@ -262,6 +261,7 @@
 		5B65D4492176178200694EDF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5B65D4622176216900694EDF /* Entitlements */,
 				5B65D45221761A6C00694EDF /* Plist */,
 				5B65D44B217617D700694EDF /* Images */,
 				5B65D44A2176178C00694EDF /* Localization */,
@@ -479,6 +479,14 @@
 				5B434CD72159490400FF9FFE /* ImageViewController.swift */,
 			);
 			path = ImageVC;
+			sourceTree = "<group>";
+		};
+		5B65D4622176216900694EDF /* Entitlements */ = {
+			isa = PBXGroup;
+			children = (
+				5B65D43B2175CAF100694EDF /* TestProject.entitlements */,
+			);
+			path = Entitlements;
 			sourceTree = "<group>";
 		};
 		5B989662216CCF0F002173D3 /* DataBaseManager */ = {
@@ -967,7 +975,7 @@
 			baseConfigurationReference = 95D0B0F5C39744841297646D /* Pods-TestProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = TestProject/TestProject.entitlements;
+				CODE_SIGN_ENTITLEMENTS = TestProject/Resources/Entitlements/TestProject.entitlements;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = YQ63ZZYZV7;
 				INFOPLIST_FILE = "$(SRCROOT)/TestProject/Resources/Plist/Info.plist";
@@ -989,7 +997,7 @@
 			baseConfigurationReference = E3990250FA745578646F80AB /* Pods-TestProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = TestProject/TestProject.entitlements;
+				CODE_SIGN_ENTITLEMENTS = TestProject/Resources/Entitlements/TestProject.entitlements;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = YQ63ZZYZV7;
 				INFOPLIST_FILE = "$(SRCROOT)/TestProject/Resources/Plist/Info.plist";
