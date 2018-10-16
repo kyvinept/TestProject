@@ -8,6 +8,9 @@
 
 import UIKit
 import UserNotifications
+import Firebase
+import FirebaseInstanceID
+import FirebaseMessaging
 
 class NotificationManager: NSObject {
     
@@ -17,6 +20,8 @@ class NotificationManager: NSObject {
         super.init()
         UNUserNotificationCenter.current().delegate = self
         registerForPushNotifications()
+        Messaging.messaging().delegate = self
+        FirebaseApp.configure()
     }
     
     func checkNotification(window: UIWindow, launchOptions: [UIApplicationLaunchOptionsKey: Any]?) {
@@ -26,10 +31,20 @@ class NotificationManager: NSObject {
         }
     }
     
-    private func registerForPushNotifications() {
+    func registerForPushNotifications() {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) {
             (granted, error) in
             print("Permission granted: \(granted)")
+            guard granted else { return }
+            self.getNotificationSettings()
+        }
+        
+        InstanceID.instanceID().instanceID { (result, error) in
+            if let error = error {
+                print("Error fetching remote instange ID: \(error)")
+            } else if let result = result {
+                print("Remote instance ID token: \(result.token)")
+            }
         }
     }
     
@@ -42,22 +57,9 @@ class NotificationManager: NSObject {
             }
         }
     }
-    
-    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        let tokenParts = deviceToken.map { data -> String in
-            return String(format: "%02.2hhx", data)
-        }
-        
-        let token = tokenParts.joined()
-        print("Device Token: \(token)")
-    }
-    
-    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        print("Failed to register: \(error)")
-    }
 }
 
-extension NotificationManager: UNUserNotificationCenterDelegate {
+extension NotificationManager: UNUserNotificationCenterDelegate, MessagingDelegate {
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         UIApplication.shared.applicationIconBadgeNumber = 0
@@ -66,5 +68,9 @@ extension NotificationManager: UNUserNotificationCenterDelegate {
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         print("open push notification")
+    }
+    
+    func applicationReceivedRemoteMessage(_ remoteMessage: MessagingRemoteMessage) {
+        print(remoteMessage.appData)
     }
 }

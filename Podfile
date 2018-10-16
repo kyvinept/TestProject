@@ -13,4 +13,6 @@ target 'TestProject' do
   pod 'FacebookShare'
   pod 'FBSDKLoginKit'
   pod 'TwitterKit'
+  pod 'Firebase/Core'
+  pod 'Firebase/Messaging'
 end

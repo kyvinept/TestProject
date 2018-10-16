@@ -60,6 +60,7 @@
 		5B6502A0215D3C9C0051747F /* FirstTap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B6502A2215D3C9C0051747F /* FirstTap.storyboard */; };
 		5B6502A7215D3CA80051747F /* SecondTap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B6502A9215D3CA80051747F /* SecondTap.storyboard */; };
 		5B65D43E2175DA2000694EDF /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B65D43D2175DA2000694EDF /* NotificationManager.swift */; };
+		5B65D4402175E75A00694EDF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B65D43F2175E75A00694EDF /* GoogleService-Info.plist */; };
 		5B6B2945216B52AC00B3D541 /* ToDo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5B6B2943216B52AC00B3D541 /* ToDo.xcdatamodeld */; };
 		5B6B2947216B560500B3D541 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6B2946216B560500B3D541 /* DBManager.swift */; };
 		5B6B2949216BA67D00B3D541 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6B2948216BA67D00B3D541 /* NoteViewController.swift */; };
@@ -159,6 +160,7 @@
 		5B6502AD215D3CAE0051747F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/SecondTap.strings; sourceTree = "<group>"; };
 		5B65D43B2175CAF100694EDF /* TestProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TestProject.entitlements; sourceTree = "<group>"; };
 		5B65D43D2175DA2000694EDF /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		5B65D43F2175E75A00694EDF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5B6B2944216B52AC00B3D541 /* Task.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Task.xcdatamodel; sourceTree = "<group>"; };
 		5B6B2946216B560500B3D541 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		5B6B2948216BA67D00B3D541 /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 				5BF1C348216283BE00693B1F /* Networking */,
 				5B30F4AD214A96200078D070 /* Assets.xcassets */,
 				5B30F4B2214A96200078D070 /* Info.plist */,
+				5B65D43F2175E75A00694EDF /* GoogleService-Info.plist */,
 				5B02EB9D215E09E7009B8346 /* Localizable.strings */,
 			);
 			path = TestProject;
@@ -474,6 +477,7 @@
 				5B02EBA7215E0FED009B8346 /* NewViewController.storyboard in Resources */,
 				5B30F4B1214A96200078D070 /* LaunchScreen.storyboard in Resources */,
 				5BF1C341216277ED00693B1F /* NewsCell.xib in Resources */,
+				5B65D4402175E75A00694EDF /* GoogleService-Info.plist in Resources */,
 				5B02EB9B215E09E7009B8346 /* Localizable.strings in Resources */,
 				5BF1C33A216277C800693B1F /* ThirdTap.storyboard in Resources */,
 				5B30F4AE214A96200078D070 /* Assets.xcassets in Resources */,
@@ -552,9 +556,12 @@
 				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${PODS_ROOT}/TwitterCore/iOS/TwitterCore.framework",
 				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -571,9 +578,12 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
