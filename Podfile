@@ -15,4 +15,5 @@ target 'TestProject' do
   pod 'TwitterKit'
   pod 'Firebase/Core'
   pod 'Firebase/Messaging'
+  pod 'Branch'
 end

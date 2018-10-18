@@ -60,7 +60,8 @@
 		5B6502A0215D3C9C0051747F /* FirstTap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B6502A2215D3C9C0051747F /* FirstTap.storyboard */; };
 		5B6502A7215D3CA80051747F /* SecondTap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B6502A9215D3CA80051747F /* SecondTap.storyboard */; };
 		5B65D43E2175DA2000694EDF /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B65D43D2175DA2000694EDF /* NotificationManager.swift */; };
-		5B65D44F217618CD00694EDF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B65D44E217618CD00694EDF /* GoogleService-Info.plist */; };
+		5B65D46421762ADB00694EDF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5B65D46321762ADB00694EDF /* GoogleService-Info.plist */; };
+		5B65D466217639C100694EDF /* DeeplinkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B65D465217639C100694EDF /* DeeplinkManager.swift */; };
 		5B6B2945216B52AC00B3D541 /* ToDo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5B6B2943216B52AC00B3D541 /* ToDo.xcdatamodeld */; };
 		5B6B2947216B560500B3D541 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6B2946216B560500B3D541 /* DBManager.swift */; };
 		5B6B2949216BA67D00B3D541 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6B2948216BA67D00B3D541 /* NoteViewController.swift */; };
@@ -158,7 +159,8 @@
 		5B6502AD215D3CAE0051747F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/SecondTap.strings; sourceTree = "<group>"; };
 		5B65D43B2175CAF100694EDF /* TestProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TestProject.entitlements; sourceTree = "<group>"; };
 		5B65D43D2175DA2000694EDF /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
-		5B65D44E217618CD00694EDF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5B65D46321762ADB00694EDF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../.Trash/Новая папка/TestProject/Resources/Plist/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5B65D465217639C100694EDF /* DeeplinkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeeplinkManager.swift; sourceTree = "<group>"; };
 		5B6B2944216B52AC00B3D541 /* Task.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Task.xcdatamodel; sourceTree = "<group>"; };
 		5B6B2946216B560500B3D541 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		5B6B2948216BA67D00B3D541 /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
@@ -307,7 +309,7 @@
 		5B65D45221761A6C00694EDF /* Plist */ = {
 			isa = PBXGroup;
 			children = (
-				5B65D44E217618CD00694EDF /* GoogleService-Info.plist */,
+				5B65D46321762ADB00694EDF /* GoogleService-Info.plist */,
 				5B30F4B2214A96200078D070 /* Info.plist */,
 			);
 			path = Plist;
@@ -505,6 +507,7 @@
 				5B2F243B21635B140044F93A /* NetworkRequestBuilder.swift */,
 				5B790B01216F4279002F4F1B /* LoginSevices.swift */,
 				5B9D6A3121708D8F005787BC /* ShareServices.swift */,
+				5B65D465217639C100694EDF /* DeeplinkManager.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -566,6 +569,9 @@
 							com.apple.Push = {
 								enabled = 1;
 							};
+							com.apple.SafariKeychain = {
+								enabled = 1;
+							};
 						};
 					};
 				};
@@ -594,12 +600,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B65D46421762ADB00694EDF /* GoogleService-Info.plist in Resources */,
 				5B6502A0215D3C9C0051747F /* FirstTap.storyboard in Resources */,
 				5B5CF375214FB96300515EEE /* FourthViewController.storyboard in Resources */,
 				5B02EBA7215E0FED009B8346 /* NewViewController.storyboard in Resources */,
 				5B30F4B1214A96200078D070 /* LaunchScreen.storyboard in Resources */,
 				5BF1C341216277ED00693B1F /* NewsCell.xib in Resources */,
-				5B65D44F217618CD00694EDF /* GoogleService-Info.plist in Resources */,
 				5B02EB9B215E09E7009B8346 /* Localizable.strings in Resources */,
 				5BF1C33A216277C800693B1F /* ThirdTap.storyboard in Resources */,
 				5B30F4AE214A96200078D070 /* Assets.xcassets in Resources */,
@@ -669,6 +675,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-TestProject/Pods-TestProject-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/Branch/Branch.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework",
@@ -691,6 +698,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Branch.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
@@ -764,6 +772,7 @@
 				5B790B00216F41BC002F4F1B /* LoginViewController.swift in Sources */,
 				5B3384B62153993600736F5D /* DynamicsViewController.swift in Sources */,
 				5BF1C33921625C8000693B1F /* NewsViewController.swift in Sources */,
+				5B65D466217639C100694EDF /* DeeplinkManager.swift in Sources */,
 				5B27DA2A21511B1A009E8B48 /* UIObjectViewController.swift in Sources */,
 				5B27AC50215A73B500D1384E /* ScrollCollectionViewController.swift in Sources */,
 				5B989668216CFA45002173D3 /* Migration.xcmappingmodel in Sources */,
@@ -976,17 +985,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = TestProject/Resources/Entitlements/TestProject.entitlements;
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YQ63ZZYZV7;
 				INFOPLIST_FILE = "$(SRCROOT)/TestProject/Resources/Plist/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nixsolutions.TestProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = TestProject;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -998,17 +1008,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = TestProject/Resources/Entitlements/TestProject.entitlements;
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YQ63ZZYZV7;
 				INFOPLIST_FILE = "$(SRCROOT)/TestProject/Resources/Plist/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nixsolutions.TestProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = TestProject;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
