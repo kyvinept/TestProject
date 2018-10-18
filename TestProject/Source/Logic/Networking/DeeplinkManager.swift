@@ -9,7 +9,7 @@
 import UIKit
 import Branch
 
-enum DeeplinkPath {
+enum DeeplinkPath : String {
     case ThirdViewController
     case SecondViewController
 }
@@ -33,9 +33,9 @@ class DeeplinkManager {
     
     private func openViewController(window: UIWindow, to: String) {
         switch to {
-        case "SecondViewController":
+        case DeeplinkPath.SecondViewController.rawValue:
             (window.rootViewController as? UITabBarController)?.selectedIndex = 1
-        case "ThirdViewController":
+        case DeeplinkPath.ThirdViewController.rawValue:
             (window.rootViewController as? UITabBarController)?.selectedIndex = 2
         default:
             break;
