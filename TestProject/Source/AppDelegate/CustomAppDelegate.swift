@@ -29,7 +29,7 @@ class CustomAppDelegate: UIResponder, UIApplicationDelegate {
         TWTRTwitter.sharedInstance().start(withConsumerKey:"hTpkPVU4pThkM0", consumerSecret:"ovEqziMzLpUOF163Qg2mj")
         NotificationManager.share.checkNotification(window: window!, launchOptions: launchOptions)
         
-        DeeplinkManager.share.initSession(window: window!, launchOptions: launchOptions)
+        DeeplinkManager.share.initSession(launchOptions: launchOptions)
 
         return true
     }

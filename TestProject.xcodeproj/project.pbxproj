@@ -68,7 +68,7 @@
 		5B7346B5216DDC14002FC414 /* News.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5B7346B3216DDC14002FC414 /* News.xcdatamodeld */; };
 		5B78E7CD216604A100794065 /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B78E7CC216604A100794065 /* TaskViewController.swift */; };
 		5B790B00216F41BC002F4F1B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B790AFF216F41BC002F4F1B /* LoginViewController.swift */; };
-		5B790B02216F4279002F4F1B /* LoginSevices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B790B01216F4279002F4F1B /* LoginSevices.swift */; };
+		5B790B02216F4279002F4F1B /* LoginServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B790B01216F4279002F4F1B /* LoginServices.swift */; };
 		5B98965F216C96CB002173D3 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B98965E216C96CB002173D3 /* Task.swift */; };
 		5B989661216C96D3002173D3 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B989660216C96D3002173D3 /* Note.swift */; };
 		5B989668216CFA45002173D3 /* Migration.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5B989667216CFA45002173D3 /* Migration.xcmappingmodel */; };
@@ -167,7 +167,7 @@
 		5B7346B4216DDC14002FC414 /* News.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = News.xcdatamodel; sourceTree = "<group>"; };
 		5B78E7CC216604A100794065 /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
 		5B790AFF216F41BC002F4F1B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		5B790B01216F4279002F4F1B /* LoginSevices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSevices.swift; sourceTree = "<group>"; };
+		5B790B01216F4279002F4F1B /* LoginServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginServices.swift; sourceTree = "<group>"; };
 		5B98965E216C96CB002173D3 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		5B989660216C96D3002173D3 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		5B989666216CED9C002173D3 /* Task 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Task 2.xcdatamodel"; sourceTree = "<group>"; };
@@ -346,7 +346,10 @@
 		5B65D45521761C5500694EDF /* Logic */ = {
 			isa = PBXGroup;
 			children = (
+				5B786575217884FE00ADC55E /* LoginServices */,
+				5B786574217884DA00ADC55E /* ShareServices */,
 				5B989662216CCF0F002173D3 /* DataBaseManager */,
+				5B786573217884CA00ADC55E /* DeeplinkManager */,
 				5B65D43C2175DA0A00694EDF /* Notification */,
 				5BF1C348216283BE00693B1F /* Networking */,
 			);
@@ -491,6 +494,30 @@
 			path = Entitlements;
 			sourceTree = "<group>";
 		};
+		5B786573217884CA00ADC55E /* DeeplinkManager */ = {
+			isa = PBXGroup;
+			children = (
+				5B65D465217639C100694EDF /* DeeplinkManager.swift */,
+			);
+			path = DeeplinkManager;
+			sourceTree = "<group>";
+		};
+		5B786574217884DA00ADC55E /* ShareServices */ = {
+			isa = PBXGroup;
+			children = (
+				5B9D6A3121708D8F005787BC /* ShareServices.swift */,
+			);
+			path = ShareServices;
+			sourceTree = "<group>";
+		};
+		5B786575217884FE00ADC55E /* LoginServices */ = {
+			isa = PBXGroup;
+			children = (
+				5B790B01216F4279002F4F1B /* LoginServices.swift */,
+			);
+			path = LoginServices;
+			sourceTree = "<group>";
+		};
 		5B989662216CCF0F002173D3 /* DataBaseManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -505,9 +532,6 @@
 				5B57548A215E5EFF0062BF72 /* Mapper.swift */,
 				5B38A3252154FD2E00B73B79 /* NetworkingManager.swift */,
 				5B2F243B21635B140044F93A /* NetworkRequestBuilder.swift */,
-				5B790B01216F4279002F4F1B /* LoginSevices.swift */,
-				5B9D6A3121708D8F005787BC /* ShareServices.swift */,
-				5B65D465217639C100694EDF /* DeeplinkManager.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -779,7 +803,7 @@
 				5B38A31B2154EDCE00B73B79 /* PresentWithDamping.swift in Sources */,
 				5B6B2949216BA67D00B3D541 /* NoteViewController.swift in Sources */,
 				5B38A3172154DD5D00B73B79 /* PresentingViewController.swift in Sources */,
-				5B790B02216F4279002F4F1B /* LoginSevices.swift in Sources */,
+				5B790B02216F4279002F4F1B /* LoginServices.swift in Sources */,
 				5B3F5507215B8BCC00A1D9D2 /* StackViewController.swift in Sources */,
 				5B2F243C21635B140044F93A /* NetworkRequestBuilder.swift in Sources */,
 				5B27AC4E215A3C8C00D1384E /* ImageCollectionViewLayout.swift in Sources */,

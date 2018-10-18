@@ -12,6 +12,7 @@ class CustomTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        DeeplinkManager.share.delegate = self
         createNavigationControllers()
     }
     
@@ -44,6 +45,23 @@ class CustomTabBarController: UITabBarController {
                                                        image: image,
                                                selectedImage: selectedImage)
         return navigationController
+    }
+}
+
+extension CustomTabBarController: DeeplinkManagerDelegate {
+    
+    func getNewViewController(withIdentifire: String) {
+        switch withIdentifire {
+        case DeeplinkPath.secondViewController.rawValue:
+            self.selectedIndex = 1
+        case DeeplinkPath.thirdViewController.rawValue:
+            self.selectedIndex = 2
+        case DeeplinkPath.testApiController.rawValue:
+            let testApiController = UIStoryboard(name: "ThirdTap", bundle: nil).instantiateViewController(withIdentifier: DeeplinkPath.testApiController.rawValue)
+            (self.selectedViewController as? UINavigationController)?.pushViewController(testApiController, animated: false)
+        default:
+            break
+        }
     }
 }
 
